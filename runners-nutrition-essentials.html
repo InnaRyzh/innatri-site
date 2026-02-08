@@ -621,17 +621,28 @@
     }
 
     /* --- RESPONSIVE --- */
+    .lang-switch-guide {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.15);
+      padding: 4px 10px; border-radius: 4px; text-decoration: none;
+      transition: all 0.3s ease; letter-spacing: 1px; margin-left: auto;
+    }
+
     @media (max-width: 1024px) {
       .header-island { width: 100%; margin: 0 16px; padding: 12px 24px; justify-content: space-between; }
       .nav-desk { display: none; }
       .burger { display: block; }
+      .lang-switch-guide { display: none; }
       .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 120px 0 60px; }
       .hero-image { order: -1; }
+      .hero-text { text-align: center; }
+      .hero-cta-wrap { align-items: center; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
       .hero-mockup-img { max-width: 260px; margin: 0 auto; }
       .pain-grid { grid-template-columns: 1fr; }
       .pain-card:nth-child(5) { grid-column: auto; }
-      .author-grid { grid-template-columns: 1fr; gap: 40px; }
-      .author-photo-img { max-width: 320px; margin: 0 auto; }
+      .author-grid { grid-template-columns: 1fr; gap: 32px; }
+      .author-photo-img { max-width: 280px; margin: 0 auto; display: block; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .preview-grid { grid-template-columns: repeat(3, 1fr); }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -648,7 +659,10 @@
       .hero-content { padding: 100px 0 48px; }
       .hero-title { font-size: clamp(30px, 8vw, 42px); }
       .hero-subtitle { font-size: 16px; }
+      .hero-eyebrow { font-size: 11px; justify-content: center; }
       .btn-primary, .btn-inverted { width: 100%; height: 52px; font-size: 14px; }
+      .hero-sub-cta { text-align: center; display: block; }
+      .author-photo-img { max-width: 240px; }
       .proof-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
       .features-grid { grid-template-columns: 1fr; }
       .preview-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -677,7 +691,7 @@
         <a href="runners-nutrition-essentials.html" class="nav-link active" style="color:var(--primary);">GUIDE</a>
         <a href="#pricing" class="nav-cta">Get the Guide</a>
       </nav>
-      <a href="index.html" class="lang-switch" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);padding:4px 10px;border-radius:4px;text-decoration:none;margin-left:12px;transition:all 0.3s ease;letter-spacing:1px;">RU</a>
+      <a href="index.html" class="lang-switch-guide">RU</a>
       <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
     </div>
   </header>
