@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /en/
+Allow: /runners-nutrition-essentials
 
 Sitemap: https://innatri.com/sitemap.xml
