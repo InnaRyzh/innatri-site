@@ -323,16 +323,13 @@
     .hero-image {
       display: flex; align-items: center; justify-content: center;
     }
-    .hero-mockup-placeholder {
-      width: 100%; max-width: 480px; aspect-ratio: 3/4;
-      background: rgba(255,255,255,0.03);
-      border: 1px dashed rgba(255,255,255,0.15);
+    .hero-mockup-img {
+      width: 100%; max-width: 480px;
       border-radius: 16px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 16px; color: rgba(255,255,255,0.2);
-      font-family: 'JetBrains Mono'; font-size: 13px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 80px rgba(255,59,48,0.08);
+      transition: transform 0.4s ease;
     }
-    .hero-mockup-placeholder i { font-size: 48px; opacity: 0.3; }
+    .hero-mockup-img:hover { transform: scale(1.02); }
 
     /* --- 4. SOCIAL PROOF BAR --- */
     .proof-bar {
@@ -386,16 +383,11 @@
       display: grid; grid-template-columns: 0.45fr 0.55fr; gap: 60px;
       align-items: start;
     }
-    .author-photo-placeholder {
-      width: 100%; aspect-ratio: 3/4;
-      background: rgba(255,255,255,0.03);
-      border: 1px dashed rgba(255,255,255,0.15);
-      border-radius: 16px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 12px; color: rgba(255,255,255,0.2);
-      font-family: 'JetBrains Mono'; font-size: 12px;
+    .author-photo-img {
+      width: 100%; border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     }
-    .author-photo-placeholder i { font-size: 48px; opacity: 0.3; }
     .author-text h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 24px; line-height: 1.2; }
     .author-text p { color: #C9CFD8; font-size: 17px; line-height: 1.8; margin-bottom: 16px; }
     .author-text p strong { color: #fff; }
@@ -448,19 +440,13 @@
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
       margin-top: 48px;
     }
-    .preview-placeholder {
-      width: 100%; aspect-ratio: 8/11;
-      background: rgba(255,255,255,0.03);
-      border: 1px dashed rgba(255,255,255,0.15);
-      border-radius: 12px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 8px; color: rgba(255,255,255,0.2);
-      font-family: 'JetBrains Mono'; font-size: 11px; text-align: center;
-      padding: 16px;
-      transition: transform 0.3s, border-color 0.3s;
+    .preview-img {
+      width: 100%; border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    .preview-placeholder:hover { border-color: rgba(255,59,48,0.3); transform: translateY(-4px); }
-    .preview-placeholder i { font-size: 32px; opacity: 0.4; }
+    .preview-img:hover { border-color: rgba(255,59,48,0.3); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
     .preview-caption {
       text-align: center; margin-top: 32px;
       color: var(--text-gray); font-size: 15px;
@@ -639,11 +625,11 @@
       .burger { display: block; }
       .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 120px 0 60px; }
       .hero-image { order: -1; }
-      .hero-mockup-placeholder { max-width: 300px; margin: 0 auto; }
+      .hero-mockup-img { max-width: 300px; margin: 0 auto; }
       .pain-grid { grid-template-columns: 1fr; }
       .pain-card:nth-child(5) { grid-column: auto; }
       .author-grid { grid-template-columns: 1fr; gap: 40px; }
-      .author-photo-placeholder { max-width: 400px; }
+      .author-photo-img { max-width: 400px; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .preview-grid { grid-template-columns: repeat(3, 1fr); }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -723,11 +709,10 @@
           </div>
         </div>
         <div class="hero-image">
-          <div class="hero-mockup-placeholder">
-            <i class="ph ph-book-open-text"></i>
-            <span>Product Mockup</span>
-            <span>1200 × 800</span>
-          </div>
+          <picture>
+            <source srcset="assets/rne/rne-cover-mockup.webp" type="image/webp">
+            <img src="assets/rne/rne-cover-mockup.png" alt="Runner's Nutrition Essentials — Guide Cover" class="hero-mockup-img" width="1200" height="800" loading="eager">
+          </picture>
         </div>
       </div>
     </section>
@@ -798,11 +783,10 @@
         <div class="section-label">// THE AUTHOR</div>
         <div class="author-grid">
           <div>
-            <div class="author-photo-placeholder">
-              <i class="ph ph-user"></i>
-              <span>Author Photo</span>
-              <span>600 × 800</span>
-            </div>
+            <picture>
+              <source srcset="assets/rne/rne-author.webp" type="image/webp">
+              <img src="assets/rne/rne-author.jpg" alt="Inna Ryzhykh — triathlete, coach, author" class="author-photo-img" width="600" height="800" loading="lazy">
+            </picture>
           </div>
           <div class="author-text">
             <h2 class="title-font">Created by a Real Athlete, Not a Content Farm</h2>
@@ -867,21 +851,9 @@
         <div class="section-label">// PREVIEW</div>
         <h2 class="section-title">A Look Inside the Guide</h2>
         <div class="preview-grid">
-          <div class="preview-placeholder">
-            <i class="ph ph-list-bullets"></i>
-            <span>Table of Contents</span>
-            <span>800 × 1100</span>
-          </div>
-          <div class="preview-placeholder">
-            <i class="ph ph-fork-knife"></i>
-            <span>Meal Plan Page</span>
-            <span>800 × 1100</span>
-          </div>
-          <div class="preview-placeholder">
-            <i class="ph ph-book-open"></i>
-            <span>What You'll Learn</span>
-            <span>800 × 1100</span>
-          </div>
+          <img src="assets/rne/rne-preview-toc.webp" alt="Table of Contents — Runner's Nutrition Essentials" class="preview-img" width="800" height="1100" loading="lazy">
+          <img src="assets/rne/rne-preview-mealplan.webp" alt="Meal Plan Page — Runner's Nutrition Essentials" class="preview-img" width="800" height="1100" loading="lazy">
+          <img src="assets/rne/rne-preview-learn.webp" alt="What You'll Learn — Runner's Nutrition Essentials" class="preview-img" width="800" height="1100" loading="lazy">
         </div>
         <p class="preview-caption">Preview — the full guide contains actionable nutrition strategies for every stage of your running journey.</p>
       </div>
