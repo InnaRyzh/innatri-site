@@ -2,16 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Калькулятор триатлона и бега онлайн | InnaTri</title>
-  <meta name="description" id="meta-description" content="Онлайн калькулятор триатлона и бега: расчет времени, темпа и плана питания. Прогноз результата на дистанции и рекомендации по гидрации.">
+  <meta name="description" id="meta-description" content="Онлайн калькулятор триатлона и бега: расчет времени, темпа, скорости и плана питания. Прогноз результата на дистанции и рекомендации по гидрации.">
   <meta name="keywords" content="тренер по бегу, калькулятор триатлона, калькулятор бега, расчет темпа, прогноз результата триатлон, калькулятор Ironman, план питания триатлон">
   <meta name="author" content="Инна Рыжих">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <meta property="og:title" id="meta-og-title" content="Калькулятор триатлона и бега онлайн | InnaTri">
-  <meta property="og:description" id="meta-og-description" content="Онлайн калькулятор триатлона и бега: расчет времени, темпа и плана питания. Прогноз результата на дистанции.">
+  <meta property="og:description" id="meta-og-description" content="Онлайн калькулятор триатлона и бега: расчет времени, темпа и плана питания.">
   <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.png">
   <meta property="og:url" id="meta-og-url" content="https://innatri.com/calculator.html">
   <meta property="og:type" content="website">
@@ -29,249 +29,101 @@
   <link rel="alternate" hreflang="ru" href="https://innatri.com/calculator.html">
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/calculator.html">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/calculator.html">
-  
-  <!-- FONTS -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- ICONS -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <script type="application/ld+json" id="schema-site">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "InnaTri",
-      "url": "https://innatri.com",
-      "description": "Онлайн коучинг по триатлону и бегу. Индивидуальные планы, аналитика, поддержка и подготовка к стартам.",
-      "inLanguage": "ru-RU",
-      "publisher": {
-        "@type": "Person",
-        "name": "Инна Рыжих"
-      }
-    }
-  </script>
-  <script type="application/ld+json" id="schema-org">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "InnaTri",
-    "url": "https://innatri.com/",
-    "logo": "https://innatri.com/assets/hero/Image_202601201654.jpeg",
-    "founder": {
-      "@type": "Person",
-      "name": "Инна Рыжих"
-    },
-    "sameAs": [
-      "https://t.me/InnaRH",
-      "https://www.instagram.com/inna.tri",
-      "https://www.youtube.com/@innatri"
-    ]
-  }
-  </script>
-  <script type="application/ld+json" id="schema-article">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Калькулятор триатлона и бега онлайн | InnaTri",
-      "description": "Онлайн калькулятор триатлона и бега: расчет времени, темпа и плана питания. Прогноз результата на дистанции.",
-      "url": "https://innatri.com/calculator.html",
-      "inLanguage": "ru-RU"
-    }
-  </script>
-  <script type="application/ld+json" id="schema-calculator">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Калькулятор триатлона и бега онлайн",
-      "url": "https://innatri.com/calculator.html",
-      "applicationCategory": "SportsApplication",
-      "operatingSystem": "All",
-      "description": "Калькулятор времени в триатлоне, темпа бега и плана питания. Помогает рассчитать прогноз результата и темп на дистанции."
-    }
-  </script>
-  <script type="application/ld+json" id="schema-faq">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Как работает калькулятор триатлона?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Вы выбираете дистанцию и вводите темп плавания, скорость велосипеда, темп бега и транзитки. Калькулятор показывает прогноз общего времени."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Можно рассчитать темп бега по времени?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да, в разделе БЕГ можно ввести дистанцию и время, чтобы получить темп и прогнозы на другие дистанции."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Что показывает раздел ПИТАНИЕ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Калькулятор подсказывает рекомендуемое количество углеводов и жидкости в зависимости от длительности и интенсивности."
-          }
-        }
-      ]
-    }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"InnaTri","url":"https://innatri.com","description":"Онлайн коучинг по триатлону и бегу.","inLanguage":"ru-RU","publisher":{"@type":"Person","name":"Инна Рыжих"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор триатлона и бега","url":"https://innatri.com/calculator.html","applicationCategory":"SportsApplication","operatingSystem":"All","description":"Калькулятор времени, темпа, скорости и плана питания с рекомендациями по продуктам."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как работает калькулятор триатлона?","acceptedAnswer":{"@type":"Answer","text":"Выбираете дистанцию и вводите темп плавания, скорость велосипеда, темп бега и транзитки. Калькулятор показывает прогноз общего времени."}},{"@type":"Question","name":"Можно рассчитать темп бега?","acceptedAnswer":{"@type":"Answer","text":"Да, в разделе БЕГ можно ввести время, темп или скорость и получить прогнозы на все дистанции."}},{"@type":"Question","name":"Что показывает раздел ПИТАНИЕ?","acceptedAnswer":{"@type":"Answer","text":"Калькулятор рассчитывает углеводы, жидкость, электролиты и кофеин с учётом веса, интенсивности и температуры."}}]}</script>
 
   <style>
-    :root {
-      --primary: #FF3B30; 
-      --primary-glow: rgba(255, 59, 48, 0.5);
-      --bg-main: #080808;
-      --bg-card: rgba(255, 255, 255, 0.03); 
-      --border-color: rgba(255, 255, 255, 0.08);
-      --text-white: #FFFFFF;
-      --text-gray: #9CA3AF;
-      --container-width: 1240px;
-      --radius-card: 24px;
-      --radius-pill: 100px;
-    }
+    :root { --primary:#FF3B30; --primary-glow:rgba(255,59,48,0.5); --bg-main:#080808; --bg-card:rgba(255,255,255,0.03); --border-color:rgba(255,255,255,0.08); --text-white:#FFFFFF; --text-gray:#9CA3AF; --container-width:1240px; --radius-card:24px; --radius-pill:100px; }
+    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body { font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif; background-color:var(--bg-main); color:var(--text-white); line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased; background-image:radial-gradient(1200px 600px at 50% -10%,rgba(255,59,48,0.20) 0%,rgba(8,8,8,0) 60%),radial-gradient(900px 500px at 15% 35%,rgba(255,59,48,0.10) 0%,rgba(8,8,8,0) 55%),radial-gradient(1200px 700px at 85% 70%,rgba(255,59,48,0.08) 0%,rgba(8,8,8,0) 60%); background-attachment:fixed; min-height:100vh; overflow-x:hidden; }
+    body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; opacity:0.04; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .title-font { font-family:'Unbounded',sans-serif; text-transform:uppercase; letter-spacing:-0.02em; }
+    .tech-font { font-family:'JetBrains Mono',monospace; font-size:12px; opacity:0.7; text-transform:uppercase; }
+    a { text-decoration:none; color:inherit; transition:0.3s; cursor:pointer; }
+    button { border:none; outline:none; cursor:pointer; }
+    .container { max-width:var(--container-width); margin:0 auto; padding:0 24px; }
+    .section { padding:100px 0 80px; }
+    .header { position:fixed; top:24px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none; }
+    .header-island { pointer-events:auto; background:rgba(10,10,10,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-pill); padding:10px 32px; display:flex; align-items:center; gap:48px; box-shadow:0 20px 40px rgba(0,0,0,0.4); }
+    .logo { font-size:18px; font-weight:700; display:flex; align-items:center; gap:8px; font-family:'Unbounded'; }
+    .logo span { color:var(--primary); }
+    .nav-desk { display:flex; gap:32px; font-family:'Unbounded'; }
+    .nav-link { font-size:13px; font-weight:600; color:var(--text-gray); position:relative; font-family:'Unbounded'; }
+    .nav-link:hover { color:white; }
+    .nav-link.active { color:white; }
+    .nav-link.active::after { content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:4px; height:4px; background:var(--primary); border-radius:50%; }
+    .burger { display:none; font-size:28px; color:white; pointer-events:auto; cursor:pointer; }
+    .mobile-menu { position:fixed; inset:0; background:#080808; z-index:999; display:flex; flex-direction:column; justify-content:center; padding:40px; opacity:0; pointer-events:none; transition:0.3s; }
+    .mobile-menu.active { opacity:1; pointer-events:all; }
+    .mobile-link { font-family:'Unbounded'; font-size:32px; color:white; margin-bottom:32px; display:block; font-weight:700; }
+    .close-menu { position:absolute; top:32px; right:32px; font-size:32px; color:white; padding:10px; }
+    .btn { display:inline-flex; justify-content:center; align-items:center; background:var(--text-white); color:#000; height:56px; padding:0 40px; border-radius:var(--radius-pill); font-size:14px; font-weight:700; transition:0.3s; }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(255,255,255,0.15); }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-white);
-      line-height: 1.75;
-      font-size: 18px;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      background-image:
-        radial-gradient(1200px 600px at 50% -10%, rgba(255, 59, 48, 0.20) 0%, rgba(8,8,8,0) 60%),
-        radial-gradient(900px 500px at 15% 35%, rgba(255, 59, 48, 0.10) 0%, rgba(8,8,8,0) 55%),
-        radial-gradient(1200px 700px at 85% 70%, rgba(255, 59, 48, 0.08) 0%, rgba(8,8,8,0) 60%),
-        linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(8,8,8,0) 45%),
-        repeating-linear-gradient(120deg, rgba(255,59,48,0.03) 0 1px, rgba(8,8,8,0) 1px 12px);
-      background-attachment: fixed;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: -1; opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-
-    .tech-font { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; font-size: 12px; opacity: 0.7; text-transform: uppercase; }
-    .title-font { font-family: 'Unbounded', sans-serif; text-transform: uppercase; letter-spacing: -0.02em; }
-    
-    a { text-decoration: none; color: inherit; transition: 0.3s; cursor: pointer; }
-    ul { list-style: none; }
-    button { border: none; outline: none; cursor: pointer; }
-
-    .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
-    .section { padding: 120px 0; }
-
-    .header {
-      position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: center; pointer-events: none;
-    }
-    .header-island {
-      pointer-events: auto;
-      background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-pill);
-      padding: 10px 32px; display: flex; align-items: center; gap: 48px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-    .logo { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; font-family: 'Unbounded'; cursor: pointer; }
-    .logo span { color: var(--primary); }
-    .nav-desk { display: flex; gap: 32px; font-family: 'Unbounded'; }
-    .nav-link { font-size: 13px; font-weight: 600; color: var(--text-gray); position: relative; cursor: pointer; font-family: 'Unbounded'; }
-    .nav-link:hover { color: white; }
-    .nav-link.active { color: white; }
-    .nav-link.active::after {
-      content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
-      width: 4px; height: 4px; background: var(--primary); border-radius: 50%;
-    }
-    .burger { display: none; font-size: 28px; color: white; pointer-events: auto; cursor: pointer; font-family: 'Unbounded'; }
-
-    .mobile-menu { position: fixed; inset: 0; background: #080808; z-index: 999; display: flex; flex-direction: column; justify-content: center; padding: 40px; opacity: 0; pointer-events: none; transition: 0.3s; }
-    .mobile-menu.active { opacity: 1; pointer-events: all; }
-    .mobile-link { font-family: 'Unbounded'; font-size: 32px; color: white; margin-bottom: 32px; display: block; font-weight: 700; }
-    .close-menu { position: absolute; top: 32px; right: 32px; font-size: 32px; color: white; padding: 10px; }
-
-    .btn {
-      display: inline-flex; justify-content: center; align-items: center;
-      background: var(--text-white); color: #000;
-      height: 56px; padding: 0 40px; border-radius: var(--radius-pill);
-      font-size: 14px; font-weight: 700; transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,255,255,0.15); }
-
-    .calc-container { padding: 48px; background: var(--bg-card); border-radius: var(--radius-card); border: 1px solid var(--border-color); backdrop-filter: blur(10px); }
-    .calc-wrapper { display: block; }
-    .calc-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .calc-tabs { display: flex; gap: 24px; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; }
-    .calc-tab { background: transparent; color: var(--text-gray); font-family: 'Unbounded'; font-size: 14px; cursor: pointer; padding: 5px 0; transition: 0.3s; position: relative; }
-    .calc-tab.active { color: var(--primary); }
-    .calc-tab.active::after { content: ''; position: absolute; bottom: -17px; left: 0; width: 100%; height: 2px; background: var(--primary); }
-    .calc-mode { display: none; }
-    .calc-mode.active { display: block; animation: fadeIn 0.4s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .calc-input-group { margin-bottom: 24px; }
-    .calc-label { display: block; font-family: 'JetBrains Mono'; font-size: 11px; color: var(--text-gray); margin-bottom: 8px; letter-spacing: 0.05em; }
-    .calc-select, .calc-input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); color: white; padding: 16px; border-radius: 12px; font-family: 'Manrope'; font-size: 16px; outline: none; transition: 0.3s; }
-    .calc-select:focus, .calc-input:focus { border-color: var(--primary); background: rgba(255,59,48,0.02); }
-    .calc-inputs div { display: flex; gap: 16px; }
-    .calc-result-box { background: rgba(0,0,0,0.2); border-radius: 16px; padding: 28px; border: 1px solid var(--border-color); }
-    .calc-res-title { font-family: 'Unbounded'; font-size: 14px; color: var(--text-gray); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
-    .calc-main-res { font-family: 'Unbounded'; font-size: 40px; color: var(--primary); line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .calc-sub-res { font-size: 14px; color: var(--text-gray); margin-bottom: 24px; }
-    .calc-details { border-top: 1px solid var(--border-color); padding-top: 24px; display: grid; gap: 16px; }
-    .calc-detail-row { display: flex; justify-content: space-between; font-size: 14px; }
-    .calc-display-num { font-size: 1.2em; font-weight: 600; color: #fff; margin-right: 2px; }
-    .calc-display-unit { font-size: 0.7em; color: var(--text-gray); margin-right: 6px; text-transform: lowercase; }
-    .tri-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .calc-time-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-
-    .footer { padding: 80px 0 40px; border-top: 1px solid var(--border-color); text-align: center; }
-
-    .to-top-btn {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: rgba(10, 10, 10, 0.7);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.25s;
-      z-index: 999;
-      backdrop-filter: blur(8px);
-    }
-    .to-top-btn.show { opacity: 1; pointer-events: auto; }
-
-    @media (max-width: 1024px) {
-      .header-island { width: 100%; margin: 0 16px; padding: 12px 24px; justify-content: space-between; }
-      .nav-desk { display: none; }
-      .burger { display: block; }
-      .calc-two-col { grid-template-columns: 1fr; gap: 24px; }
-      .calc-inputs div { flex-direction: column; }
-      .tri-row-2, .calc-time-inputs { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .calc-container { padding: 24px; }
-      .section { padding: 88px 0; }
-    }
+    .calc-container { padding:32px; background:var(--bg-card); border-radius:var(--radius-card); border:1px solid var(--border-color); backdrop-filter:blur(10px); }
+    .calc-tabs { display:flex; gap:8px; margin-bottom:28px; }
+    .calc-tab { background:rgba(255,255,255,0.04); color:var(--text-gray); font-family:'Unbounded'; font-size:12px; cursor:pointer; padding:8px 20px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.02em; }
+    .calc-tab.active { color:white; background:var(--primary); }
+    .calc-tab:hover:not(.active) { background:rgba(255,255,255,0.08); color:white; }
+    .calc-mode { display:none; }
+    .calc-mode.active { display:block; animation:fadeIn 0.3s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+    .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    .calc-input-group { margin-bottom:20px; }
+    .calc-label { display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-gray); margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
+    .calc-select,.calc-input { width:100%; background:rgba(255,255,255,0.03); border:1px solid var(--border-color); color:white; padding:12px 14px; border-radius:10px; font-family:'Manrope',sans-serif; font-size:15px; outline:none; transition:0.3s; }
+    .calc-select:focus,.calc-input:focus { border-color:var(--primary); background:rgba(255,59,48,0.02); }
+    .calc-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .calc-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+    .toggle-group { display:inline-flex; background:rgba(255,255,255,0.04); border-radius:var(--radius-pill); border:1px solid var(--border-color); overflow:hidden; }
+    .toggle-btn { padding:6px 16px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-gray); cursor:pointer; transition:0.3s; background:transparent; letter-spacing:0.05em; }
+    .toggle-btn.active { background:var(--primary); color:white; }
+    .run-sub-tabs { display:flex; gap:6px; margin-bottom:20px; }
+    .run-sub-tab { background:rgba(255,255,255,0.03); color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:10px; cursor:pointer; padding:6px 14px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.03em; text-transform:uppercase; }
+    .run-sub-tab.active { color:white; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); }
+    .run-sub-mode { display:none; }
+    .run-sub-mode.active { display:block; }
+    .calc-result-box { background:rgba(0,0,0,0.25); border-radius:16px; padding:24px; border:1px solid var(--border-color); }
+    .calc-res-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); margin-bottom:16px; letter-spacing:0.08em; text-transform:uppercase; }
+    .calc-main-res { font-family:'Unbounded'; font-size:36px; color:var(--primary); line-height:1; margin-bottom:4px; letter-spacing:-0.02em; }
+    .calc-sub-res { font-family:'Manrope'; font-size:13px; color:var(--text-gray); margin-bottom:20px; }
+    .calc-details { border-top:1px solid var(--border-color); padding-top:16px; display:grid; gap:10px; }
+    .calc-detail-row { display:flex; justify-content:space-between; font-size:13px; font-family:'Manrope'; }
+    .calc-detail-row span:first-child { color:var(--text-gray); }
+    .calc-detail-row span:last-child { color:white; font-weight:500; }
+    .dn { font-size:1.15em; font-weight:600; color:#fff; }
+    .du { font-size:0.75em; color:var(--text-gray); margin-left:1px; }
+    .nut-result-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
+    .nut-card { background:rgba(0,0,0,0.25); border-radius:14px; padding:18px; border:1px solid var(--border-color); }
+    .nut-card-icon { font-size:20px; margin-bottom:8px; opacity:0.8; }
+    .nut-card-value { font-family:'Unbounded'; font-size:24px; color:var(--primary); line-height:1.1; margin-bottom:2px; }
+    .nut-card-label { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; }
+    .nut-card-sub { font-size:12px; color:var(--text-gray); margin-top:6px; }
+    .nut-products { margin-top:16px; }
+    .nut-prod-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
+    .nut-prod-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .nut-prod-row:last-child { border-bottom:none; }
+    .nut-prod-name { color:var(--text-gray); display:flex; align-items:center; gap:8px; }
+    .nut-prod-name i { font-size:14px; width:18px; text-align:center; }
+    .nut-prod-qty { color:white; font-weight:500; font-family:'JetBrains Mono',monospace; font-size:12px; }
+    .nut-timeline { margin-top:16px; }
+    .nut-tl-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
+    .nut-tl-item { display:flex; gap:12px; padding:8px 0; font-size:13px; }
+    .nut-tl-time { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--primary); min-width:70px; flex-shrink:0; }
+    .nut-tl-desc { color:var(--text-gray); }
+    .footer { padding:80px 0 40px; border-top:1px solid var(--border-color); text-align:center; }
+    .to-top-btn { position:fixed; right:24px; bottom:24px; width:46px; height:46px; border-radius:50%; background:rgba(10,10,10,0.7); border:1px solid rgba(255,255,255,0.15); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:18px; opacity:0; pointer-events:none; transition:0.25s; z-index:999; backdrop-filter:blur(8px); }
+    .to-top-btn.show { opacity:1; pointer-events:auto; }
+    @media(max-width:1024px) { .header-island{width:100%;margin:0 16px;padding:12px 24px;justify-content:space-between} .nav-desk{display:none} .burger{display:block} .calc-grid{grid-template-columns:1fr;gap:20px} .calc-container{padding:20px} .section{padding:88px 0 60px} }
+    @media(max-width:640px) { body{background-attachment:scroll} .container{padding:0 20px} .nut-result-grid{grid-template-columns:1fr 1fr;gap:8px} .nut-card{padding:14px} .nut-card-value{font-size:20px} .calc-main-res{font-size:28px} .run-sub-tabs{flex-wrap:wrap} }
   </style>
 </head>
 <body>
@@ -286,6 +138,7 @@
         <a href="calculator.html" class="nav-link active">КАЛЬКУЛЯТОР</a>
         <a href="pricing.html" class="nav-link">ТАРИФЫ</a>
         <a href="contact.html" class="nav-link">КОНТАКТЫ</a>
+        <a href="runners-nutrition-essentials.html" class="nav-link" style="color:var(--primary);">ГАЙД</a>
       </nav>
       <a href="en/calculator.html" class="lang-switch" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);padding:4px 10px;border-radius:4px;text-decoration:none;margin-left:12px;transition:all 0.3s ease;letter-spacing:1px;">EN</a>
       <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
@@ -301,110 +154,93 @@
     <a href="calculator.html" class="mobile-link" onclick="toggleMenu()">КАЛЬКУЛЯТОР</a>
     <a href="pricing.html" class="mobile-link" onclick="toggleMenu()">ТАРИФЫ</a>
     <a href="contact.html" class="mobile-link" onclick="toggleMenu()">КОНТАКТЫ</a>
+    <a href="runners-nutrition-essentials.html" class="mobile-link" onclick="toggleMenu()" style="color:var(--primary);">ГАЙД</a>
     <a href="en/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:2px;opacity:0.6;">🌐 EN</a>
   </div>
 
-  <section id="calculator" class="section" aria-label="Калькулятор триатлона и бега">
+  <section id="calculator" class="section">
     <div class="container">
-      <h1 class="title-font" style="text-align: center; margin-bottom: 16px;">КАЛЬКУЛЯТОР ТРИАТЛОНА И БЕГА</h1>
-      <p style="text-align: center; max-width: 760px; margin: 0 auto 36px; color: #C9CFD8;">
-        Онлайн калькулятор для расчета времени в триатлоне, темпа бега и плана питания. 
-        Введите данные и получите прогноз результата, темп на дистанции и рекомендации по питанию.
-      </p>
+      <h1 class="title-font" style="text-align:center;margin-bottom:12px;font-size:clamp(22px,4vw,32px);">КАЛЬКУЛЯТОР</h1>
+      <p style="text-align:center;max-width:680px;margin:0 auto 28px;color:var(--text-gray);font-size:15px;">Расчёт времени, темпа, скорости и плана питания для бега и триатлона</p>
       <div class="calc-container">
         <div class="calc-tabs">
-          <button class="calc-tab active" onclick="switchCalcMode('tri', event)">ТРИАТЛОН</button>
-          <button class="calc-tab" onclick="switchCalcMode('run', event)">БЕГ</button>
-          <button class="calc-tab" onclick="switchCalcMode('nutrition', event)">ПИТАНИЕ</button>
+          <button class="calc-tab active" onclick="switchCalcMode('tri',event)">ТРИАТЛОН</button>
+          <button class="calc-tab" onclick="switchCalcMode('run',event)">БЕГ</button>
+          <button class="calc-tab" onclick="switchCalcMode('nutrition',event)">ПИТАНИЕ</button>
         </div>
-        <div class="calc-wrapper">
-          <div id="calc-tri" class="calc-mode active">
+
+        <!-- TRIATHLON -->
+        <div id="calc-tri" class="calc-mode active">
+          <div class="calc-input-group">
             <select id="triDist" class="calc-select">
               <option value="sprint">Sprint (0.75 / 20 / 5)</option>
               <option value="olympic">Olympic (1.5 / 40 / 10)</option>
               <option value="half">Ironman 70.3 (1.9 / 90 / 21.1)</option>
               <option value="full">Ironman 140.6 (3.8 / 180 / 42.2)</option>
             </select>
-            <div class="calc-two-col">
-              <div class="tri-inputs">
-                <div class="calc-input-group">
-                  <label class="calc-label">Плавание (темп мин/100м)</label>
-                  <div class="tri-row-2">
-                    <input type="number" id="triSwimM" class="calc-input" placeholder="Мин" value="2" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                    <input type="number" id="triSwimS" class="calc-input" placeholder="Сек" value="00" min="0" max="59" step="1" inputmode="numeric" pattern="[0-9]*">
-                  </div>
-                </div>
-                <div class="calc-input-group">
-                  <label class="calc-label">Вело (скорость км/ч)</label>
-                  <input type="number" id="triBikeSpeed" class="calc-input" placeholder="км/ч" value="30" min="0" step="0.1" inputmode="decimal">
-                </div>
-                <div class="calc-input-group">
-                  <label class="calc-label">Бег (темп мин/км)</label>
-                  <div class="tri-row-2">
-                    <input type="number" id="triRunM" class="calc-input" placeholder="Мин" value="5" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                    <input type="number" id="triRunS" class="calc-input" placeholder="Сек" value="30" min="0" max="59" step="1" inputmode="numeric" pattern="[0-9]*">
-                  </div>
-                </div>
-                <div class="calc-input-group">
-                  <label class="calc-label">Транзитки (Т1 + Т2, мин)</label>
-                  <input type="number" id="triT1T2" class="calc-input" placeholder="Общее время" value="5" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                </div>
-              </div>
-              <div class="calc-result-box">
-                <div class="calc-res-title">ОБЩЕЕ ВРЕМЯ С ТРАНЗИТКАМИ</div>
-                <div class="calc-main-res" id="triTotalResult">--</div>
-                <div class="calc-sub-res" id="triSubResult"></div>
-                <div class="calc-details" id="triDetails"></div>
-              </div>
+          </div>
+          <div class="calc-grid">
+            <div>
+              <div class="calc-input-group"><label class="calc-label">Плавание (мин/100м)</label><div class="calc-row"><input type="number" id="triSwimM" class="calc-input" placeholder="Мин" value="2" min="0" inputmode="numeric"><input type="number" id="triSwimS" class="calc-input" placeholder="Сек" value="00" min="0" max="59" inputmode="numeric"></div></div>
+              <div class="calc-input-group"><label class="calc-label">Вело (км/ч)</label><input type="number" id="triBikeSpeed" class="calc-input" placeholder="км/ч" value="30" min="0" step="0.1" inputmode="decimal"></div>
+              <div class="calc-input-group"><label class="calc-label">Бег (мин/км)</label><div class="calc-row"><input type="number" id="triRunM" class="calc-input" placeholder="Мин" value="5" min="0" inputmode="numeric"><input type="number" id="triRunS" class="calc-input" placeholder="Сек" value="30" min="0" max="59" inputmode="numeric"></div></div>
+              <div class="calc-input-group"><label class="calc-label">Транзитки Т1+Т2 (мин)</label><input type="number" id="triT1T2" class="calc-input" placeholder="Мин" value="5" min="0" inputmode="numeric"></div>
+            </div>
+            <div class="calc-result-box">
+              <div class="calc-res-title">РЕЗУЛЬТАТ</div>
+              <div class="calc-main-res" id="triTotalResult">--</div>
+              <div class="calc-sub-res" id="triSubResult">общее время</div>
+              <div class="calc-details" id="triDetails"></div>
             </div>
           </div>
+        </div>
 
-          <div id="calc-run" class="calc-mode">
-            <div class="calc-input-group">
-              <label class="calc-label">Дистанция</label>
-              <select id="runDistInput" class="calc-select">
-                <option value="5">5 км</option>
-                <option value="10">10 км</option>
-                <option value="21.1">Полумарафон</option>
-                <option value="42.2">Марафон</option>
-              </select>
-            </div>
-            <div class="calc-input-group">
-              <label class="calc-label">Ваше время</label>
-              <div class="calc-time-inputs">
-                <input type="number" id="runH" class="calc-input" placeholder="Ч" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                <input type="number" id="runM" class="calc-input" placeholder="Мин" value="50" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                <input type="number" id="runS" class="calc-input" placeholder="Сек" value="00" min="0" max="59" step="1" inputmode="numeric" pattern="[0-9]*">
+        <!-- RUNNING -->
+        <div id="calc-run" class="calc-mode">
+          <div class="run-sub-tabs">
+            <button class="run-sub-tab active" onclick="switchRunMode('time',this)">ЗНАЮ ВРЕМЯ</button>
+            <button class="run-sub-tab" onclick="switchRunMode('pace',this)">ЗНАЮ ТЕМП</button>
+            <button class="run-sub-tab" onclick="switchRunMode('speed',this)">ЗНАЮ СКОРОСТЬ</button>
+          </div>
+          <div class="calc-grid">
+            <div>
+              <div id="run-mode-time" class="run-sub-mode active">
+                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist1" class="calc-select run-input"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option></select></div>
+                <div class="calc-input-group"><label class="calc-label">Ваше время</label><div class="calc-row-3"><input type="number" id="runH1" class="calc-input run-input" placeholder="Ч" min="0" inputmode="numeric"><input type="number" id="runM1" class="calc-input run-input" placeholder="Мин" value="50" min="0" inputmode="numeric"><input type="number" id="runS1" class="calc-input run-input" placeholder="Сек" value="0" min="0" max="59" inputmode="numeric"></div></div>
+              </div>
+              <div id="run-mode-pace" class="run-sub-mode">
+                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist2" class="calc-select run-input"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option></select></div>
+                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Темп</label><div class="toggle-group" id="paceUnitToggle"><span class="toggle-btn active" onclick="setPaceUnit('km',this)">МИН/КМ</span><span class="toggle-btn" onclick="setPaceUnit('mi',this)">МИН/МИЛЯ</span></div></div><div class="calc-row"><input type="number" id="paceM" class="calc-input run-input" placeholder="Мин" value="5" min="0" inputmode="numeric"><input type="number" id="paceS" class="calc-input run-input" placeholder="Сек" value="30" min="0" max="59" inputmode="numeric"></div></div>
+              </div>
+              <div id="run-mode-speed" class="run-sub-mode">
+                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist3" class="calc-select run-input"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option></select></div>
+                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Скорость</label><div class="toggle-group" id="speedUnitToggle"><span class="toggle-btn active" onclick="setSpeedUnit('kmh',this)">КМ/Ч</span><span class="toggle-btn" onclick="setSpeedUnit('mph',this)">МИЛЬ/Ч</span></div></div><input type="number" id="speedVal" class="calc-input run-input" placeholder="км/ч" value="10.9" min="0" step="0.1" inputmode="decimal"></div>
               </div>
             </div>
             <div class="calc-result-box">
-              <div class="calc-res-title">ВАШ ТЕМП</div>
-              <div class="calc-main-res" id="runPaceResult">--</div>
-              <div class="calc-details" id="runPredictions"></div>
+              <div class="calc-res-title">РЕЗУЛЬТАТ</div>
+              <div class="calc-main-res" id="runMainResult">--</div>
+              <div class="calc-sub-res" id="runSubResult"></div>
+              <div class="calc-details" id="runDetails"></div>
+              <div class="calc-details" id="runPredictions" style="margin-top:12px;"></div>
             </div>
           </div>
+        </div>
 
-          <div id="calc-nutrition" class="calc-mode">
-            <div class="calc-input-group">
-              <label class="calc-label">Длительность гонки</label>
-              <div class="calc-time-inputs" style="grid-template-columns: 1fr 1fr;">
-                <input type="number" id="nutH" class="calc-input" placeholder="Часы" value="4" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                <input type="number" id="nutM" class="calc-input" placeholder="Мин" value="0" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-              </div>
+        <!-- NUTRITION -->
+        <div id="calc-nutrition" class="calc-mode">
+          <div class="calc-grid">
+            <div>
+              <div class="calc-input-group"><label class="calc-label">Вес (кг)</label><input type="number" id="nutWeight" class="calc-input nut-input" placeholder="кг" value="70" min="30" max="200" inputmode="numeric"></div>
+              <div class="calc-input-group"><label class="calc-label">Длительность гонки</label><div class="calc-row"><input type="number" id="nutH" class="calc-input nut-input" placeholder="Часы" value="4" min="0" inputmode="numeric"><input type="number" id="nutM" class="calc-input nut-input" placeholder="Мин" value="0" min="0" inputmode="numeric"></div></div>
+              <div class="calc-input-group"><label class="calc-label">Интенсивность</label><select id="nutIntense" class="calc-select nut-input"><option value="low">Спокойная (Z1-Z2)</option><option value="med" selected>Соревновательная (Z3)</option><option value="high">Высокая (Z4-Z5)</option></select></div>
+              <div class="calc-input-group"><label class="calc-label">Температура</label><select id="nutTemp" class="calc-select nut-input"><option value="cool">Прохладно (&lt;15°C)</option><option value="moderate" selected>Умеренно (15–25°C)</option><option value="hot">Жарко (&gt;25°C)</option></select></div>
+              <div class="calc-input-group"><label class="calc-label">Вид спорта</label><select id="nutSport" class="calc-select nut-input"><option value="running" selected>Бег</option><option value="triathlon">Триатлон</option><option value="cycling">Велосипед</option></select></div>
             </div>
-            <div class="calc-input-group">
-              <label class="calc-label">Интенсивность</label>
-              <select id="nutIntense" class="calc-select">
-                <option value="low">Спокойная (Z1-Z2)</option>
-                <option value="med" selected>Соревновательная (Z3)</option>
-                <option value="high">Высокая (Z4-Z5)</option>
-              </select>
-            </div>
-            <div class="calc-result-box">
-              <div class="calc-res-title">ПЛАН ПИТАНИЯ И ГИДРАЦИИ</div>
-              <div class="calc-main-res" id="nutCarbs">--</div>
-              <div class="calc-sub-res">УГЛЕВОДОВ В ЧАС</div>
-              <div class="calc-details" id="nutDetails"></div>
+            <div>
+              <div class="nut-result-grid" id="nutCards"></div>
+              <div class="nut-products" id="nutProducts"></div>
+              <div class="nut-timeline" id="nutTimeline"></div>
             </div>
           </div>
         </div>
@@ -414,170 +250,88 @@
 
   <footer class="footer">
     <div class="container">
-      <h2 class="title-font" style="font-size: 24px; margin-bottom: 30px;">ГОТОВЫ СТАТЬ IRONMAN?</h2>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://t.me/InnaRH" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-telegram"></i> TELEGRAM</a>
-        <a href="https://www.instagram.com/inna.tri" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
-        <a href="https://www.youtube.com/@innatri" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
+      <h2 class="title-font" style="font-size:24px;margin-bottom:30px;">ГОТОВЫ СТАТЬ IRONMAN?</h2>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://t.me/InnaRH" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-telegram"></i> TELEGRAM</a>
+        <a href="https://www.instagram.com/inna.tri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
+        <a href="https://www.youtube.com/@innatri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
       </div>
-      <p class="tech-font" style="margin-top: 40px;">© 2026 INNATRI. SYSTEMATIC COACHING.</p>
+      <p class="tech-font" style="margin-top:40px;">© 2026 INNATRI. SYSTEMATIC COACHING.</p>
     </div>
   </footer>
 
-  <button class="to-top-btn" id="toTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Наверх">
-    <i class="ph ph-arrow-up"></i>
-  </button>
+  <button class="to-top-btn" id="toTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ph ph-arrow-up"></i></button>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
-    }
+    function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'auto'}
+    function switchCalcMode(mode,e){document.querySelectorAll('.calc-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.calc-tab').forEach(el=>el.classList.remove('active'));document.getElementById('calc-'+mode).classList.add('active');if(e&&e.target)e.target.classList.add('active');if(mode==='tri')calculateTriTime();if(mode==='run')calculateRun();if(mode==='nutrition')calculateNutrition()}
 
-    function switchCalcMode(mode, e) {
-      document.querySelectorAll('.calc-mode').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.calc-tab').forEach(el => el.classList.remove('active'));
-      document.getElementById('calc-' + mode).classList.add('active');
-      if (e && e.target) { e.target.classList.add('active'); }
-    }
+    const MI=1.60934;
+    function formatHMS(sec){if(!isFinite(sec)||sec<=0)return'--';sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;if(h>0)return`<span class="dn">${h}</span><span class="du">ч</span> <span class="dn">${m}</span><span class="du">мин</span>`;if(m>0&&s>0)return`<span class="dn">${m}</span><span class="du">мин</span> <span class="dn">${s}</span><span class="du">сек</span>`;if(m>0)return`<span class="dn">${m}</span><span class="du">мин</span>`;return`<span class="dn">${s}</span><span class="du">сек</span>`}
+    function formatHMStext(sec){if(!isFinite(sec)||sec<=0)return'--';sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;if(h>0)return`${h}ч ${String(m).padStart(2,'0')}мин`;return`${m}мин ${String(s).padStart(2,'0')}сек`}
+    function formatPace(s){if(!isFinite(s)||s<=0)return'--';const m=Math.floor(s/60),ss=Math.round(s%60);return`${m}:${String(ss).padStart(2,'0')}`}
 
-    function formatHMS(totalSeconds) {
-      if (!isFinite(totalSeconds)) return '--';
-      const secs = Math.max(0, Math.round(totalSeconds));
-      const h = Math.floor(secs / 3600);
-      const m = Math.floor((secs % 3600) / 60);
-      const s = secs % 60;
-      if (h > 0) return `<span class="calc-display-num">${h}</span><span class="calc-display-unit">ч</span> <span class="calc-display-num">${m}</span><span class="calc-display-unit">мин</span>`;
-      if (m > 0 && s > 0) return `<span class="calc-display-num">${m}</span><span class="calc-display-unit">мин</span> <span class="calc-display-num">${s}</span><span class="calc-display-unit">сек</span>`;
-      if (m > 0) return `<span class="calc-display-num">${m}</span><span class="calc-display-unit">мин</span>`;
-      return `<span class="calc-display-num">${s}</span><span class="calc-display-unit">сек</span>`;
-    }
+    /* TRIATHLON */
+    function calculateTriTime(){const dm={sprint:{swim:0.75,bike:20,run:5},olympic:{swim:1.5,bike:40,run:10},half:{swim:1.9,bike:90,run:21.1},full:{swim:3.8,bike:180,run:42.2}};const d=dm[document.getElementById('triDist').value];const sp=(parseFloat(document.getElementById('triSwimM').value)||0)*60+(parseFloat(document.getElementById('triSwimS').value)||0);const ss=sp*(d.swim*10);const bs=parseFloat(document.getElementById('triBikeSpeed').value)||30;const bk=bs>0?(d.bike/bs)*3600:0;const rp=(parseFloat(document.getElementById('triRunM').value)||0)*60+(parseFloat(document.getElementById('triRunS').value)||0);const rs=rp*d.run;const ts=(parseFloat(document.getElementById('triT1T2').value)||0)*60;const t=ss+bk+rs+ts;document.getElementById('triTotalResult').innerHTML=formatHMS(t);document.getElementById('triDetails').innerHTML=`<div class="calc-detail-row"><span>Плавание (${d.swim} км)</span><span>${formatHMS(ss)}</span></div><div class="calc-detail-row"><span>Вело (${d.bike} км)</span><span>${formatHMS(bk)}</span></div><div class="calc-detail-row"><span>Бег (${d.run} км)</span><span>${formatHMS(rs)}</span></div><div class="calc-detail-row"><span>Транзитки</span><span>${formatHMS(ts)}</span></div>`}
 
-    function formatPace(secondsPerKm) {
-      if (!isFinite(secondsPerKm) || secondsPerKm <= 0) return '--';
-      const mins = Math.floor(secondsPerKm / 60);
-      const secs = Math.round(secondsPerKm % 60);
-      return `${mins}:${String(secs).padStart(2, '0')}`;
-    }
+    /* RUNNING */
+    let currentRunMode='time',paceUnit='km',speedUnit='kmh';
+    function switchRunMode(mode,btn){currentRunMode=mode;document.querySelectorAll('.run-sub-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.run-sub-tab').forEach(el=>el.classList.remove('active'));document.getElementById('run-mode-'+mode).classList.add('active');btn.classList.add('active');calculateRun()}
+    function setPaceUnit(u,btn){paceUnit=u;document.querySelectorAll('#paceUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
+    function setSpeedUnit(u,btn){speedUnit=u;document.querySelectorAll('#speedUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
 
-    function calculateTriTime() {
-      const distMap = {
-        sprint: { swim: 0.75, bike: 20, run: 5 },
-        olympic: { swim: 1.5, bike: 40, run: 10 },
-        half: { swim: 1.9, bike: 90, run: 21.1 },
-        full: { swim: 3.8, bike: 180, run: 42.2 }
-      };
-      const distKey = document.getElementById('triDist').value;
-      const dists = distMap[distKey];
+    function calculateRun(){
+      let totalSec,distKm;const preds=[{d:5,l:'5 км'},{d:10,l:'10 км'},{d:21.1,l:'Полумарафон'},{d:42.2,l:'Марафон'}];
+      if(currentRunMode==='time'){distKm=parseFloat(document.getElementById('runDist1').value)||10;const h=parseFloat(document.getElementById('runH1').value)||0,m=parseFloat(document.getElementById('runM1').value)||0,s=parseFloat(document.getElementById('runS1').value)||0;totalSec=h*3600+m*60+s;if(totalSec<=0){clearRun();return}}
+      else if(currentRunMode==='pace'){distKm=parseFloat(document.getElementById('runDist2').value)||10;const pm=parseFloat(document.getElementById('paceM').value)||0,ps=parseFloat(document.getElementById('paceS').value)||0;let pk=pm*60+ps;if(paceUnit==='mi')pk=pk/MI;if(pk<=0){clearRun();return}totalSec=pk*distKm}
+      else{distKm=parseFloat(document.getElementById('runDist3').value)||10;let spd=parseFloat(document.getElementById('speedVal').value)||0;if(speedUnit==='mph')spd=spd*MI;if(spd<=0){clearRun();return}totalSec=(distKm/spd)*3600}
+      const pk=totalSec/distKm,pm=pk*MI,skm=(distKm/totalSec)*3600,smi=skm/MI;
+      document.getElementById('runMainResult').innerHTML=formatHMS(totalSec);
+      document.getElementById('runSubResult').textContent='финишное время';
+      document.getElementById('runDetails').innerHTML=`<div class="calc-detail-row"><span>Темп</span><span>${formatPace(pk)} /км · ${formatPace(pm)} /миля</span></div><div class="calc-detail-row"><span>Скорость</span><span>${skm.toFixed(1)} км/ч · ${smi.toFixed(1)} миль/ч</span></div>`;
+      let ph='<div class="calc-res-title" style="margin-top:4px;">ПРОГНОЗ НА ДРУГИЕ ДИСТАНЦИИ</div>';
+      preds.forEach(p=>{const ps=totalSec*Math.pow(p.d/distKm,1.06);const pp=ps/p.d;ph+=`<div class="calc-detail-row"><span>${p.l}</span><span>${formatHMStext(ps)} · ${formatPace(pp)} /км</span></div>`});
+      document.getElementById('runPredictions').innerHTML=ph}
+    function clearRun(){document.getElementById('runMainResult').textContent='--';document.getElementById('runSubResult').textContent='';document.getElementById('runDetails').innerHTML='';document.getElementById('runPredictions').innerHTML=''}
 
-      const swimM = parseFloat(document.getElementById('triSwimM').value) || 0;
-      const swimS = parseFloat(document.getElementById('triSwimS').value) || 0;
-      const swimPaceSec = swimM * 60 + swimS; 
-      const swimTimeSec = swimPaceSec * (dists.swim * 10);
+    /* NUTRITION */
+    function calculateNutrition(){
+      const w=parseFloat(document.getElementById('nutWeight').value)||70,h=parseFloat(document.getElementById('nutH').value)||0,m=parseFloat(document.getElementById('nutM').value)||0,dur=h+m/60,int=document.getElementById('nutIntense').value,temp=document.getElementById('nutTemp').value;
+      if(dur<=0)return;
+      let cph;if(dur<1)cph=20;else if(dur<1.5)cph=30;else if(dur<2.5)cph=45;else if(dur<4)cph=70;else cph=90;
+      if(int==='high')cph+=15;else if(int==='low')cph-=10;
+      if(w>85)cph+=10;else if(w<55)cph-=5;
+      cph=Math.max(10,Math.min(120,cph));const tc=Math.round(cph*dur);
+      let fph=500;if(w>80)fph+=100;else if(w<60)fph-=50;if(temp==='hot')fph+=250;else if(temp==='cool')fph-=100;if(int==='high')fph+=150;else if(int==='low')fph-=100;fph=Math.max(300,Math.min(1000,fph));const tf=Math.round(fph*dur);
+      let sph=400;if(temp==='hot')sph=700;else if(temp==='cool')sph=300;if(int==='high')sph+=150;if(dur>4)sph+=100;const ts=Math.round(sph*dur);
+      const caf=Math.round(w*4),showCaf=dur>=1.5;
 
-      const bikeSpeed = parseFloat(document.getElementById('triBikeSpeed').value) || 30;
-      const bikeTimeSec = bikeSpeed > 0 ? (dists.bike / bikeSpeed) * 3600 : 0;
+      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> г/ч</span></div><div class="nut-card-label">Углеводы</div><div class="nut-card-sub">Всего: ${tc} г</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> мл/ч</span></div><div class="nut-card-label">Жидкость</div><div class="nut-card-sub">Всего: ${(tf/1000).toFixed(1)} л</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> мг/ч</span></div><div class="nut-card-label">Натрий</div><div class="nut-card-sub">Всего: ${(ts/1000).toFixed(1)} г</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> мг</span></div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">~${Math.round(caf/100)} геля с кофеином</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">—</div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">Не нужен (&lt;1.5ч)</div></div>`}`;
 
-      const runM = parseFloat(document.getElementById('triRunM').value) || 0;
-      const runS = parseFloat(document.getElementById('triRunS').value) || 0;
-      const runPaceSec = runM * 60 + runS;
-      const runTimeSec = runPaceSec * dists.run;
+      const gels=Math.ceil(tc/25),iso=(tf/1000).toFixed(1),bars=dur>3?Math.floor(dur/1.5):0,ban=dur>2?Math.ceil((dur-2)*0.5):0,salt=Math.ceil(ts/250);
+      let pr='<div class="nut-prod-title">РЕКОМЕНДАЦИИ ПО ПРОДУКТАМ</div>';
+      pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Энергетический гель (~25г)</span><span class="nut-prod-qty">${gels} шт</span></div>`;
+      pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-flask"></i> Изотоник (30-60г/л)</span><span class="nut-prod-qty">${iso} л</span></div>`;
+      if(bars>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-cookie"></i> Энергетический батончик</span><span class="nut-prod-qty">${bars} шт</span></div>`;
+      if(ban>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-leaf"></i> Банан (~30г углеводов)</span><span class="nut-prod-qty">${ban} шт</span></div>`;
+      pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-pill"></i> Солевые таблетки (~250мг)</span><span class="nut-prod-qty">${salt} шт</span></div>`;
+      if(showCaf)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-coffee"></i> Кофеиновый гель</span><span class="nut-prod-qty">1-2 шт</span></div>`;
+      document.getElementById('nutProducts').innerHTML=pr;
 
-      const t1t2Min = parseFloat(document.getElementById('triT1T2').value) || 0;
-      const t1t2Sec = t1t2Min * 60;
+      if(dur>=1.5){const tm=Math.round(dur*60);let tl='<div class="nut-tl-title">ТАЙМЛАЙН ПИТАНИЯ</div>';
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">-30 мин</span><span class="nut-tl-desc">Лёгкий перекус: банан или гель + 200мл воды</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Старт</span><span class="nut-tl-desc">Начать пить по 150-200мл каждые 15-20 мин</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">20-30 мин</span><span class="nut-tl-desc">Первый гель или порция изотоника</span></div>`;
+        if(dur>=2.5)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 25 мин</span><span class="nut-tl-desc">Гель или 200мл изотоника + солевая таблетка каждый час</span></div>`;
+        else tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 30 мин</span><span class="nut-tl-desc">Гель или порция изотоника</span></div>`;
+        if(dur>3)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 60 мин</span><span class="nut-tl-desc">Твёрдая пища: батончик или банан</span></div>`;
+        if(showCaf){const ct=Math.round(tm*0.65);tl+=`<div class="nut-tl-item"><span class="nut-tl-time">~${ct} мин</span><span class="nut-tl-desc">Кофеиновый гель (${caf} мг) для финишного рывка</span></div>`}
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Финиш</span><span class="nut-tl-desc">В течение 30 мин: 20-30г белка + 60-80г углеводов</span></div>`;
+        document.getElementById('nutTimeline').innerHTML=tl}else{document.getElementById('nutTimeline').innerHTML=''}}
 
-      const totalSec = swimTimeSec + bikeTimeSec + runTimeSec + t1t2Sec;
-      document.getElementById('triTotalResult').innerHTML = formatHMS(totalSec);
-      
-      document.getElementById('triDetails').innerHTML = `
-        <div class="calc-detail-row"><span>Swim (${dists.swim} км)</span> <span>${formatHMS(swimTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Bike (${dists.bike} км)</span> <span>${formatHMS(bikeTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Run (${dists.run} км)</span> <span>${formatHMS(runTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Транзитка</span> <span>${formatHMS(t1t2Sec)}</span></div>
-      `;
-    }
-
-    function calculateRunTime() {
-      const dist = parseFloat(document.getElementById('runDistInput').value) || 10;
-      const h = parseFloat(document.getElementById('runH').value) || 0;
-      const m = parseFloat(document.getElementById('runM').value) || 0;
-      const s = parseFloat(document.getElementById('runS').value) || 0;
-      
-      const totalSeconds = h * 3600 + m * 60 + s;
-      if (totalSeconds <= 0) return;
-
-      const paceSec = totalSeconds / dist;
-      document.getElementById('runPaceResult').textContent = formatPace(paceSec) + ' /км';
-
-      const predictions = [
-        { d: 5, label: '5 км' },
-        { d: 10, label: '10 км' },
-        { d: 21.1, label: 'Полумарафон' },
-        { d: 42.2, label: 'Марафон' }
-      ];
-
-      let html = '';
-      predictions.forEach(p => {
-        const predSec = totalSeconds * Math.pow((p.d / dist), 1.06);
-        html += `<div class="calc-detail-row"><span>${p.label}</span> <span>${formatHMS(predSec)}</span></div>`;
-      });
-      document.getElementById('runPredictions').innerHTML = html;
-    }
-
-    function calculateNutrition() {
-      const h = parseFloat(document.getElementById('nutH').value) || 0;
-      const m = parseFloat(document.getElementById('nutM').value) || 0;
-      const durationHrs = h + m / 60;
-      const intensity = document.getElementById('nutIntense').value;
-
-      let carbsPerHour = 60;
-      if (durationHrs < 1.5) carbsPerHour = 30;
-      else if (durationHrs > 3) carbsPerHour = 90;
-      
-      if (intensity === 'low') carbsPerHour -= 10;
-      if (intensity === 'high') carbsPerHour += 10;
-      
-      if (durationHrs < 1.0) carbsPerHour = 10;
-      else if (durationHrs < 2.5) carbsPerHour = 45; 
-      else carbsPerHour = 70;
-
-      if (intensity === 'high' && durationHrs > 1.5) carbsPerHour += 10;
-
-      const fluidPerHour = 0.5 + (intensity === 'high' ? 0.3 : 0);
-      
-      document.getElementById('nutCarbs').textContent = carbsPerHour + 'г';
-      
-      const totalCarbs = Math.round(carbsPerHour * durationHrs);
-      const totalFluid = (fluidPerHour * durationHrs).toFixed(1);
-
-      document.getElementById('nutDetails').innerHTML = `
-        <div class="calc-detail-row"><span>Всего углеводов</span> <span>${totalCarbs} г</span></div>
-        <div class="calc-detail-row"><span>Жидкость (всего)</span> <span>~${totalFluid} л</span></div>
-        <div class="calc-detail-row"><span>Соль/Электролиты</span> <span>Обязательно</span></div>
-      `;
-    }
-
-    document.querySelectorAll('.calc-input, .calc-select').forEach(el => {
-      el.addEventListener('input', () => {
-        if(document.getElementById('calc-tri').classList.contains('active')) calculateTriTime();
-        if(document.getElementById('calc-run').classList.contains('active')) calculateRunTime();
-        if(document.getElementById('calc-nutrition').classList.contains('active')) calculateNutrition();
-      });
-    });
-
-    window.addEventListener('DOMContentLoaded', function() {
-      calculateTriTime();
-    });
-
-    const toTopBtn = document.getElementById('toTopBtn');
-    function updateToTop() {
-      if (!toTopBtn) return;
-      const shouldShow = window.scrollY > 300;
-      toTopBtn.classList.toggle('show', shouldShow);
-    }
-    window.addEventListener('scroll', updateToTop, { passive: true });
-    updateToTop();
+    document.addEventListener('input',e=>{if(e.target.matches('.calc-input,.calc-select')){if(document.getElementById('calc-tri').classList.contains('active'))calculateTriTime();if(document.getElementById('calc-run').classList.contains('active'))calculateRun();if(document.getElementById('calc-nutrition').classList.contains('active'))calculateNutrition()}});
+    window.addEventListener('DOMContentLoaded',()=>{calculateTriTime()});
+    const toTopBtn=document.getElementById('toTopBtn');window.addEventListener('scroll',()=>{if(toTopBtn)toTopBtn.classList.toggle('show',window.scrollY>300)},{passive:true});
   </script>
 </body>
 </html>
