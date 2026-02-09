@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Калькулятор триатлона и бега онлайн | InnaTri</title>
-  <meta name="description" id="meta-description" content="Онлайн калькулятор триатлона и бега: расчет времени, темпа, скорости и плана питания. Прогноз результата на дистанции и рекомендации по гидрации.">
-  <meta name="keywords" content="тренер по бегу, калькулятор триатлона, калькулятор бега, расчет темпа, прогноз результата триатлон, калькулятор Ironman, план питания триатлон">
+  <title>Калькулятор темпа бега и триатлона онлайн — бесплатно | InnaTri</title>
+  <meta name="description" id="meta-description" content="Бесплатный онлайн калькулятор темпа бега, времени триатлона и питания на гонку. Рассчитайте темп на марафон и полумарафон, прогноз на 5К-10К-21К-42К, план питания с гелями и изотониками. Калькулятор Ironman 70.3 и полный Ironman.">
+  <meta name="keywords" content="калькулятор темпа бега, калькулятор бега онлайн, калькулятор темпа, расчет темпа бега, калькулятор марафона, калькулятор полумарафона, предсказать время марафона, калькулятор триатлона, калькулятор Ironman, калькулятор времени триатлон, прогноз результата бег, калькулятор питания на марафон, план питания триатлон, калькулятор темпа полумарафон, VDOT калькулятор, калькулятор скорости бега">
   <meta name="author" content="Инна Рыжих">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-  <meta property="og:title" id="meta-og-title" content="Калькулятор триатлона и бега онлайн | InnaTri">
-  <meta property="og:description" id="meta-og-description" content="Онлайн калькулятор триатлона и бега: расчет времени, темпа и плана питания.">
+  <meta property="og:title" id="meta-og-title" content="Калькулятор темпа бега и триатлона — бесплатно | InnaTri">
+  <meta property="og:description" id="meta-og-description" content="Рассчитайте темп бега, время на марафон, план питания на гонку. Прогноз 5К-42К, калькулятор Ironman. Бесплатно.">
   <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.png">
   <meta property="og:url" id="meta-og-url" content="https://innatri.com/calculator.html">
   <meta property="og:type" content="website">
@@ -19,13 +19,16 @@
   <meta property="og:locale" content="ru_RU">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="meta-twitter-title" content="Калькулятор триатлона и бега онлайн | InnaTri">
-  <meta name="twitter:description" id="meta-twitter-description" content="Онлайн калькулятор триатлона и бега: расчет времени, темпа и плана питания.">
+  <meta name="twitter:title" id="meta-twitter-title" content="Калькулятор темпа бега и триатлона — бесплатно | InnaTri">
+  <meta name="twitter:description" id="meta-twitter-description" content="Рассчитайте темп бега, время на марафон, план питания на гонку. Прогноз 5К-42К, калькулятор Ironman. Бесплатно.">
   <meta name="twitter:image" id="meta-twitter-image" content="https://innatri.com/assets/hero/og-image.png">
 
   <link rel="canonical" href="https://innatri.com/calculator.html">
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
-  <link rel="icon" href="assets/favicon.png?v=3" type="image/png" sizes="96x96">
+  <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF3B30">
   <link rel="alternate" hreflang="ru" href="https://innatri.com/calculator.html">
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/calculator.html">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/calculator.html">
@@ -294,39 +297,43 @@
       document.getElementById('runPredictions').innerHTML=ph}
     function clearRun(){document.getElementById('runMainResult').textContent='--';document.getElementById('runSubResult').textContent='';document.getElementById('runDetails').innerHTML='';document.getElementById('runPredictions').innerHTML=''}
 
-    /* NUTRITION */
+    /* NUTRITION — based on ACSM/ISSN guidelines for recreational athletes */
     function calculateNutrition(){
       const w=parseFloat(document.getElementById('nutWeight').value)||70,h=parseFloat(document.getElementById('nutH').value)||0,m=parseFloat(document.getElementById('nutM').value)||0,dur=h+m/60,int=document.getElementById('nutIntense').value,temp=document.getElementById('nutTemp').value;
       if(dur<=0)return;
-      let cph;if(dur<1)cph=20;else if(dur<1.5)cph=30;else if(dur<2.5)cph=45;else if(dur<4)cph=70;else cph=90;
-      if(int==='high')cph+=15;else if(int==='low')cph-=10;
-      if(w>85)cph+=10;else if(w<55)cph-=5;
-      cph=Math.max(10,Math.min(120,cph));const tc=Math.round(cph*dur);
-      let fph=500;if(w>80)fph+=100;else if(w<60)fph-=50;if(temp==='hot')fph+=250;else if(temp==='cool')fph-=100;if(int==='high')fph+=150;else if(int==='low')fph-=100;fph=Math.max(300,Math.min(1000,fph));const tf=Math.round(fph*dur);
-      let sph=400;if(temp==='hot')sph=700;else if(temp==='cool')sph=300;if(int==='high')sph+=150;if(dur>4)sph+=100;const ts=Math.round(sph*dur);
-      const caf=Math.round(w*4),showCaf=dur>=1.5;
+      /* Carbs: gut absorption is the limiter, NOT body weight. Realistic amateur ranges */
+      let cph;if(dur<1)cph=0;else if(dur<2)cph=30;else if(dur<3)cph=40;else if(dur<5)cph=50;else cph=60;
+      if(int==='high')cph+=10;else if(int==='low')cph-=5;
+      cph=Math.max(0,Math.min(90,cph));const tc=Math.round(cph*Math.max(0,dur-0.5));
+      /* Fluid: 400-800ml/h base, adjust for heat and weight */
+      let fph=500;if(w>80)fph+=50;else if(w<55)fph-=50;if(temp==='hot')fph+=200;else if(temp==='cool')fph-=100;if(int==='high')fph+=100;fph=Math.max(300,Math.min(800,fph));const tf=Math.round(fph*dur);
+      /* Sodium: 300-500mg/h normal, 500-700 hot */
+      let sph=400;if(temp==='hot')sph=600;else if(temp==='cool')sph=300;if(int==='high')sph+=100;sph=Math.min(700,sph);const ts=Math.round(sph*dur);
+      /* Caffeine: 3mg/kg (ISSN recommendation), only for 2h+ */
+      const caf=Math.round(w*3),showCaf=dur>=2;
 
-      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> г/ч</span></div><div class="nut-card-label">Углеводы</div><div class="nut-card-sub">Всего: ${tc} г</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> мл/ч</span></div><div class="nut-card-label">Жидкость</div><div class="nut-card-sub">Всего: ${(tf/1000).toFixed(1)} л</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> мг/ч</span></div><div class="nut-card-label">Натрий</div><div class="nut-card-sub">Всего: ${(ts/1000).toFixed(1)} г</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> мг</span></div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">~${Math.round(caf/100)} геля с кофеином</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">—</div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">Не нужен (&lt;1.5ч)</div></div>`}`;
+      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> г/ч</span></div><div class="nut-card-label">Углеводы</div><div class="nut-card-sub">${dur<1?'Достаточно воды':'Всего: '+tc+' г'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> мл/ч</span></div><div class="nut-card-label">Жидкость</div><div class="nut-card-sub">Всего: ${(tf/1000).toFixed(1)} л</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> мг/ч</span></div><div class="nut-card-label">Натрий</div><div class="nut-card-sub">Всего: ${(ts/1000).toFixed(1)} г</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> мг</span></div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">За 30-60 мин до финиша</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">—</div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">Не обязателен (&lt;2ч)</div></div>`}`;
 
-      const gels=Math.ceil(tc/25),iso=(tf/1000).toFixed(1),bars=dur>3?Math.floor(dur/1.5):0,ban=dur>2?Math.ceil((dur-2)*0.5):0,salt=Math.ceil(ts/250);
+      const gels=Math.max(0,Math.ceil(tc/25)),iso=(tf/1000).toFixed(1),bars=dur>4?Math.floor((dur-2)/1.5):0,ban=dur>3?Math.ceil((dur-3)*0.4):0,salt=Math.ceil(ts/250);
       let pr='<div class="nut-prod-title">РЕКОМЕНДАЦИИ ПО ПРОДУКТАМ</div>';
-      pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Энергетический гель (~25г)</span><span class="nut-prod-qty">${gels} шт</span></div>`;
+      if(dur<1){pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Вода</span><span class="nut-prod-qty">${(tf/1000).toFixed(1)} л</span></div>`;pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-info"></i> Питание не требуется</span><span class="nut-prod-qty">—</span></div>`}
+      else{pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Энергетический гель (~25г)</span><span class="nut-prod-qty">${gels} шт</span></div>`;
       pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-flask"></i> Изотоник (30-60г/л)</span><span class="nut-prod-qty">${iso} л</span></div>`;
       if(bars>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-cookie"></i> Энергетический батончик</span><span class="nut-prod-qty">${bars} шт</span></div>`;
       if(ban>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-leaf"></i> Банан (~30г углеводов)</span><span class="nut-prod-qty">${ban} шт</span></div>`;
       pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-pill"></i> Солевые таблетки (~250мг)</span><span class="nut-prod-qty">${salt} шт</span></div>`;
-      if(showCaf)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-coffee"></i> Кофеиновый гель</span><span class="nut-prod-qty">1-2 шт</span></div>`;
+      if(showCaf)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-coffee"></i> Кофеиновый гель</span><span class="nut-prod-qty">1 шт</span></div>`}
       document.getElementById('nutProducts').innerHTML=pr;
 
       if(dur>=1.5){const tm=Math.round(dur*60);let tl='<div class="nut-tl-title">ТАЙМЛАЙН ПИТАНИЯ</div>';
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">-30 мин</span><span class="nut-tl-desc">Лёгкий перекус: банан или гель + 200мл воды</span></div>`;
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Старт</span><span class="nut-tl-desc">Начать пить по 150-200мл каждые 15-20 мин</span></div>`;
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">20-30 мин</span><span class="nut-tl-desc">Первый гель или порция изотоника</span></div>`;
-        if(dur>=2.5)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 25 мин</span><span class="nut-tl-desc">Гель или 200мл изотоника + солевая таблетка каждый час</span></div>`;
-        else tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 30 мин</span><span class="nut-tl-desc">Гель или порция изотоника</span></div>`;
-        if(dur>3)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 60 мин</span><span class="nut-tl-desc">Твёрдая пища: батончик или банан</span></div>`;
-        if(showCaf){const ct=Math.round(tm*0.65);tl+=`<div class="nut-tl-item"><span class="nut-tl-time">~${ct} мин</span><span class="nut-tl-desc">Кофеиновый гель (${caf} мг) для финишного рывка</span></div>`}
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Финиш</span><span class="nut-tl-desc">В течение 30 мин: 20-30г белка + 60-80г углеводов</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">-60 мин</span><span class="nut-tl-desc">Лёгкий завтрак/перекус: овсянка, банан, тост с мёдом</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Старт</span><span class="nut-tl-desc">Пить по 150-200мл каждые 15-20 мин (не ждать жажды)</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">30-45 мин</span><span class="nut-tl-desc">Первый гель или порция изотоника</span></div>`;
+        if(dur>=3)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 40-45 мин</span><span class="nut-tl-desc">Гель или 200мл изотоника + солевая таблетка каждый час</span></div>`;
+        else tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 40-45 мин</span><span class="nut-tl-desc">Гель или порция изотоника</span></div>`;
+        if(dur>4)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 90 мин</span><span class="nut-tl-desc">Твёрдая пища: батончик или банан (чередовать с гелями)</span></div>`;
+        if(showCaf){const ct=Math.max(tm-45,Math.round(tm*0.75));tl+=`<div class="nut-tl-item"><span class="nut-tl-time">~${ct} мин</span><span class="nut-tl-desc">Кофеиновый гель (${caf} мг) за 30-45 мин до финиша</span></div>`}
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Финиш</span><span class="nut-tl-desc">В течение 30 мин: 20-30г белка + 50-80г углеводов</span></div>`;
         document.getElementById('nutTimeline').innerHTML=tl}else{document.getElementById('nutTimeline').innerHTML=''}}
 
     document.addEventListener('input',e=>{if(e.target.matches('.calc-input,.calc-select')){if(document.getElementById('calc-tri').classList.contains('active'))calculateTriTime();if(document.getElementById('calc-run').classList.contains('active'))calculateRun();if(document.getElementById('calc-nutrition').classList.contains('active'))calculateNutrition()}});

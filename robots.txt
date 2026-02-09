@@ -2,5 +2,14 @@ User-agent: *
 Allow: /
 Allow: /en/
 Allow: /runners-nutrition-essentials
+Allow: /assets/
+Disallow: /assets/hero/
+Disallow: /assets/rne/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
 
 Sitemap: https://innatri.com/sitemap.xml

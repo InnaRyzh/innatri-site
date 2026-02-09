@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Triathlon & Running Calculator Online | InnaTri</title>
-  <meta name="description" id="meta-description" content="Online triathlon and running calculator: estimate finish time, pace, speed and nutrition plan. Race result predictions and hydration recommendations.">
-  <meta name="keywords" content="running coach, triathlon calculator, running calculator, pace calculator, triathlon finish time prediction, Ironman calculator, triathlon nutrition plan">
+  <title>Running Pace Calculator & Triathlon Time Calculator — Free | InnaTri</title>
+  <meta name="description" id="meta-description" content="Free running pace calculator, triathlon finish time estimator & race nutrition planner. Calculate marathon and half marathon pace, predict 5K-10K-21K-42K times, plan gels and hydration. Ironman 70.3 and full Ironman calculator included.">
+  <meta name="keywords" content="running pace calculator, pace calculator, marathon pace calculator, half marathon pace calculator, running calculator, race time predictor, triathlon calculator, ironman calculator, ironman 70.3 pace calculator, race nutrition calculator, triathlon nutrition calculator, marathon time predictor, 5k pace calculator, running speed calculator, VDOT calculator, triathlon finish time calculator, marathon calorie calculator, running fueling calculator">
   <meta name="author" content="Inna Ryzhykh">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-  <meta property="og:title" id="meta-og-title" content="Triathlon & Running Calculator Online | InnaTri">
-  <meta property="og:description" id="meta-og-description" content="Online triathlon and running calculator: estimate finish time, pace and nutrition plan.">
+  <meta property="og:title" id="meta-og-title" content="Running Pace Calculator & Triathlon Calculator — Free | InnaTri">
+  <meta property="og:description" id="meta-og-description" content="Calculate running pace, marathon time, race nutrition plan. Predict 5K-42K times, Ironman calculator. Free online tool.">
   <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.png">
   <meta property="og:url" id="meta-og-url" content="https://innatri.com/en/calculator.html">
   <meta property="og:type" content="website">
@@ -19,13 +19,16 @@
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="meta-twitter-title" content="Triathlon & Running Calculator Online | InnaTri">
-  <meta name="twitter:description" id="meta-twitter-description" content="Online triathlon and running calculator: estimate finish time, pace and nutrition plan.">
+  <meta name="twitter:title" id="meta-twitter-title" content="Running Pace Calculator & Triathlon Calculator — Free | InnaTri">
+  <meta name="twitter:description" id="meta-twitter-description" content="Calculate running pace, marathon time, race nutrition plan. Predict 5K-42K times, Ironman calculator. Free online tool.">
   <meta name="twitter:image" id="meta-twitter-image" content="https://innatri.com/assets/hero/og-image.png">
 
   <link rel="canonical" href="https://innatri.com/en/calculator.html">
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
-  <link rel="icon" href="../assets/favicon.png?v=3" type="image/png" sizes="96x96">
+  <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF3B30">
   <link rel="alternate" hreflang="ru" href="https://innatri.com/calculator.html">
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/calculator.html">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/calculator.html">
@@ -294,39 +297,43 @@
       document.getElementById('runPredictions').innerHTML=ph}
     function clearRun(){document.getElementById('runMainResult').textContent='--';document.getElementById('runSubResult').textContent='';document.getElementById('runDetails').innerHTML='';document.getElementById('runPredictions').innerHTML=''}
 
-    /* NUTRITION */
+    /* NUTRITION — based on ACSM/ISSN guidelines for recreational athletes */
     function calculateNutrition(){
       const w=parseFloat(document.getElementById('nutWeight').value)||70,h=parseFloat(document.getElementById('nutH').value)||0,m=parseFloat(document.getElementById('nutM').value)||0,dur=h+m/60,int=document.getElementById('nutIntense').value,temp=document.getElementById('nutTemp').value;
       if(dur<=0)return;
-      let cph;if(dur<1)cph=20;else if(dur<1.5)cph=30;else if(dur<2.5)cph=45;else if(dur<4)cph=70;else cph=90;
-      if(int==='high')cph+=15;else if(int==='low')cph-=10;
-      if(w>85)cph+=10;else if(w<55)cph-=5;
-      cph=Math.max(10,Math.min(120,cph));const tc=Math.round(cph*dur);
-      let fph=500;if(w>80)fph+=100;else if(w<60)fph-=50;if(temp==='hot')fph+=250;else if(temp==='cool')fph-=100;if(int==='high')fph+=150;else if(int==='low')fph-=100;fph=Math.max(300,Math.min(1000,fph));const tf=Math.round(fph*dur);
-      let sph=400;if(temp==='hot')sph=700;else if(temp==='cool')sph=300;if(int==='high')sph+=150;if(dur>4)sph+=100;const ts=Math.round(sph*dur);
-      const caf=Math.round(w*4),showCaf=dur>=1.5;
+      /* Carbs: gut absorption is the limiter, NOT body weight. Realistic amateur ranges */
+      let cph;if(dur<1)cph=0;else if(dur<2)cph=30;else if(dur<3)cph=40;else if(dur<5)cph=50;else cph=60;
+      if(int==='high')cph+=10;else if(int==='low')cph-=5;
+      cph=Math.max(0,Math.min(90,cph));const tc=Math.round(cph*Math.max(0,dur-0.5));
+      /* Fluid: 400-800ml/h base, adjust for heat and weight */
+      let fph=500;if(w>80)fph+=50;else if(w<55)fph-=50;if(temp==='hot')fph+=200;else if(temp==='cool')fph-=100;if(int==='high')fph+=100;fph=Math.max(300,Math.min(800,fph));const tf=Math.round(fph*dur);
+      /* Sodium: 300-500mg/h normal, 500-700 hot */
+      let sph=400;if(temp==='hot')sph=600;else if(temp==='cool')sph=300;if(int==='high')sph+=100;sph=Math.min(700,sph);const ts=Math.round(sph*dur);
+      /* Caffeine: 3mg/kg (ISSN recommendation), only for 2h+ */
+      const caf=Math.round(w*3),showCaf=dur>=2;
 
-      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> g/hr</span></div><div class="nut-card-label">Carbs</div><div class="nut-card-sub">Total: ${tc} g</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> ml/hr</span></div><div class="nut-card-label">Fluid</div><div class="nut-card-sub">Total: ${(tf/1000).toFixed(1)} L</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> mg/hr</span></div><div class="nut-card-label">Sodium</div><div class="nut-card-sub">Total: ${(ts/1000).toFixed(1)} g</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> mg</span></div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">~${Math.round(caf/100)} caffeinated gels</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">—</div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">Not needed (&lt;1.5h)</div></div>`}`;
+      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> g/hr</span></div><div class="nut-card-label">Carbs</div><div class="nut-card-sub">${dur<1?'Water is enough':'Total: '+tc+' g'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> ml/hr</span></div><div class="nut-card-label">Fluid</div><div class="nut-card-sub">Total: ${(tf/1000).toFixed(1)} L</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> mg/hr</span></div><div class="nut-card-label">Sodium</div><div class="nut-card-sub">Total: ${(ts/1000).toFixed(1)} g</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> mg</span></div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">30-60 min before finish</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">—</div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">Not needed (&lt;2h)</div></div>`}`;
 
-      const gels=Math.ceil(tc/25),iso=(tf/1000).toFixed(1),bars=dur>3?Math.floor(dur/1.5):0,ban=dur>2?Math.ceil((dur-2)*0.5):0,salt=Math.ceil(ts/250);
+      const gels=Math.max(0,Math.ceil(tc/25)),iso=(tf/1000).toFixed(1),bars=dur>4?Math.floor((dur-2)/1.5):0,ban=dur>3?Math.ceil((dur-3)*0.4):0,salt=Math.ceil(ts/250);
       let pr='<div class="nut-prod-title">PRODUCT RECOMMENDATIONS</div>';
-      pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Energy gel (~25g carbs)</span><span class="nut-prod-qty">${gels} pcs</span></div>`;
+      if(dur<1){pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Water</span><span class="nut-prod-qty">${(tf/1000).toFixed(1)} L</span></div>`;pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-info"></i> No fueling needed</span><span class="nut-prod-qty">—</span></div>`}
+      else{pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Energy gel (~25g carbs)</span><span class="nut-prod-qty">${gels} pcs</span></div>`;
       pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-flask"></i> Sports drink (30-60g/L)</span><span class="nut-prod-qty">${iso} L</span></div>`;
       if(bars>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-cookie"></i> Energy bar</span><span class="nut-prod-qty">${bars} pcs</span></div>`;
       if(ban>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-leaf"></i> Banana (~30g carbs)</span><span class="nut-prod-qty">${ban} pcs</span></div>`;
       pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-pill"></i> Salt tablets (~250mg)</span><span class="nut-prod-qty">${salt} pcs</span></div>`;
-      if(showCaf)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-coffee"></i> Caffeinated gel</span><span class="nut-prod-qty">1-2 pcs</span></div>`;
+      if(showCaf)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-coffee"></i> Caffeinated gel</span><span class="nut-prod-qty">1 pc</span></div>`}
       document.getElementById('nutProducts').innerHTML=pr;
 
       if(dur>=1.5){const tm=Math.round(dur*60);let tl='<div class="nut-tl-title">NUTRITION TIMELINE</div>';
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">-30 min</span><span class="nut-tl-desc">Light snack: banana or gel + 200ml water</span></div>`;
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Start</span><span class="nut-tl-desc">Begin drinking 150-200ml every 15-20 min</span></div>`;
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">20-30 min</span><span class="nut-tl-desc">First gel or serving of sports drink</span></div>`;
-        if(dur>=2.5)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Every 25 min</span><span class="nut-tl-desc">Gel or 200ml sports drink + salt tablet every hour</span></div>`;
-        else tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Every 30 min</span><span class="nut-tl-desc">Gel or serving of sports drink</span></div>`;
-        if(dur>3)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Every 60 min</span><span class="nut-tl-desc">Solid food: energy bar or banana</span></div>`;
-        if(showCaf){const ct=Math.round(tm*0.65);tl+=`<div class="nut-tl-item"><span class="nut-tl-time">~${ct} min</span><span class="nut-tl-desc">Caffeinated gel (${caf} mg) for the final push</span></div>`}
-        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Finish</span><span class="nut-tl-desc">Within 30 min: 20-30g protein + 60-80g carbs</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">-60 min</span><span class="nut-tl-desc">Light meal: oatmeal, banana, toast with honey</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Start</span><span class="nut-tl-desc">Drink 150-200ml every 15-20 min (don't wait for thirst)</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">30-45 min</span><span class="nut-tl-desc">First gel or serving of sports drink</span></div>`;
+        if(dur>=3)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Every 40-45 min</span><span class="nut-tl-desc">Gel or 200ml sports drink + salt tablet every hour</span></div>`;
+        else tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Every 40-45 min</span><span class="nut-tl-desc">Gel or serving of sports drink</span></div>`;
+        if(dur>4)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Every 90 min</span><span class="nut-tl-desc">Solid food: energy bar or banana (alternate with gels)</span></div>`;
+        if(showCaf){const ct=Math.max(tm-45,Math.round(tm*0.75));tl+=`<div class="nut-tl-item"><span class="nut-tl-time">~${ct} min</span><span class="nut-tl-desc">Caffeinated gel (${caf} mg) 30-45 min before finish</span></div>`}
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Finish</span><span class="nut-tl-desc">Within 30 min: 20-30g protein + 50-80g carbs</span></div>`;
         document.getElementById('nutTimeline').innerHTML=tl}else{document.getElementById('nutTimeline').innerHTML=''}}
 
     document.addEventListener('input',e=>{if(e.target.matches('.calc-input,.calc-select')){if(document.getElementById('calc-tri').classList.contains('active'))calculateTriTime();if(document.getElementById('calc-run').classList.contains('active'))calculateRun();if(document.getElementById('calc-nutrition').classList.contains('active'))calculateNutrition()}});
