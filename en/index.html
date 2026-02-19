@@ -89,8 +89,8 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Online Triathlon & Running Calculator",
-      "url": "https://innatri.com/en/#calculator",
+      "name": "Running Pace Calculator: VDOT, Splits & Race Nutrition",
+      "url": "https://innatri.com/en/calculator.html",
       "applicationCategory": "SportsApplication",
       "operatingSystem": "All",
       "description": "Triathlon time calculator, running pace and nutrition plan. Helps estimate race results and pace per distance."
@@ -329,7 +329,7 @@
     .stats-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
 
     /* Common Card Style */
-    .bento-card, .price-card, .review-card, .stat-card, .calc-container, .step-card, .faq-item, .blog-card, .featured-article {
+    .bento-card, .price-card, .review-card, .stat-card, .step-card, .faq-item, .blog-card, .featured-article {
       background: var(--bg-card);
       border-radius: var(--radius-card);
       border: 1px solid var(--border-color);
@@ -440,37 +440,94 @@
     .faq-summary:hover { color: var(--primary); }
     .faq-content { padding: 0 24px 24px 24px; color: var(--text-gray); font-size: 15px; line-height: 1.6; }
 
-    /* Calculator Styles */
-    .calc-container { padding: 48px; }
-    .calc-wrapper { display: block; }
-    .calc-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .calc-tabs { display: flex; gap: 24px; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; }
-    .calc-tab { background: transparent; color: var(--text-gray); font-family: 'Unbounded'; font-size: 14px; cursor: pointer; padding: 5px 0; transition: 0.3s; position: relative; }
-    .calc-tab.active { color: var(--primary); }
-    .calc-tab.active::after { content: ''; position: absolute; bottom: -17px; left: 0; width: 100%; height: 2px; background: var(--primary); }
-
-    .calc-mode { display: none; }
-    .calc-mode.active { display: block; animation: fadeIn 0.4s ease; }
+    /* Calculator Promo Styles */
+    .calc-promo {
+      text-align: center;
+      padding: 64px 48px;
+      background: linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(255,59,48,0.02) 50%, rgba(0,0,0,0.3) 100%);
+      border: 1px solid rgba(255,59,48,0.15);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .calc-promo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,59,48,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .calc-promo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,59,48,0.1);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,59,48,0.3);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+    .calc-promo-title {
+      font-size: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .calc-promo-desc {
+      color: var(--text-gray);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .calc-promo-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .calc-promo-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-color);
+      color: rgba(255,255,255,0.7);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono';
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+    .calc-promo-chip i { color: var(--primary); font-size: 14px; }
+    .calc-promo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-family: 'Unbounded';
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+    .calc-promo-btn:hover {
+      background: #e0342b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,59,48,0.3);
+    }
+    .calc-promo-btn i { font-size: 16px; transition: transform 0.3s; }
+    .calc-promo-btn:hover i { transform: translateX(4px); }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    .calc-input-group { margin-bottom: 24px; }
-    .calc-label { display: block; font-family: 'JetBrains Mono'; font-size: 11px; color: var(--text-gray); margin-bottom: 8px; letter-spacing: 0.05em; }
-    .calc-select, .calc-input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); color: white; padding: 16px; border-radius: 12px; font-family: 'Manrope'; font-size: 16px; outline: none; transition: 0.3s; }
-    .calc-select:focus, .calc-input:focus { border-color: var(--primary); background: rgba(255,59,48,0.02); }
-    .calc-inputs div { display: flex; gap: 16px; }
-
-    .calc-result-box { background: rgba(0,0,0,0.2); border-radius: 16px; padding: 28px; border: 1px solid var(--border-color); }
-    .calc-res-title { font-family: 'Unbounded'; font-size: 14px; color: var(--text-gray); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
-    .calc-main-res { font-family: 'Unbounded'; font-size: 40px; color: var(--primary); line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .calc-sub-res { font-size: 14px; color: var(--text-gray); margin-bottom: 24px; }
-    .calc-details { border-top: 1px solid var(--border-color); padding-top: 24px; display: grid; gap: 16px; }
-    .calc-detail-row { display: flex; justify-content: space-between; font-size: 14px; }
-    .calc-display-num { font-size: 1.2em; font-weight: 600; color: #fff; margin-right: 2px; }
-    .calc-display-unit { font-size: 0.7em; color: var(--text-gray); margin-right: 6px; text-transform: lowercase; }
-
-    .tri-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    .tri-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .calc-time-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 
     /* REVIEWS CAROUSEL */
     .reviews-container { position: relative; margin-top: 40px; }
@@ -586,15 +643,13 @@
       .nav-desk { display: none; }
       .burger { display: block; }
       .hero-title { font-size: 48px; }
-      .about-grid, .calc-wrapper, .pricing-grid, .steps-grid, .articles-grid, .featured-article { grid-template-columns: 1fr; gap: 32px; }
+      .about-grid, .pricing-grid, .steps-grid, .articles-grid, .featured-article { grid-template-columns: 1fr; gap: 32px; }
       .about-img-wrap { height: 400px; order: -1; }
       .bento-grid { grid-template-columns: 1fr; }
       .stats-wrapper { grid-template-columns: 1fr 1fr; gap: 16px; }
       .btn { width: 100%; }
-      .calc-inputs div { flex-direction: column; }
-      .tri-row { grid-template-columns: 1fr; gap: 10px; }
-      .tri-row-2, .calc-time-inputs { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .calc-two-col { grid-template-columns: 1fr; gap: 24px; }
+      .calc-promo { padding: 48px 32px; }
+      .calc-promo-title { font-size: 32px; }
       .featured-img-wrap { height: 250px; }
       .featured-content { padding: 0; order: 2; }
       .featured-article { gap: 24px; margin-bottom: 60px; }
@@ -650,13 +705,11 @@
       .blog-excerpt { font-size: 16px; line-height: 1.75; }
       .blog-title { font-size: 20px; }
       .featured-content { padding: 0; }
-      .price-card, .review-card, .calc-container, .step-card, .faq-item { padding: 28px; }
-      .calc-container { padding: 24px; }
-      .calc-two-col { gap: 20px; }
-      .calc-result-box { padding: 20px; }
-      .calc-res-title { font-size: 12px; }
-      .calc-main-res { font-size: 32px; }
-      .calc-details { gap: 12px; }
+      .price-card, .review-card, .step-card, .faq-item { padding: 28px; }
+      .calc-promo { padding: 36px 20px; }
+      .calc-promo-title { font-size: 26px; }
+      .calc-promo-desc { font-size: 14px; }
+      .calc-promo-btn { padding: 14px 28px; font-size: 12px; }
     }
 
     .hidden-view { display: none; }
@@ -910,111 +963,22 @@
       </div>
     </section>
 
-    <!-- CALCULATOR -->
-    <section id="calculator" class="section" aria-label="Triathlon and running calculator">
+    <!-- CALCULATOR PROMO -->
+    <section id="calculator" class="section" aria-label="Running pace and nutrition calculator">
       <div class="container">
-        <h2 class="title-font" style="text-align: center; margin-bottom: 16px;">TRIATHLON & RUNNING CALCULATOR</h2>
-        <p style="text-align: center; max-width: 760px; margin: 0 auto 36px; color: #C9CFD8;">
-          Online calculator for triathlon time, running pace, and nutrition planning.
-          Enter your data and get a result projection, pace per distance, and nutrition recommendations.
-        </p>
-        <div class="calc-container">
-          <div class="calc-tabs">
-            <button class="calc-tab active" onclick="switchCalcMode('tri')">TRIATHLON</button>
-            <button class="calc-tab" onclick="switchCalcMode('run')">RUNNING</button>
-            <button class="calc-tab" onclick="switchCalcMode('nutrition')">NUTRITION</button>
+        <div class="calc-promo">
+          <div class="calc-promo-badge tech-font"><i class="ph ph-calculator"></i> FREE TOOL</div>
+          <h2 class="title-font calc-promo-title">PACE & NUTRITION<br>CALCULATOR</h2>
+          <p class="calc-promo-desc">Predict your race time for any distance, find your VDOT, get training zones, split tables and a race nutrition plan.</p>
+          <div class="calc-promo-features">
+            <div class="calc-promo-chip"><i class="ph ph-lightning"></i> VDOT</div>
+            <div class="calc-promo-chip"><i class="ph ph-heartbeat"></i> Zones</div>
+            <div class="calc-promo-chip"><i class="ph ph-table"></i> Splits</div>
+            <div class="calc-promo-chip"><i class="ph ph-chart-line-up"></i> 8 predictions</div>
+            <div class="calc-promo-chip"><i class="ph ph-bowl-food"></i> Nutrition</div>
+            <div class="calc-promo-chip"><i class="ph ph-person-simple-run"></i> Triathlon</div>
           </div>
-          <div class="calc-wrapper">
-            <div id="calc-tri" class="calc-mode active">
-              <select id="triDist" class="calc-select">
-                <option value="sprint">Sprint (0.75 / 20 / 5)</option>
-                <option value="olympic">Olympic (1.5 / 40 / 10)</option>
-                <option value="half">Ironman 70.3 (1.9 / 90 / 21.1)</option>
-                <option value="full">Ironman 140.6 (3.8 / 180 / 42.2)</option>
-              </select>
-              <div class="calc-two-col">
-                <div class="tri-inputs">
-                  <div class="calc-input-group">
-                    <label class="calc-label">Swimming (pace min/100m)</label>
-                    <div class="tri-row-2">
-                      <input type="number" id="triSwimM" class="calc-input" placeholder="Min" value="2" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                      <input type="number" id="triSwimS" class="calc-input" placeholder="Sec" value="00" min="0" max="59" step="1" inputmode="numeric" pattern="[0-9]*">
-                    </div>
-                  </div>
-                  <div class="calc-input-group">
-                    <label class="calc-label">Cycling (speed km/h)</label>
-                    <input type="number" id="triBikeSpeed" class="calc-input" placeholder="km/h" value="30" min="0" step="0.1" inputmode="decimal">
-                  </div>
-                  <div class="calc-input-group">
-                    <label class="calc-label">Running (pace min/km)</label>
-                    <div class="tri-row-2">
-                      <input type="number" id="triRunM" class="calc-input" placeholder="Min" value="5" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                      <input type="number" id="triRunS" class="calc-input" placeholder="Sec" value="30" min="0" max="59" step="1" inputmode="numeric" pattern="[0-9]*">
-                    </div>
-                  </div>
-                  <div class="calc-input-group">
-                    <label class="calc-label">Transitions (T1 + T2, min)</label>
-                    <input type="number" id="triT1T2" class="calc-input" placeholder="Total time" value="5" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                  </div>
-                </div>
-                <div class="calc-result-box">
-                  <div class="calc-res-title">TOTAL TIME WITH TRANSITIONS</div>
-                  <div class="calc-main-res" id="triTotalResult">--</div>
-                  <div class="calc-sub-res" id="triSubResult"></div>
-                  <div class="calc-details" id="triDetails"></div>
-                </div>
-              </div>
-            </div>
-
-            <div id="calc-run" class="calc-mode">
-               <div class="calc-input-group">
-                <label class="calc-label">Distance</label>
-                <select id="runDistInput" class="calc-select">
-                  <option value="5">5 km</option>
-                  <option value="10">10 km</option>
-                  <option value="21.1">Half Marathon</option>
-                  <option value="42.2">Marathon</option>
-                </select>
-              </div>
-              <div class="calc-input-group">
-                <label class="calc-label">Your time</label>
-                <div class="calc-time-inputs">
-                  <input type="number" id="runH" class="calc-input" placeholder="H" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                  <input type="number" id="runM" class="calc-input" placeholder="Min" value="50" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                  <input type="number" id="runS" class="calc-input" placeholder="Sec" value="00" min="0" max="59" step="1" inputmode="numeric" pattern="[0-9]*">
-                </div>
-              </div>
-              <div class="calc-result-box">
-                <div class="calc-res-title">YOUR PACE</div>
-                <div class="calc-main-res" id="runPaceResult">--</div>
-                <div class="calc-details" id="runPredictions"></div>
-              </div>
-            </div>
-
-            <div id="calc-nutrition" class="calc-mode">
-               <div class="calc-input-group">
-                <label class="calc-label">Race duration</label>
-                <div class="calc-time-inputs" style="grid-template-columns: 1fr 1fr;">
-                  <input type="number" id="nutH" class="calc-input" placeholder="Hours" value="4" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                  <input type="number" id="nutM" class="calc-input" placeholder="Min" value="0" min="0" step="1" inputmode="numeric" pattern="[0-9]*">
-                </div>
-              </div>
-              <div class="calc-input-group">
-                <label class="calc-label">Intensity</label>
-                <select id="nutIntense" class="calc-select">
-                  <option value="low">Easy (Z1-Z2)</option>
-                  <option value="med" selected>Race pace (Z3)</option>
-                  <option value="high">High (Z4-Z5)</option>
-                </select>
-              </div>
-               <div class="calc-result-box">
-                <div class="calc-res-title">NUTRITION & HYDRATION PLAN</div>
-                <div class="calc-main-res" id="nutCarbs">--</div>
-                <div class="calc-sub-res">CARBS PER HOUR</div>
-                <div class="calc-details" id="nutDetails"></div>
-              </div>
-            </div>
-          </div>
+          <a href="calculator.html" class="calc-promo-btn">OPEN CALCULATOR <i class="ph ph-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -1193,147 +1157,6 @@
         }
       }, 100);
     }
-
-    function switchCalcMode(mode, e) {
-      document.querySelectorAll('.calc-mode').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.calc-tab').forEach(el => el.classList.remove('active'));
-      document.getElementById('calc-' + mode).classList.add('active');
-      if (e && e.target) { e.target.classList.add('active'); }
-    }
-
-    function formatHMS(totalSeconds) {
-      if (!isFinite(totalSeconds)) return '--';
-      const secs = Math.max(0, Math.round(totalSeconds));
-      const h = Math.floor(secs / 3600);
-      const m = Math.floor((secs % 3600) / 60);
-      const s = secs % 60;
-      if (h > 0) return `<span class="calc-display-num">${h}</span><span class="calc-display-unit">h</span> <span class="calc-display-num">${m}</span><span class="calc-display-unit">min</span>`;
-      if (m > 0 && s > 0) return `<span class="calc-display-num">${m}</span><span class="calc-display-unit">min</span> <span class="calc-display-num">${s}</span><span class="calc-display-unit">sec</span>`;
-      if (m > 0) return `<span class="calc-display-num">${m}</span><span class="calc-display-unit">min</span>`;
-      return `<span class="calc-display-num">${s}</span><span class="calc-display-unit">sec</span>`;
-    }
-
-    function formatPace(secondsPerKm) {
-      if (!isFinite(secondsPerKm) || secondsPerKm <= 0) return '--';
-      const mins = Math.floor(secondsPerKm / 60);
-      const secs = Math.round(secondsPerKm % 60);
-      return `${mins}:${String(secs).padStart(2, '0')}`;
-    }
-
-    // --- CALCULATOR LOGIC ---
-    function calculateTriTime() {
-      const distMap = {
-        sprint: { swim: 0.75, bike: 20, run: 5 },
-        olympic: { swim: 1.5, bike: 40, run: 10 },
-        half: { swim: 1.9, bike: 90, run: 21.1 },
-        full: { swim: 3.8, bike: 180, run: 42.2 }
-      };
-      const distKey = document.getElementById('triDist').value;
-      const dists = distMap[distKey];
-
-      const swimM = parseFloat(document.getElementById('triSwimM').value) || 0;
-      const swimS = parseFloat(document.getElementById('triSwimS').value) || 0;
-      const swimPaceSec = swimM * 60 + swimS;
-      const swimTimeSec = swimPaceSec * (dists.swim * 10); // pace per 100m -> dist in km * 10
-
-      const bikeSpeed = parseFloat(document.getElementById('triBikeSpeed').value) || 30;
-      const bikeTimeSec = bikeSpeed > 0 ? (dists.bike / bikeSpeed) * 3600 : 0;
-
-      const runM = parseFloat(document.getElementById('triRunM').value) || 0;
-      const runS = parseFloat(document.getElementById('triRunS').value) || 0;
-      const runPaceSec = runM * 60 + runS;
-      const runTimeSec = runPaceSec * dists.run;
-
-      const t1t2Min = parseFloat(document.getElementById('triT1T2').value) || 0;
-      const t1t2Sec = t1t2Min * 60;
-
-      const totalSec = swimTimeSec + bikeTimeSec + runTimeSec + t1t2Sec;
-
-      document.getElementById('triTotalResult').innerHTML = formatHMS(totalSec);
-
-      document.getElementById('triDetails').innerHTML = `
-        <div class="calc-detail-row"><span>Swim (${dists.swim} km)</span> <span>${formatHMS(swimTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Bike (${dists.bike} km)</span> <span>${formatHMS(bikeTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Run (${dists.run} km)</span> <span>${formatHMS(runTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Transition</span> <span>${formatHMS(t1t2Sec)}</span></div>
-      `;
-    }
-
-    function calculateRunTime() {
-      const dist = parseFloat(document.getElementById('runDistInput').value) || 10;
-      const h = parseFloat(document.getElementById('runH').value) || 0;
-      const m = parseFloat(document.getElementById('runM').value) || 0;
-      const s = parseFloat(document.getElementById('runS').value) || 0;
-
-      const totalSeconds = h * 3600 + m * 60 + s;
-      if (totalSeconds <= 0) return;
-
-      const paceSec = totalSeconds / dist;
-      document.getElementById('runPaceResult').textContent = formatPace(paceSec) + ' /km';
-
-      const predictions = [
-        { d: 5, label: '5 km' },
-        { d: 10, label: '10 km' },
-        { d: 21.1, label: 'Half Marathon' },
-        { d: 42.2, label: 'Marathon' }
-      ];
-
-      let html = '';
-      predictions.forEach(p => {
-        // Riegel formula: T2 = T1 * (D2 / D1)^1.06
-        const predSec = totalSeconds * Math.pow((p.d / dist), 1.06);
-        html += `<div class="calc-detail-row"><span>${p.label}</span> <span>${formatHMS(predSec)}</span></div>`;
-      });
-      document.getElementById('runPredictions').innerHTML = html;
-    }
-
-    function calculateNutrition() {
-      const h = parseFloat(document.getElementById('nutH').value) || 0;
-      const m = parseFloat(document.getElementById('nutM').value) || 0;
-      const durationHrs = h + m / 60;
-      const intensity = document.getElementById('nutIntense').value;
-
-      // Carbs logic
-      let carbsPerHour = 60;
-      if (durationHrs < 1.5) carbsPerHour = 30;
-      else if (durationHrs > 3) carbsPerHour = 90;
-
-      if (intensity === 'low') carbsPerHour -= 10;
-      if (intensity === 'high') carbsPerHour += 10;
-
-      // Updated logic for amateurs (realistic values)
-      // < 1h: 0-20g (usually water is enough)
-      // 1-2h: 30-60g
-      // 2h+: 60-80g (90g is pro level gut training)
-
-      if (durationHrs < 1.0) carbsPerHour = 10; // minimal
-      else if (durationHrs < 2.5) carbsPerHour = 45;
-      else carbsPerHour = 70; // 60-80g range target
-
-      if (intensity === 'high' && durationHrs > 1.5) carbsPerHour += 10;
-
-      const fluidPerHour = 0.5 + (intensity === 'high' ? 0.3 : 0);
-
-      document.getElementById('nutCarbs').textContent = carbsPerHour + 'g';
-
-      const totalCarbs = Math.round(carbsPerHour * durationHrs);
-      const totalFluid = (fluidPerHour * durationHrs).toFixed(1);
-
-      document.getElementById('nutDetails').innerHTML = `
-        <div class="calc-detail-row"><span>Total carbs</span> <span>${totalCarbs} g</span></div>
-        <div class="calc-detail-row"><span>Fluid (total)</span> <span>~${totalFluid} L</span></div>
-        <div class="calc-detail-row"><span>Salt/Electrolytes</span> <span>Required</span></div>
-      `;
-    }
-
-    // Events for calculator
-    document.querySelectorAll('.calc-input, .calc-select').forEach(el => {
-      el.addEventListener('input', () => {
-        if(document.getElementById('calc-tri').classList.contains('active')) calculateTriTime();
-        if(document.getElementById('calc-run').classList.contains('active')) calculateRunTime();
-        if(document.getElementById('calc-nutrition').classList.contains('active')) calculateNutrition();
-      });
-    });
 
     // Reviews Carousel Logic
     let currentReview = 0;
@@ -1559,8 +1382,6 @@
     // Initialize reviews carousel on page load
     window.addEventListener('DOMContentLoaded', function() {
       initReviewsCarousel();
-      // Load initial calc
-      calculateTriTime();
     });
 
     const toTopBtn = document.getElementById('toTopBtn');
@@ -1573,7 +1394,7 @@
     updateToTop();
 
     if (window.matchMedia("(hover: hover)").matches) {
-      document.querySelectorAll('.bento-card, .price-card, .stat-card, .review-card, .calc-container, .step-card, .faq-item, .featured-article').forEach(card => {
+      document.querySelectorAll('.bento-card, .price-card, .stat-card, .review-card, .calc-promo, .step-card, .faq-item, .featured-article').forEach(card => {
         card.addEventListener('mousemove', e => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
