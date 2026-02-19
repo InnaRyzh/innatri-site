@@ -498,6 +498,49 @@
     .article-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 40px 0; }
     .article-gallery img { width: 100%; border-radius: 12px; aspect-ratio: 4/5; object-fit: cover; }
 
+    /* Calculator Promo (inline article) */
+    .run-calc-promo {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 40px 0;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(0,0,0,0.3) 100%);
+      border: 1px solid rgba(255,59,48,0.15);
+      border-radius: 16px;
+    }
+    .run-calc-promo-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,59,48,0.1);
+      border: 1px solid rgba(255,59,48,0.25);
+      border-radius: 14px;
+      font-size: 22px;
+      color: var(--primary);
+    }
+    .run-calc-promo-body { flex: 1; min-width: 0; }
+    .run-calc-promo-title { font-size: 15px; margin-bottom: 6px; letter-spacing: 0.02em; }
+    .run-calc-promo-text { font-size: 14px; color: var(--text-gray); line-height: 1.5; margin: 0 0 10px; }
+    .run-calc-promo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Unbounded';
+      font-size: 12px;
+      color: var(--primary);
+      text-decoration: none;
+      transition: gap 0.3s;
+    }
+    .run-calc-promo-link:hover { gap: 10px; }
+    @media(max-width:640px) {
+      .run-calc-promo { flex-direction: column; text-align: center; padding: 20px; }
+      .run-calc-promo-body { text-align: center; }
+    }
+
     /* Run Page Styles */
     .run-hero-kicker { font-family: 'JetBrains Mono'; color: var(--primary); font-size: 14px; margin-bottom: 16px; display: block; letter-spacing: 1.5px; }
     .run-hero-title { font-size: 64px; line-height: 1.1; margin-bottom: 24px; font-weight: 800; }
@@ -702,6 +745,15 @@
               <li>После каждой тренировки от вас важна обратная связь для последующей корректировки плана.</li>
               <li>Наблюдаем прогресс вместе.</li>
             </ol>
+
+            <div class="run-calc-promo">
+              <div class="run-calc-promo-icon"><i class="ph ph-calculator"></i></div>
+              <div class="run-calc-promo-body">
+                <div class="run-calc-promo-title title-font">КАЛЬКУЛЯТОР ТЕМПА</div>
+                <p class="run-calc-promo-text">Узнайте свой VDOT, тренировочные зоны, прогноз на 8 дистанций, таблицу сплитов и план питания на гонку.</p>
+                <a href="calculator.html" class="run-calc-promo-link">Открыть калькулятор <i class="ph ph-arrow-right"></i></a>
+              </div>
+            </div>
 
             <p class="article-note">С таким подходом вы улучшите физическую форму и достигнете заветного результата намного быстрее, интереснее и безопаснее. Полюбите бег еще больше, закрепите полезные привычки в своей жизни и станете лучшим примером для своей семьи и окружения.</p>
           </div>
