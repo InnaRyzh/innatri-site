@@ -510,6 +510,49 @@
     .article-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 40px 0; }
     .article-gallery img { width: 100%; border-radius: 12px; aspect-ratio: 4/5; object-fit: cover; }
 
+    /* Calculator Promo (inline article) */
+    .run-calc-promo {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 40px 0;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(0,0,0,0.3) 100%);
+      border: 1px solid rgba(255,59,48,0.15);
+      border-radius: 16px;
+    }
+    .run-calc-promo-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,59,48,0.1);
+      border: 1px solid rgba(255,59,48,0.25);
+      border-radius: 14px;
+      font-size: 22px;
+      color: var(--primary);
+    }
+    .run-calc-promo-body { flex: 1; min-width: 0; }
+    .run-calc-promo-title { font-size: 15px; margin-bottom: 6px; letter-spacing: 0.02em; }
+    .run-calc-promo-text { font-size: 14px; color: var(--text-gray); line-height: 1.5; margin: 0 0 10px; }
+    .run-calc-promo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Unbounded';
+      font-size: 12px;
+      color: var(--primary);
+      text-decoration: none;
+      transition: gap 0.3s;
+    }
+    .run-calc-promo-link:hover { gap: 10px; }
+    @media(max-width:640px) {
+      .run-calc-promo { flex-direction: column; text-align: center; padding: 20px; }
+      .run-calc-promo-body { text-align: center; }
+    }
+
     /* Run Page Styles */
     .run-hero-kicker { font-family: 'JetBrains Mono'; color: var(--primary); font-size: 14px; margin-bottom: 16px; display: block; letter-spacing: 1.5px; }
     .run-hero-title { font-size: 64px; line-height: 1.1; margin-bottom: 24px; font-weight: 800; }
@@ -713,6 +756,15 @@
               <li>After each workout, your feedback is essential for subsequent plan adjustments.</li>
               <li>We track your progress together.</li>
             </ol>
+
+            <div class="run-calc-promo">
+              <div class="run-calc-promo-icon"><i class="ph ph-calculator"></i></div>
+              <div class="run-calc-promo-body">
+                <div class="run-calc-promo-title title-font">PACE CALCULATOR</div>
+                <p class="run-calc-promo-text">Find your VDOT, training zones, predictions for 8 distances, split table and race nutrition plan.</p>
+                <a href="calculator.html" class="run-calc-promo-link">Open calculator <i class="ph ph-arrow-right"></i></a>
+              </div>
+            </div>
 
             <p class="article-note">With this approach, you will improve your fitness and reach your desired result much faster, in a more engaging and safer way. You will fall in love with running even more, build healthy habits into your life, and become the best role model for your family and those around you.</p>
           </div>
