@@ -40,8 +40,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"InnaTri","url":"https://innatri.com","description":"Онлайн коучинг по триатлону и бегу.","inLanguage":"ru-RU","publisher":{"@type":"Person","name":"Инна Рыжих"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор триатлона и бега","url":"https://innatri.com/calculator.html","applicationCategory":"SportsApplication","operatingSystem":"All","description":"Калькулятор времени, темпа, скорости и плана питания с рекомендациями по продуктам."}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как работает калькулятор триатлона?","acceptedAnswer":{"@type":"Answer","text":"Выбираете дистанцию и вводите темп плавания, скорость велосипеда, темп бега и транзитки. Калькулятор показывает прогноз общего времени."}},{"@type":"Question","name":"Можно рассчитать темп бега?","acceptedAnswer":{"@type":"Answer","text":"Да, в разделе БЕГ можно ввести время, темп или скорость и получить прогнозы на все дистанции."}},{"@type":"Question","name":"Что показывает раздел ПИТАНИЕ?","acceptedAnswer":{"@type":"Answer","text":"Калькулятор рассчитывает углеводы, жидкость, электролиты и кофеин с учётом веса, интенсивности и температуры."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор триатлона и бега","url":"https://innatri.com/calculator.html","applicationCategory":"SportsApplication","operatingSystem":"All","description":"Калькулятор времени, темпа, скорости, VDOT, тренировочных зон и плана питания с рекомендациями по продуктам."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как работает калькулятор триатлона?","acceptedAnswer":{"@type":"Answer","text":"Выбираете дистанцию и вводите темп плавания, скорость велосипеда, темп бега и транзитки. Калькулятор показывает прогноз общего времени."}},{"@type":"Question","name":"Можно рассчитать темп бега?","acceptedAnswer":{"@type":"Answer","text":"Да, в разделе БЕГ можно ввести время, темп или скорость и получить VDOT, тренировочные зоны, прогнозы на 8 дистанций и таблицу сплитов."}},{"@type":"Question","name":"Что такое VDOT?","acceptedAnswer":{"@type":"Answer","text":"VDOT — показатель беговой формы по методике Джека Дэниелса. Рассчитывается по вашему результату на любой дистанции и помогает определить оптимальные тренировочные темпы."}},{"@type":"Question","name":"Что показывает раздел ПИТАНИЕ?","acceptedAnswer":{"@type":"Answer","text":"Калькулятор рассчитывает углеводы, жидкость, электролиты и кофеин с учётом веса, интенсивности и температуры."}}]}</script>
 
   <style>
     :root { --primary:#FF3B30; --primary-glow:rgba(255,59,48,0.5); --bg-main:#080808; --bg-card:rgba(255,255,255,0.03); --border-color:rgba(255,255,255,0.08); --text-white:#FFFFFF; --text-gray:#9CA3AF; --container-width:1240px; --radius-card:24px; --radius-pill:100px; }
@@ -102,8 +102,7 @@
     .calc-detail-row { display:flex; justify-content:space-between; font-size:13px; font-family:'Manrope'; }
     .calc-detail-row span:first-child { color:var(--text-gray); }
     .calc-detail-row span:last-child { color:white; font-weight:500; }
-    .dn { font-size:1.15em; font-weight:600; color:#fff; }
-    .du { font-size:0.75em; color:var(--text-gray); margin-left:1px; }
+    .res-unit { font-size:0.55em; color:var(--text-gray); font-weight:400; margin:0 1px 0 2px; letter-spacing:0; }
     .nut-result-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
     .nut-card { background:rgba(0,0,0,0.25); border-radius:14px; padding:18px; border:1px solid var(--border-color); }
     .nut-card-icon { font-size:20px; margin-bottom:8px; opacity:0.8; }
@@ -122,11 +121,28 @@
     .nut-tl-item { display:flex; gap:12px; padding:8px 0; font-size:13px; }
     .nut-tl-time { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--primary); min-width:70px; flex-shrink:0; }
     .nut-tl-desc { color:var(--text-gray); }
+    .vdot-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,59,48,0.08); border:1px solid rgba(255,59,48,0.25); border-radius:var(--radius-pill); padding:5px 14px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; margin-top:8px; }
+    .vdot-badge span { font-family:'Unbounded'; font-size:15px; color:var(--primary); font-weight:600; letter-spacing:-0.02em; }
+    .zone-row { display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13px; font-family:'Manrope'; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .zone-row:last-child { border-bottom:none; }
+    .zone-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .zone-name { color:var(--text-gray); min-width:100px; font-size:12px; }
+    .zone-pace { color:white; font-weight:500; font-size:12px; font-family:'JetBrains Mono',monospace; }
+    .split-controls { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+    .split-table { max-height:280px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.1) transparent; }
+    .split-table::-webkit-scrollbar { width:4px; }
+    .split-table::-webkit-scrollbar-track { background:transparent; }
+    .split-table::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:2px; }
+    .split-header { display:flex; justify-content:space-between; padding:6px 0; font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--border-color); }
+    .split-row { display:flex; justify-content:space-between; padding:5px 0; font-size:12px; border-bottom:1px solid rgba(255,255,255,0.03); }
+    .split-row span:first-child { color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:11px; min-width:50px; }
+    .split-row span:nth-child(2) { color:white; font-weight:500; font-family:'JetBrains Mono',monospace; font-size:11px; min-width:65px; text-align:right; }
+    .split-row span:last-child { color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:11px; min-width:75px; text-align:right; }
     .footer { padding:80px 0 40px; border-top:1px solid var(--border-color); text-align:center; }
     .to-top-btn { position:fixed; right:24px; bottom:24px; width:46px; height:46px; border-radius:50%; background:rgba(10,10,10,0.7); border:1px solid rgba(255,255,255,0.15); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:18px; opacity:0; pointer-events:none; transition:0.25s; z-index:999; backdrop-filter:blur(8px); }
     .to-top-btn.show { opacity:1; pointer-events:auto; }
     @media(max-width:1024px) { .header-island{width:100%;margin:0 16px;padding:12px 24px;justify-content:space-between} .nav-desk{display:none} .burger{display:block} .calc-grid{grid-template-columns:1fr;gap:20px} .calc-container{padding:20px} .section{padding:88px 0 60px} }
-    @media(max-width:640px) { body{background-attachment:scroll} .container{padding:0 20px} .nut-result-grid{grid-template-columns:1fr 1fr;gap:8px} .nut-card{padding:14px} .nut-card-value{font-size:20px} .calc-main-res{font-size:20px} .run-sub-tabs{flex-wrap:wrap} }
+    @media(max-width:640px) { body{background-attachment:scroll} .container{padding:0 20px} .nut-result-grid{grid-template-columns:1fr 1fr;gap:8px} .nut-card{padding:14px} .nut-card-value{font-size:20px} .calc-main-res{font-size:20px} .run-sub-tabs{flex-wrap:wrap} .zone-name{min-width:80px;font-size:11px} .zone-pace{font-size:11px} }
   </style>
 </head>
 <body>
@@ -158,13 +174,13 @@
     <a href="pricing.html" class="mobile-link" onclick="toggleMenu()">ТАРИФЫ</a>
     <a href="contact.html" class="mobile-link" onclick="toggleMenu()">КОНТАКТЫ</a>
     <a href="runners-nutrition-essentials.html" class="mobile-link" onclick="toggleMenu()" style="color:var(--primary);">ГАЙД</a>
-    <a href="en/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:2px;opacity:0.6;">🌐 EN</a>
+    <a href="en/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:2px;opacity:0.6;">EN</a>
   </div>
 
   <section id="calculator" class="section">
     <div class="container">
       <h1 class="title-font" style="text-align:center;margin-bottom:12px;font-size:clamp(22px,4vw,32px);">КАЛЬКУЛЯТОР</h1>
-      <p style="text-align:center;max-width:680px;margin:0 auto 28px;color:var(--text-gray);font-size:15px;">Расчёт времени, темпа, скорости и плана питания для бега и триатлона</p>
+      <p style="text-align:center;max-width:680px;margin:0 auto 28px;color:var(--text-gray);font-size:15px;">Расчёт времени, темпа, скорости, VDOT и плана питания для бега и триатлона</p>
       <div class="calc-container">
         <div class="calc-tabs">
           <button class="calc-tab active" onclick="switchCalcMode('tri',event)">ТРИАТЛОН</button>
@@ -208,15 +224,15 @@
           <div class="calc-grid">
             <div>
               <div id="run-mode-time" class="run-sub-mode active">
-                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist1" class="calc-select run-input"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option></select></div>
+                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist1" class="calc-select run-input" onchange="handleDistChange(1)"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option><option value="custom">Своя дистанция</option></select><input type="number" id="runCustomDist1" class="calc-input run-input" placeholder="Дистанция в км" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
                 <div class="calc-input-group"><label class="calc-label">Ваше время</label><div class="calc-row-3"><input type="number" id="runH1" class="calc-input run-input" placeholder="Ч" min="0" inputmode="numeric"><input type="number" id="runM1" class="calc-input run-input" placeholder="Мин" value="50" min="0" inputmode="numeric"><input type="number" id="runS1" class="calc-input run-input" placeholder="Сек" value="0" min="0" max="59" inputmode="numeric"></div></div>
               </div>
               <div id="run-mode-pace" class="run-sub-mode">
-                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist2" class="calc-select run-input"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option></select></div>
+                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist2" class="calc-select run-input" onchange="handleDistChange(2)"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option><option value="custom">Своя дистанция</option></select><input type="number" id="runCustomDist2" class="calc-input run-input" placeholder="Дистанция в км" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
                 <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Темп</label><div class="toggle-group" id="paceUnitToggle"><span class="toggle-btn active" onclick="setPaceUnit('km',this)">МИН/КМ</span><span class="toggle-btn" onclick="setPaceUnit('mi',this)">МИН/МИЛЯ</span></div></div><div class="calc-row"><input type="number" id="paceM" class="calc-input run-input" placeholder="Мин" value="5" min="0" inputmode="numeric"><input type="number" id="paceS" class="calc-input run-input" placeholder="Сек" value="30" min="0" max="59" inputmode="numeric"></div></div>
               </div>
               <div id="run-mode-speed" class="run-sub-mode">
-                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist3" class="calc-select run-input"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option></select></div>
+                <div class="calc-input-group"><label class="calc-label">Дистанция</label><select id="runDist3" class="calc-select run-input" onchange="handleDistChange(3)"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Полумарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option><option value="custom">Своя дистанция</option></select><input type="number" id="runCustomDist3" class="calc-input run-input" placeholder="Дистанция в км" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
                 <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Скорость</label><div class="toggle-group" id="speedUnitToggle"><span class="toggle-btn active" onclick="setSpeedUnit('kmh',this)">КМ/Ч</span><span class="toggle-btn" onclick="setSpeedUnit('mph',this)">МИЛЬ/Ч</span></div></div><input type="number" id="speedVal" class="calc-input run-input" placeholder="км/ч" value="10.9" min="0" step="0.1" inputmode="decimal"></div>
               </div>
             </div>
@@ -224,8 +240,11 @@
               <div class="calc-res-title">РЕЗУЛЬТАТ</div>
               <div class="calc-main-res" id="runMainResult">--</div>
               <div class="calc-sub-res" id="runSubResult"></div>
+              <div id="runVdot"></div>
               <div class="calc-details" id="runDetails"></div>
               <div class="calc-details" id="runPredictions" style="margin-top:12px;"></div>
+              <div class="calc-details" id="runZones" style="margin-top:12px;"></div>
+              <div class="calc-details" id="runSplits" style="margin-top:12px;"></div>
             </div>
           </div>
         </div>
@@ -259,7 +278,7 @@
         <a href="https://www.instagram.com/inna.tri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
         <a href="https://www.youtube.com/@innatri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
       </div>
-      <p class="tech-font" style="margin-top:40px;">© 2026 INNATRI. SYSTEMATIC COACHING.</p>
+      <p class="tech-font" style="margin-top:40px;">&copy; 2026 INNATRI. SYSTEMATIC COACHING.</p>
     </div>
   </footer>
 
@@ -270,46 +289,213 @@
     function switchCalcMode(mode,e){document.querySelectorAll('.calc-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.calc-tab').forEach(el=>el.classList.remove('active'));document.getElementById('calc-'+mode).classList.add('active');if(e&&e.target)e.target.classList.add('active');if(mode==='tri')calculateTriTime();if(mode==='run')calculateRun();if(mode==='nutrition')calculateNutrition()}
 
     const MI=1.60934;
-    function formatHMS(sec){if(!isFinite(sec)||sec<=0)return'--';sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;if(h>0)return`<span class="dn">${h}</span><span class="du">ч</span> <span class="dn">${m}</span><span class="du">мин</span>`;if(m>0&&s>0)return`<span class="dn">${m}</span><span class="du">мин</span> <span class="dn">${s}</span><span class="du">сек</span>`;if(m>0)return`<span class="dn">${m}</span><span class="du">мин</span>`;return`<span class="dn">${s}</span><span class="du">сек</span>`}
+
+    /* Unified formatting: main result = red numbers + small gray units */
+    function formatMainRes(sec){
+      if(!isFinite(sec)||sec<=0)return'--';
+      sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;
+      if(h>0)return`${h}<span class="res-unit">ч</span>${String(m).padStart(2,'0')}<span class="res-unit">мин</span>`;
+      if(m>0&&s>0)return`${m}<span class="res-unit">мин</span>${String(s).padStart(2,'0')}<span class="res-unit">сек</span>`;
+      if(m>0)return`${m}<span class="res-unit">мин</span>`;
+      return`${s}<span class="res-unit">сек</span>`;
+    }
     function formatHMStext(sec){if(!isFinite(sec)||sec<=0)return'--';sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;if(h>0)return`${h}ч ${String(m).padStart(2,'0')}мин`;return`${m}мин ${String(s).padStart(2,'0')}сек`}
     function formatPace(s){if(!isFinite(s)||s<=0)return'--';const m=Math.floor(s/60),ss=Math.round(s%60);return`${m}:${String(ss).padStart(2,'0')}`}
 
+    /* Custom distance handling */
+    function handleDistChange(n){
+      const sel=document.getElementById('runDist'+n);
+      const inp=document.getElementById('runCustomDist'+n);
+      inp.style.display=sel.value==='custom'?'block':'none';
+      calculateRun();
+    }
+    function getDistKm(n){
+      const sel=document.getElementById('runDist'+n);
+      if(sel.value==='custom'){return parseFloat(document.getElementById('runCustomDist'+n).value)||0}
+      return parseFloat(sel.value)||10;
+    }
+
+    /* VDOT — Jack Daniels formula */
+    function estimateVDOT(distKm,timeSec){
+      if(distKm<=0||timeSec<=0)return 0;
+      const tMin=timeSec/60;
+      const v=distKm*1000/tMin; // meters per minute
+      const pctVO2=0.8+0.1894393*Math.exp(-0.012778*tMin)+0.2989558*Math.exp(-0.1932605*tMin);
+      const vo2=-4.60+0.182258*v+0.000104*v*v;
+      const vdot=vo2/pctVO2;
+      return Math.max(1,Math.round(vdot*10)/10);
+    }
+
+    /* Training paces from VDOT — reverse Daniels formula */
+    function vdotToPaceSec(vdot,pctVO2max){
+      // Given VDOT and desired %VO2max, find pace in sec/km
+      // vo2 = vdot * pctVO2max
+      // vo2 = -4.60 + 0.182258*v + 0.000104*v^2  →  solve for v (m/min)
+      const vo2=vdot*pctVO2max;
+      // Quadratic: 0.000104*v^2 + 0.182258*v + (-4.60 - vo2) = 0
+      const a=0.000104,b=0.182258,c=-4.60-vo2;
+      const disc=b*b-4*a*c;
+      if(disc<0)return 0;
+      const v=(-b+Math.sqrt(disc))/(2*a); // meters per minute
+      if(v<=0)return 0;
+      return 1000/v*60; // sec per km
+    }
+    function getTrainingZones(vdot){
+      return{
+        easy:{min:vdotToPaceSec(vdot,0.59),max:vdotToPaceSec(vdot,0.74)},
+        marathon:{pace:vdotToPaceSec(vdot,0.79)},
+        threshold:{pace:vdotToPaceSec(vdot,0.88)},
+        interval:{pace:vdotToPaceSec(vdot,0.98)},
+        repetition:{pace:vdotToPaceSec(vdot,1.10)}
+      };
+    }
+
     /* TRIATHLON */
-    function calculateTriTime(){const dm={sprint:{swim:0.75,bike:20,run:5},olympic:{swim:1.5,bike:40,run:10},half:{swim:1.9,bike:90,run:21.1},full:{swim:3.8,bike:180,run:42.2}};const d=dm[document.getElementById('triDist').value];const sp=(parseFloat(document.getElementById('triSwimM').value)||0)*60+(parseFloat(document.getElementById('triSwimS').value)||0);const ss=sp*(d.swim*10);const bs=parseFloat(document.getElementById('triBikeSpeed').value)||30;const bk=bs>0?(d.bike/bs)*3600:0;const rp=(parseFloat(document.getElementById('triRunM').value)||0)*60+(parseFloat(document.getElementById('triRunS').value)||0);const rs=rp*d.run;const ts=(parseFloat(document.getElementById('triT1T2').value)||0)*60;const t=ss+bk+rs+ts;document.getElementById('triTotalResult').innerHTML=formatHMS(t);document.getElementById('triDetails').innerHTML=`<div class="calc-detail-row"><span>Плавание (${d.swim} км)</span><span>${formatHMS(ss)}</span></div><div class="calc-detail-row"><span>Вело (${d.bike} км)</span><span>${formatHMS(bk)}</span></div><div class="calc-detail-row"><span>Бег (${d.run} км)</span><span>${formatHMS(rs)}</span></div><div class="calc-detail-row"><span>Транзитки</span><span>${formatHMS(ts)}</span></div>`}
+    function calculateTriTime(){
+      const dm={sprint:{swim:0.75,bike:20,run:5},olympic:{swim:1.5,bike:40,run:10},half:{swim:1.9,bike:90,run:21.1},full:{swim:3.8,bike:180,run:42.2}};
+      const d=dm[document.getElementById('triDist').value];
+      const sp=(parseFloat(document.getElementById('triSwimM').value)||0)*60+(parseFloat(document.getElementById('triSwimS').value)||0);
+      const ss=sp*(d.swim*10);
+      const bs=parseFloat(document.getElementById('triBikeSpeed').value)||30;
+      const bk=bs>0?(d.bike/bs)*3600:0;
+      const rp=(parseFloat(document.getElementById('triRunM').value)||0)*60+(parseFloat(document.getElementById('triRunS').value)||0);
+      const rs=rp*d.run;
+      const ts=(parseFloat(document.getElementById('triT1T2').value)||0)*60;
+      const t=ss+bk+rs+ts;
+      document.getElementById('triTotalResult').innerHTML=formatMainRes(t);
+      document.getElementById('triDetails').innerHTML=
+        `<div class="calc-detail-row"><span>Плавание (${d.swim} км)</span><span>${formatHMStext(ss)}</span></div>`+
+        `<div class="calc-detail-row"><span>Вело (${d.bike} км)</span><span>${formatHMStext(bk)}</span></div>`+
+        `<div class="calc-detail-row"><span>Бег (${d.run} км)</span><span>${formatHMStext(rs)}</span></div>`+
+        `<div class="calc-detail-row"><span>Транзитки</span><span>${formatHMStext(ts)}</span></div>`;
+    }
 
     /* RUNNING */
-    let currentRunMode='time',paceUnit='km',speedUnit='kmh';
+    let currentRunMode='time',paceUnit='km',speedUnit='kmh',splitUnit='km',splitType='even';
     function switchRunMode(mode,btn){currentRunMode=mode;document.querySelectorAll('.run-sub-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.run-sub-tab').forEach(el=>el.classList.remove('active'));document.getElementById('run-mode-'+mode).classList.add('active');btn.classList.add('active');calculateRun()}
     function setPaceUnit(u,btn){paceUnit=u;document.querySelectorAll('#paceUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
     function setSpeedUnit(u,btn){speedUnit=u;document.querySelectorAll('#speedUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
+    function setSplitUnit(u,btn){splitUnit=u;document.querySelectorAll('#splitUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
+    function setSplitType(t,btn){splitType=t;document.querySelectorAll('#splitTypeToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
 
     function calculateRun(){
-      let totalSec,distKm;const preds=[{d:5,l:'5 км'},{d:10,l:'10 км'},{d:21.1,l:'Полумарафон'},{d:42.2,l:'Марафон'}];
-      if(currentRunMode==='time'){distKm=parseFloat(document.getElementById('runDist1').value)||10;const h=parseFloat(document.getElementById('runH1').value)||0,m=parseFloat(document.getElementById('runM1').value)||0,s=parseFloat(document.getElementById('runS1').value)||0;totalSec=h*3600+m*60+s;if(totalSec<=0){clearRun();return}}
-      else if(currentRunMode==='pace'){distKm=parseFloat(document.getElementById('runDist2').value)||10;const pm=parseFloat(document.getElementById('paceM').value)||0,ps=parseFloat(document.getElementById('paceS').value)||0;let pk=pm*60+ps;if(paceUnit==='mi')pk=pk/MI;if(pk<=0){clearRun();return}totalSec=pk*distKm}
-      else{distKm=parseFloat(document.getElementById('runDist3').value)||10;let spd=parseFloat(document.getElementById('speedVal').value)||0;if(speedUnit==='mph')spd=spd*MI;if(spd<=0){clearRun();return}totalSec=(distKm/spd)*3600}
+      let totalSec,distKm;
+      const preds=[{d:1,l:'1 км'},{d:1.60934,l:'1 миля'},{d:3,l:'3 км'},{d:5,l:'5 км'},{d:10,l:'10 км'},{d:15,l:'15 км'},{d:21.1,l:'Полумарафон'},{d:42.2,l:'Марафон'}];
+
+      if(currentRunMode==='time'){
+        distKm=getDistKm(1);
+        const h=parseFloat(document.getElementById('runH1').value)||0,m=parseFloat(document.getElementById('runM1').value)||0,s=parseFloat(document.getElementById('runS1').value)||0;
+        totalSec=h*3600+m*60+s;if(totalSec<=0||distKm<=0){clearRun();return}
+      } else if(currentRunMode==='pace'){
+        distKm=getDistKm(2);
+        const pm=parseFloat(document.getElementById('paceM').value)||0,ps=parseFloat(document.getElementById('paceS').value)||0;
+        let pk=pm*60+ps;if(paceUnit==='mi')pk=pk/MI;
+        if(pk<=0||distKm<=0){clearRun();return}totalSec=pk*distKm;
+      } else {
+        distKm=getDistKm(3);
+        let spd=parseFloat(document.getElementById('speedVal').value)||0;
+        if(speedUnit==='mph')spd=spd*MI;
+        if(spd<=0||distKm<=0){clearRun();return}totalSec=(distKm/spd)*3600;
+      }
+
       const pk=totalSec/distKm,pm=pk*MI,skm=(distKm/totalSec)*3600,smi=skm/MI;
-      document.getElementById('runMainResult').innerHTML=formatHMS(totalSec);
+
+      // Main result
+      document.getElementById('runMainResult').innerHTML=formatMainRes(totalSec);
       document.getElementById('runSubResult').textContent='финишное время';
-      document.getElementById('runDetails').innerHTML=`<div class="calc-detail-row"><span>Темп</span><span>${formatPace(pk)} /км · ${formatPace(pm)} /миля</span></div><div class="calc-detail-row"><span>Скорость</span><span>${skm.toFixed(1)} км/ч · ${smi.toFixed(1)} миль/ч</span></div>`;
+
+      // VDOT
+      const vdot=estimateVDOT(distKm,totalSec);
+      document.getElementById('runVdot').innerHTML=vdot>0?`<div class="vdot-badge">VDOT <span>${vdot.toFixed(1)}</span></div>`:'';
+
+      // Pace & speed
+      document.getElementById('runDetails').innerHTML=
+        `<div class="calc-detail-row"><span>Темп</span><span>${formatPace(pk)} /км &middot; ${formatPace(pm)} /миля</span></div>`+
+        `<div class="calc-detail-row"><span>Скорость</span><span>${skm.toFixed(1)} км/ч &middot; ${smi.toFixed(1)} миль/ч</span></div>`;
+
+      // Predictions (8 distances, skip input distance)
       let ph='<div class="calc-res-title" style="margin-top:4px;">ПРОГНОЗ НА ДРУГИЕ ДИСТАНЦИИ</div>';
-      preds.forEach(p=>{const ps=totalSec*Math.pow(p.d/distKm,1.06);const pp=ps/p.d;ph+=`<div class="calc-detail-row"><span>${p.l}</span><span>${formatHMStext(ps)} · ${formatPace(pp)} /км</span></div>`});
-      document.getElementById('runPredictions').innerHTML=ph}
-    function clearRun(){document.getElementById('runMainResult').textContent='--';document.getElementById('runSubResult').textContent='';document.getElementById('runDetails').innerHTML='';document.getElementById('runPredictions').innerHTML=''}
+      preds.forEach(p=>{
+        if(Math.abs(p.d-distKm)<0.01)return;
+        const ps=totalSec*Math.pow(p.d/distKm,1.06);
+        const pp=ps/p.d;
+        ph+=`<div class="calc-detail-row"><span>${p.l}</span><span>${formatHMStext(ps)} &middot; ${formatPace(pp)} /км</span></div>`;
+      });
+      document.getElementById('runPredictions').innerHTML=ph;
+
+      // Training zones
+      if(vdot>0){
+        const z=getTrainingZones(vdot);
+        const colors={easy:'#4CAF50',marathon:'#2196F3',threshold:'#FF9800',interval:'#FF3B30',repetition:'#9C27B0'};
+        const names={easy:'Easy',marathon:'Марафон',threshold:'Пороговый',interval:'Интервальный',repetition:'Повторный'};
+        let zh=`<div class="calc-res-title" style="margin-top:4px;">ТРЕНИРОВОЧНЫЕ ЗОНЫ (VDOT ${vdot.toFixed(1)})</div>`;
+        zh+=`<div class="zone-row"><span class="zone-dot" style="background:${colors.easy}"></span><span class="zone-name">${names.easy}</span><span class="zone-pace">${formatPace(z.easy.max)} - ${formatPace(z.easy.min)} /км &middot; ${formatPace(z.easy.max*MI)} - ${formatPace(z.easy.min*MI)} /ми</span></div>`;
+        ['marathon','threshold','interval','repetition'].forEach(k=>{
+          zh+=`<div class="zone-row"><span class="zone-dot" style="background:${colors[k]}"></span><span class="zone-name">${names[k]}</span><span class="zone-pace">${formatPace(z[k].pace)} /км &middot; ${formatPace(z[k].pace*MI)} /ми</span></div>`;
+        });
+        document.getElementById('runZones').innerHTML=zh;
+      } else {
+        document.getElementById('runZones').innerHTML='';
+      }
+
+      // Split table (only for >= 5km)
+      if(distKm>=5){
+        const splitDist=splitUnit==='km'?1:MI;
+        const splitLabel=splitUnit==='km'?'км':'ми';
+        const numSplits=Math.floor(distKm/splitDist);
+        const remainder=distKm-numSplits*splitDist;
+        const avgSplitSec=totalSec/distKm*splitDist;
+
+        let sh=`<div class="calc-res-title" style="margin-top:4px;">ТАБЛИЦА СПЛИТОВ</div>`;
+        sh+=`<div class="split-controls">`;
+        sh+=`<div class="toggle-group" id="splitTypeToggle"><span class="toggle-btn${splitType==='even'?' active':''}" onclick="setSplitType('even',this)">РАВНОМЕРНО</span><span class="toggle-btn${splitType==='negative'?' active':''}" onclick="setSplitType('negative',this)">НЕГАТИВНЫЙ</span></div>`;
+        sh+=`<div class="toggle-group" id="splitUnitToggle"><span class="toggle-btn${splitUnit==='km'?' active':''}" onclick="setSplitUnit('km',this)">КМ</span><span class="toggle-btn${splitUnit==='mi'?' active':''}" onclick="setSplitUnit('mi',this)">МИЛИ</span></div>`;
+        sh+=`</div>`;
+        sh+=`<div class="split-header"><span>#</span><span>Сплит</span><span>Время</span></div>`;
+        sh+=`<div class="split-table">`;
+
+        let cumSec=0;
+        const totalSplits=numSplits+(remainder>0.01?1:0);
+        const halfPoint=Math.ceil(totalSplits/2);
+
+        for(let i=1;i<=numSplits;i++){
+          let ss=avgSplitSec;
+          if(splitType==='negative'){
+            ss=i<=halfPoint?avgSplitSec*1.02:avgSplitSec*0.98;
+          }
+          cumSec+=ss;
+          sh+=`<div class="split-row"><span>${i} ${splitLabel}</span><span>${formatPace(ss)}</span><span>${formatHMStext(cumSec)}</span></div>`;
+        }
+        if(remainder>0.01){
+          let rs=(totalSec-cumSec);
+          sh+=`<div class="split-row"><span>${(numSplits*splitDist+remainder).toFixed(2)}</span><span>${formatPace(rs/(remainder/splitDist))}</span><span>${formatHMStext(totalSec)}</span></div>`;
+        }
+        sh+=`</div>`;
+        document.getElementById('runSplits').innerHTML=sh;
+      } else {
+        document.getElementById('runSplits').innerHTML='';
+      }
+    }
+
+    function clearRun(){
+      document.getElementById('runMainResult').textContent='--';
+      document.getElementById('runSubResult').textContent='';
+      document.getElementById('runVdot').innerHTML='';
+      document.getElementById('runDetails').innerHTML='';
+      document.getElementById('runPredictions').innerHTML='';
+      document.getElementById('runZones').innerHTML='';
+      document.getElementById('runSplits').innerHTML='';
+    }
 
     /* NUTRITION — based on ACSM/ISSN guidelines for recreational athletes */
     function calculateNutrition(){
       const w=parseFloat(document.getElementById('nutWeight').value)||70,h=parseFloat(document.getElementById('nutH').value)||0,m=parseFloat(document.getElementById('nutM').value)||0,dur=h+m/60,int=document.getElementById('nutIntense').value,temp=document.getElementById('nutTemp').value;
       if(dur<=0)return;
-      /* Carbs: gut absorption is the limiter, NOT body weight. Realistic amateur ranges */
       let cph;if(dur<1)cph=0;else if(dur<2)cph=30;else if(dur<3)cph=40;else if(dur<5)cph=50;else cph=60;
       if(int==='high')cph+=10;else if(int==='low')cph-=5;
       cph=Math.max(0,Math.min(90,cph));const tc=Math.round(cph*Math.max(0,dur-0.5));
-      /* Fluid: 400-800ml/h base, adjust for heat and weight */
       let fph=500;if(w>80)fph+=50;else if(w<55)fph-=50;if(temp==='hot')fph+=200;else if(temp==='cool')fph-=100;if(int==='high')fph+=100;fph=Math.max(300,Math.min(800,fph));const tf=Math.round(fph*dur);
-      /* Sodium: 300-500mg/h normal, 500-700 hot */
       let sph=400;if(temp==='hot')sph=600;else if(temp==='cool')sph=300;if(int==='high')sph+=100;sph=Math.min(700,sph);const ts=Math.round(sph*dur);
-      /* Caffeine: 3mg/kg (ISSN recommendation), only for 2h+ */
       const caf=Math.round(w*3),showCaf=dur>=2;
 
       document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> г/ч</span></div><div class="nut-card-label">Углеводы</div><div class="nut-card-sub">${dur<1?'Достаточно воды':'Всего: '+tc+' г'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> мл/ч</span></div><div class="nut-card-label">Жидкость</div><div class="nut-card-sub">Всего: ${(tf/1000).toFixed(1)} л</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> мг/ч</span></div><div class="nut-card-label">Натрий</div><div class="nut-card-sub">Всего: ${(ts/1000).toFixed(1)} г</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> мг</span></div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">За 30-60 мин до финиша</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">—</div><div class="nut-card-label">Кофеин</div><div class="nut-card-sub">Не обязателен (&lt;2ч)</div></div>`}`;
@@ -334,7 +520,8 @@
         if(dur>4)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Каждые 90 мин</span><span class="nut-tl-desc">Твёрдая пища: батончик или банан (чередовать с гелями)</span></div>`;
         if(showCaf){const ct=Math.max(tm-45,Math.round(tm*0.75));tl+=`<div class="nut-tl-item"><span class="nut-tl-time">~${ct} мин</span><span class="nut-tl-desc">Кофеиновый гель (${caf} мг) за 30-45 мин до финиша</span></div>`}
         tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Финиш</span><span class="nut-tl-desc">В течение 30 мин: 20-30г белка + 50-80г углеводов</span></div>`;
-        document.getElementById('nutTimeline').innerHTML=tl}else{document.getElementById('nutTimeline').innerHTML=''}}
+        document.getElementById('nutTimeline').innerHTML=tl}else{document.getElementById('nutTimeline').innerHTML=''}
+    }
 
     document.addEventListener('input',e=>{if(e.target.matches('.calc-input,.calc-select')){if(document.getElementById('calc-tri').classList.contains('active'))calculateTriTime();if(document.getElementById('calc-run').classList.contains('active'))calculateRun();if(document.getElementById('calc-nutrition').classList.contains('active'))calculateNutrition()}});
     window.addEventListener('DOMContentLoaded',()=>{calculateTriTime()});
