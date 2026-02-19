@@ -371,7 +371,7 @@
       return parseFloat(sel.value)||10;
     }
 
-    /* VDOT — Jack Daniels formula */
+    /* VDOT – Jack Daniels formula */
     function estimateVDOT(distKm,timeSec){
       if(distKm<=0||timeSec<=0)return 0;
       const tMin=timeSec/60;
@@ -382,7 +382,7 @@
       return Math.max(1,Math.round(vdot*10)/10);
     }
 
-    /* Training paces from VDOT — reverse Daniels formula */
+    /* Training paces from VDOT – reverse Daniels formula */
     function vdotToPaceSec(vdot,pctVO2max){
       const vo2=vdot*pctVO2max;
       const a=0.000104,b=0.182258,c=-4.60-vo2;
@@ -539,7 +539,7 @@
       document.getElementById('runSplits').innerHTML='';
     }
 
-    /* NUTRITION — based on ACSM/ISSN guidelines for recreational athletes */
+    /* NUTRITION – based on ACSM/ISSN guidelines for recreational athletes */
     function calculateNutrition(){
       const w=parseFloat(document.getElementById('nutWeight').value)||70,h=parseFloat(document.getElementById('nutH').value)||0,m=parseFloat(document.getElementById('nutM').value)||0,dur=h+m/60,int=document.getElementById('nutIntense').value,temp=document.getElementById('nutTemp').value;
       if(dur<=0)return;
@@ -550,11 +550,11 @@
       let sph=400;if(temp==='hot')sph=600;else if(temp==='cool')sph=300;if(int==='high')sph+=100;sph=Math.min(700,sph);const ts=Math.round(sph*dur);
       const caf=Math.round(w*3),showCaf=dur>=2;
 
-      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> g/hr</span></div><div class="nut-card-label">Carbs</div><div class="nut-card-sub">${dur<1?'Water is enough':'Total: '+tc+' g'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> ml/hr</span></div><div class="nut-card-label">Fluid</div><div class="nut-card-sub">Total: ${(tf/1000).toFixed(1)} L</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> mg/hr</span></div><div class="nut-card-label">Sodium</div><div class="nut-card-sub">Total: ${(ts/1000).toFixed(1)} g</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> mg</span></div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">30-60 min before finish</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">—</div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">Not needed (&lt;2h)</div></div>`}`;
+      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> g/hr</span></div><div class="nut-card-label">Carbs</div><div class="nut-card-sub">${dur<1?'Water is enough':'Total: '+tc+' g'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> ml/hr</span></div><div class="nut-card-label">Fluid</div><div class="nut-card-sub">Total: ${(tf/1000).toFixed(1)} L</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> mg/hr</span></div><div class="nut-card-label">Sodium</div><div class="nut-card-sub">Total: ${(ts/1000).toFixed(1)} g</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> mg</span></div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">30-60 min before finish</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">–</div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">Not needed (&lt;2h)</div></div>`}`;
 
       const gels=Math.max(0,Math.ceil(tc/25)),iso=(tf/1000).toFixed(1),bars=dur>4?Math.floor((dur-2)/1.5):0,ban=dur>3?Math.ceil((dur-3)*0.4):0,salt=Math.ceil(ts/250);
       let pr='<div class="nut-prod-title">PRODUCT RECOMMENDATIONS</div>';
-      if(dur<1){pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Water</span><span class="nut-prod-qty">${(tf/1000).toFixed(1)} L</span></div>`;pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-info"></i> No fueling needed</span><span class="nut-prod-qty">—</span></div>`}
+      if(dur<1){pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Water</span><span class="nut-prod-qty">${(tf/1000).toFixed(1)} L</span></div>`;pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-info"></i> No fueling needed</span><span class="nut-prod-qty">–</span></div>`}
       else{pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Energy gel (~25g carbs)</span><span class="nut-prod-qty">${gels} pcs</span></div>`;
       pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-flask"></i> Sports drink (30-60g/L)</span><span class="nut-prod-qty">${iso} L</span></div>`;
       if(bars>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-cookie"></i> Energy bar</span><span class="nut-prod-qty">${bars} pcs</span></div>`;
