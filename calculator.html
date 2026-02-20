@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"InnaTri","url":"https://innatri.com","description":"Онлайн коучинг по триатлону и бегу.","inLanguage":"ru-RU","publisher":{"@type":"Person","name":"Инна Рыжих"}}</script>
@@ -580,7 +580,7 @@
     }
 
     document.addEventListener('input',e=>{if(e.target.matches('.calc-input,.calc-select')){if(document.getElementById('calc-tri').classList.contains('active'))calculateTriTime();if(document.getElementById('calc-run').classList.contains('active'))calculateRun();if(document.getElementById('calc-nutrition').classList.contains('active'))calculateNutrition()}});
-    window.addEventListener('DOMContentLoaded',()=>{calculateTriTime()});
+    window.addEventListener('DOMContentLoaded',()=>{calculateTriTime();calculateRun();calculateNutrition()});
     const toTopBtn=document.getElementById('toTopBtn');window.addEventListener('scroll',()=>{if(toTopBtn)toTopBtn.classList.toggle('show',window.scrollY>300)},{passive:true});
   </script>
 </body>
