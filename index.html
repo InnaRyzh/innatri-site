@@ -265,11 +265,8 @@
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 0;
       background-repeat: no-repeat;
-      text-shadow:
-        0 1px 0 rgba(255,255,255,0.4),
-        0 8px 22px rgba(0,0,0,0.4),
-        0 16px 32px rgba(0,0,0,0.32);
-      transform: perspective(600px) rotateX(6deg);
+      text-shadow: none;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
     }
     .hero-title-3d.accent {
       background: none;
@@ -278,9 +275,10 @@
       -webkit-text-fill-color: initial;
       color: #e9edf3;
       -webkit-text-stroke: 0;
+      transform: none;
       text-shadow:
         0 1px 0 rgba(255,255,255,0.18),
-        0 10px 24px rgba(0,0,0,0.35);
+        0 6px 16px rgba(0,0,0,0.3);
     }
     .hero-accent { color: transparent; -webkit-text-stroke: 1px var(--primary); position: relative; z-index: 1; }
     /* Sub-line: lighter weight, smaller */
@@ -292,11 +290,7 @@
       color: rgba(255,255,255,0.7);
       margin-top: 4px;
     }
-    .hero-subline-title .hero-outline {
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(255,255,255,0.6);
-      font-weight: 700;
-    }
+    /* outline class removed – no longer used */
     .hero-subtitle { font-size: clamp(14px, 2.5vw, 16px); color: #BFC6D0; margin: 0 auto 40px; max-width: 640px; line-height: 1.7; }
     .hero-subline { display: block; margin-top: 8px; color: #C9CFD8; }
     .hero-subline-accent { color: #FFFFFF; font-weight: 600; letter-spacing: 0.02em; }
@@ -700,7 +694,7 @@
       .hero-tag { font-size: 11px; padding: 6px 12px; margin-bottom: 16px; }
       .hero-title { font-size: clamp(26px, 8vw, 40px); line-height: 0.95; }
       .hero-subline-title { font-size: clamp(16px, 5vw, 26px); letter-spacing: 0.06em; margin-top: 6px; }
-      .hero-subline-title .hero-outline { -webkit-text-stroke-width: 1px; }
+      /* outline class removed */
       .hero-subtitle { font-size: 12px; margin-bottom: 20px; }
       .hero-subline-accent { letter-spacing: 0.14em; }
       .marquee-content { gap: 60px; flex-wrap: nowrap; justify-content: flex-start; width: max-content; animation: scroll 22s linear infinite; }
@@ -802,7 +796,7 @@
       <div class="hero-overlay"></div>
       <div class="hero-content container">
         <div class="hero-tag tech-font hero-subline-accent" style="color: #FFD5D2; border-color: rgba(255,59,48,0.45); background: rgba(255,59,48,0.08);"><i class="ph ph-lightning"></i> EST. 2005 • PRO COACHING</div>
-        <h1 class="hero-title title-font"><span class="hero-title-3d">ТРЕНЕР</span> ПО <span class="hero-title-3d accent">ТРИАТЛОНУ</span><span class="hero-subline-title">И <span class="hero-outline">БЕГУ</span> ОНЛАЙН</span></h1>
+        <h1 class="hero-title title-font"><span class="hero-title-3d">ТРЕНЕР</span> ПО <span class="hero-title-3d accent">ТРИАТЛОНУ</span><span class="hero-subline-title">И БЕГУ ОНЛАЙН</span></h1>
         <p class="hero-subtitle">
           <span class="hero-subline hero-subline-accent tech-font">DATA. DISCIPLINE. RESULTS.</span>
         </p>
