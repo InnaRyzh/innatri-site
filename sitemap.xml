@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://innatri.com/</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/"/>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://innatri.com/en/</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/"/>
@@ -61,7 +61,7 @@
   <!-- Blog -->
   <url>
     <loc>https://innatri.com/blog.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -69,7 +69,7 @@
   </url>
   <url>
     <loc>https://innatri.com/en/blog.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -133,7 +133,7 @@
   <!-- Articles -->
   <url>
     <loc>https://innatri.com/article.html?id=coach-online</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=coach-online"/>
@@ -141,7 +141,7 @@
   </url>
   <url>
     <loc>https://innatri.com/en/article.html?id=coach-online</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=coach-online"/>
@@ -150,7 +150,7 @@
 
   <url>
     <loc>https://innatri.com/article.html?id=open-water</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=open-water"/>
@@ -158,7 +158,7 @@
   </url>
   <url>
     <loc>https://innatri.com/en/article.html?id=open-water</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=open-water"/>
@@ -167,7 +167,7 @@
 
   <url>
     <loc>https://innatri.com/article.html?id=before-after</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=before-after"/>
@@ -175,7 +175,7 @@
   </url>
   <url>
     <loc>https://innatri.com/en/article.html?id=before-after</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=before-after"/>
@@ -184,7 +184,7 @@
 
   <url>
     <loc>https://innatri.com/article.html?id=winter-running</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=winter-running"/>
@@ -192,11 +192,28 @@
   </url>
   <url>
     <loc>https://innatri.com/en/article.html?id=winter-running</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=winter-running"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/article.html?id=winter-running"/>
+  </url>
+
+  <url>
+    <loc>https://innatri.com/article.html?id=heart-rate-zones</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=heart-rate-zones"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/article.html?id=heart-rate-zones"/>
+  </url>
+  <url>
+    <loc>https://innatri.com/en/article.html?id=heart-rate-zones</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/article.html?id=heart-rate-zones"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/article.html?id=heart-rate-zones"/>
   </url>
 
   <!-- Nutrition Guide (English only) -->
