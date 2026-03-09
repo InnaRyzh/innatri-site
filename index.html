@@ -69,6 +69,11 @@
         "credentialCategory": "Professional Certification",
         "name": "TrainingPeaks Certified Coach"
       },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kyiv",
+        "addressCountry": "UA"
+      },
       "sameAs": [
         "https://t.me/InnaRH",
         "https://www.instagram.com/inna.tri",
@@ -86,6 +91,7 @@
       "url": "https://innatri.com/",
       "image": "https://innatri.com/assets/people/Photoroom_20240822_221402.JPG",
       "priceRange": "$150–$200",
+      "address": { "@type": "PostalAddress", "addressLocality": "Kyiv", "addressCountry": "UA" },
       "areaServed": { "@type": "Place", "name": "Worldwide" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -202,6 +208,9 @@
 
     .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
     .section { padding: 120px 0; }
+
+    /* --- UA STRIPE --- */
+    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
 
     /* --- 2. HEADER --- */
     .header {
@@ -756,6 +765,7 @@
   </style>
 </head>
 <body>
+  <div class="ua-stripe"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -796,7 +806,7 @@
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content container">
-        <div class="hero-tag tech-font hero-subline-accent" style="color: #FFD5D2; border-color: rgba(255,59,48,0.45); background: rgba(255,59,48,0.08);"><i class="ph ph-lightning"></i> EST. 2005 • PRO COACHING</div>
+        <div class="hero-tag tech-font hero-subline-accent" style="color: #FFD5D2; border-color: rgba(255,59,48,0.45); background: rgba(255,59,48,0.08);"><i class="ph ph-lightning"></i> EST. 2005 • УКРАИНА • PRO COACHING</div>
         <h1 class="hero-title title-font"><span class="hero-title-3d">ТРЕНЕР ПО</span> <span class="hero-title-3d accent">ТРИАТЛОНУ</span><span class="hero-subline-title">И БЕГУ ОНЛАЙН</span></h1>
         <p class="hero-subtitle">
           <span class="hero-subline hero-subline-accent tech-font">DATA. DISCIPLINE. RESULTS.</span>
@@ -1103,7 +1113,8 @@
         <a href="https://www.instagram.com/inna.tri" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
         <a href="https://www.youtube.com/@innatri" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
       </div>
-      <p class="tech-font" style="margin-top: 40px;">© 2026 INNATRI. SYSTEMATIC COACHING.</p>
+      <p class="tech-font" style="margin-top: 40px; color: var(--text-gray);">Киев, Украина 🇺🇦</p>
+      <p class="tech-font" style="margin-top: 12px;">© 2026 INNATRI. SYSTEMATIC COACHING.</p>
     </div>
   </footer>
 

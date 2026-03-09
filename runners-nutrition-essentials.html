@@ -215,6 +215,9 @@
     .section { padding: 100px 0; }
 
     /* --- 2. HEADER --- */
+    /* --- UA STRIPE --- */
+    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
+
     .header {
       position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: center; pointer-events: none;
@@ -640,7 +643,10 @@
       body { background-attachment: scroll; font-size: 17px; }
       .container { padding: 0 20px; }
       .section { padding: 64px 0; }
-      .header { top: 12px; }
+      /* --- UA STRIPE --- */
+    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
+
+    .header { top: 12px; }
       .hero { min-height: auto; }
       .hero-content { padding: 100px 0 48px; }
       .hero-title { font-size: clamp(30px, 8vw, 42px); }
@@ -661,6 +667,7 @@
   </style>
 </head>
 <body>
+  <div class="ua-stripe"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -1022,6 +1029,7 @@
         </div>
       </div>
       <div class="footer-bottom">
+        <p class="tech-font" style="color: var(--text-gray); margin-bottom: 8px;">Kyiv, Ukraine 🇺🇦</p>
         <p class="tech-font">&copy; 2026 Inna Ryzhykh | innatri.com</p>
         <div class="footer-legal">
           <a href="#">Privacy Policy</a>

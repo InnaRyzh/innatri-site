@@ -154,6 +154,9 @@
     .section { padding: 120px 0; }
 
     /* --- 2. HEADER --- */
+    /* --- UA STRIPE --- */
+    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
+
     .header {
       position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: center; pointer-events: none;
@@ -607,7 +610,10 @@
       .run-badge { font-size: 11px; padding: 7px 12px; }
       .run-quote { font-size: 16px; line-height: 1.7; }
       .review-arrow { width: 36px; height: 36px; font-size: 14px; }
-      .header { top: 12px; }
+      /* --- UA STRIPE --- */
+    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
+
+    .header { top: 12px; }
       .about-text p { font-size: 17px; line-height: 1.8; }
       .about-text .about-lead { font-size: 19px; }
       .article-content { font-size: 18px; line-height: 1.8; }
@@ -655,6 +661,7 @@
   </style>
 </head>
 <body>
+  <div class="ua-stripe"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -724,7 +731,8 @@
         <a href="https://www.instagram.com/inna.tri" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
         <a href="https://www.youtube.com/@innatri" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
       </div>
-      <p class="tech-font" style="margin-top: 40px;">© 2026 INNATRI. SYSTEMATIC COACHING.</p>
+      <p class="tech-font" style="margin-top: 40px; color: var(--text-gray);">Kyiv, Ukraine 🇺🇦</p>
+      <p class="tech-font" style="margin-top: 12px;">© 2026 INNATRI. SYSTEMATIC COACHING.</p>
     </div>
   </footer>
 
