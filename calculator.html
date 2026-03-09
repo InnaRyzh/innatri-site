@@ -56,6 +56,9 @@
     button { border:none; outline:none; cursor:pointer; }
     .container { max-width:var(--container-width); margin:0 auto; padding:0 24px; }
     .section { padding:100px 0 80px; }
+    /* --- UA STRIPE --- */
+    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
+
     .header { position:fixed; top:24px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none; }
     .header-island { pointer-events:auto; background:rgba(10,10,10,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-pill); padding:10px 32px; display:flex; align-items:center; gap:48px; box-shadow:0 20px 40px rgba(0,0,0,0.4); }
     .logo { font-size:18px; font-weight:700; display:flex; align-items:center; gap:8px; font-family:'Unbounded'; }
@@ -148,6 +151,7 @@
   </style>
 </head>
 <body>
+  <div class="ua-stripe"></div>
   <header class="header">
     <div class="header-island">
       <a href="index.html" class="logo">INNA<span>TRI</span></a>
@@ -334,7 +338,8 @@
         <a href="https://www.instagram.com/inna.tri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
         <a href="https://www.youtube.com/@innatri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
       </div>
-      <p class="tech-font" style="margin-top:40px;">&copy; 2026 INNATRI. SYSTEMATIC COACHING.</p>
+      <p class="tech-font" style="margin-top:40px; color: var(--text-gray);">Киев, Украина 🇺🇦</p>
+      <p class="tech-font" style="margin-top:12px;">&copy; 2026 INNATRI. SYSTEMATIC COACHING.</p>
     </div>
   </footer>
 
