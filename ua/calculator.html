@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Калькулятор темпу бігу: VDOT, спліти та харчування на гонку</title>
+  <meta name="description" id="meta-description" content="Калькулятор темпу бігу онлайн: VDOT, 5 тренувальних зон, прогнози на 5К-марафон, таблиця сплітів і план харчування. Калькулятор триатлону Sprint-Ironman безкоштовно.">
+  <meta name="keywords" content="калькулятор темпу бігу, калькулятор бігу онлайн, розрахунок темпу бігу, калькулятор марафону, калькулятор напівмарафону, VDOT калькулятор, калькулятор швидкості бігу, калькулятор сплітів біг, тренувальні зони біг, прогноз часу на марафон, калькулятор триатлону, калькулятор Ironman, калькулятор Ironman 70.3, калькулятор харчування на марафон, план харчування триатлон, калькулятор негативного спліту, формула Джека Деніелса біг, калькулятор бігу 5 км, калькулятор бігу 10 км, калькулятор вуглеводів марафон, скільки гелів на марафон">
+  <meta name="author" content="Інна Рижих">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <meta property="og:title" id="meta-og-title" content="Калькулятор темпу бігу: VDOT, зони, спліти, харчування">
+  <meta property="og:description" id="meta-og-description" content="VDOT, тренувальні зони, прогнози 5К-марафон, таблиця сплітів, план харчування на гонку. Калькулятор триатлону Sprint-Ironman.">
+  <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.png">
+  <meta property="og:url" id="meta-og-url" content="https://innatri.com/ua/calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="InnaTri">
+  <meta property="og:locale" content="uk_UA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="meta-twitter-title" content="Калькулятор темпу бігу: VDOT, зони, спліти, харчування">
+  <meta name="twitter:description" id="meta-twitter-description" content="VDOT, тренувальні зони, прогнози 5К-марафон, таблиця сплітів, план харчування на гонку. Калькулятор триатлону Sprint-Ironman.">
+  <meta name="twitter:image" id="meta-twitter-image" content="https://innatri.com/assets/hero/og-image.png">
+
+  <link rel="canonical" href="https://innatri.com/ua/calculator.html">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
+  <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#FF3B30">
+  <link rel="alternate" hreflang="ru" href="https://innatri.com/calculator.html">
+  <link rel="alternate" hreflang="en" href="https://innatri.com/en/calculator.html">
+  <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/calculator.html">
+  <link rel="alternate" hreflang="x-default" href="https://innatri.com/calculator.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"InnaTri","url":"https://innatri.com","description":"Онлайн-коучинг із триатлону та бігу.","inLanguage":"uk-UA","publisher":{"@type":"Person","name":"Інна Рижих"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Калькулятор темпу бігу та триатлону","url":"https://innatri.com/ua/calculator.html","applicationCategory":"SportsApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"},"featureList":"VDOT, тренувальні зони, прогноз на 8 дистанцій, таблиця сплітів, калькулятор харчування, калькулятор триатлону","description":"Калькулятор темпу бігу з VDOT, 5 тренувальними зонами за Деніелсом, прогнозами на 8 дистанцій, таблицею сплітів і планом харчування на гонку."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://innatri.com/ua/"},{"@type":"ListItem","position":2,"name":"Калькулятор темпу бігу","item":"https://innatri.com/ua/calculator.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Як розрахувати темп бігу та VDOT","step":[{"@type":"HowToStep","name":"Введіть дистанцію та час","text":"Оберіть дистанцію (5К, 10К, напівмарафон, марафон або свою) і введіть ваш фінішний час."},{"@type":"HowToStep","name":"Отримайте VDOT і тренувальні зони","text":"Калькулятор покаже ваш VDOT і 5 тренувальних зон: Easy, Марафон, Пороговий, Інтервальний та Повторний."},{"@type":"HowToStep","name":"Подивіться прогнози та спліти","text":"Побачите прогнози часу на 8 дистанцій і таблицю сплітів із вибором рівномірного чи негативного спліту."},{"@type":"HowToStep","name":"Розрахуйте харчування на гонку","text":"Введіть вагу, інтенсивність і температуру для розрахунку вуглеводів, рідини, натрію та кофеїну."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Як працює калькулятор триатлону?","acceptedAnswer":{"@type":"Answer","text":"Обираєте дистанцію (Sprint, Olympic, Ironman 70.3, Ironman) і вводите темп плавання, швидкість велосипеда, темп бігу й транзитки. Калькулятор показує прогноз загального часу та розбивку по етапах."}},{"@type":"Question","name":"Як розрахувати темп на марафон за результатом 5К?","acceptedAnswer":{"@type":"Answer","text":"Введіть дистанцію 5 км і ваш час у розділі БІГ. Калькулятор за формулою Рігеля покаже прогноз на марафон (42.2 км) та інші дистанції. Наприклад, 5К за 25 хвилин — це приблизно 3:52 на марафон."}},{"@type":"Question","name":"Що таке VDOT і який показник хороший?","acceptedAnswer":{"@type":"Answer","text":"VDOT — показник бігової форми за методикою Джека Деніелса. Розраховується за результатом на будь-якій дистанції. VDOT 30-35 — початківець, 40-45 — середній рівень, 50-55 — просунутий, 60+ — елітний."}},{"@type":"Question","name":"Що таке тренувальні зони Деніелса?","acceptedAnswer":{"@type":"Answer","text":"5 зон темпу для тренувань: Easy (легкий біг, 65-79% VO2max), Марафонський, Пороговий (лактатний поріг), Інтервальний (95-100% VO2max) і Повторний (швидше за VDOT-темп). Кожна зона розвиває різні якості."}},{"@type":"Question","name":"Скільки гелів потрібно на марафон?","acceptedAnswer":{"@type":"Answer","text":"Залежить від тривалості та інтенсивності. У середньому 40-60 г вуглеводів на годину, це 2-3 гелі на годину. На марафон 4 години — близько 8-10 гелів. Використовуйте розділ ХАРЧУВАННЯ калькулятора для точного розрахунку."}},{"@type":"Question","name":"Що таке негативний спліт?","acceptedAnswer":{"@type":"Answer","text":"Стратегія, коли друга половина дистанції пробігається швидше за першу (зазвичай на 1-3%). Вважається оптимальною для марафону. У калькуляторі можна перемкнути таблицю сплітів між рівномірним і негативним варіантом."}},{"@type":"Question","name":"Скільки пити води на марафоні?","acceptedAnswer":{"@type":"Answer","text":"400-800 мл/год залежно від температури та ваги. У спеку (>25°C) — до 800 мл/год. Використовуйте розділ ХАРЧУВАННЯ для розрахунку з урахуванням ваших параметрів."}},{"@type":"Question","name":"Як розрахувати час на Ironman?","acceptedAnswer":{"@type":"Answer","text":"У розділі ТРИАТЛОН оберіть Ironman 140.6, введіть темп плавання (хв/100м), швидкість велосипеда (км/год), темп бігу (хв/км) і час транзиток. Калькулятор покаже загальний час і розбивку по етапах."}}]}</script>
+
+  <style>
+    :root { --primary:#FF3B30; --primary-glow:rgba(255,59,48,0.5); --bg-main:#080808; --bg-card:rgba(255,255,255,0.03); --border-color:rgba(255,255,255,0.08); --text-white:#FFFFFF; --text-gray:#9CA3AF; --container-width:1240px; --radius-card:24px; --radius-pill:100px; }
+    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body { font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif; background-color:var(--bg-main); color:var(--text-white); line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased; background-image:radial-gradient(1200px 600px at 50% -10%,rgba(255,59,48,0.20) 0%,rgba(8,8,8,0) 60%),radial-gradient(900px 500px at 15% 35%,rgba(255,59,48,0.10) 0%,rgba(8,8,8,0) 55%),radial-gradient(1200px 700px at 85% 70%,rgba(255,59,48,0.08) 0%,rgba(8,8,8,0) 60%); background-attachment:fixed; min-height:100vh; overflow-x:hidden; }
+    body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; opacity:0.04; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .title-font { font-family:'Unbounded',sans-serif; text-transform:uppercase; letter-spacing:-0.02em; }
+    .tech-font { font-family:'JetBrains Mono',monospace; font-size:12px; opacity:0.7; text-transform:uppercase; }
+    a { text-decoration:none; color:inherit; transition:0.3s; cursor:pointer; }
+    button { border:none; outline:none; cursor:pointer; }
+    .container { max-width:var(--container-width); margin:0 auto; padding:0 24px; }
+    .section { padding:100px 0 80px; }
+    /* --- UA STRIPE --- */
+    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
+
+    .header { position:fixed; top:24px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none; }
+    .header-island { pointer-events:auto; background:rgba(10,10,10,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-pill); padding:10px 32px; display:flex; align-items:center; gap:48px; box-shadow:0 20px 40px rgba(0,0,0,0.4); }
+    .logo { font-size:18px; font-weight:700; display:flex; align-items:center; gap:8px; font-family:'Unbounded'; }
+    .logo span { color:var(--primary); }
+    .nav-desk { display:flex; gap:32px; font-family:'Unbounded'; }
+    .nav-link { font-size:13px; font-weight:600; color:var(--text-gray); position:relative; font-family:'Unbounded'; }
+    .nav-link:hover { color:white; }
+    .nav-link.active { color:white; }
+    .nav-link.active::after { content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:4px; height:4px; background:var(--primary); border-radius:50%; }
+    .burger { display:none; font-size:28px; color:white; pointer-events:auto; cursor:pointer; }
+    .mobile-menu { position:fixed; inset:0; background:#080808; z-index:999; display:flex; flex-direction:column; justify-content:center; padding:40px; opacity:0; pointer-events:none; transition:0.3s; }
+    .mobile-menu.active { opacity:1; pointer-events:all; }
+    .mobile-link { font-family:'Unbounded'; font-size:32px; color:white; margin-bottom:32px; display:block; font-weight:700; }
+    .close-menu { position:absolute; top:32px; right:32px; font-size:32px; color:white; padding:10px; }
+    .btn { display:inline-flex; justify-content:center; align-items:center; background:var(--text-white); color:#000; height:56px; padding:0 40px; border-radius:var(--radius-pill); font-size:14px; font-weight:700; transition:0.3s; }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(255,255,255,0.15); }
+
+    .calc-container { padding:32px; background:var(--bg-card); border-radius:var(--radius-card); border:1px solid var(--border-color); backdrop-filter:blur(10px); }
+    .calc-tabs { display:flex; gap:8px; margin-bottom:28px; }
+    .calc-tab { background:rgba(255,255,255,0.04); color:var(--text-gray); font-family:'Unbounded'; font-size:12px; cursor:pointer; padding:8px 20px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.02em; }
+    .calc-tab.active { color:white; background:var(--primary); }
+    .calc-tab:hover:not(.active) { background:rgba(255,255,255,0.08); color:white; }
+    .calc-mode { display:none; }
+    .calc-mode.active { display:block; animation:fadeIn 0.3s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+    .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    .calc-input-group { margin-bottom:20px; }
+    .calc-label { display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-gray); margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
+    .calc-select,.calc-input { width:100%; background:rgba(255,255,255,0.03); border:1px solid var(--border-color); color:white; padding:12px 14px; border-radius:10px; font-family:'Manrope',sans-serif; font-size:15px; outline:none; transition:0.3s; }
+    .calc-select:focus,.calc-input:focus { border-color:var(--primary); background:rgba(255,59,48,0.02); }
+    .calc-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .calc-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+    .toggle-group { display:inline-flex; background:rgba(255,255,255,0.04); border-radius:var(--radius-pill); border:1px solid var(--border-color); overflow:hidden; }
+    .toggle-btn { padding:6px 16px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-gray); cursor:pointer; transition:0.3s; background:transparent; letter-spacing:0.05em; }
+    .toggle-btn.active { background:var(--primary); color:white; }
+    .run-sub-tabs { display:flex; gap:6px; margin-bottom:20px; }
+    .run-sub-tab { background:rgba(255,255,255,0.03); color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:10px; cursor:pointer; padding:6px 14px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.03em; text-transform:uppercase; }
+    .run-sub-tab.active { color:white; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); }
+    .run-sub-mode { display:none; }
+    .run-sub-mode.active { display:block; }
+    .calc-result-box { background:rgba(0,0,0,0.25); border-radius:16px; padding:24px; border:1px solid var(--border-color); }
+    .calc-res-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); margin-bottom:16px; letter-spacing:0.08em; text-transform:uppercase; }
+    .calc-main-res { font-family:'Unbounded'; font-size:24px; color:var(--primary); line-height:1.1; margin-bottom:4px; letter-spacing:-0.02em; }
+    .calc-sub-res { font-family:'Manrope'; font-size:13px; color:var(--text-gray); margin-bottom:20px; }
+    .calc-details { border-top:1px solid var(--border-color); padding-top:16px; display:grid; gap:10px; }
+    .calc-detail-row { display:flex; justify-content:space-between; font-size:13px; font-family:'Manrope'; }
+    .calc-detail-row span:first-child { color:var(--text-gray); }
+    .calc-detail-row span:last-child { color:white; font-weight:500; }
+    .res-unit { font-size:0.55em; color:var(--text-gray); font-weight:400; margin:0 1px 0 2px; letter-spacing:0; }
+    .nut-result-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
+    .nut-card { background:rgba(0,0,0,0.25); border-radius:14px; padding:18px; border:1px solid var(--border-color); }
+    .nut-card-icon { font-size:20px; margin-bottom:8px; opacity:0.8; }
+    .nut-card-value { font-family:'Unbounded'; font-size:24px; color:var(--primary); line-height:1.1; margin-bottom:2px; }
+    .nut-card-label { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; }
+    .nut-card-sub { font-size:12px; color:var(--text-gray); margin-top:6px; }
+    .nut-products { margin-top:16px; }
+    .nut-prod-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
+    .nut-prod-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .nut-prod-row:last-child { border-bottom:none; }
+    .nut-prod-name { color:var(--text-gray); display:flex; align-items:center; gap:8px; }
+    .nut-prod-name i { font-size:14px; width:18px; text-align:center; }
+    .nut-prod-qty { color:white; font-weight:500; font-family:'JetBrains Mono',monospace; font-size:12px; }
+    .nut-timeline { margin-top:16px; }
+    .nut-tl-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
+    .nut-tl-item { display:flex; gap:12px; padding:8px 0; font-size:13px; }
+    .nut-tl-time { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--primary); min-width:70px; flex-shrink:0; }
+    .nut-tl-desc { color:var(--text-gray); }
+    .vdot-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,59,48,0.08); border:1px solid rgba(255,59,48,0.25); border-radius:var(--radius-pill); padding:5px 14px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; margin-top:8px; }
+    .vdot-badge span { font-family:'Unbounded'; font-size:15px; color:var(--primary); font-weight:600; letter-spacing:-0.02em; }
+    .zone-row { display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13px; font-family:'Manrope'; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .zone-row:last-child { border-bottom:none; }
+    .zone-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .zone-name { color:var(--text-gray); min-width:100px; font-size:12px; }
+    .zone-pace { color:white; font-weight:500; font-size:12px; font-family:'JetBrains Mono',monospace; }
+    .split-controls { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+    .split-table { max-height:280px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.1) transparent; }
+    .split-table::-webkit-scrollbar { width:4px; }
+    .split-table::-webkit-scrollbar-track { background:transparent; }
+    .split-table::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:2px; }
+    .split-header { display:flex; justify-content:space-between; padding:6px 0; font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--border-color); }
+    .split-row { display:flex; justify-content:space-between; padding:5px 0; font-size:12px; border-bottom:1px solid rgba(255,255,255,0.03); }
+    .split-row span:first-child { color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:11px; min-width:50px; }
+    .split-row span:nth-child(2) { color:white; font-weight:500; font-family:'JetBrains Mono',monospace; font-size:11px; min-width:65px; text-align:right; }
+    .split-row span:last-child { color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:11px; min-width:75px; text-align:right; }
+    .footer { padding:80px 0 40px; border-top:1px solid var(--border-color); text-align:center; }
+    .to-top-btn { position:fixed; right:24px; bottom:24px; width:46px; height:46px; border-radius:50%; background:rgba(10,10,10,0.7); border:1px solid rgba(255,255,255,0.15); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:18px; opacity:0; pointer-events:none; transition:0.25s; z-index:999; backdrop-filter:blur(8px); }
+    .to-top-btn.show { opacity:1; pointer-events:auto; }
+    @media(max-width:1024px) { .header-island{width:100%;margin:0 16px;padding:12px 24px;justify-content:space-between} .nav-desk{display:none} .burger{display:block} .calc-grid{grid-template-columns:1fr;gap:20px} .calc-container{padding:20px} .section{padding:108px 0 60px} }
+    @media(max-width:640px) { body{background-attachment:scroll} .container{padding:0 20px} .nut-result-grid{grid-template-columns:1fr 1fr;gap:8px} .nut-card{padding:14px} .nut-card-value{font-size:20px} .calc-main-res{font-size:20px} .run-sub-tabs{flex-wrap:wrap} .zone-name{min-width:80px;font-size:11px} .zone-pace{font-size:11px} }
+  </style>
+</head>
+<body>
+  <div class="ua-stripe"></div>
+  <header class="header">
+    <div class="header-island">
+      <a href="index.html" class="logo">INNA<span>TRI</span></a>
+      <nav class="nav-desk">
+        <a href="index.html" class="nav-link">ГОЛОВНА</a>
+        <a href="run.html" class="nav-link">БІГ</a>
+        <a href="blog.html" class="nav-link">БЛОГ</a>
+        <a href="reviews.html" class="nav-link">ВІДГУКИ</a>
+        <a href="calculator.html" class="nav-link active">КАЛЬКУЛЯТОР</a>
+        <a href="pricing.html" class="nav-link">ТАРИФИ</a>
+        <a href="contact.html" class="nav-link">КОНТАКТИ</a>
+        <a href="../runners-nutrition-essentials.html" class="nav-link" style="color:var(--primary);">ГАЙД</a>
+      </nav>
+      <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="../calculator.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a><a href="../en/calculator.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="calculator.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">UA</a></span>
+      <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-menu" onclick="toggleMenu()"><i class="ph ph-x"></i></div>
+    <a href="index.html" class="mobile-link" onclick="toggleMenu()">ГОЛОВНА</a>
+    <a href="run.html" class="mobile-link" onclick="toggleMenu()">БІГ</a>
+    <a href="blog.html" class="mobile-link" onclick="toggleMenu()">БЛОГ</a>
+    <a href="reviews.html" class="mobile-link" onclick="toggleMenu()">ВІДГУКИ</a>
+    <a href="calculator.html" class="mobile-link" onclick="toggleMenu()">КАЛЬКУЛЯТОР</a>
+    <a href="pricing.html" class="mobile-link" onclick="toggleMenu()">ТАРИФИ</a>
+    <a href="contact.html" class="mobile-link" onclick="toggleMenu()">КОНТАКТИ</a>
+    <a href="../runners-nutrition-essentials.html" class="mobile-link" onclick="toggleMenu()" style="color:var(--primary);">ГАЙД</a>
+    <div style="display:flex;gap:10px;margin-top:12px;"><a href="../calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a><a href="../en/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">UA</a></div>
+    <a href="en/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:2px;opacity:0.6;">EN</a>
+  </div>
+
+  <section id="calculator" class="section">
+    <div class="container">
+      <h1 class="title-font" style="text-align:center;margin-bottom:12px;font-size:clamp(22px,4vw,32px);">КАЛЬКУЛЯТОР ТЕМПУ БІГУ</h1>
+      <p style="text-align:center;max-width:720px;margin:0 auto 28px;color:var(--text-gray);font-size:15px;">VDOT, тренувальні зони, прогнози на 8 дистанцій, спліти та план харчування для бігу й триатлону</p>
+      <div class="calc-container">
+        <div class="calc-tabs">
+          <button class="calc-tab active" onclick="switchCalcMode('tri',event)">ТРИАТЛОН</button>
+          <button class="calc-tab" onclick="switchCalcMode('run',event)">БІГ</button>
+          <button class="calc-tab" onclick="switchCalcMode('nutrition',event)">ХАРЧУВАННЯ</button>
+        </div>
+
+        <!-- TRIATHLON -->
+        <div id="calc-tri" class="calc-mode active">
+          <div class="calc-input-group">
+            <select id="triDist" class="calc-select">
+              <option value="sprint">Sprint (0.75 / 20 / 5)</option>
+              <option value="olympic">Olympic (1.5 / 40 / 10)</option>
+              <option value="half">Ironman 70.3 (1.9 / 90 / 21.1)</option>
+              <option value="full">Ironman 140.6 (3.8 / 180 / 42.2)</option>
+            </select>
+          </div>
+          <div class="calc-grid">
+            <div>
+              <div class="calc-input-group"><label class="calc-label">Плавання (хв/100м)</label><div class="calc-row"><input type="number" id="triSwimM" class="calc-input" placeholder="Хв" value="2" min="0" inputmode="numeric"><input type="number" id="triSwimS" class="calc-input" placeholder="Сек" value="00" min="0" max="59" inputmode="numeric"></div></div>
+              <div class="calc-input-group"><label class="calc-label">Вело (км/год)</label><input type="number" id="triBikeSpeed" class="calc-input" placeholder="км/год" value="30" min="0" step="0.1" inputmode="decimal"></div>
+              <div class="calc-input-group"><label class="calc-label">Біг (хв/км)</label><div class="calc-row"><input type="number" id="triRunM" class="calc-input" placeholder="Хв" value="5" min="0" inputmode="numeric"><input type="number" id="triRunS" class="calc-input" placeholder="Сек" value="30" min="0" max="59" inputmode="numeric"></div></div>
+              <div class="calc-input-group"><label class="calc-label">Транзитки Т1+Т2 (хв)</label><input type="number" id="triT1T2" class="calc-input" placeholder="Хв" value="5" min="0" inputmode="numeric"></div>
+            </div>
+            <div class="calc-result-box">
+              <div class="calc-res-title">РЕЗУЛЬТАТ</div>
+              <div class="calc-main-res" id="triTotalResult">--</div>
+              <div class="calc-sub-res" id="triSubResult">загальний час</div>
+              <div class="calc-details" id="triDetails"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RUNNING -->
+        <div id="calc-run" class="calc-mode">
+          <div class="run-sub-tabs">
+            <button class="run-sub-tab active" onclick="switchRunMode('time',this)">ЗНАЮ ЧАС</button>
+            <button class="run-sub-tab" onclick="switchRunMode('pace',this)">ЗНАЮ ТЕМП</button>
+            <button class="run-sub-tab" onclick="switchRunMode('speed',this)">ЗНАЮ ШВИДКІСТЬ</button>
+          </div>
+          <div class="calc-grid">
+            <div>
+              <div id="run-mode-time" class="run-sub-mode active">
+                <div class="calc-input-group"><label class="calc-label">Дистанція</label><select id="runDist1" class="calc-select run-input" onchange="handleDistChange(1)"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Напівмарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option><option value="custom">Своя дистанція</option></select><input type="number" id="runCustomDist1" class="calc-input run-input" placeholder="Дистанція в км" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
+                <div class="calc-input-group"><label class="calc-label">Ваш час</label><div class="calc-row-3"><input type="number" id="runH1" class="calc-input run-input" placeholder="Год" min="0" inputmode="numeric"><input type="number" id="runM1" class="calc-input run-input" placeholder="Хв" value="50" min="0" inputmode="numeric"><input type="number" id="runS1" class="calc-input run-input" placeholder="Сек" value="0" min="0" max="59" inputmode="numeric"></div></div>
+              </div>
+              <div id="run-mode-pace" class="run-sub-mode">
+                <div class="calc-input-group"><label class="calc-label">Дистанція</label><select id="runDist2" class="calc-select run-input" onchange="handleDistChange(2)"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Напівмарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option><option value="custom">Своя дистанція</option></select><input type="number" id="runCustomDist2" class="calc-input run-input" placeholder="Дистанція в км" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
+                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Темп</label><div class="toggle-group" id="paceUnitToggle"><span class="toggle-btn active" onclick="setPaceUnit('km',this)">ХВ/КМ</span><span class="toggle-btn" onclick="setPaceUnit('mi',this)">ХВ/МИЛЯ</span></div></div><div class="calc-row"><input type="number" id="paceM" class="calc-input run-input" placeholder="Хв" value="5" min="0" inputmode="numeric"><input type="number" id="paceS" class="calc-input run-input" placeholder="Сек" value="30" min="0" max="59" inputmode="numeric"></div></div>
+              </div>
+              <div id="run-mode-speed" class="run-sub-mode">
+                <div class="calc-input-group"><label class="calc-label">Дистанція</label><select id="runDist3" class="calc-select run-input" onchange="handleDistChange(3)"><option value="5">5 км</option><option value="10" selected>10 км</option><option value="21.1">Напівмарафон (21.1 км)</option><option value="42.2">Марафон (42.2 км)</option><option value="custom">Своя дистанція</option></select><input type="number" id="runCustomDist3" class="calc-input run-input" placeholder="Дистанція в км" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
+                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Швидкість</label><div class="toggle-group" id="speedUnitToggle"><span class="toggle-btn active" onclick="setSpeedUnit('kmh',this)">КМ/ГОД</span><span class="toggle-btn" onclick="setSpeedUnit('mph',this)">МИЛЬ/ГОД</span></div></div><input type="number" id="speedVal" class="calc-input run-input" placeholder="км/год" value="10.9" min="0" step="0.1" inputmode="decimal"></div>
+              </div>
+            </div>
+            <div class="calc-result-box">
+              <div class="calc-res-title">РЕЗУЛЬТАТ</div>
+              <div class="calc-main-res" id="runMainResult">--</div>
+              <div class="calc-sub-res" id="runSubResult"></div>
+              <div id="runVdot"></div>
+              <div class="calc-details" id="runDetails"></div>
+              <div class="calc-details" id="runPredictions" style="margin-top:12px;"></div>
+              <div class="calc-details" id="runZones" style="margin-top:12px;"></div>
+              <div class="calc-details" id="runSplits" style="margin-top:12px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NUTRITION -->
+        <div id="calc-nutrition" class="calc-mode">
+          <div class="calc-grid">
+            <div>
+              <div class="calc-input-group"><label class="calc-label">Вага (кг)</label><input type="number" id="nutWeight" class="calc-input nut-input" placeholder="кг" value="70" min="30" max="200" inputmode="numeric"></div>
+              <div class="calc-input-group"><label class="calc-label">Тривалість гонки</label><div class="calc-row"><input type="number" id="nutH" class="calc-input nut-input" placeholder="Години" value="4" min="0" inputmode="numeric"><input type="number" id="nutM" class="calc-input nut-input" placeholder="Хв" value="0" min="0" inputmode="numeric"></div></div>
+              <div class="calc-input-group"><label class="calc-label">Інтенсивність</label><select id="nutIntense" class="calc-select nut-input"><option value="low">Спокійна (Z1-Z2)</option><option value="med" selected>Змагальна (Z3)</option><option value="high">Висока (Z4-Z5)</option></select></div>
+              <div class="calc-input-group"><label class="calc-label">Температура</label><select id="nutTemp" class="calc-select nut-input"><option value="cool">Прохолодно (&lt;15°C)</option><option value="moderate" selected>Помірно (15–25°C)</option><option value="hot">Спекотно (&gt;25°C)</option></select></div>
+              <div class="calc-input-group"><label class="calc-label">Вид спорту</label><select id="nutSport" class="calc-select nut-input"><option value="running" selected>Біг</option><option value="triathlon">Триатлон</option><option value="cycling">Велосипед</option></select></div>
+            </div>
+            <div>
+              <div class="nut-result-grid" id="nutCards"></div>
+              <div class="nut-products" id="nutProducts"></div>
+              <div class="nut-timeline" id="nutTimeline"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO: Informational content block -->
+  <section style="padding:0 0 60px;">
+    <div class="container" style="max-width:860px;">
+      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);margin-bottom:20px;text-align:center;">ЯК КОРИСТУВАТИСЯ КАЛЬКУЛЯТОРОМ БІГУ</h2>
+      <div style="color:var(--text-gray);font-size:14px;line-height:1.8;">
+        <p style="margin-bottom:14px;">Цей калькулятор темпу бігу об'єднує в одному інструменті все, що потрібно бігуну й триатлету: розрахунок темпу та швидкості, показник бігової форми <strong style="color:var(--text-white);">VDOT</strong> за формулою Джека Деніелса, п'ять тренувальних зон, прогнози на 8 дистанцій від 1 км до марафону, таблицю сплітів і план харчування на гонку.</p>
+        <p style="margin-bottom:14px;"><strong style="color:var(--text-white);">VDOT</strong> — ключовий показник у системі Деніелса. Він розраховується за вашим результатом на будь-якій дистанції та показує поточний рівень аеробної підготовки. На основі VDOT калькулятор визначає п'ять тренувальних зон: легкий біг (Easy), марафонський темп, пороговий (Threshold), інтервальний і повторний. Кожна зона працює на розвиток конкретних фізіологічних якостей.</p>
+        <p style="margin-bottom:14px;"><strong style="color:var(--text-white);">Прогнози</strong> розраховуються за формулою Рігеля: T2&nbsp;=&nbsp;T1&nbsp;&times;&nbsp;(D2/D1)<sup>1.06</sup>. Введіть результат на одній дистанції — отримаєте прогноз на всі інші. Таблиця сплітів покаже розкладку по кілометрах або милях із вибором рівномірної чи негативної стратегії.</p>
+        <p><strong style="color:var(--text-white);">Калькулятор харчування</strong> ґрунтується на рекомендаціях ACSM та ISSN для аматорів. Він розраховує вуглеводи (30-90 г/год), рідину (400-800 мл/год), натрій і кофеїн з урахуванням вашої ваги, інтенсивності та температури, а також дає конкретні рекомендації щодо продуктів і таймлайн прийому.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO: Visible FAQ section -->
+  <section style="padding:0 0 80px;">
+    <div class="container" style="max-width:860px;">
+      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);margin-bottom:24px;text-align:center;">ЧАСТІ ПИТАННЯ</h2>
+      <div style="display:grid;gap:16px;">
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Як розрахувати темп на марафон за результатом 5К?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">Введіть дистанцію 5 км і ваш час у розділі БІГ. Калькулятор за формулою Рігеля покаже прогноз на марафон та інші дистанції. Наприклад, 5К за 25 хвилин — це приблизно 3:52 на марафон.</p>
+        </details>
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Що таке VDOT і який показник хороший?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">VDOT — показник бігової форми за методикою Джека Деніелса. VDOT 30-35 — початківець, 40-45 — середній рівень, 50-55 — просунутий, 60+ — елітний рівень.</p>
+        </details>
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Що таке тренувальні зони Деніелса?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">5 зон темпу: Easy (легкий, 65-79% VO2max), Марафонський, Пороговий (лактатний поріг), Інтервальний (95-100% VO2max) і Повторний. Кожна зона розвиває різні фізіологічні якості.</p>
+        </details>
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Скільки гелів потрібно на марафон?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">У середньому 40-60 г вуглеводів на годину, це 2-3 гелі на годину. На марафон 4 години — близько 8-10 гелів. Використовуйте розділ ХАРЧУВАННЯ для точного розрахунку під ваші параметри.</p>
+        </details>
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Що таке негативний спліт?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">Стратегія, коли друга половина дистанції пробігається швидше за першу (на 1-3%). Вважається оптимальною для марафону. У таблиці сплітів можна перемкнути між рівномірним і негативним варіантом.</p>
+        </details>
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Скільки пити води на марафоні?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">400-800 мл/год залежно від температури та ваги. У спеку (>25°C) — до 800 мл/год. Не чекайте спраги — пийте по 150-200 мл кожні 15-20 хвилин.</p>
+        </details>
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Як розрахувати час на Ironman?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">У розділі ТРИАТЛОН оберіть Ironman 140.6, введіть темп плавання (хв/100м), швидкість велосипеда (км/год), темп бігу (хв/км) і час транзиток. Калькулятор покаже загальний час і розбивку по етапах.</p>
+        </details>
+        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
+          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">Як працює розділ ХАРЧУВАННЯ?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
+          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">Введіть вагу, тривалість гонки, інтенсивність і температуру. Калькулятор розрахує вуглеводи, рідину, натрій і кофеїн за рекомендаціями ACSM/ISSN, а також покаже конкретні продукти й таймлайн прийому.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <h2 class="title-font" style="font-size:24px;margin-bottom:30px;">ГОТОВІ СТАТИ IRONMAN?</h2>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://t.me/InnaRH" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-telegram"></i> TELEGRAM</a>
+        <a href="https://www.instagram.com/inna.tri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
+        <a href="https://www.youtube.com/@innatri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
+      </div>
+      <p class="tech-font" style="margin-top:40px; color: var(--text-gray);">Київ, Україна 🇺🇦</p>
+      <p class="tech-font" style="margin-top:12px;">&copy; 2026 INNATRI. SYSTEMATIC COACHING.</p>
+    </div>
+  </footer>
+
+  <button class="to-top-btn" id="toTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ph ph-arrow-up"></i></button>
+
+  <script>
+    function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'auto'}
+    function switchCalcMode(mode,e){document.querySelectorAll('.calc-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.calc-tab').forEach(el=>el.classList.remove('active'));document.getElementById('calc-'+mode).classList.add('active');if(e&&e.target)e.target.classList.add('active');if(mode==='tri')calculateTriTime();if(mode==='run')calculateRun();if(mode==='nutrition')calculateNutrition()}
+
+    const MI=1.60934;
+
+    /* Unified formatting: main result = red numbers + small gray units */
+    function formatMainRes(sec){
+      if(!isFinite(sec)||sec<=0)return'--';
+      sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;
+      if(h>0)return`${h}<span class="res-unit">год</span>${String(m).padStart(2,'0')}<span class="res-unit">хв</span>`;
+      if(m>0&&s>0)return`${m}<span class="res-unit">хв</span>${String(s).padStart(2,'0')}<span class="res-unit">сек</span>`;
+      if(m>0)return`${m}<span class="res-unit">хв</span>`;
+      return`${s}<span class="res-unit">сек</span>`;
+    }
+    function formatHMStext(sec){if(!isFinite(sec)||sec<=0)return'--';sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;if(h>0)return`${h}год ${String(m).padStart(2,'0')}хв`;return`${m}хв ${String(s).padStart(2,'0')}сек`}
+    function formatPace(s){if(!isFinite(s)||s<=0)return'--';const m=Math.floor(s/60),ss=Math.round(s%60);return`${m}:${String(ss).padStart(2,'0')}`}
+
+    /* Custom distance handling */
+    function handleDistChange(n){
+      const sel=document.getElementById('runDist'+n);
+      const inp=document.getElementById('runCustomDist'+n);
+      inp.style.display=sel.value==='custom'?'block':'none';
+      calculateRun();
+    }
+    function getDistKm(n){
+      const sel=document.getElementById('runDist'+n);
+      if(sel.value==='custom'){return parseFloat(document.getElementById('runCustomDist'+n).value)||0}
+      return parseFloat(sel.value)||10;
+    }
+
+    /* VDOT – Jack Daniels formula */
+    function estimateVDOT(distKm,timeSec){
+      if(distKm<=0||timeSec<=0)return 0;
+      const tMin=timeSec/60;
+      const v=distKm*1000/tMin; // meters per minute
+      const pctVO2=0.8+0.1894393*Math.exp(-0.012778*tMin)+0.2989558*Math.exp(-0.1932605*tMin);
+      const vo2=-4.60+0.182258*v+0.000104*v*v;
+      const vdot=vo2/pctVO2;
+      return Math.max(1,Math.round(vdot*10)/10);
+    }
+
+    /* Training paces from VDOT – reverse Daniels formula */
+    function vdotToPaceSec(vdot,pctVO2max){
+      // Given VDOT and desired %VO2max, find pace in sec/km
+      // vo2 = vdot * pctVO2max
+      // vo2 = -4.60 + 0.182258*v + 0.000104*v^2  →  solve for v (m/min)
+      const vo2=vdot*pctVO2max;
+      // Quadratic: 0.000104*v^2 + 0.182258*v + (-4.60 - vo2) = 0
+      const a=0.000104,b=0.182258,c=-4.60-vo2;
+      const disc=b*b-4*a*c;
+      if(disc<0)return 0;
+      const v=(-b+Math.sqrt(disc))/(2*a); // meters per minute
+      if(v<=0)return 0;
+      return 1000/v*60; // sec per km
+    }
+    function getTrainingZones(vdot){
+      return{
+        easy:{min:vdotToPaceSec(vdot,0.59),max:vdotToPaceSec(vdot,0.74)},
+        marathon:{pace:vdotToPaceSec(vdot,0.79)},
+        threshold:{pace:vdotToPaceSec(vdot,0.88)},
+        interval:{pace:vdotToPaceSec(vdot,0.98)},
+        repetition:{pace:vdotToPaceSec(vdot,1.10)}
+      };
+    }
+
+    /* TRIATHLON */
+    function calculateTriTime(){
+      const dm={sprint:{swim:0.75,bike:20,run:5},olympic:{swim:1.5,bike:40,run:10},half:{swim:1.9,bike:90,run:21.1},full:{swim:3.8,bike:180,run:42.2}};
+      const d=dm[document.getElementById('triDist').value];
+      const sp=(parseFloat(document.getElementById('triSwimM').value)||0)*60+(parseFloat(document.getElementById('triSwimS').value)||0);
+      const ss=sp*(d.swim*10);
+      const bs=parseFloat(document.getElementById('triBikeSpeed').value)||30;
+      const bk=bs>0?(d.bike/bs)*3600:0;
+      const rp=(parseFloat(document.getElementById('triRunM').value)||0)*60+(parseFloat(document.getElementById('triRunS').value)||0);
+      const rs=rp*d.run;
+      const ts=(parseFloat(document.getElementById('triT1T2').value)||0)*60;
+      const t=ss+bk+rs+ts;
+      document.getElementById('triTotalResult').innerHTML=formatMainRes(t);
+      document.getElementById('triDetails').innerHTML=
+        `<div class="calc-detail-row"><span>Плавання (${d.swim} км)</span><span>${formatHMStext(ss)}</span></div>`+
+        `<div class="calc-detail-row"><span>Вело (${d.bike} км)</span><span>${formatHMStext(bk)}</span></div>`+
+        `<div class="calc-detail-row"><span>Біг (${d.run} км)</span><span>${formatHMStext(rs)}</span></div>`+
+        `<div class="calc-detail-row"><span>Транзитки</span><span>${formatHMStext(ts)}</span></div>`;
+    }
+
+    /* RUNNING */
+    let currentRunMode='time',paceUnit='km',speedUnit='kmh',splitUnit='km',splitType='even';
+    function switchRunMode(mode,btn){currentRunMode=mode;document.querySelectorAll('.run-sub-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.run-sub-tab').forEach(el=>el.classList.remove('active'));document.getElementById('run-mode-'+mode).classList.add('active');btn.classList.add('active');calculateRun()}
+    function setPaceUnit(u,btn){paceUnit=u;document.querySelectorAll('#paceUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
+    function setSpeedUnit(u,btn){speedUnit=u;document.querySelectorAll('#speedUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
+    function setSplitUnit(u,btn){splitUnit=u;document.querySelectorAll('#splitUnitToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
+    function setSplitType(t,btn){splitType=t;document.querySelectorAll('#splitTypeToggle .toggle-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calculateRun()}
+
+    function calculateRun(){
+      let totalSec,distKm;
+      const preds=[{d:1,l:'1 км'},{d:1.60934,l:'1 миля'},{d:3,l:'3 км'},{d:5,l:'5 км'},{d:10,l:'10 км'},{d:15,l:'15 км'},{d:21.1,l:'Напівмарафон'},{d:42.2,l:'Марафон'}];
+
+      if(currentRunMode==='time'){
+        distKm=getDistKm(1);
+        const h=parseFloat(document.getElementById('runH1').value)||0,m=parseFloat(document.getElementById('runM1').value)||0,s=parseFloat(document.getElementById('runS1').value)||0;
+        totalSec=h*3600+m*60+s;if(totalSec<=0||distKm<=0){clearRun();return}
+      } else if(currentRunMode==='pace'){
+        distKm=getDistKm(2);
+        const pm=parseFloat(document.getElementById('paceM').value)||0,ps=parseFloat(document.getElementById('paceS').value)||0;
+        let pk=pm*60+ps;if(paceUnit==='mi')pk=pk/MI;
+        if(pk<=0||distKm<=0){clearRun();return}totalSec=pk*distKm;
+      } else {
+        distKm=getDistKm(3);
+        let spd=parseFloat(document.getElementById('speedVal').value)||0;
+        if(speedUnit==='mph')spd=spd*MI;
+        if(spd<=0||distKm<=0){clearRun();return}totalSec=(distKm/spd)*3600;
+      }
+
+      const pk=totalSec/distKm,pm=pk*MI,skm=(distKm/totalSec)*3600,smi=skm/MI;
+
+      // Main result
+      document.getElementById('runMainResult').innerHTML=formatMainRes(totalSec);
+      document.getElementById('runSubResult').textContent='фінішний час';
+
+      // VDOT
+      const vdot=estimateVDOT(distKm,totalSec);
+      document.getElementById('runVdot').innerHTML=vdot>0?`<div class="vdot-badge">VDOT <span>${vdot.toFixed(1)}</span></div>`:'';
+
+      // Pace & speed
+      document.getElementById('runDetails').innerHTML=
+        `<div class="calc-detail-row"><span>Темп</span><span>${formatPace(pk)} /км &middot; ${formatPace(pm)} /миля</span></div>`+
+        `<div class="calc-detail-row"><span>Швидкість</span><span>${skm.toFixed(1)} км/год &middot; ${smi.toFixed(1)} миль/год</span></div>`;
+
+      // Predictions (8 distances, skip input distance)
+      let ph='<div class="calc-res-title" style="margin-top:4px;">ПРОГНОЗ НА ІНШІ ДИСТАНЦІЇ</div>';
+      preds.forEach(p=>{
+        if(Math.abs(p.d-distKm)<0.01)return;
+        const ps=totalSec*Math.pow(p.d/distKm,1.06);
+        const pp=ps/p.d;
+        ph+=`<div class="calc-detail-row"><span>${p.l}</span><span>${formatHMStext(ps)} &middot; ${formatPace(pp)} /км</span></div>`;
+      });
+      document.getElementById('runPredictions').innerHTML=ph;
+
+      // Training zones
+      if(vdot>0){
+        const z=getTrainingZones(vdot);
+        const colors={easy:'#4CAF50',marathon:'#2196F3',threshold:'#FF9800',interval:'#FF3B30',repetition:'#9C27B0'};
+        const names={easy:'Easy',marathon:'Марафон',threshold:'Пороговий',interval:'Інтервальний',repetition:'Повторний'};
+        let zh=`<div class="calc-res-title" style="margin-top:4px;">ТРЕНУВАЛЬНІ ЗОНИ (VDOT ${vdot.toFixed(1)})</div>`;
+        zh+=`<div class="zone-row"><span class="zone-dot" style="background:${colors.easy}"></span><span class="zone-name">${names.easy}</span><span class="zone-pace">${formatPace(z.easy.max)} - ${formatPace(z.easy.min)} /км &middot; ${formatPace(z.easy.max*MI)} - ${formatPace(z.easy.min*MI)} /ми</span></div>`;
+        ['marathon','threshold','interval','repetition'].forEach(k=>{
+          zh+=`<div class="zone-row"><span class="zone-dot" style="background:${colors[k]}"></span><span class="zone-name">${names[k]}</span><span class="zone-pace">${formatPace(z[k].pace)} /км &middot; ${formatPace(z[k].pace*MI)} /ми</span></div>`;
+        });
+        document.getElementById('runZones').innerHTML=zh;
+      } else {
+        document.getElementById('runZones').innerHTML='';
+      }
+
+      // Split table (only for >= 5km)
+      if(distKm>=5){
+        const splitDist=splitUnit==='km'?1:MI;
+        const splitLabel=splitUnit==='km'?'км':'ми';
+        const numSplits=Math.floor(distKm/splitDist);
+        const remainder=distKm-numSplits*splitDist;
+        const avgSplitSec=totalSec/distKm*splitDist;
+
+        let sh=`<div class="calc-res-title" style="margin-top:4px;">ТАБЛИЦЯ СПЛІТІВ</div>`;
+        sh+=`<div class="split-controls">`;
+        sh+=`<div class="toggle-group" id="splitTypeToggle"><span class="toggle-btn${splitType==='even'?' active':''}" onclick="setSplitType('even',this)">РІВНОМІРНО</span><span class="toggle-btn${splitType==='negative'?' active':''}" onclick="setSplitType('negative',this)">НЕГАТИВНИЙ</span></div>`;
+        sh+=`<div class="toggle-group" id="splitUnitToggle"><span class="toggle-btn${splitUnit==='km'?' active':''}" onclick="setSplitUnit('km',this)">КМ</span><span class="toggle-btn${splitUnit==='mi'?' active':''}" onclick="setSplitUnit('mi',this)">МИЛИ</span></div>`;
+        sh+=`</div>`;
+        sh+=`<div class="split-header"><span>#</span><span>Спліт</span><span>Час</span></div>`;
+        sh+=`<div class="split-table">`;
+
+        let cumSec=0;
+        const totalSplits=numSplits+(remainder>0.01?1:0);
+        const halfPoint=Math.ceil(totalSplits/2);
+
+        for(let i=1;i<=numSplits;i++){
+          let ss=avgSplitSec;
+          if(splitType==='negative'){
+            ss=i<=halfPoint?avgSplitSec*1.02:avgSplitSec*0.98;
+          }
+          cumSec+=ss;
+          sh+=`<div class="split-row"><span>${i} ${splitLabel}</span><span>${formatPace(ss)}</span><span>${formatHMStext(cumSec)}</span></div>`;
+        }
+        if(remainder>0.01){
+          let rs=(totalSec-cumSec);
+          sh+=`<div class="split-row"><span>${(numSplits*splitDist+remainder).toFixed(2)}</span><span>${formatPace(rs/(remainder/splitDist))}</span><span>${formatHMStext(totalSec)}</span></div>`;
+        }
+        sh+=`</div>`;
+        document.getElementById('runSplits').innerHTML=sh;
+      } else {
+        document.getElementById('runSplits').innerHTML='';
+      }
+    }
+
+    function clearRun(){
+      document.getElementById('runMainResult').textContent='--';
+      document.getElementById('runSubResult').textContent='';
+      document.getElementById('runVdot').innerHTML='';
+      document.getElementById('runDetails').innerHTML='';
+      document.getElementById('runPredictions').innerHTML='';
+      document.getElementById('runZones').innerHTML='';
+      document.getElementById('runSplits').innerHTML='';
+    }
+
+    /* NUTRITION – based on ACSM/ISSN guidelines for recreational athletes */
+    function calculateNutrition(){
+      const w=parseFloat(document.getElementById('nutWeight').value)||70,h=parseFloat(document.getElementById('nutH').value)||0,m=parseFloat(document.getElementById('nutM').value)||0,dur=h+m/60,int=document.getElementById('nutIntense').value,temp=document.getElementById('nutTemp').value;
+      if(dur<=0)return;
+      let cph;if(dur<1)cph=0;else if(dur<2)cph=30;else if(dur<3)cph=40;else if(dur<5)cph=50;else cph=60;
+      if(int==='high')cph+=10;else if(int==='low')cph-=5;
+      cph=Math.max(0,Math.min(90,cph));const tc=Math.round(cph*Math.max(0,dur-0.5));
+      let fph=500;if(w>80)fph+=50;else if(w<55)fph-=50;if(temp==='hot')fph+=200;else if(temp==='cool')fph-=100;if(int==='high')fph+=100;fph=Math.max(300,Math.min(800,fph));const tf=Math.round(fph*dur);
+      let sph=400;if(temp==='hot')sph=600;else if(temp==='cool')sph=300;if(int==='high')sph+=100;sph=Math.min(700,sph);const ts=Math.round(sph*dur);
+      const caf=Math.round(w*3),showCaf=dur>=2;
+
+      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> г/год</span></div><div class="nut-card-label">Вуглеводи</div><div class="nut-card-sub">${dur<1?'Достатньо води':'Усього: '+tc+' г'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> мл/год</span></div><div class="nut-card-label">Рідина</div><div class="nut-card-sub">Усього: ${(tf/1000).toFixed(1)} л</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> мг/год</span></div><div class="nut-card-label">Натрій</div><div class="nut-card-sub">Усього: ${(ts/1000).toFixed(1)} г</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> мг</span></div><div class="nut-card-label">Кофеїн</div><div class="nut-card-sub">За 30-60 хв до фінішу</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">–</div><div class="nut-card-label">Кофеїн</div><div class="nut-card-sub">Не обов'язковий (&lt;2год)</div></div>`}`;
+
+      const gels=Math.max(0,Math.ceil(tc/25)),iso=(tf/1000).toFixed(1),bars=dur>4?Math.floor((dur-2)/1.5):0,ban=dur>3?Math.ceil((dur-3)*0.4):0,salt=Math.ceil(ts/250);
+      let pr='<div class="nut-prod-title">РЕКОМЕНДАЦІЇ ЩОДО ПРОДУКТІВ</div>';
+      if(dur<1){pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Вода</span><span class="nut-prod-qty">${(tf/1000).toFixed(1)} л</span></div>`;pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-info"></i> Харчування не потрібне</span><span class="nut-prod-qty">–</span></div>`}
+      else{pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Енергетичний гель (~25г)</span><span class="nut-prod-qty">${gels} шт</span></div>`;
+      pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-flask"></i> Ізотонік (30-60г/л)</span><span class="nut-prod-qty">${iso} л</span></div>`;
+      if(bars>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-cookie"></i> Енергетичний батончик</span><span class="nut-prod-qty">${bars} шт</span></div>`;
+      if(ban>0)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-leaf"></i> Банан (~30г вуглеводів)</span><span class="nut-prod-qty">${ban} шт</span></div>`;
+      pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-pill"></i> Сольові таблетки (~250мг)</span><span class="nut-prod-qty">${salt} шт</span></div>`;
+      if(showCaf)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-coffee"></i> Кофеїновий гель</span><span class="nut-prod-qty">1 шт</span></div>`}
+      document.getElementById('nutProducts').innerHTML=pr;
+
+      if(dur>=1.5){const tm=Math.round(dur*60);let tl='<div class="nut-tl-title">ТАЙМЛАЙН ХАРЧУВАННЯ</div>';
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">-60 хв</span><span class="nut-tl-desc">Легкий сніданок/перекус: вівсянка, банан, тост із медом</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Старт</span><span class="nut-tl-desc">Пити по 150-200мл кожні 15-20 хв (не чекати спраги)</span></div>`;
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">30-45 хв</span><span class="nut-tl-desc">Перший гель або порція ізотоніка</span></div>`;
+        if(dur>=3)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Кожні 40-45 хв</span><span class="nut-tl-desc">Гель або 200мл ізотоніка + сольова таблетка щогодини</span></div>`;
+        else tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Кожні 40-45 хв</span><span class="nut-tl-desc">Гель або порція ізотоніка</span></div>`;
+        if(dur>4)tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Кожні 90 хв</span><span class="nut-tl-desc">Тверда їжа: батончик або банан (чергувати з гелями)</span></div>`;
+        if(showCaf){const ct=Math.max(tm-45,Math.round(tm*0.75));tl+=`<div class="nut-tl-item"><span class="nut-tl-time">~${ct} хв</span><span class="nut-tl-desc">Кофеїновий гель (${caf} мг) за 30-45 хв до фінішу</span></div>`}
+        tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Фініш</span><span class="nut-tl-desc">Протягом 30 хв: 20-30г білка + 50-80г вуглеводів</span></div>`;
+        document.getElementById('nutTimeline').innerHTML=tl}else{document.getElementById('nutTimeline').innerHTML=''}
+    }
+
+    document.addEventListener('input',e=>{if(e.target.matches('.calc-input,.calc-select')){if(document.getElementById('calc-tri').classList.contains('active'))calculateTriTime();if(document.getElementById('calc-run').classList.contains('active'))calculateRun();if(document.getElementById('calc-nutrition').classList.contains('active'))calculateNutrition()}});
+    window.addEventListener('DOMContentLoaded',()=>{calculateTriTime();calculateRun();calculateNutrition()});
+    const toTopBtn=document.getElementById('toTopBtn');window.addEventListener('scroll',()=>{if(toTopBtn)toTopBtn.classList.toggle('show',window.scrollY>300)},{passive:true});
+  </script>
+</body>
+</html>
