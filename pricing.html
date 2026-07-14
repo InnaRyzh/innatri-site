@@ -650,7 +650,6 @@
         <a href="calculator.html" class="nav-link">КАЛЬКУЛЯТОР</a>
         <a href="pricing.html" class="nav-link active">ТАРИФЫ</a>
         <a href="contact.html" class="nav-link">КОНТАКТЫ</a>
-        <a href="runners-nutrition-essentials.html" class="nav-link" style="color:var(--primary);">ГАЙД</a>
       </nav>
       <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="pricing.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">RU</a><a href="en/pricing.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="ua/pricing.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">UA</a></span>
       <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
@@ -667,7 +666,6 @@
     <a href="calculator.html" class="mobile-link" onclick="toggleMenu()">КАЛЬКУЛЯТОР</a>
     <a href="pricing.html" class="mobile-link" onclick="toggleMenu()">ТАРИФЫ</a>
     <a href="contact.html" class="mobile-link" onclick="toggleMenu()">КОНТАКТЫ</a>
-    <a href="runners-nutrition-essentials.html" class="mobile-link" onclick="toggleMenu()" style="color:var(--primary);">ГАЙД</a>
     <div style="display:flex;gap:10px;margin-top:12px;"><a href="pricing.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);;margin-bottom:0;display:inline-block;">RU</a><a href="en/pricing.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);;margin-bottom:0;display:inline-block;">EN</a><a href="ua/pricing.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);;margin-bottom:0;display:inline-block;">UA</a></div>
   </div>
 
@@ -676,36 +674,41 @@
       <a href="index.html" class="article-back"><i class="ph ph-arrow-left"></i> Назад</a>
       <h1 class="title-font" style="margin: 24px 0;">ТАРИФЫ</h1>
       <div class="pricing-grid">
-        <div class="price-card">
-           <div class="price-main">
-             <div class="price-title">START</div>
-             <div class="price-amount">150 USD<span style="font-size: 16px; color: var(--text-gray); font-weight: 400;"> в месяц</span></div>
-           </div>
-           <div class="price-features">
-             <ul style="margin-bottom: 32px; color: var(--text-gray); display: grid; gap: 12px; font-size: 15px;">
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Персональный план в приложении TrainingPeaks.</li>
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Еженедельный анализ ваших отчетов и корректировка нагрузку.</li>
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Базовая настройка плана раз в неделю.</li>
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Помощь в подборе экипировки и гаджетов.</li>
-             </ul>
-           </div>
-        </div>
-        <div class="price-card is-featured">
-           <div class="price-main">
-             <div class="price-badge">ЛУЧШИЙ ВЫБОР</div>
-             <div class="price-title">PRO</div>
-             <div class="price-amount">200 USD<span style="font-size: 16px; color: var(--text-gray); font-weight: 400;"> в месяц</span></div>
-           </div>
-           <div class="price-features">
-             <ul style="margin-bottom: 32px; color: var(--text-gray); display: grid; gap: 12px; font-size: 15px;">
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Гибкий план в TrainingPeaks с адаптацией под график.</li>
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Ежедневный контроль показателей и обратная связь.</li>
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Видеоанализ техники: находим ошибки и исправляем движения.</li>
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Тренер в кармане: безлимитное общение в мессенджере.</li>
-               <li><i class="ph ph-check" style="color: var(--primary);"></i> Помощь в подборе экипировки и стратегии на гонку.</li>
-             </ul>
-           </div>
-        </div>
+          <div class="price-card">
+             <div class="price-main">
+               <div class="price-title">START</div>
+               <div class="price-amount">150 USD<span style="font-size: 16px; color: var(--text-gray); font-weight: 400;"> в месяц</span></div>
+             </div>
+             <div class="price-features">
+               <ul style="margin-bottom: 32px; color: var(--text-gray); display: grid; gap: 12px; font-size: 15px;">
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Персональный план тренировок в TrainingPeaks.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Планирование и корректировка программы один раз в неделю.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Анализ ключевых тренировок и общей динамики нагрузки.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Рекомендации по тренировочным зонам, экипировке и организации процесса.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Подходит спортсменам с предсказуемым графиком, которым не требуется ежедневная корректировка программы.</li>
+               </ul>
+               <a href="contact.html" class="btn" style="width:100%;margin-top:4px;">ОБСУДИТЬ ТАРИФ</a>
+             </div>
+          </div>
+          <div class="price-card is-featured">
+             <div class="price-main">
+               <div class="price-badge">ПЕРСОНАЛЬНОЕ ВЕДЕНИЕ</div>
+               <div class="price-title">PRO</div>
+               <div class="price-amount">200 USD<span style="font-size: 16px; color: var(--text-gray); font-weight: 400;"> в месяц</span></div>
+             </div>
+             <div class="price-features">
+               <ul style="margin-bottom: 32px; color: var(--text-gray); display: grid; gap: 12px; font-size: 15px;">
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Персональная подготовка в TrainingPeaks с адаптацией под ваш рабочий и жизненный график.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Регулярный анализ тренировок, показателей нагрузки и обратной связи.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Оперативная корректировка плана при изменении графика, самочувствия или восстановления.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Видеоанализ техники бега или плавания.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Подготовка стратегии темпа, питания и прохождения дистанции.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Связь с тренером в мессенджере по вопросам тренировочного процесса.</li>
+                 <li><i class="ph ph-check" style="color: var(--primary);"></i> Подходит для подготовки к марафону, триатлону и другим целевым стартам.</li>
+               </ul>
+               <a href="contact.html" class="btn" style="width:100%;margin-top:4px;">ОБСУДИТЬ ТАРИФ</a>
+             </div>
+          </div>
       </div>
     </div>
   </section>
