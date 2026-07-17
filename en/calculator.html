@@ -150,6 +150,7 @@
     @media(max-width:1024px) { .header-island{width:100%;margin:0 16px;padding:12px 24px;justify-content:space-between} .nav-desk{display:none} .burger{display:block} .calc-grid{grid-template-columns:1fr;gap:20px} .calc-container{padding:20px} .section{padding:108px 0 60px} }
     @media(max-width:640px) { body{background-attachment:scroll} .container{padding:0 20px} .nut-result-grid{grid-template-columns:1fr 1fr;gap:8px} .nut-card{padding:14px} .nut-card-value{font-size:20px} .calc-main-res{font-size:20px} .run-sub-tabs{flex-wrap:wrap} .zone-name{min-width:80px;font-size:11px} .zone-pace{font-size:11px} }
   </style>
+  <link rel="stylesheet" href="/typography.css">
 </head>
 <body>
   <div class="ua-stripe"></div>
@@ -279,8 +280,8 @@
   <!-- SEO: Informational content block -->
   <section style="padding:0 0 60px;">
     <div class="container" style="max-width:860px;">
-      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);margin-bottom:20px;text-align:center;">HOW TO USE THE RUNNING PACE CALCULATOR</h2>
-      <div style="color:var(--text-gray);font-size:14px;line-height:1.8;">
+      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);text-align:center;">HOW TO USE THE RUNNING PACE CALCULATOR</h2>
+      <div style="font-size:14px;">
         <p style="margin-bottom:14px;">This running pace calculator combines everything a runner and triathlete needs in one tool: pace and speed calculation, a <strong style="color:var(--text-white);">VDOT</strong> fitness score based on Jack Daniels' Running Formula, five training pace zones, race predictions for 8 distances from 1 km to the marathon, a split table, and a race nutrition planner.</p>
         <p style="margin-bottom:14px;"><strong style="color:var(--text-white);">VDOT</strong> is the key metric in the Daniels system. It is calculated from your race result at any distance and represents your current aerobic fitness level. Based on your VDOT, the calculator determines five training zones: Easy running, Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition. Each zone targets specific physiological adaptations.</p>
         <p style="margin-bottom:14px;"><strong style="color:var(--text-white);">Race predictions</strong> are calculated using the Riegel formula: T2&nbsp;=&nbsp;T1&nbsp;&times;&nbsp;(D2/D1)<sup>1.06</sup>. Enter your result at one distance to get predictions for all others. The split table shows your per-km or per-mile splits with the option to choose between even pacing and a negative split strategy.</p>
@@ -292,39 +293,39 @@
   <!-- SEO: Visible FAQ section -->
   <section style="padding:0 0 80px;">
     <div class="container" style="max-width:860px;">
-      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);margin-bottom:24px;text-align:center;">FREQUENTLY ASKED QUESTIONS</h2>
+      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);text-align:center;">FREQUENTLY ASKED QUESTIONS</h2>
       <div style="display:grid;gap:16px;">
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How do I predict my marathon time from a 5K result?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">Enter 5 km and your finish time in the RUNNING section. The calculator uses the Riegel formula to predict your marathon and other race times. For example, a 25-minute 5K predicts roughly a 3:52 marathon.</p>
+          <p style="font-size:14px;">Enter 5 km and your finish time in the RUNNING section. The calculator uses the Riegel formula to predict your marathon and other race times. For example, a 25-minute 5K predicts roughly a 3:52 marathon.</p>
         </details>
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is VDOT and what is a good score?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">VDOT is a running fitness metric from Jack Daniels' Running Formula. VDOT 30-35 is beginner, 40-45 intermediate, 50-55 advanced, and 60+ is elite level.</p>
+          <p style="font-size:14px;">VDOT is a running fitness metric from Jack Daniels' Running Formula. VDOT 30-35 is beginner, 40-45 intermediate, 50-55 advanced, and 60+ is elite level.</p>
         </details>
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">What are the Jack Daniels training pace zones?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">Five zones: Easy (65-79% VO2max for recovery), Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition (faster than VDOT pace). Each zone develops different physiological qualities.</p>
+          <p style="font-size:14px;">Five zones: Easy (65-79% VO2max for recovery), Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition (faster than VDOT pace). Each zone develops different physiological qualities.</p>
         </details>
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How many gels should I take during a marathon?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">Aim for 40-60g of carbs per hour, which is 2-3 gels per hour. For a 4-hour marathon, plan for 8-10 gels. Use the NUTRITION section for a personalized calculation.</p>
+          <p style="font-size:14px;">Aim for 40-60g of carbs per hour, which is 2-3 gels per hour. For a 4-hour marathon, plan for 8-10 gels. Use the NUTRITION section for a personalized calculation.</p>
         </details>
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is a negative split in running?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">A race strategy where the second half is run faster than the first (typically 1-3% faster). Considered optimal for marathons. The split table lets you toggle between even and negative split strategies.</p>
+          <p style="font-size:14px;">A race strategy where the second half is run faster than the first (typically 1-3% faster). Considered optimal for marathons. The split table lets you toggle between even and negative split strategies.</p>
         </details>
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How much water should I drink during a marathon?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">400-800 ml per hour depending on temperature and body weight. In hot conditions (above 25°C/77°F), aim for up to 800 ml/h. Drink 150-200ml every 15-20 minutes.</p>
+          <p style="font-size:14px;">400-800 ml per hour depending on temperature and body weight. In hot conditions (above 25°C/77°F), aim for up to 800 ml/h. Drink 150-200ml every 15-20 minutes.</p>
         </details>
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How do I calculate my Ironman finish time?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">In the TRIATHLON section, select Ironman 140.6, enter your swim pace (min/100m), bike speed (km/h), run pace (min/km), and transition times. The calculator shows total time and a breakdown by discipline.</p>
+          <p style="font-size:14px;">In the TRIATHLON section, select Ironman 140.6, enter your swim pace (min/100m), bike speed (km/h), run pace (min/km), and transition times. The calculator shows total time and a breakdown by discipline.</p>
         </details>
         <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
           <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How does the NUTRITION section work?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="color:var(--text-gray);font-size:14px;margin-top:12px;line-height:1.7;">Enter your weight, race duration, intensity, and temperature. The calculator estimates carbs, fluid, sodium, and caffeine based on ACSM/ISSN guidelines, and provides specific product recommendations and a fueling timeline.</p>
+          <p style="font-size:14px;">Enter your weight, race duration, intensity, and temperature. The calculator estimates carbs, fluid, sodium, and caffeine based on ACSM/ISSN guidelines, and provides specific product recommendations and a fueling timeline.</p>
         </details>
       </div>
     </div>
@@ -332,7 +333,7 @@
 
   <footer class="footer">
     <div class="container">
-      <h2 class="title-font" style="font-size:24px;margin-bottom:30px;">READY TO BECOME AN IRONMAN?</h2>
+      <h2 class="title-font" style="font-size:24px;">READY TO BECOME AN IRONMAN?</h2>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
         <a href="https://t.me/InnaRH" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-telegram"></i> TELEGRAM</a>
         <a href="https://www.instagram.com/inna.tri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
