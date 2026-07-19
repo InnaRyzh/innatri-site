@@ -65,13 +65,13 @@ h2.title-font:first-child { margin-top: 0; } /* первый заголовок 
 
 /* --- Нумерация секций: 01 · Подход --- */
 .section-label {
-  display: flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: center; gap: 8px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--text-muted); margin-bottom: 14px;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 18px;
 }
-.section-label span:first-child { color: var(--primary); }
-.section-label::after { content: ""; flex: 0 0 42px; height: 1px; background: rgba(255,255,255,0.18); }
+.section-label span:first-child { color: var(--primary); font-weight: 700; }
+.section-label::after { display: none; }
 
 /* --- Манифест --- */
 .manifesto-kicker {

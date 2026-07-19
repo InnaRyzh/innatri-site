@@ -326,17 +326,29 @@
   .about-img-wrap { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-color); height: 600px; }
   .about-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1) grayscale(20%); transition: 0.5s; }
   .about-img-wrap:hover .about-img { transform: scale(1.03); filter: grayscale(0%); }
-  .about-text { max-width: 680px; }
-  .about-text p { margin-top: 16px; color: #C9CFD8; font-size: 18px; line-height: 1.85; }
+  .about-photo-label {
+   position: absolute;
+   top: 18px;
+   left: 18px;
+   z-index: 2;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   background: transparent;
+   color: rgba(246,239,232,0.82);
+   text-shadow: 0 2px 12px rgba(0,0,0,0.65);
+  }
+  .about-photo-label::after { display: none; }
+  .about-text { max-width: 740px; }
+  .about-text p { margin-top: 18px; color: #C9CFD8; font-size: 18px; line-height: 1.85; }
   .about-text p:first-of-type { margin-top: 0; }
-  .about-text .about-lead { font-size: 20px; color: #F3F5F8; letter-spacing: 0.01em; }
+  .about-text .about-lead { font-size: 20px; color: #F3F5F8; letter-spacing: 0.01em; line-height: 1.65; }
   .about-text .about-em { color: #FFFFFF; font-weight: 700; }
   .about-text .about-em-soft { color: #E8EBF0; font-weight: 600; }
-  .about-text .about-em-accent { color: var(--primary); font-weight: 700; }
-  .about-text-content { display: block; }
-  .about-block { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
-  .about-block:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
-  .about-callout { background: rgba(255,59,48,0.06); border: 1px solid rgba(255,59,48,0.2); padding: 16px 18px; border-radius: 14px; color: #F1F2F5; }
+  .about-credentials { margin-bottom: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .about-text-content { display: block; max-width: 720px; }
+  .about-block { margin-top: 0; padding-top: 0; border-top: none; }
+  .about-callout { background: transparent; border: 0; padding: 0; border-radius: 0; color: #F1F2F5; font-weight: 600; }
   .about-cta { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); padding: 14px 18px; border-radius: 14px; color: #FFFFFF; }
   @media (min-width: 1025px) {
    .about-text p { font-size: 17px; line-height: 1.75; margin-top: 12px; }
@@ -765,7 +777,7 @@
   }
   .to-top-btn.show { opacity: 1; pointer-events: auto; }
  </style>
- <link rel="stylesheet" href="/typography.css?v=site-tones-20260719">
+ <link rel="stylesheet" href="/typography.css?v=about-skin-20260719">
 </head>
 <body>
  <div class="ua-stripe"></div>
@@ -828,19 +840,12 @@
    </div>
   </div>
 
-  <!-- MANIFESTO -->
-  <section class="section tone-dark home-manifesto" style="padding-bottom: 0;">
-   <div class="container">
-    <p class="manifesto-kicker">Вам нужен не очередной PDF-план.</p>
-    <h2 class="title-font manifesto-title">ВАМ НУЖЕН ЧЕЛОВЕК, КОТОРЫЙ <em>УПРАВЛЯЕТ</em> ПОДГОТОВКОЙ.</h2>
-   </div>
-  </section>
-
   <section id="about" class="section tone-dark">
    <div class="container">
     <div class="about-grid">
      <div>
       <div class="about-img-wrap">
+       <div class="section-label about-photo-label"><span>01</span><span>Тренер</span></div>
        <img src="assets/people/Photoroom_20240822_221402.JPG" class="about-img" alt="Тренер по триатлону и бегу Инна Рыжих – онлайн коучинг">
       </div>
       <div class="stats-wrapper">
@@ -856,24 +861,22 @@
      </div>
      <div class="about-content">
       <div class="about-text">
-       <div class="section-label"><span>01</span><span>Тренер</span></div>
-    <h2 class="title-font about-title" style="font-size: 32px; margin-bottom: 24px;">ВАШ ТРЕНЕР ПО<br>ТРИАТЛОНУ И БЕГУ</h2>
-       <div style="margin-bottom: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+       <div class="about-credentials">
         <span class="tech-font" style="background: rgba(255,59,48,0.1); color: var(--primary); padding: 6px 12px; border-radius: 4px; border: 1px solid rgba(255,59,48,0.3);"><i class="ph ph-certificate"></i> TRAININGPEAKS CERTIFIED COACH</span>
         <a href="https://www.triathlon.org/athletes/profile/7016/inna-ryzhykh" target="_blank" class="tech-font" style="background: rgba(255,59,48,0.1); color: var(--primary); padding: 6px 12px; border-radius: 4px; border: 1px solid rgba(255,59,48,0.3); text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"><i class="ph ph-globe"></i> WORLD TRIATHLON PROFILE <i class="ph ph-arrow-up-right"></i></a>
        </div>
        <div class="about-text-content">
         <div class="about-block">
-         <p class="about-lead">Меня зовут Инна Рыжих. Я онлайн-тренер по бегу и триатлону с 20-летним опытом в профессиональном спорте и более чем 10-летней практикой работы со спортсменами-любителями.</p>
-         <p>Я готовлю к марафонам, Ironman, 70.3 и другим стартам людей, которые не могут и не должны жить по режиму профессионального спортсмена.</p>
+         <p class="about-lead">Меня зовут Инна Рыжих. Я - тренер по триатлону и бегу.</p>
+         <p>Главная проблема спортсменов-любителей - попытка впихнуть невпихуемое. Вы совмещаете подготовку к Ironman или марафону с бизнесом, семьей и перелетами.</p>
+         <p>Шаблонные планы здесь не работают - они лишь приводят к перетренированности и чувству вины за сбитый график.</p>
         </div>
         <div class="about-block">
-         <p>Мои спортсмены совмещают тренировки с бизнесом, работой, семьёй, командировками и перелётами. Поэтому я не выдаю шаблонный план на несколько месяцев вперёд. Я управляю подготовкой: анализирую данные, слежу за реакцией организма, корректирую нагрузку и перестраиваю программу, когда меняются обстоятельства.</p>
-         <p>Профессиональный спорт дал мне понимание системы и физиологии результата. Работа с любителями научила главному: эффективная программа должна учитывать не только цель на старте, но и реальную жизнь человека.</p>
+         <p class="about-callout">Я решаю эту проблему. Моя задача - снять с вас необходимость каждый день ломать голову над тем, как правильно распределить нагрузку.</p>
+         <p>Я управляю вашей формой на основе данных: анализирую реакции организма, корректирую задачи и перестраиваю неделю, когда меняются обстоятельства.</p>
         </div>
         <div class="about-block">
-         <p>Мы не набираем километры ради отчёта в приложении. Каждая тренировка должна иметь задачу и вести к результату - без бессмысленных объёмов, хронической усталости и постоянного чувства вины за несовершенный график.</p>
-         <p class="about-callout">Моя задача - не просто написать вам план, а снять с вас необходимость каждый день решать, достаточно ли вы тренируетесь, правильно ли распределяете нагрузку и успеете ли подготовиться к старту.</p>
+         <p>Мы не набираем пустые километры ради отчетов в приложении. Каждая тренировка имеет четкую цель и ведет к результату, сохраняя ваше здоровье и личную жизнь.</p>
         </div>
        </div>
       </div>
