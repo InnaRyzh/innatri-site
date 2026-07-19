@@ -598,6 +598,50 @@ body.page-reviews .review-avatar {
   }
 }
 
+/* ============================================================
+   ФИКСЫ ЧИТАЕМОСТИ И ЦВЕТА (аудит 2026-07-19)
+   ============================================================ */
+
+/* Хедер всегда тёмный — ссылки меню не должны зависеть от тона страницы */
+.header .nav-link { color: rgba(244,234,221,0.72); }
+.header .nav-link:hover, .header .nav-link.active { color: #FFFFFF; }
+
+/* Красный glow-подложка карточек: на тёплых (бежевых) поверхностях выключаем */
+#view-home .tone-warm .bento-card::before,
+#view-home .tone-warm .price-card::before,
+#view-home .tone-warm .stat-card::before,
+#view-home .tone-warm .step-card::before,
+#view-home .tone-warm .review-card::before,
+#view-home .tone-warm .faq-item::before,
+#view-home .tone-warm .featured-article::before,
+body.page-pricing .price-card::before,
+body.page-reviews #pricing .price-card::before,
+body.page-contact > .section .bento-card::before,
+body.page-contact > .section .faq-item::before,
+body.page-calculator > section:nth-of-type(2) details::before { display: none; }
+
+/* Наведение на тёплых карточках: спокойная тень вместо красного свечения */
+@media (hover: hover) {
+  #view-home .tone-warm .bento-card:hover,
+  #view-home .tone-warm .price-card:hover,
+  #view-home .tone-warm .stat-card:hover,
+  #view-home .tone-warm .step-card:hover,
+  body.page-pricing .price-card:hover {
+    border-color: rgba(27,18,13,0.28);
+    box-shadow: 0 22px 60px rgba(46,35,24,0.14);
+  }
+}
+
+/* Callout «моя задача — снять с вас...»: вместо красного блока — тонкая красная черта слева */
+#view-home .tone-dark .about-callout,
+#view-home .tone-warm .about-callout {
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 2px solid var(--primary) !important;
+  border-radius: 0 !important;
+  padding: 2px 0 2px 16px !important;
+}
+
 /* --- Мягкое появление при скролле (CSS-only, деградирует без поддержки) --- */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
