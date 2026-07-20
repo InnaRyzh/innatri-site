@@ -37,11 +37,10 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- ICONS -->
   <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <script type="application/ld+json" id="schema-site">
     {
@@ -634,7 +633,7 @@
     }
     .to-top-btn.show { opacity: 1; pointer-events: auto; }
   </style>
-  <link rel="stylesheet" href="/typography.css?v=fixpack-20260719">
+  <link rel="stylesheet" href="/typography.css?v=perf-20260720">
 </head>
 <body class="site-page page-contact">
   <div class="ua-stripe"></div>
@@ -678,9 +677,9 @@
       <p style="max-width: 620px;">Расскажи, к какой цели готовишься: первый старт, марафон, 70.3 или Ironman.</p>
       <p style="max-width: 620px;">Напиши мне в Telegram, WhatsApp или на почту. Я лично отвечу, посмотрю твою ситуацию и подскажу, какой формат подготовки подойдёт именно тебе.</p>
       <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
-        <a href="https://t.me/InnaRH" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-telegram"></i> TELEGRAM</a>
-        <a href="https://wa.me/13322016516" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</a>
-        <a href="mailto:innaryzhykh@gmail.com" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-envelope"></i> EMAIL</a>
+        <a href="https://t.me/InnaRH" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="ph ph-telegram-logo"></i> TELEGRAM</a>
+        <a href="https://wa.me/13322016516" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="ph ph-whatsapp-logo"></i> WHATSAPP</a>
+        <a href="mailto:innaryzhykh@gmail.com" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="ph ph-envelope"></i> EMAIL</a>
       </div>
     </div>
   </section>
@@ -914,7 +913,7 @@
       dotsContainer.innerHTML = '';
       for (let i = 0; i < totalReviews; i++) {
         const dot = document.createElement('button');
-        dot.className = 'review-dot' + (i === 0 ? ' active' : '');
+        dot.className = 'review-dot' + (i === 0 ? ' active' : ''); dot.setAttribute('aria-label', 'Отзыв ' + (i + 1));
         dot.onclick = () => goToReview(i);
         dotsContainer.appendChild(dot);
       }
