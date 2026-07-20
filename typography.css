@@ -626,6 +626,25 @@ body.page-calculator .calc-input {
   font-size: 16px !important;
 }
 
+body.page-calculator .calc-select {
+  appearance: none;
+  -webkit-appearance: none;
+  color-scheme: dark;
+  font-weight: 560;
+  padding-right: 42px !important;
+  background:
+    linear-gradient(45deg, transparent 50%, rgba(246,239,232,0.76) 50%) calc(100% - 20px) 50% / 7px 7px no-repeat,
+    linear-gradient(135deg, rgba(246,239,232,0.76) 50%, transparent 50%) calc(100% - 14px) 50% / 7px 7px no-repeat,
+    rgba(255,255,255,0.035) !important;
+}
+
+body.page-calculator .calc-select option {
+  background: #16120F;
+  color: #F6EFE8;
+  font-family: var(--calc-ui-font);
+  font-weight: 540;
+}
+
 body.page-calculator .calc-result-box {
   position: sticky;
   top: 96px;
@@ -645,6 +664,18 @@ body.page-calculator .calc-main-res {
   font-weight: 780;
   line-height: 1;
   margin-bottom: 8px !important;
+}
+
+body.page-calculator .res-unit {
+  display: inline-block;
+  font-family: var(--calc-ui-font) !important;
+  font-size: 0.48em !important;
+  font-weight: 650 !important;
+  line-height: 1;
+  letter-spacing: 0 !important;
+  color: rgba(246,239,232,0.70) !important;
+  margin: 0 0.28em 0 0.14em !important;
+  vertical-align: baseline;
 }
 
 body.page-calculator .calc-sub-res {
@@ -913,6 +944,15 @@ body.page-calculator > section:nth-of-type(2) {
   --bg-card: rgba(255,248,238,0.50);
 }
 
+body.page-calculator > section:nth-of-type(2) {
+  padding: 96px 0 76px !important;
+}
+
+body.page-calculator > section:nth-of-type(2) .container {
+  display: grid;
+  gap: 24px;
+}
+
 body.page-pricing h1,
 body.page-pricing h2,
 body.page-pricing h3,
@@ -967,6 +1007,12 @@ body.page-calculator > section:nth-of-type(3) {
     radial-gradient(820px 420px at 86% 0%, rgba(255,59,48,0.08), transparent 62%),
     linear-gradient(180deg, var(--itri-ink) 0%, var(--itri-espresso) 100%);
   color: #F6EFE8;
+  padding: 96px 0 88px !important;
+}
+
+body.page-calculator > section:nth-of-type(3) .container {
+  display: grid;
+  gap: 26px;
 }
 
 body.page-calculator > section:nth-of-type(3) details {
@@ -1002,6 +1048,14 @@ body.page-reviews .review-avatar {
   body.page-calculator > section:nth-of-type(2),
   body.page-calculator > section:nth-of-type(3) {
     background-attachment: scroll;
+  }
+
+  body.page-calculator > section:nth-of-type(2) {
+    padding: 72px 0 58px !important;
+  }
+
+  body.page-calculator > section:nth-of-type(3) {
+    padding: 72px 0 72px !important;
   }
 }
 
