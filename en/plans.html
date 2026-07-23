@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://innatri.com/en/plans.html" />
 <link rel="alternate" hreflang="ru" href="https://innatri.com/plans.html" />
 <link rel="alternate" hreflang="en" href="https://innatri.com/en/plans.html" />
+<link rel="alternate" hreflang="uk" href="https://innatri.com/ua/plans.html" />
 <link rel="alternate" hreflang="x-default" href="https://innatri.com/plans.html" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -19,7 +20,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --bg:#000000;
@@ -45,12 +46,12 @@
   html{scroll-behavior:smooth}
   body{
     background:var(--bg);color:var(--t1);
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI','Helvetica Neue',Arial,sans-serif;
     font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .display{font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.03}
+  .display{font-family:'Unbounded',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.03}
   .mono{font-family:'JetBrains Mono',monospace}
   .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
   a{color:inherit;text-decoration:none}
@@ -58,7 +59,7 @@
 
   /* Buttons */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
-    font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;
+    font-family:'Unbounded',sans-serif;font-weight:700;font-size:14px;
     padding:15px 28px;border-radius:100px;cursor:pointer;border:none;
     transition:transform .18s ease, box-shadow .25s ease, background .2s ease;white-space:nowrap}
   .btn-primary{background:var(--white);color:#000;box-shadow:0 8px 40px rgba(255,255,255,.12)}
@@ -67,13 +68,13 @@
   .btn-grad:hover{transform:translateY(-2px);box-shadow:0 16px 56px rgba(255,59,0,.42)}
   .btn-ghost{background:transparent;color:var(--t1);border:1px solid var(--line)}
   .btn-ghost:hover{border-color:#3f3f46;background:#111}
-  .btn-sm{padding:11px 20px;font-size:14px}
+  .btn-sm{padding:11px 20px;font-size:12px}
 
   /* Nav */
   header{position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);
     background:rgba(0,0,0,.62);border-bottom:1px solid rgba(255,255,255,.05)}
   nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:'Outfit';font-weight:800;font-size:19px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:'Unbounded';font-weight:800;font-size:16px}
   .logo .dot{width:30px;height:30px;border-radius:9px;background:var(--grad-135);display:flex;align-items:center;justify-content:center;font-size:15px}
   .navlinks{display:flex;gap:34px;font-size:15px;color:var(--t2);font-weight:500}
   .navlinks a:hover{color:var(--white)}
@@ -88,7 +89,7 @@
                radial-gradient(ellipse at 70% 40%,rgba(0,133,255,.15),transparent 55%);
     filter:blur(20px)}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative}
-  .hero h1{font-size:60px;margin:22px 0 20px}
+  .hero h1{font-size:44px;margin:22px 0 20px}
   .hero .sub{font-size:20px;color:var(--t2);max-width:520px;margin-bottom:32px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .hero-note{font-size:13px;color:var(--t3);margin-top:18px;display:flex;align-items:center;gap:8px}
@@ -97,7 +98,7 @@
   .pill .g{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:10px}
-    .hero h1{font-size:42px}
+    .hero h1{font-size:31px}
     .hero .sub{font-size:18px}
     .hero-phone-wrap{order:-1;margin-bottom:8px}
   }
@@ -115,18 +116,18 @@
   .screen{background:#000;border-radius:32px;overflow:hidden;height:588px;position:relative}
   .scr-pad{padding:26px 18px 18px}
   .scr-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
-  .scr-h h3{font-family:'Outfit';font-weight:800;font-size:21px}
+  .scr-h h3{font-family:'Unbounded';font-weight:800;font-size:17px}
   .scr-h p{font-size:12px;color:var(--t3);margin-top:2px}
   .chip{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
     padding:6px 11px;border-radius:100px;border:1px solid rgba(168,85,247,.4);color:#c084fc;background:rgba(168,85,247,.08)}
   .today-card{border-radius:20px;padding:2px;background:var(--grad-135);margin-bottom:14px}
   .today-inner{background:#141416;border-radius:18px;padding:15px}
   .today-inner .lbl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
-  .today-inner h4{font-family:'Outfit';font-weight:800;font-size:19px;margin:5px 0 3px}
+  .today-inner h4{font-family:'Unbounded';font-weight:800;font-size:16px;margin:5px 0 3px}
   .today-inner .meta{font-size:12px;color:var(--t2);font-family:'JetBrains Mono'}
   .mini-row{display:flex;gap:9px;margin-bottom:14px}
   .mini{flex:1;background:var(--card);border:1px solid var(--line);border-radius:15px;padding:11px 12px}
-  .mini .mv{font-family:'Outfit';font-weight:800;font-size:19px}
+  .mini .mv{font-family:'Unbounded';font-weight:800;font-size:16px}
   .mini .mk{font-size:9px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
   .cal-strip{display:flex;justify-content:space-between;gap:5px}
   .cal-d{flex:1;text-align:center;padding:9px 0;border-radius:12px;background:var(--card);border:1px solid var(--line)}
@@ -139,14 +140,14 @@
   .trust-in{display:flex;gap:44px;align-items:center;justify-content:center;flex-wrap:wrap}
   .trust-item{display:flex;align-items:center;gap:10px;color:var(--t2);font-size:14px;font-weight:500}
   .trust-item svg{flex-shrink:0}
-  .trust-item b{color:var(--white);font-family:'Outfit';font-weight:700}
+  .trust-item b{color:var(--white);font-family:'Unbounded';font-weight:700}
 
   /* Section base */
   section{padding:96px 0}
   .sec-head{max-width:660px;margin:0 auto 56px;text-align:center}
-  .sec-head h2{font-size:42px;margin:16px 0 16px}
+  .sec-head h2{font-size:32px;margin:16px 0 16px}
   .sec-head p{font-size:19px;color:var(--t2)}
-  @media(max-width:720px){section{padding:64px 0}.sec-head h2{font-size:32px}.sec-head p{font-size:17px}}
+  @media(max-width:720px){section{padding:64px 0}.sec-head h2{font-size:25px}.sec-head p{font-size:17px}}
 
   /* Problem */
   .problem{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -154,7 +155,7 @@
   .prob-col{border-radius:var(--r);padding:30px;border:1px solid var(--line)}
   .prob-col.bad{background:#101011}
   .prob-col.good{background:linear-gradient(180deg,rgba(255,59,0,.06),rgba(0,133,255,.05));border-color:rgba(255,59,0,.25)}
-  .prob-col h3{font-family:'Outfit';font-weight:700;font-size:18px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .prob-col h3{font-family:'Unbounded';font-weight:700;font-size:18px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
   .prob-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
   .prob-col li{display:flex;gap:12px;font-size:15px;color:var(--t2);line-height:1.5}
   .prob-col li .ic{flex-shrink:0;margin-top:2px}
@@ -170,7 +171,7 @@
     background:rgba(255,59,0,.10);border:1px solid rgba(255,59,0,.22)}
   .fcard:nth-child(2) .fic,.fcard:nth-child(5) .fic{background:rgba(0,133,255,.10);border-color:rgba(0,133,255,.22)}
   .fcard:nth-child(3) .fic,.fcard:nth-child(6) .fic{background:rgba(45,212,191,.10);border-color:rgba(45,212,191,.22)}
-  .fcard h3{font-family:'Outfit';font-weight:700;font-size:19px;margin-bottom:9px}
+  .fcard h3{font-family:'Unbounded';font-weight:700;font-size:16px;margin-bottom:9px}
   .fcard p{font-size:15px;color:var(--t2);line-height:1.55}
   @media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
@@ -180,7 +181,7 @@
   .show-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto}
   .show-grid.rev{direction:rtl}.show-grid.rev>*{direction:ltr}
   .show-copy .eyebrow{margin-bottom:14px;display:block}
-  .show-copy h2{font-family:'Outfit';font-weight:800;font-size:34px;letter-spacing:-.02em;margin-bottom:18px;line-height:1.1}
+  .show-copy h2{font-family:'Unbounded';font-weight:800;font-size:25px;letter-spacing:-.02em;margin-bottom:18px;line-height:1.1}
   .show-copy p{font-size:17px;color:var(--t2);margin-bottom:16px}
   .show-copy ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:22px}
   .show-copy li{display:flex;gap:11px;font-size:15px;color:var(--t1)}
@@ -201,7 +202,7 @@
     background:conic-gradient(from 0deg,#FF3B00 0%,#0085FF 68%,#1c1c1e 68%);
     display:flex;align-items:center;justify-content:center;position:relative}
   .ring::after{content:"";position:absolute;inset:11px;border-radius:50%;background:#0d0d0f}
-  .ring span{position:relative;z-index:2;font-family:'Outfit';font-weight:900;font-size:30px}
+  .ring span{position:relative;z-index:2;font-family:'Unbounded';font-weight:900;font-size:24px}
 
   /* Coach */
   .coach{max-width:960px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
@@ -210,12 +211,12 @@
     display:flex;align-items:flex-end;justify-content:center}
   .coach-photo .ph-note{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:13px;text-align:center;padding:20px;font-family:'JetBrains Mono'}
   .coach-photo .badge{position:absolute;top:16px;left:16px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 14px;font-size:12px;font-weight:600}
-  .coach h2{font-family:'Outfit';font-weight:800;font-size:36px;letter-spacing:-.02em;margin:14px 0 18px;line-height:1.1}
+  .coach h2{font-family:'Unbounded';font-weight:800;font-size:27px;letter-spacing:-.02em;margin:14px 0 18px;line-height:1.1}
   .coach p{color:var(--t2);font-size:17px;margin-bottom:16px}
   .coach-stats{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
-  .cstat .n{font-family:'Outfit';font-weight:800;font-size:30px}
+  .cstat .n{font-family:'Unbounded';font-weight:800;font-size:24px}
   .cstat .l{font-size:13px;color:var(--t3)}
-  @media(max-width:760px){.coach{grid-template-columns:1fr;gap:28px}.coach h2{font-size:28px}}
+  @media(max-width:760px){.coach{grid-template-columns:1fr;gap:28px}.coach h2{font-size:22px}}
 
   /* Pricing */
   .pricing{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -227,10 +228,10 @@
       box-shadow:0 20px 60px rgba(255,59,0,.14)}
   .pcard .ptag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);
     background:var(--grad);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px}
-  .pcard .dist{font-family:'Outfit';font-weight:700;font-size:15px;color:var(--t2);letter-spacing:.04em;text-transform:uppercase}
-  .pcard h3{font-family:'Outfit';font-weight:800;font-size:26px;margin:6px 0 4px}
+  .pcard .dist{font-family:'Unbounded';font-weight:700;font-size:15px;color:var(--t2);letter-spacing:.04em;text-transform:uppercase}
+  .pcard h3{font-family:'Unbounded';font-weight:800;font-size:20px;margin:6px 0 4px}
   .pcard .wk{font-size:13px;color:var(--t3);margin-bottom:20px}
-  .pcard .price{font-family:'Outfit';font-weight:900;font-size:46px;line-height:1}
+  .pcard .price{font-family:'Unbounded';font-weight:900;font-size:40px;line-height:1}
   .pcard .price small{font-size:16px;font-weight:600;color:var(--t3);vertical-align:middle;margin-left:4px}
   .pcard .once{font-size:13px;color:var(--t3);margin-top:6px;margin-bottom:22px}
   .pcard ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px;flex:1}
@@ -245,21 +246,21 @@
   .bridge{max-width:1000px;margin:34px auto 0;border-radius:var(--r);
     background:linear-gradient(120deg,rgba(255,59,0,.08),rgba(0,133,255,.08));
     border:1px solid var(--line);padding:34px 38px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  .bridge h3{font-family:'Outfit';font-weight:800;font-size:24px;margin-bottom:6px}
+  .bridge h3{font-family:'Unbounded';font-weight:800;font-size:19px;margin-bottom:6px}
   .bridge p{color:var(--t2);font-size:15px;max-width:520px}
 
   /* Guarantee */
   .guar{max-width:760px;margin:0 auto;text-align:center;border:1px solid var(--line);border-radius:var(--r);padding:46px 40px;background:var(--card)}
   .guar .seal{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;
     background:var(--grad-135);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(255,59,0,.3)}
-  .guar h2{font-family:'Outfit';font-weight:800;font-size:30px;margin-bottom:14px}
+  .guar h2{font-family:'Unbounded';font-weight:800;font-size:24px;margin-bottom:14px}
   .guar p{color:var(--t2);font-size:17px}
 
   /* FAQ */
   .faq{max-width:760px;margin:0 auto}
   details{border:1px solid var(--line);border-radius:16px;margin-bottom:12px;background:var(--card);overflow:hidden}
   details[open]{border-color:#34343b}
-  summary{cursor:pointer;padding:20px 22px;font-family:'Outfit';font-weight:600;font-size:17px;
+  summary{cursor:pointer;padding:20px 22px;font-family:'Unbounded';font-weight:600;font-size:15px;
     display:flex;justify-content:space-between;align-items:center;list-style:none}
   summary::-webkit-details-marker{display:none}
   summary .plus{width:22px;height:22px;flex-shrink:0;position:relative;transition:transform .2s}
@@ -274,9 +275,9 @@
   .final-glow{position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(ellipse at 50% 20%,rgba(255,59,0,.18),transparent 55%),
                radial-gradient(ellipse at 50% 60%,rgba(0,133,255,.16),transparent 55%)}
-  .final h2{font-family:'Outfit';font-weight:900;font-size:52px;letter-spacing:-.03em;line-height:1.02;position:relative;margin-bottom:22px}
+  .final h2{font-family:'Unbounded';font-weight:900;font-size:37px;letter-spacing:-.03em;line-height:1.02;position:relative;margin-bottom:22px}
   .final p{font-size:20px;color:var(--t2);max-width:520px;margin:0 auto 34px;position:relative}
-  @media(max-width:720px){.final h2{font-size:36px}.final{padding:80px 0}}
+  @media(max-width:720px){.final h2{font-size:27px}.final{padding:80px 0}}
 
   /* Footer */
   footer{border-top:1px solid var(--line);padding:50px 0 40px;background:var(--bg-2)}
@@ -476,7 +477,7 @@
       </div>
       <div class="show-visual reveal">
         <div class="mock-card">
-          <div style="font-family:'Outfit';font-weight:800;font-size:18px;margin-bottom:16px">Your training zones</div>
+          <div style="font-family:'Unbounded';font-weight:800;font-size:15px;margin-bottom:16px">Your training zones</div>
           <div class="zone"><div class="zl"><span class="zdot" style="background:#A3E635"></span> Easy</div><div class="zv">6:00–6:30 /km · 128–142 bpm</div></div>
           <div class="zone"><div class="zl"><span class="zdot" style="background:#A855F7"></span> Long</div><div class="zv">5:45–6:15 /km · 128–142 bpm</div></div>
           <div class="zone"><div class="zl"><span class="zdot" style="background:#F97316"></span> Tempo</div><div class="zv">5:12–5:24 /km · 148–162 bpm</div></div>
@@ -505,7 +506,7 @@
       <div class="show-visual reveal">
         <div class="mock-card">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
-            <div style="font-family:'Outfit';font-weight:800;font-size:18px">Progress</div>
+            <div style="font-family:'Unbounded';font-weight:800;font-size:15px">Progress</div>
             <div style="font-size:12px;color:#71717A">12-week plan</div>
           </div>
           <div class="ring" style="margin-bottom:22px"><span>62%</span></div>
