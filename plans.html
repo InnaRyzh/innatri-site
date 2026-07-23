@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Планы подготовки к 5К и полумарафону — тренер в твоём кармане | InnaTri</title>
+<meta name="description" content="Интерактивные планы подготовки к пятёрке и полумарафону от тренера Инны Рыжих. Не PDF, а тренер в кармане: личные темпы, пульсовые зоны, питание и стратегия на старт." />
+<link rel="canonical" href="https://innatri.com/plans.html" />
+<link rel="alternate" hreflang="ru" href="https://innatri.com/plans.html" />
+<link rel="alternate" hreflang="en" href="https://innatri.com/en/plans.html" />
+<link rel="alternate" hreflang="x-default" href="https://innatri.com/plans.html" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta property="og:title" content="Планы подготовки к 5К и полумарафону — тренер в твоём кармане | InnaTri" />
+<meta property="og:description" content="Не PDF, а тренер в кармане: личные темпы, пульсовые зоны, питание и стратегия на старт. Разовая покупка, без подписки." />
+<meta property="og:image" content="https://innatri.com/assets/blog/beg-i-koleni.jpg" />
+<meta property="og:url" content="https://innatri.com/plans.html" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#000000;
+    --bg-2:#0A0A0B;
+    --card:#141416;
+    --card-2:#1C1C1E;
+    --line:#262629;
+    --white:#FFFFFF;
+    --t1:#F4F4F5;
+    --t2:#A1A1AA;
+    --t3:#71717A;
+    --orange:#FF3B00;
+    --blue:#0085FF;
+    --teal:#2DD4BF;
+    --lime:#A3E635;
+    --purple:#A855F7;
+    --grad:linear-gradient(90deg,#FF3B00,#0085FF);
+    --grad-135:linear-gradient(135deg,#FF3B00,#0085FF);
+    --maxw:1160px;
+    --r:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--t1);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .display{font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.03}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  a{color:inherit;text-decoration:none}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--t3)}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;
+    padding:15px 28px;border-radius:100px;cursor:pointer;border:none;
+    transition:transform .18s ease, box-shadow .25s ease, background .2s ease;white-space:nowrap}
+  .btn-primary{background:var(--white);color:#000;box-shadow:0 8px 40px rgba(255,255,255,.12)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 50px rgba(255,255,255,.22)}
+  .btn-grad{background:var(--grad);color:#fff;box-shadow:0 8px 44px rgba(255,59,0,.28)}
+  .btn-grad:hover{transform:translateY(-2px);box-shadow:0 16px 56px rgba(255,59,0,.42)}
+  .btn-ghost{background:transparent;color:var(--t1);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#3f3f46;background:#111}
+  .btn-sm{padding:11px 20px;font-size:14px}
+
+  /* Nav */
+  header{position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);
+    background:rgba(0,0,0,.62);border-bottom:1px solid rgba(255,255,255,.05)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:'Outfit';font-weight:800;font-size:19px}
+  .logo .dot{width:30px;height:30px;border-radius:9px;background:var(--grad-135);display:flex;align-items:center;justify-content:center;font-size:15px}
+  .navlinks{display:flex;gap:34px;font-size:15px;color:var(--t2);font-weight:500}
+  .navlinks a:hover{color:var(--white)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  @media(max-width:820px){.navlinks{display:none}.nav-cta .ghostlink{display:none}}
+
+  /* Hero */
+  .hero{position:relative;padding:78px 0 40px;overflow:hidden}
+  .hero-glow{position:absolute;top:-180px;left:50%;transform:translateX(-50%);
+    width:900px;height:620px;pointer-events:none;
+    background:radial-gradient(ellipse at center,rgba(255,59,0,.16),transparent 55%),
+               radial-gradient(ellipse at 70% 40%,rgba(0,133,255,.15),transparent 55%);
+    filter:blur(20px)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative}
+  .hero h1{font-size:60px;margin:22px 0 20px}
+  .hero .sub{font-size:20px;color:var(--t2);max-width:520px;margin-bottom:32px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-note{font-size:13px;color:var(--t3);margin-top:18px;display:flex;align-items:center;gap:8px}
+  .pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:100px;
+    background:var(--card);border:1px solid var(--line);font-size:13px;color:var(--t2);font-weight:500}
+  .pill .g{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:10px}
+    .hero h1{font-size:42px}
+    .hero .sub{font-size:18px}
+    .hero-phone-wrap{order:-1;margin-bottom:8px}
+  }
+
+  /* Phone mockup */
+  .hero-phone-wrap{display:flex;justify-content:center;position:relative}
+  .phone{
+    width:290px;border-radius:42px;background:#000;
+    border:2px solid #232326;padding:11px;
+    box-shadow:0 40px 90px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.04),
+               0 0 80px rgba(255,59,0,.10);
+    position:relative}
+  .phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);
+    width:90px;height:6px;border-radius:100px;background:#0d0d0f;z-index:5}
+  .screen{background:#000;border-radius:32px;overflow:hidden;height:588px;position:relative}
+  .scr-pad{padding:26px 18px 18px}
+  .scr-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+  .scr-h h3{font-family:'Outfit';font-weight:800;font-size:21px}
+  .scr-h p{font-size:12px;color:var(--t3);margin-top:2px}
+  .chip{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:6px 11px;border-radius:100px;border:1px solid rgba(168,85,247,.4);color:#c084fc;background:rgba(168,85,247,.08)}
+  .today-card{border-radius:20px;padding:2px;background:var(--grad-135);margin-bottom:14px}
+  .today-inner{background:#141416;border-radius:18px;padding:15px}
+  .today-inner .lbl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
+  .today-inner h4{font-family:'Outfit';font-weight:800;font-size:19px;margin:5px 0 3px}
+  .today-inner .meta{font-size:12px;color:var(--t2);font-family:'JetBrains Mono'}
+  .mini-row{display:flex;gap:9px;margin-bottom:14px}
+  .mini{flex:1;background:var(--card);border:1px solid var(--line);border-radius:15px;padding:11px 12px}
+  .mini .mv{font-family:'Outfit';font-weight:800;font-size:19px}
+  .mini .mk{font-size:9px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+  .cal-strip{display:flex;justify-content:space-between;gap:5px}
+  .cal-d{flex:1;text-align:center;padding:9px 0;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+  .cal-d .dd{font-size:11px;color:var(--t3);font-weight:600}
+  .cal-d .dot{width:6px;height:6px;border-radius:50%;margin:6px auto 0}
+  .cal-d.on{background:rgba(255,59,0,.12);border-color:rgba(255,59,0,.35)}
+
+  /* Marquee trust */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;margin-top:34px;background:var(--bg-2)}
+  .trust-in{display:flex;gap:44px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .trust-item{display:flex;align-items:center;gap:10px;color:var(--t2);font-size:14px;font-weight:500}
+  .trust-item svg{flex-shrink:0}
+  .trust-item b{color:var(--white);font-family:'Outfit';font-weight:700}
+
+  /* Section base */
+  section{padding:96px 0}
+  .sec-head{max-width:660px;margin:0 auto 56px;text-align:center}
+  .sec-head h2{font-size:42px;margin:16px 0 16px}
+  .sec-head p{font-size:19px;color:var(--t2)}
+  @media(max-width:720px){section{padding:64px 0}.sec-head h2{font-size:32px}.sec-head p{font-size:17px}}
+
+  /* Problem */
+  .problem{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto}
+  .prob-col{border-radius:var(--r);padding:30px;border:1px solid var(--line)}
+  .prob-col.bad{background:#101011}
+  .prob-col.good{background:linear-gradient(180deg,rgba(255,59,0,.06),rgba(0,133,255,.05));border-color:rgba(255,59,0,.25)}
+  .prob-col h3{font-family:'Outfit';font-weight:700;font-size:18px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .prob-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .prob-col li{display:flex;gap:12px;font-size:15px;color:var(--t2);line-height:1.5}
+  .prob-col li .ic{flex-shrink:0;margin-top:2px}
+  .good li{color:var(--t1)}
+  @media(max-width:720px){.prob-grid{grid-template-columns:1fr}}
+
+  /* Features */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease}
+  .fcard:hover{transform:translateY(-4px);border-color:#33333a;background:#17171a}
+  .fic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    background:rgba(255,59,0,.10);border:1px solid rgba(255,59,0,.22)}
+  .fcard:nth-child(2) .fic,.fcard:nth-child(5) .fic{background:rgba(0,133,255,.10);border-color:rgba(0,133,255,.22)}
+  .fcard:nth-child(3) .fic,.fcard:nth-child(6) .fic{background:rgba(45,212,191,.10);border-color:rgba(45,212,191,.22)}
+  .fcard h3{font-family:'Outfit';font-weight:700;font-size:19px;margin-bottom:9px}
+  .fcard p{font-size:15px;color:var(--t2);line-height:1.55}
+  @media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
+
+  /* Showcase split */
+  .showcase{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .show-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto}
+  .show-grid.rev{direction:rtl}.show-grid.rev>*{direction:ltr}
+  .show-copy .eyebrow{margin-bottom:14px;display:block}
+  .show-copy h2{font-family:'Outfit';font-weight:800;font-size:34px;letter-spacing:-.02em;margin-bottom:18px;line-height:1.1}
+  .show-copy p{font-size:17px;color:var(--t2);margin-bottom:16px}
+  .show-copy ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:22px}
+  .show-copy li{display:flex;gap:11px;font-size:15px;color:var(--t1)}
+  .show-visual{display:flex;justify-content:center}
+  .mock-card{width:100%;max-width:330px;background:#0d0d0f;border:1px solid var(--line);border-radius:26px;padding:20px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+  .show-block{margin:40px 0}
+  @media(max-width:820px){.show-grid{grid-template-columns:1fr;gap:34px}.show-grid.rev{direction:ltr}}
+
+  /* zones bars */
+  .zone{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border-radius:13px;background:var(--card);border:1px solid var(--line);margin-bottom:9px}
+  .zone .zl{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600}
+  .zdot{width:9px;height:9px;border-radius:50%}
+  .zone .zv{font-family:'JetBrains Mono';font-size:12px;color:var(--t2)}
+  /* bar chart */
+  .bars{display:flex;align-items:flex-end;gap:6px;height:130px;margin-top:6px}
+  .bar{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(to top,#A855F7,#F97316);opacity:.85}
+  .ring{width:120px;height:120px;border-radius:50%;margin:0 auto;
+    background:conic-gradient(from 0deg,#FF3B00 0%,#0085FF 68%,#1c1c1e 68%);
+    display:flex;align-items:center;justify-content:center;position:relative}
+  .ring::after{content:"";position:absolute;inset:11px;border-radius:50%;background:#0d0d0f}
+  .ring span{position:relative;z-index:2;font-family:'Outfit';font-weight:900;font-size:30px}
+
+  /* Coach */
+  .coach{max-width:960px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+  .coach-photo{aspect-ratio:4/5;border-radius:26px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,#1a1a1d,#0d0d0f);border:1px solid var(--line);
+    display:flex;align-items:flex-end;justify-content:center}
+  .coach-photo .ph-note{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:13px;text-align:center;padding:20px;font-family:'JetBrains Mono'}
+  .coach-photo .badge{position:absolute;top:16px;left:16px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 14px;font-size:12px;font-weight:600}
+  .coach h2{font-family:'Outfit';font-weight:800;font-size:36px;letter-spacing:-.02em;margin:14px 0 18px;line-height:1.1}
+  .coach p{color:var(--t2);font-size:17px;margin-bottom:16px}
+  .coach-stats{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+  .cstat .n{font-family:'Outfit';font-weight:800;font-size:30px}
+  .cstat .l{font-size:13px;color:var(--t3)}
+  @media(max-width:760px){.coach{grid-template-columns:1fr;gap:28px}.coach h2{font-size:28px}}
+
+  /* Pricing */
+  .pricing{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1000px;margin:0 auto;align-items:stretch}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;display:flex;flex-direction:column;position:relative}
+  .pcard.feat{border-color:transparent;background:
+      linear-gradient(#111113,#111113) padding-box,
+      var(--grad-135) border-box;border:2px solid transparent;
+      box-shadow:0 20px 60px rgba(255,59,0,.14)}
+  .pcard .ptag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--grad);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px}
+  .pcard .dist{font-family:'Outfit';font-weight:700;font-size:15px;color:var(--t2);letter-spacing:.04em;text-transform:uppercase}
+  .pcard h3{font-family:'Outfit';font-weight:800;font-size:26px;margin:6px 0 4px}
+  .pcard .wk{font-size:13px;color:var(--t3);margin-bottom:20px}
+  .pcard .price{font-family:'Outfit';font-weight:900;font-size:46px;line-height:1}
+  .pcard .price small{font-size:16px;font-weight:600;color:var(--t3);vertical-align:middle;margin-left:4px}
+  .pcard .once{font-size:13px;color:var(--t3);margin-top:6px;margin-bottom:22px}
+  .pcard ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px;flex:1}
+  .pcard li{display:flex;gap:10px;font-size:14px;color:var(--t2)}
+  .pcard li svg{flex-shrink:0;margin-top:2px}
+  .soon{opacity:.55}
+  .soon .price{color:var(--t3)}
+  .price-foot{max-width:1000px;margin:30px auto 0;text-align:center;color:var(--t3);font-size:14px}
+  @media(max-width:820px){.price-grid{grid-template-columns:1fr;max-width:420px}}
+
+  /* Coaching bridge */
+  .bridge{max-width:1000px;margin:34px auto 0;border-radius:var(--r);
+    background:linear-gradient(120deg,rgba(255,59,0,.08),rgba(0,133,255,.08));
+    border:1px solid var(--line);padding:34px 38px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .bridge h3{font-family:'Outfit';font-weight:800;font-size:24px;margin-bottom:6px}
+  .bridge p{color:var(--t2);font-size:15px;max-width:520px}
+
+  /* Guarantee */
+  .guar{max-width:760px;margin:0 auto;text-align:center;border:1px solid var(--line);border-radius:var(--r);padding:46px 40px;background:var(--card)}
+  .guar .seal{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;
+    background:var(--grad-135);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(255,59,0,.3)}
+  .guar h2{font-family:'Outfit';font-weight:800;font-size:30px;margin-bottom:14px}
+  .guar p{color:var(--t2);font-size:17px}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto}
+  details{border:1px solid var(--line);border-radius:16px;margin-bottom:12px;background:var(--card);overflow:hidden}
+  details[open]{border-color:#34343b}
+  summary{cursor:pointer;padding:20px 22px;font-family:'Outfit';font-weight:600;font-size:17px;
+    display:flex;justify-content:space-between;align-items:center;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary .plus{width:22px;height:22px;flex-shrink:0;position:relative;transition:transform .2s}
+  details[open] summary .plus{transform:rotate(45deg)}
+  summary .plus::before,summary .plus::after{content:"";position:absolute;background:var(--t2);border-radius:2px}
+  summary .plus::before{left:0;right:0;top:9.5px;height:3px}
+  summary .plus::after{top:0;bottom:0;left:9.5px;width:3px}
+  details p{padding:0 22px 22px;color:var(--t2);font-size:15px;line-height:1.6}
+
+  /* Final CTA */
+  .final{position:relative;overflow:hidden;text-align:center;padding:120px 0}
+  .final-glow{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 20%,rgba(255,59,0,.18),transparent 55%),
+               radial-gradient(ellipse at 50% 60%,rgba(0,133,255,.16),transparent 55%)}
+  .final h2{font-family:'Outfit';font-weight:900;font-size:52px;letter-spacing:-.03em;line-height:1.02;position:relative;margin-bottom:22px}
+  .final p{font-size:20px;color:var(--t2);max-width:520px;margin:0 auto 34px;position:relative}
+  @media(max-width:720px){.final h2{font-size:36px}.final{padding:80px 0}}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:50px 0 40px;background:var(--bg-2)}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand{max-width:300px}
+  .foot-brand p{color:var(--t3);font-size:14px;margin-top:14px;line-height:1.6}
+  .foot-cols{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-col h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:16px;font-weight:700}
+  .foot-col a{display:block;color:var(--t2);font-size:14px;margin-bottom:10px}
+  .foot-col a:hover{color:var(--white)}
+  .foot-bottom{border-top:1px solid var(--line);margin-top:40px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--t3);font-size:13px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo"><span class="dot">🏃</span> InnaTri</a>
+      <div class="navlinks">
+        <a href="#how">Как это работает</a>
+        <a href="#plans">Планы</a>
+        <a href="#coach">Твой тренер</a>
+        <a href="#faq">Вопросы</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#plans" class="ghostlink" style="color:var(--t2);font-size:15px;font-weight:500">Цены</a>
+        <a href="#plans" class="btn btn-grad btn-sm">Получить план</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <span class="pill"><span class="g"></span> От профессионального тренера с сертификацией TrainingPeaks</span>
+        <h1 class="display">Твой тренер.<br>В твоём кармане.<br><span class="grad-text">Не ещё один PDF.</span></h1>
+        <p class="sub">Живой структурированный план, который живёт в телефоне: подстраивается под твой график, даёт точные темпы и пульсовые зоны и доводит тебя до стартовой черты готовым. Автор - тренер Инна Рыжих, 20+ лет в профессиональном спорте.</p>
+        <div class="hero-cta">
+          <a href="#plans" class="btn btn-primary">Выбрать план →</a>
+          <a href="#how" class="btn btn-ghost">Как это работает</a>
+        </div>
+        <div class="hero-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+          Разовая покупка · работает офлайн · 14 дней на возврат
+        </div>
+      </div>
+
+      <div class="hero-phone-wrap reveal">
+        <div class="phone">
+          <div class="screen">
+            <div class="scr-pad">
+              <div class="scr-h">
+                <div>
+                  <h3>Доброе утро, Оля</h3>
+                  <p>Неделя 6 из 12 · Развитие</p>
+                </div>
+                <span class="chip">Развитие</span>
+              </div>
+              <div class="today-card">
+                <div class="today-inner">
+                  <div class="lbl">Сегодня · Темповая</div>
+                  <h4>Темповая 8 км</h4>
+                  <div class="meta">Темп 5:12–5:24 /км · Пульс Z3 · ~42 мин</div>
+                </div>
+              </div>
+              <div class="mini-row">
+                <div class="mini"><div class="mv" style="color:#FF3B00">6</div><div class="mk">дней подряд</div></div>
+                <div class="mini"><div class="mv" style="color:#0085FF">184</div><div class="mk">км всего</div></div>
+                <div class="mini"><div class="mv grad-text">62%</div><div class="mk">выполнено</div></div>
+              </div>
+              <div class="cal-strip">
+                <div class="cal-d on"><div class="dd">П</div><div class="dot" style="background:#FF3B00"></div></div>
+                <div class="cal-d"><div class="dd">В</div><div class="dot" style="background:transparent"></div></div>
+                <div class="cal-d on"><div class="dd">С</div><div class="dot" style="background:#A855F7"></div></div>
+                <div class="cal-d"><div class="dd">Ч</div><div class="dot" style="background:transparent"></div></div>
+                <div class="cal-d on"><div class="dd">П</div><div class="dot" style="background:#A3E635"></div></div>
+                <div class="cal-d on"><div class="dd">С</div><div class="dot" style="background:#0085FF"></div></div>
+                <div class="cal-d"><div class="dd">В</div><div class="dot" style="background:transparent"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-in">
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.6 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg> <b>20+ лет</b> в профи-спорте</div>
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0085FF" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> Сертификация <b>TrainingPeaks</b></div>
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF3B00" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg> Научный метод <b>80/20</b></div>
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg> Работает <b>полностью офлайн</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM ===== -->
+<section class="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Проблема обычных планов</span>
+      <h2 class="display">PDF не умеет тренировать.</h2>
+      <p>Ты скачиваешь файл, открываешь его дважды - и он лежит в загрузках, пока ты гадаешь свои темпы и надеешься на лучшее. Это не тренировки. Это домашка.</p>
+    </div>
+    <div class="prob-grid reveal">
+      <div class="prob-col bad">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg> Обычный PDF или табличка</h3>
+        <ul>
+          <li><span class="ic">✕</span> Один план для 25-летнего и для 55-летнего</li>
+          <li><span class="ic">✕</span> Непонятно, какой он - твой «лёгкий» или «темповый»</li>
+          <li><span class="ic">✕</span> Жёсткие дни: пропустил один - всё посыпалось</li>
+          <li><span class="ic">✕</span> Никто не видит твой прогресс и не держит в тонусе</li>
+          <li><span class="ic">✕</span> Ноль слов про питание, воду и день старта</li>
+        </ul>
+      </div>
+      <div class="prob-col good">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Твой план от тренера Инны</h3>
+        <ul>
+          <li><span class="ic">✓</span> Персонально под твой возраст, форму и целевое время</li>
+          <li><span class="ic">✓</span> Точный темп и пульсовые зоны для каждой пробежки</li>
+          <li><span class="ic">✓</span> Подстраивается под дни, когда ты реально можешь бегать</li>
+          <li><span class="ic">✓</span> Записывает тренировки, серии и реальный прогресс</li>
+          <li><span class="ic">✓</span> Питание, вода и стратегия на гонку - уже внутри</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES / HOW ===== -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Что внутри</span>
+      <h2 class="display">Всё, что делает хороший тренер - <span class="grad-text">в твоём телефоне.</span></h2>
+      <p>Не статичный файл, а живое тренировочное приложение, которое ты открываешь утром и точно знаешь, что и как бежать.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3B00" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Твои темпы, посчитанные</h3>
+        <p>Вводишь недавний результат или недельный объём - приложение считает твои темпы для лёгкого, темпового, интервалов и гонки, плюс пульсовые зоны по Карвонену от твоего пульса покоя и максимума.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0085FF" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Под твою неделю</h3>
+        <p>Выбираешь дни, когда можешь бегать, - и каждая неделя перестраивается под твою реальную жизнь. Пропустил день - ничего не рушится. Никакой вины «я отстал на 3 недели».</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Записывай и смотри прогресс</h3>
+        <p>Отмечаешь дистанцию, время и ощущения. Серия растёт, недельный объём ползёт вверх, темп улучшается - а на важных рубежах прилетает конфетти.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3B00" stroke-width="2"><path d="M12 2s7 3 7 10a7 7 0 0 1-14 0c0-7 7-10 7-10z"/></svg></div>
+        <h3>Питание и вода</h3>
+        <p>Каждая тренировка подсказывает, что съесть до, что пить во время и как восстановиться после - в зависимости от длины пробежки. Больше никаких «стен» на 15-м километре.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0085FF" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Комментарии тренера</h3>
+        <p>Голос Инны в каждой тренировке: зачем она нужна, как должна ощущаться и какую ошибку не допустить. Контекст, который не даст ни одна табличка.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><path d="M18 10a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9z"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>Готовность к старту</h3>
+        <p>Раскладка темпа под твоё целевое время, личный обратный отсчёт и чек-лист гоночной недели - чтобы утром старта ничего не осталось на волю случая.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWCASE 1: paces ===== -->
+<section class="showcase">
+  <div class="wrap">
+    <div class="show-grid">
+      <div class="show-copy reveal">
+        <span class="eyebrow">Зоны, а не гадание</span>
+        <h2>Наконец-то узнаешь, какой он - твой «лёгкий» темп.</h2>
+        <p>Большинство бегунов бегает слишком быстро в лёгкие дни и слишком легко в тяжёлые. Твой план даёт точное окно темпа и пульса для каждой пробежки - тот самый метод 80/20, которым тренируются профи.</p>
+        <ul>
+          <li><span style="color:#2DD4BF">✓</span> Темпы от твоей реальной формы, а не из общей таблицы</li>
+          <li><span style="color:#2DD4BF">✓</span> Пульсовые зоны по формуле Карвонена</li>
+          <li><span style="color:#2DD4BF">✓</span> Километры ⇄ мили в один тап</li>
+        </ul>
+      </div>
+      <div class="show-visual reveal">
+        <div class="mock-card">
+          <div style="font-family:'Outfit';font-weight:800;font-size:18px;margin-bottom:16px">Твои зоны</div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#A3E635"></span> Лёгкий</div><div class="zv">6:00–6:30 /км · 128–142 уд</div></div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#A855F7"></span> Длительная</div><div class="zv">5:45–6:15 /км · 128–142 уд</div></div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#F97316"></span> Темповая</div><div class="zv">5:12–5:24 /км · 148–162 уд</div></div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#EF4444"></span> Интервалы</div><div class="zv">4:40–4:55 /км · 165–178 уд</div></div>
+          <div class="zone" style="margin-bottom:0"><div class="zl"><span class="zdot" style="background:#2DD4BF"></span> Гонка</div><div class="zv">5:02–5:12 /км · 150–168 уд</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWCASE 2: progress ===== -->
+<section>
+  <div class="wrap">
+    <div class="show-grid rev">
+      <div class="show-copy reveal">
+        <span class="eyebrow">Прогресс, который видно</span>
+        <h2>Каждая пробежка двигает стрелку.</h2>
+        <p>Смотреть, как заполняется кольцо и растёт серия, - это разница между планом, который ты доведёшь до конца, и планом, который бросишь на третьей неделе. Видимый прогресс заставляет шнуроваться снова.</p>
+        <ul>
+          <li><span style="color:#2DD4BF">✓</span> Кольцо выполнения, серии и недельный объём</li>
+          <li><span style="color:#2DD4BF">✓</span> График темпа за весь тренировочный блок</li>
+          <li><span style="color:#2DD4BF">✓</span> Карточки прогресса для сторис</li>
+        </ul>
+      </div>
+      <div class="show-visual reveal">
+        <div class="mock-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+            <div style="font-family:'Outfit';font-weight:800;font-size:18px">Прогресс</div>
+            <div style="font-size:12px;color:#71717A">план 12 недель</div>
+          </div>
+          <div class="ring" style="margin-bottom:22px"><span>62%</span></div>
+          <div style="font-size:12px;color:#71717A;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:8px">Недельный объём</div>
+          <div class="bars">
+            <div class="bar" style="height:38%"></div>
+            <div class="bar" style="height:52%"></div>
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:82%"></div>
+            <div class="bar" style="height:100%"></div>
+            <div class="bar" style="height:66%;opacity:.35"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COACH ===== -->
+<section id="coach" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="coach">
+      <div class="coach-photo reveal">
+        <span class="badge">Тренер Инна Рыжих</span>
+        <img src="assets/people/Photoroom_20240822_221402.JPG" alt="Тренер Инна Рыжих, команда REDHEAD" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;" />
+      </div>
+      <div class="coach-copy reveal">
+        <span class="eyebrow">Твой тренер</span>
+        <h2>Ты покупаешь не приложение.<br>Ты тренируешься с Инной.</h2>
+        <p>Я провела 20+ лет в профессиональном спорте на выносливость и десять лет тренирую бегунов и триатлетов к их первым - и самым быстрым - финишам. Я стояла на стартах с трясущимися руками, «умирала» на 15-м километре и выучила каждый урок на себе, чтобы тебе не пришлось.</p>
+        <p>В этот план я вложила весь свой метод: ту же структуру, темпы и тренерские подсказки, которые получают мои личные спортсмены. Это максимально близко к тому, чтобы я была рядом, - за долю цены.</p>
+        <div class="coach-stats">
+          <div class="cstat"><div class="n grad-text">20+</div><div class="l">лет в спорте</div></div>
+          <div class="cstat"><div class="n grad-text">10+</div><div class="l">лет тренерства</div></div>
+          <div class="cstat"><div class="n grad-text">1:29</div><div class="l">личный полумарафон</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="plans">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Выбери дистанцию</span>
+      <h2 class="display">Один тренер. Любой финиш.</h2>
+      <p>Плати один раз. План остаётся твоим навсегда. Тренируйся в своём темпе - буквально.</p>
+    </div>
+    <div class="price-grid reveal">
+      <div class="pcard">
+        <div class="dist">5К</div>
+        <h3>Твоя первая пятёрка</h3>
+        <div class="wk">план на 8 недель · для начинающих</div>
+        <div class="price">$19</div>
+        <div class="once">разовый платёж</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Мягкая прогрессия бег/ходьба</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Личные темпы и пульсовые зоны</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Всё приложение: трекинг, заметки, день старта</li>
+        </ul>
+        <a href="https://t.me/InnaRH" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%">Взять план 5К</a>
+      </div>
+
+      <div class="pcard feat">
+        <span class="ptag">Самый популярный</span>
+        <div class="dist">Полумарафон</div>
+        <h3>Готовность к 21,1К</h3>
+        <div class="wk">план на 12 недель · та самая цель</div>
+        <div class="price">$29</div>
+        <div class="once">разовый платёж</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Структура: база → развитие → пик → подводка</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Питание и вода на длительных</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Раскладка на целевое время и чек-лист недели старта</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Всё приложение целиком, без ограничений</li>
+        </ul>
+        <a href="https://t.me/InnaRH" target="_blank" rel="noopener" class="btn btn-grad" style="width:100%">Взять план на половинку</a>
+      </div>
+
+      <div class="pcard soon">
+        <div class="dist">10К · Марафон</div>
+        <h3>Другие дистанции</h3>
+        <div class="wk">планы на 10 и 16 недель</div>
+        <div class="price">Скоро</div>
+        <div class="once">встать в лист ожидания</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Скоростной план на 10К</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> План на полный марафон</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Комплект: все планы одной ценой</li>
+        </ul>
+        <a href="https://t.me/InnaRH" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%">Сообщить мне</a>
+      </div>
+    </div>
+    <div class="price-foot">Безопасная оплата · мгновенный доступ · iPhone и Android · никаких подписок.</div>
+
+    <!-- coaching bridge -->
+    <div class="bridge reveal">
+      <div>
+        <h3>Хочешь полностью персонально?</h3>
+        <p>Если хочешь, чтобы я строила и корректировала твой план каждую неделю - с прямой обратной связью, разбором техники и стратегией на старты, - моё индивидуальное сопровождение от $150/мес.</p>
+      </div>
+      <a href="pricing.html" class="btn btn-ghost">Индивидуальный коучинг →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GUARANTEE ===== -->
+<section>
+  <div class="wrap">
+    <div class="guar reveal">
+      <div class="seal"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.3 7.2 17.7l.9-5.4L4.2 8.5l5.4-.8z"/></svg></div>
+      <h2 class="display">14 дней. Без риска.</h2>
+      <p>Начни тренироваться. Если за 14 дней не почувствуешь, что это самый понятный и выполнимый план в твоей жизни, - напиши мне, и я верну каждую копейку. Риск на мне. Твоя задача - только зашнуроваться.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Полезно знать</span>
+      <h2 class="display">Вопросы и ответы.</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>Это приложение из App Store? <span class="plus"></span></summary><p>Без магазинов и ожидания. После покупки ты получаешь ссылку и ключ - открываешь в браузере и нажимаешь «Добавить на экран Домой». Оно устанавливается как приложение, открывается на весь экран и работает полностью офлайн. Пошаговая инструкция с картинками придёт в приветственном письме.</p></details>
+      <details><summary>Работает и на iPhone, и на Android? <span class="plus"></span></summary><p>Да. Работает на любом современном телефоне - iPhone, Android, даже на ноутбуке. Прогресс сохраняется в приватную облачную копию: сменишь телефон - данные переедут с тобой.</p></details>
+      <details><summary>Я совсем новичок. Мне не рано? <span class="plus"></span></summary><p>План 5К создан ровно для тебя: он начинается с мягкого чередования бега и ходьбы и не предполагает, что ты уже в форме. У каждой сложной тренировки есть версия для новичка. Ты задаёшь свою стартовую точку за 2 минуты - и план встречает тебя там.</p></details>
+      <details><summary>Можно тренироваться по своему графику? <span class="plus"></span></summary><p>Конечно. Ты выбираешь дни, когда бегаешь, и план перестраивает каждую неделю под них. Пропустил день? Ничего не ломается - приложение просто ведёт тебя дальше, без чувства вины.</p></details>
+      <details><summary>Это подписка? <span class="plus"></span></summary><p>Никогда. Ты платишь один раз, и план твой навсегда - проходи его столько раз, сколько захочешь. Никаких регулярных списаний и сюрпризов.</p></details>
+      <details><summary>А если мне не подойдёт? <span class="plus"></span></summary><p>Действует гарантия возврата 14 дней. Потренируйся, и если это не твоё - напиши мне, верну деньги полностью. Без обид.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="final-glow"></div>
+  <div class="wrap">
+    <h2 class="display">Твоя стартовая черта<br>уже ждёт.</h2>
+    <p>Хватит гадать темпы. Начни тренироваться так, будто у тебя есть тренер. Потому что теперь он есть.</p>
+    <a href="#plans" class="btn btn-grad" style="font-size:18px;padding:17px 36px">Получить план →</a>
+    <div class="hero-note" style="justify-content:center;margin-top:20px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+      Разовый платёж · 14 дней гарантии · мгновенный доступ
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><span class="dot">🏃</span> InnaTri</a>
+        <p>Планы подготовки от Run Essentials Studio - студии цифровых продуктов тренера Инны Рыжих. Научный бег, по-человечески.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Продукт</h4>
+          <a href="#plans">План 5К</a>
+          <a href="#plans">План на полумарафон</a>
+          <a href="#plans">10К и марафон (скоро)</a>
+          <a href="#how">Как это работает</a>
+        </div>
+        <div class="foot-col">
+          <h4>Коучинг</h4>
+          <a href="pricing.html">Индивидуальные тренировки</a>
+          <a href="calculator.html">Бесплатный калькулятор темпа</a>
+          <a href="blog.html">Блог</a>
+          <a href="reviews.html">Отзывы спортсменов</a>
+        </div>
+        <div class="foot-col">
+          <h4>Связь</h4>
+          <a href="contact.html">Контакты</a>
+          <a href="https://t.me/InnaRH">Telegram</a>
+          <a href="https://www.instagram.com/inna.tri">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Run Essentials Studio · Тренер Инна Рыжих · Киев, Украина</div>
+      <div>Перед началом любой тренировочной программы проконсультируйтесь с врачом.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

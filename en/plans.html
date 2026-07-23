@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Training Plans — Run Essentials Studio by Coach Inna | InnaTri</title>
+<meta name="description" content="Interactive running plans built by pro coach Inna Ryzhykh. Not another PDF — a coach in your pocket that adapts to your schedule, paces, and race day." />
+<link rel="canonical" href="https://innatri.com/en/plans.html" />
+<link rel="alternate" hreflang="ru" href="https://innatri.com/plans.html" />
+<link rel="alternate" hreflang="en" href="https://innatri.com/en/plans.html" />
+<link rel="alternate" hreflang="x-default" href="https://innatri.com/plans.html" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta property="og:title" content="Training Plans — a coach in your pocket | InnaTri" />
+<meta property="og:description" content="Interactive 5K and half-marathon plans by pro coach Inna Ryzhykh. Personal paces, HR zones, fuelling and race-day strategy — one-time purchase, no subscription." />
+<meta property="og:image" content="https://innatri.com/assets/blog/beg-i-koleni.jpg" />
+<meta property="og:url" content="https://innatri.com/en/plans.html" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#000000;
+    --bg-2:#0A0A0B;
+    --card:#141416;
+    --card-2:#1C1C1E;
+    --line:#262629;
+    --white:#FFFFFF;
+    --t1:#F4F4F5;
+    --t2:#A1A1AA;
+    --t3:#71717A;
+    --orange:#FF3B00;
+    --blue:#0085FF;
+    --teal:#2DD4BF;
+    --lime:#A3E635;
+    --purple:#A855F7;
+    --grad:linear-gradient(90deg,#FF3B00,#0085FF);
+    --grad-135:linear-gradient(135deg,#FF3B00,#0085FF);
+    --maxw:1160px;
+    --r:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--t1);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .display{font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.03}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  a{color:inherit;text-decoration:none}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--t3)}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;
+    padding:15px 28px;border-radius:100px;cursor:pointer;border:none;
+    transition:transform .18s ease, box-shadow .25s ease, background .2s ease;white-space:nowrap}
+  .btn-primary{background:var(--white);color:#000;box-shadow:0 8px 40px rgba(255,255,255,.12)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 50px rgba(255,255,255,.22)}
+  .btn-grad{background:var(--grad);color:#fff;box-shadow:0 8px 44px rgba(255,59,0,.28)}
+  .btn-grad:hover{transform:translateY(-2px);box-shadow:0 16px 56px rgba(255,59,0,.42)}
+  .btn-ghost{background:transparent;color:var(--t1);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#3f3f46;background:#111}
+  .btn-sm{padding:11px 20px;font-size:14px}
+
+  /* Nav */
+  header{position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);
+    background:rgba(0,0,0,.62);border-bottom:1px solid rgba(255,255,255,.05)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:'Outfit';font-weight:800;font-size:19px}
+  .logo .dot{width:30px;height:30px;border-radius:9px;background:var(--grad-135);display:flex;align-items:center;justify-content:center;font-size:15px}
+  .navlinks{display:flex;gap:34px;font-size:15px;color:var(--t2);font-weight:500}
+  .navlinks a:hover{color:var(--white)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  @media(max-width:820px){.navlinks{display:none}.nav-cta .ghostlink{display:none}}
+
+  /* Hero */
+  .hero{position:relative;padding:78px 0 40px;overflow:hidden}
+  .hero-glow{position:absolute;top:-180px;left:50%;transform:translateX(-50%);
+    width:900px;height:620px;pointer-events:none;
+    background:radial-gradient(ellipse at center,rgba(255,59,0,.16),transparent 55%),
+               radial-gradient(ellipse at 70% 40%,rgba(0,133,255,.15),transparent 55%);
+    filter:blur(20px)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative}
+  .hero h1{font-size:60px;margin:22px 0 20px}
+  .hero .sub{font-size:20px;color:var(--t2);max-width:520px;margin-bottom:32px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-note{font-size:13px;color:var(--t3);margin-top:18px;display:flex;align-items:center;gap:8px}
+  .pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:100px;
+    background:var(--card);border:1px solid var(--line);font-size:13px;color:var(--t2);font-weight:500}
+  .pill .g{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:10px}
+    .hero h1{font-size:42px}
+    .hero .sub{font-size:18px}
+    .hero-phone-wrap{order:-1;margin-bottom:8px}
+  }
+
+  /* Phone mockup */
+  .hero-phone-wrap{display:flex;justify-content:center;position:relative}
+  .phone{
+    width:290px;border-radius:42px;background:#000;
+    border:2px solid #232326;padding:11px;
+    box-shadow:0 40px 90px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.04),
+               0 0 80px rgba(255,59,0,.10);
+    position:relative}
+  .phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);
+    width:90px;height:6px;border-radius:100px;background:#0d0d0f;z-index:5}
+  .screen{background:#000;border-radius:32px;overflow:hidden;height:588px;position:relative}
+  .scr-pad{padding:26px 18px 18px}
+  .scr-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+  .scr-h h3{font-family:'Outfit';font-weight:800;font-size:21px}
+  .scr-h p{font-size:12px;color:var(--t3);margin-top:2px}
+  .chip{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:6px 11px;border-radius:100px;border:1px solid rgba(168,85,247,.4);color:#c084fc;background:rgba(168,85,247,.08)}
+  .today-card{border-radius:20px;padding:2px;background:var(--grad-135);margin-bottom:14px}
+  .today-inner{background:#141416;border-radius:18px;padding:15px}
+  .today-inner .lbl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
+  .today-inner h4{font-family:'Outfit';font-weight:800;font-size:19px;margin:5px 0 3px}
+  .today-inner .meta{font-size:12px;color:var(--t2);font-family:'JetBrains Mono'}
+  .mini-row{display:flex;gap:9px;margin-bottom:14px}
+  .mini{flex:1;background:var(--card);border:1px solid var(--line);border-radius:15px;padding:11px 12px}
+  .mini .mv{font-family:'Outfit';font-weight:800;font-size:19px}
+  .mini .mk{font-size:9px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+  .cal-strip{display:flex;justify-content:space-between;gap:5px}
+  .cal-d{flex:1;text-align:center;padding:9px 0;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+  .cal-d .dd{font-size:11px;color:var(--t3);font-weight:600}
+  .cal-d .dot{width:6px;height:6px;border-radius:50%;margin:6px auto 0}
+  .cal-d.on{background:rgba(255,59,0,.12);border-color:rgba(255,59,0,.35)}
+
+  /* Marquee trust */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;margin-top:34px;background:var(--bg-2)}
+  .trust-in{display:flex;gap:44px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .trust-item{display:flex;align-items:center;gap:10px;color:var(--t2);font-size:14px;font-weight:500}
+  .trust-item svg{flex-shrink:0}
+  .trust-item b{color:var(--white);font-family:'Outfit';font-weight:700}
+
+  /* Section base */
+  section{padding:96px 0}
+  .sec-head{max-width:660px;margin:0 auto 56px;text-align:center}
+  .sec-head h2{font-size:42px;margin:16px 0 16px}
+  .sec-head p{font-size:19px;color:var(--t2)}
+  @media(max-width:720px){section{padding:64px 0}.sec-head h2{font-size:32px}.sec-head p{font-size:17px}}
+
+  /* Problem */
+  .problem{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto}
+  .prob-col{border-radius:var(--r);padding:30px;border:1px solid var(--line)}
+  .prob-col.bad{background:#101011}
+  .prob-col.good{background:linear-gradient(180deg,rgba(255,59,0,.06),rgba(0,133,255,.05));border-color:rgba(255,59,0,.25)}
+  .prob-col h3{font-family:'Outfit';font-weight:700;font-size:18px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .prob-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .prob-col li{display:flex;gap:12px;font-size:15px;color:var(--t2);line-height:1.5}
+  .prob-col li .ic{flex-shrink:0;margin-top:2px}
+  .good li{color:var(--t1)}
+  @media(max-width:720px){.prob-grid{grid-template-columns:1fr}}
+
+  /* Features */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease}
+  .fcard:hover{transform:translateY(-4px);border-color:#33333a;background:#17171a}
+  .fic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    background:rgba(255,59,0,.10);border:1px solid rgba(255,59,0,.22)}
+  .fcard:nth-child(2) .fic,.fcard:nth-child(5) .fic{background:rgba(0,133,255,.10);border-color:rgba(0,133,255,.22)}
+  .fcard:nth-child(3) .fic,.fcard:nth-child(6) .fic{background:rgba(45,212,191,.10);border-color:rgba(45,212,191,.22)}
+  .fcard h3{font-family:'Outfit';font-weight:700;font-size:19px;margin-bottom:9px}
+  .fcard p{font-size:15px;color:var(--t2);line-height:1.55}
+  @media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
+
+  /* Showcase split */
+  .showcase{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .show-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto}
+  .show-grid.rev{direction:rtl}.show-grid.rev>*{direction:ltr}
+  .show-copy .eyebrow{margin-bottom:14px;display:block}
+  .show-copy h2{font-family:'Outfit';font-weight:800;font-size:34px;letter-spacing:-.02em;margin-bottom:18px;line-height:1.1}
+  .show-copy p{font-size:17px;color:var(--t2);margin-bottom:16px}
+  .show-copy ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:22px}
+  .show-copy li{display:flex;gap:11px;font-size:15px;color:var(--t1)}
+  .show-visual{display:flex;justify-content:center}
+  .mock-card{width:100%;max-width:330px;background:#0d0d0f;border:1px solid var(--line);border-radius:26px;padding:20px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+  .show-block{margin:40px 0}
+  @media(max-width:820px){.show-grid{grid-template-columns:1fr;gap:34px}.show-grid.rev{direction:ltr}}
+
+  /* zones bars */
+  .zone{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border-radius:13px;background:var(--card);border:1px solid var(--line);margin-bottom:9px}
+  .zone .zl{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600}
+  .zdot{width:9px;height:9px;border-radius:50%}
+  .zone .zv{font-family:'JetBrains Mono';font-size:12px;color:var(--t2)}
+  /* bar chart */
+  .bars{display:flex;align-items:flex-end;gap:6px;height:130px;margin-top:6px}
+  .bar{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(to top,#A855F7,#F97316);opacity:.85}
+  .ring{width:120px;height:120px;border-radius:50%;margin:0 auto;
+    background:conic-gradient(from 0deg,#FF3B00 0%,#0085FF 68%,#1c1c1e 68%);
+    display:flex;align-items:center;justify-content:center;position:relative}
+  .ring::after{content:"";position:absolute;inset:11px;border-radius:50%;background:#0d0d0f}
+  .ring span{position:relative;z-index:2;font-family:'Outfit';font-weight:900;font-size:30px}
+
+  /* Coach */
+  .coach{max-width:960px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+  .coach-photo{aspect-ratio:4/5;border-radius:26px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,#1a1a1d,#0d0d0f);border:1px solid var(--line);
+    display:flex;align-items:flex-end;justify-content:center}
+  .coach-photo .ph-note{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:13px;text-align:center;padding:20px;font-family:'JetBrains Mono'}
+  .coach-photo .badge{position:absolute;top:16px;left:16px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:7px 14px;font-size:12px;font-weight:600}
+  .coach h2{font-family:'Outfit';font-weight:800;font-size:36px;letter-spacing:-.02em;margin:14px 0 18px;line-height:1.1}
+  .coach p{color:var(--t2);font-size:17px;margin-bottom:16px}
+  .coach-stats{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+  .cstat .n{font-family:'Outfit';font-weight:800;font-size:30px}
+  .cstat .l{font-size:13px;color:var(--t3)}
+  @media(max-width:760px){.coach{grid-template-columns:1fr;gap:28px}.coach h2{font-size:28px}}
+
+  /* Pricing */
+  .pricing{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1000px;margin:0 auto;align-items:stretch}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;display:flex;flex-direction:column;position:relative}
+  .pcard.feat{border-color:transparent;background:
+      linear-gradient(#111113,#111113) padding-box,
+      var(--grad-135) border-box;border:2px solid transparent;
+      box-shadow:0 20px 60px rgba(255,59,0,.14)}
+  .pcard .ptag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--grad);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px}
+  .pcard .dist{font-family:'Outfit';font-weight:700;font-size:15px;color:var(--t2);letter-spacing:.04em;text-transform:uppercase}
+  .pcard h3{font-family:'Outfit';font-weight:800;font-size:26px;margin:6px 0 4px}
+  .pcard .wk{font-size:13px;color:var(--t3);margin-bottom:20px}
+  .pcard .price{font-family:'Outfit';font-weight:900;font-size:46px;line-height:1}
+  .pcard .price small{font-size:16px;font-weight:600;color:var(--t3);vertical-align:middle;margin-left:4px}
+  .pcard .once{font-size:13px;color:var(--t3);margin-top:6px;margin-bottom:22px}
+  .pcard ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px;flex:1}
+  .pcard li{display:flex;gap:10px;font-size:14px;color:var(--t2)}
+  .pcard li svg{flex-shrink:0;margin-top:2px}
+  .soon{opacity:.55}
+  .soon .price{color:var(--t3)}
+  .price-foot{max-width:1000px;margin:30px auto 0;text-align:center;color:var(--t3);font-size:14px}
+  @media(max-width:820px){.price-grid{grid-template-columns:1fr;max-width:420px}}
+
+  /* Coaching bridge */
+  .bridge{max-width:1000px;margin:34px auto 0;border-radius:var(--r);
+    background:linear-gradient(120deg,rgba(255,59,0,.08),rgba(0,133,255,.08));
+    border:1px solid var(--line);padding:34px 38px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .bridge h3{font-family:'Outfit';font-weight:800;font-size:24px;margin-bottom:6px}
+  .bridge p{color:var(--t2);font-size:15px;max-width:520px}
+
+  /* Guarantee */
+  .guar{max-width:760px;margin:0 auto;text-align:center;border:1px solid var(--line);border-radius:var(--r);padding:46px 40px;background:var(--card)}
+  .guar .seal{width:74px;height:74px;border-radius:50%;margin:0 auto 22px;
+    background:var(--grad-135);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(255,59,0,.3)}
+  .guar h2{font-family:'Outfit';font-weight:800;font-size:30px;margin-bottom:14px}
+  .guar p{color:var(--t2);font-size:17px}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto}
+  details{border:1px solid var(--line);border-radius:16px;margin-bottom:12px;background:var(--card);overflow:hidden}
+  details[open]{border-color:#34343b}
+  summary{cursor:pointer;padding:20px 22px;font-family:'Outfit';font-weight:600;font-size:17px;
+    display:flex;justify-content:space-between;align-items:center;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary .plus{width:22px;height:22px;flex-shrink:0;position:relative;transition:transform .2s}
+  details[open] summary .plus{transform:rotate(45deg)}
+  summary .plus::before,summary .plus::after{content:"";position:absolute;background:var(--t2);border-radius:2px}
+  summary .plus::before{left:0;right:0;top:9.5px;height:3px}
+  summary .plus::after{top:0;bottom:0;left:9.5px;width:3px}
+  details p{padding:0 22px 22px;color:var(--t2);font-size:15px;line-height:1.6}
+
+  /* Final CTA */
+  .final{position:relative;overflow:hidden;text-align:center;padding:120px 0}
+  .final-glow{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 20%,rgba(255,59,0,.18),transparent 55%),
+               radial-gradient(ellipse at 50% 60%,rgba(0,133,255,.16),transparent 55%)}
+  .final h2{font-family:'Outfit';font-weight:900;font-size:52px;letter-spacing:-.03em;line-height:1.02;position:relative;margin-bottom:22px}
+  .final p{font-size:20px;color:var(--t2);max-width:520px;margin:0 auto 34px;position:relative}
+  @media(max-width:720px){.final h2{font-size:36px}.final{padding:80px 0}}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:50px 0 40px;background:var(--bg-2)}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand{max-width:300px}
+  .foot-brand p{color:var(--t3);font-size:14px;margin-top:14px;line-height:1.6}
+  .foot-cols{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-col h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:16px;font-weight:700}
+  .foot-col a{display:block;color:var(--t2);font-size:14px;margin-bottom:10px}
+  .foot-col a:hover{color:var(--white)}
+  .foot-bottom{border-top:1px solid var(--line);margin-top:40px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--t3);font-size:13px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo"><span class="dot">🏃</span> InnaTri</a>
+      <div class="navlinks">
+        <a href="#how">How it works</a>
+        <a href="#plans">Plans</a>
+        <a href="#coach">Your coach</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#plans" class="ghostlink" style="color:var(--t2);font-size:15px;font-weight:500">Pricing</a>
+        <a href="#plans" class="btn btn-grad btn-sm">Get your plan</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <span class="pill"><span class="g"></span> Built by a TrainingPeaks-certified pro coach</span>
+        <h1 class="display">Your coach.<br>In your pocket.<br><span class="grad-text">Not another PDF.</span></h1>
+        <p class="sub">A real, structured running plan that lives on your phone — adapts to your schedule, gives you exact paces and heart-rate zones, and walks you to the start line ready. Built by Coach Inna Ryzhykh, 20+ years in pro sport.</p>
+        <div class="hero-cta">
+          <a href="#plans" class="btn btn-primary">Choose your plan →</a>
+          <a href="#how" class="btn btn-ghost">See how it works</a>
+        </div>
+        <div class="hero-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+          One-time purchase · works offline · 14-day money-back guarantee
+        </div>
+      </div>
+
+      <div class="hero-phone-wrap reveal">
+        <div class="phone">
+          <div class="screen">
+            <div class="scr-pad">
+              <div class="scr-h">
+                <div>
+                  <h3>Good morning, Sarah</h3>
+                  <p>Week 6 of 12 · Build phase</p>
+                </div>
+                <span class="chip">Build</span>
+              </div>
+              <div class="today-card">
+                <div class="today-inner">
+                  <div class="lbl">Today · Tempo Run</div>
+                  <h4>8 km Tempo</h4>
+                  <div class="meta">Pace 5:12–5:24 /km · HR Z3 · ~42 min</div>
+                </div>
+              </div>
+              <div class="mini-row">
+                <div class="mini"><div class="mv" style="color:#FF3B00">6</div><div class="mk">Day streak</div></div>
+                <div class="mini"><div class="mv" style="color:#0085FF">184</div><div class="mk">km total</div></div>
+                <div class="mini"><div class="mv grad-text">62%</div><div class="mk">complete</div></div>
+              </div>
+              <div class="cal-strip">
+                <div class="cal-d on"><div class="dd">M</div><div class="dot" style="background:#FF3B00"></div></div>
+                <div class="cal-d"><div class="dd">T</div><div class="dot" style="background:transparent"></div></div>
+                <div class="cal-d on"><div class="dd">W</div><div class="dot" style="background:#A855F7"></div></div>
+                <div class="cal-d"><div class="dd">T</div><div class="dot" style="background:transparent"></div></div>
+                <div class="cal-d on"><div class="dd">F</div><div class="dot" style="background:#A3E635"></div></div>
+                <div class="cal-d on"><div class="dd">S</div><div class="dot" style="background:#0085FF"></div></div>
+                <div class="cal-d"><div class="dd">S</div><div class="dot" style="background:transparent"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-in">
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.6 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg> <b>20+ years</b> in pro sport</div>
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0085FF" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <b>TrainingPeaks</b> certified</div>
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF3B00" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg> <b>Science-backed</b> 80/20 method</div>
+      <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg> Works <b>fully offline</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM ===== -->
+<section class="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The problem with most plans</span>
+      <h2 class="display">A PDF can't coach you.</h2>
+      <p>You download it, open it twice, and it sits in your files while you guess your paces and hope for the best. That's not training — that's homework.</p>
+    </div>
+    <div class="prob-grid reveal">
+      <div class="prob-col bad">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg> A generic PDF / spreadsheet</h3>
+        <ul>
+          <li><span class="ic">✕</span> Same plan for a 25-year-old and a 55-year-old</li>
+          <li><span class="ic">✕</span> No idea how fast "easy" or "tempo" actually is for you</li>
+          <li><span class="ic">✕</span> Fixed days — misses one and the whole thing falls apart</li>
+          <li><span class="ic">✕</span> Nothing tracks your progress or keeps you honest</li>
+          <li><span class="ic">✕</span> Zero guidance on fuelling, hydration, or race day</li>
+        </ul>
+      </div>
+      <div class="prob-col good">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Your plan from Coach Inna</h3>
+        <ul>
+          <li><span class="ic">✓</span> Personalised to your age, fitness, and goal time</li>
+          <li><span class="ic">✓</span> Exact pace + heart-rate zones for every run</li>
+          <li><span class="ic">✓</span> Adapts to the days you actually train</li>
+          <li><span class="ic">✓</span> Logs every workout, streaks, and real progress</li>
+          <li><span class="ic">✓</span> Fuel, hydration & race-day strategy built in</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES / HOW ===== -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What's inside</span>
+      <h2 class="display">Everything a good coach does — <span class="grad-text">on your phone.</span></h2>
+      <p>Not a static file. A living training app you open every morning to know exactly what to run and how.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3B00" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Your paces, calculated</h3>
+        <p>Enter a recent time or your weekly mileage. The app builds your easy, tempo, interval and race paces — plus Karvonen heart-rate zones from your resting and max HR.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0085FF" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Fits your week</h3>
+        <p>Pick the days you can run. Every week reshapes around your real life — miss a day and nothing collapses. No more "3 weeks behind" guilt.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Log & see progress</h3>
+        <p>Tap in distance, time and effort. Watch your streak grow, weekly volume climb, and pace trend improve — with confetti when you hit a milestone.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3B00" stroke-width="2"><path d="M12 2s7 3 7 10a7 7 0 0 1-14 0c0-7 7-10 7-10z"/></svg></div>
+        <h3>Fuel & hydration</h3>
+        <p>Every workout tells you what to eat before, sip during, and refuel after — scaled to the run's length. No more bonking at km 15.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0085FF" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Coach's notes</h3>
+        <p>Inna's voice on every session — why it matters, how it should feel, the one mistake to avoid. The context a spreadsheet can never give you.</p>
+      </div>
+      <div class="fcard">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><path d="M18 10a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9z"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>Race-day ready</h3>
+        <p>A pacing strategy for your goal time, a personal countdown, and a race-week checklist — so nothing is left to chance on the morning that counts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWCASE 1: paces ===== -->
+<section class="showcase">
+  <div class="wrap">
+    <div class="show-grid">
+      <div class="show-copy reveal">
+        <span class="eyebrow">Zones, not guesswork</span>
+        <h2>Finally know how fast "easy" actually is.</h2>
+        <p>Most runners train too hard on easy days and too easy on hard days. Your plan gives you a precise pace and heart-rate window for every single run — the 80/20 method the pros actually use.</p>
+        <ul>
+          <li><span style="color:#2DD4BF">✓</span> Paces from your real fitness, not a generic table</li>
+          <li><span style="color:#2DD4BF">✓</span> Heart-rate zones via the Karvonen formula</li>
+          <li><span style="color:#2DD4BF">✓</span> Switch km ⇄ miles anytime</li>
+        </ul>
+      </div>
+      <div class="show-visual reveal">
+        <div class="mock-card">
+          <div style="font-family:'Outfit';font-weight:800;font-size:18px;margin-bottom:16px">Your training zones</div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#A3E635"></span> Easy</div><div class="zv">6:00–6:30 /km · 128–142 bpm</div></div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#A855F7"></span> Long</div><div class="zv">5:45–6:15 /km · 128–142 bpm</div></div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#F97316"></span> Tempo</div><div class="zv">5:12–5:24 /km · 148–162 bpm</div></div>
+          <div class="zone"><div class="zl"><span class="zdot" style="background:#EF4444"></span> Interval</div><div class="zv">4:40–4:55 /km · 165–178 bpm</div></div>
+          <div class="zone" style="margin-bottom:0"><div class="zl"><span class="zdot" style="background:#2DD4BF"></span> Race</div><div class="zv">5:02–5:12 /km · 150–168 bpm</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWCASE 2: progress ===== -->
+<section>
+  <div class="wrap">
+    <div class="show-grid rev">
+      <div class="show-copy reveal">
+        <span class="eyebrow">Momentum you can see</span>
+        <h2>Every run moves the needle.</h2>
+        <p>Watching the ring fill and the streak grow is the difference between a plan you finish and one you abandon in week 3. Progress you can feel keeps you lacing up.</p>
+        <ul>
+          <li><span style="color:#2DD4BF">✓</span> Completion ring, streaks & weekly volume</li>
+          <li><span style="color:#2DD4BF">✓</span> Pace-trend chart across your whole block</li>
+          <li><span style="color:#2DD4BF">✓</span> Shareable progress cards for your stories</li>
+        </ul>
+      </div>
+      <div class="show-visual reveal">
+        <div class="mock-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+            <div style="font-family:'Outfit';font-weight:800;font-size:18px">Progress</div>
+            <div style="font-size:12px;color:#71717A">12-week plan</div>
+          </div>
+          <div class="ring" style="margin-bottom:22px"><span>62%</span></div>
+          <div style="font-size:12px;color:#71717A;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:8px">Weekly volume</div>
+          <div class="bars">
+            <div class="bar" style="height:38%"></div>
+            <div class="bar" style="height:52%"></div>
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:82%"></div>
+            <div class="bar" style="height:100%"></div>
+            <div class="bar" style="height:66%;opacity:.35"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COACH ===== -->
+<section id="coach" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="coach">
+      <div class="coach-photo reveal">
+        <span class="badge">Coach Inna Ryzhykh</span>
+        <img src="../assets/people/Photoroom_20240822_221402.JPG" alt="Coach Inna Ryzhykh, REDHEAD team" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;" />
+      </div>
+      <div class="coach-copy reveal">
+        <span class="eyebrow">Meet your coach</span>
+        <h2>You're not buying an app.<br>You're training with Inna.</h2>
+        <p>I spent 20+ years in professional endurance sport and a decade coaching runners and triathletes to their first — and fastest — finish lines. I've stood on start lines terrified, blown up at km 15, and learned every lesson the hard way so you don't have to.</p>
+        <p>I put my whole method into this plan: the same structure, paces, and coaching cues I give my one-on-one athletes. It's the closest thing to having me in your ear, at a fraction of the price.</p>
+        <div class="coach-stats">
+          <div class="cstat"><div class="n grad-text">20+</div><div class="l">Years in sport</div></div>
+          <div class="cstat"><div class="n grad-text">10+</div><div class="l">Years coaching</div></div>
+          <div class="cstat"><div class="n grad-text">1:1</div><div class="l">Method, made for many</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="plans">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Choose your distance</span>
+      <h2 class="display">One coach. Every finish line.</h2>
+      <p>Pay once. Keep the plan forever. Train at your own pace — literally.</p>
+    </div>
+    <div class="price-grid reveal">
+      <div class="pcard">
+        <div class="dist">5K</div>
+        <h3>Your First 5K</h3>
+        <div class="wk">8-week plan · beginner-friendly</div>
+        <div class="price">$19</div>
+        <div class="once">one-time payment</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Run/walk friendly progression</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Personal paces & HR zones</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Full app: tracking, notes, race day</li>
+        </ul>
+        <a href="https://t.me/InnaRH" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%">Get the 5K plan</a>
+      </div>
+
+      <div class="pcard feat">
+        <span class="ptag">Most popular</span>
+        <div class="dist">Half Marathon</div>
+        <h3>21.1K Ready</h3>
+        <div class="wk">12-week plan · the classic goal</div>
+        <div class="price">$29</div>
+        <div class="once">one-time payment</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Base → build → peak → taper structure</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Long-run fuel & hydration plans</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Goal-time pacing & race-week checklist</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Everything in the app, unlocked</li>
+        </ul>
+        <a href="https://t.me/InnaRH" target="_blank" rel="noopener" class="btn btn-grad" style="width:100%">Get the Half plan</a>
+      </div>
+
+      <div class="pcard soon">
+        <div class="dist">10K · Marathon</div>
+        <h3>More distances</h3>
+        <div class="wk">10-week & 16-week plans</div>
+        <div class="price">Soon</div>
+        <div class="once">join the waitlist</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> 10K speed plan</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Full marathon plan</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Bundle: all plans, one price</li>
+        </ul>
+        <a href="https://t.me/InnaRH" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%">Notify me</a>
+      </div>
+    </div>
+    <div class="price-foot">Secure checkout · instant access · works on iPhone & Android · no subscription, ever.</div>
+
+    <!-- coaching bridge -->
+    <div class="bridge reveal">
+      <div>
+        <h3>Want it fully personal?</h3>
+        <p>If you'd rather have me build and adjust your training every week — with direct feedback, technique analysis and race strategy — my 1:1 coaching starts at $150/mo.</p>
+      </div>
+      <a href="pricing.html" class="btn btn-ghost">Explore 1:1 coaching →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GUARANTEE ===== -->
+<section>
+  <div class="wrap">
+    <div class="guar reveal">
+      <div class="seal"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.3 7.2 17.7l.9-5.4L4.2 8.5l5.4-.8z"/></svg></div>
+      <h2 class="display">Train for 14 days, risk-free.</h2>
+      <p>Start your plan. If within 14 days you don't feel it's the clearest, most doable training you've ever followed, email me and I'll refund every cent. The risk is mine — your only job is to lace up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Good to know</span>
+      <h2 class="display">Questions, answered.</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>Is this an app I download from the App Store? <span class="plus"></span></summary><p>No store, no waiting. After purchase you get a link and a key — open it in your browser and tap "Add to Home Screen." It installs like an app, opens full-screen, and works completely offline. We'll send simple step-by-step instructions (with pictures) in your welcome email.</p></details>
+      <details><summary>Does it work on both iPhone and Android? <span class="plus"></span></summary><p>Yes. It runs on any modern phone — iPhone, Android, even your laptop. Your progress syncs to a private cloud backup, so if you switch phones, your data comes with you.</p></details>
+      <details><summary>I'm a total beginner. Is this too advanced? <span class="plus"></span></summary><p>The 5K plan is built for exactly you — it starts with a gentle run/walk progression and never assumes you're already fit. Every hard workout has a beginner modification. You set your starting point in a 2-minute setup and the plan meets you there.</p></details>
+      <details><summary>Can I train around my own schedule? <span class="plus"></span></summary><p>Absolutely. You choose which days you run, and the plan reshapes each week around them. Miss a day? Nothing breaks — the app simply keeps you on track without the guilt.</p></details>
+      <details><summary>Is it a subscription? <span class="plus"></span></summary><p>Never. You pay once and the plan is yours to keep and repeat as many times as you like. No recurring charges, no surprises.</p></details>
+      <details><summary>What if it's not for me? <span class="plus"></span></summary><p>You're covered by a 14-day money-back guarantee. Train with it, and if it's not the right fit, email me for a full refund — no hard feelings.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="final-glow"></div>
+  <div class="wrap">
+    <h2 class="display">Your start line<br>is waiting.</h2>
+    <p>Stop guessing your paces. Start training like you have a coach — because now you do.</p>
+    <a href="#plans" class="btn btn-grad" style="font-size:18px;padding:17px 36px">Get your plan today →</a>
+    <div class="hero-note" style="justify-content:center;margin-top:20px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+      One-time payment · 14-day guarantee · instant access
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><span class="dot">🏃</span> InnaTri</a>
+        <p>Training plans by Run Essentials Studio — the digital product studio of coach Inna Ryzhykh. Science-backed running, made human.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="#plans">5K plan</a>
+          <a href="#plans">Half marathon plan</a>
+          <a href="#plans">10K & marathon (soon)</a>
+          <a href="#how">How it works</a>
+        </div>
+        <div class="foot-col">
+          <h4>Coaching</h4>
+          <a href="pricing.html">1:1 coaching</a>
+          <a href="calculator.html">Free pace calculator</a>
+          <a href="blog.html">Blog</a>
+          <a href="reviews.html">Athlete reviews</a>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.instagram.com/inna.tri">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Run Essentials Studio · Coach Inna Ryzhykh · Kyiv, Ukraine</div>
+      <div>Health disclaimer: consult a physician before beginning any training program.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
