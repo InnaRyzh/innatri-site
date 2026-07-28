@@ -213,6 +213,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/contact.html"/>
   </url>
   <url>
+    <loc>https://innatri.com/en/blog/hardest-decision.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/en/blog/hardest-decision.html"/>
+  </url>
+  <url>
+    <loc>https://innatri.com/blog/hardest-decision.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/en/blog/hardest-decision.html"/>
+  </url>
+  <url>
+    <loc>https://innatri.com/ua/blog/hardest-decision.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog/hardest-decision.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/en/blog/hardest-decision.html"/>
+  </url>
+  <url>
     <loc>https://innatri.com/blog/pochemu-ty-snova-travmirueshsya.html</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>

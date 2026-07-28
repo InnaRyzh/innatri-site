@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Успеешь ли ты подготовиться к своему марафону? - диагностика за 90 секунд</title>
+  <meta name="description" content="Диагностика из 9 вопросов: честный ответ, что у тебя уже есть и чего критически не хватает до старта.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;800&family=JetBrains+Mono:wght@400;500&display=swap&subset=cyrillic" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Meta Pixel: вставь свой ID вместо PIXEL_ID (одно место) -->
+  <script>
+    window.PIXEL_ID = 'PIXEL_ID';
+    if (window.PIXEL_ID && window.PIXEL_ID !== 'PIXEL_ID') {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', window.PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+  </script>
+</head>
+<body>
+  <div class="wrap topbar">
+    <div class="lang-switch" role="group" aria-label="Язык">
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <span class="sep">|</span>
+      <button type="button" data-lang="ua" aria-pressed="false">UA</button>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- Экран 1: Hero -->
+    <section id="screen-hero" class="screen active">
+      <div class="mono-label" data-i18n="hero_label"></div>
+      <h1 data-i18n="hero_h1"></h1>
+      <p class="hero-sub" data-i18n="hero_sub"></p>
+      <p class="hero-trust" data-i18n="hero_trust"></p>
+      <button type="button" class="btn" id="btn-start" data-i18n="hero_cta"></button>
+    </section>
+
+    <!-- Экран 2: Квиз -->
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-top">
+        <button type="button" class="btn-back" id="btn-back" data-i18n="back"></button>
+        <div class="progress-label" id="progress-label"></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div id="question-box"></div>
+    </section>
+
+    <!-- Экран 3: Вердикт -->
+    <section id="screen-verdict" class="screen">
+      <div class="verdict-card" id="verdict-card">
+        <div class="mono-label" id="verdict-diag-label"></div>
+        <div class="verdict-zone" id="verdict-zone"></div>
+        <div class="verdict-title" id="verdict-title"></div>
+        <p class="verdict-text" id="verdict-text"></p>
+      </div>
+      <div class="review-block">
+        <h3 data-i18n="review_title"></h3>
+        <p data-i18n="review_text"></p>
+        <p class="review-hot" id="review-hot" hidden></p>
+        <button type="button" class="btn" id="btn-to-form" data-i18n="review_cta"></button>
+      </div>
+    </section>
+
+    <!-- Экран 4: Форма -->
+    <section id="screen-form" class="screen">
+      <h3 data-i18n="review_title"></h3>
+      <form id="lead-form" novalidate>
+        <div class="form-field">
+          <label for="f-name" data-i18n="form_name"></label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
+          <div class="field-error" id="err-name"></div>
+        </div>
+        <div class="form-field">
+          <label for="f-contact" data-i18n="form_contact"></label>
+          <input type="text" id="f-contact" name="contact" autocomplete="email" required>
+          <div class="field-error" id="err-contact"></div>
+        </div>
+        <div class="form-field">
+          <label for="f-city" data-i18n="form_city"></label>
+          <input type="text" id="f-city" name="city" required>
+          <div class="field-error" id="err-city"></div>
+        </div>
+        <button type="submit" class="btn" data-i18n="form_submit"></button>
+      </form>
+    </section>
+
+    <!-- Экран «Спасибо» -->
+    <section id="screen-thanks" class="screen">
+      <p data-i18n="thanks_text"></p>
+    </section>
+  </main>
+
+  <footer class="wrap" data-i18n="footer"></footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
