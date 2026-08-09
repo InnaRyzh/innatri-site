@@ -301,3 +301,13 @@ footer {
 @media (min-width: 640px) {
   #screen-hero h1 { font-size: 36px; }
 }
+
+/* Сильные стороны в вердикте - признание до разбора пробелов */
+.verdict-strengths {
+  margin: 10px 0 2px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+.verdict-strengths .st-item { white-space: nowrap; }
+.verdict-strengths .st-check { color: #4CD964; margin-right: 4px; }

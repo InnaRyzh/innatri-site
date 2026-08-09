@@ -309,6 +309,22 @@ function interpolate(text) {
     .replaceAll('{race}', t(raceKey));
 }
 
+
+function computeStrengths() {
+  const a = state.answers;
+  const isHalf = a.distance === 'half';
+  const vol = isHalf ? HALF_VOLUME_MAP[a.volume] : a.volume;
+  const lng = isHalf ? HALF_LONG_MAP[a.long_run] : a.long_run;
+  const out = [];
+  if (['v2', 'v3'].includes(vol)) out.push('st_volume');
+  if (['l2', 'l3', 'l4'].includes(lng)) out.push('st_long');
+  if (state.weeks_to_race >= 12) out.push('st_weeks');
+  if (['d1', 'd2'].includes(a.days)) out.push('st_days');
+  if (['i0', 'i1'].includes(a.injuries)) out.push('st_clean');
+  if (['e1', 'e2'].includes(a.experience)) out.push('st_exp');
+  return out.slice(0, 3);
+}
+
 function renderVerdict() {
   const zone = state.zone;
   const card = $('verdict-card');
@@ -317,8 +333,31 @@ function renderVerdict() {
   const dateStr = formatDate(new Date());
   $('verdict-diag-label').textContent = t('diag_label') + ' · ' + dateStr;
 
-  const zoneNameKey = zone === 'green' ? 'zone_green' : zone === 'yellow' ? 'zone_yellow' : 'zone_red';
+  const zoneNameKey = zone === 'green' ? 'zone_green'
+    : zone === 'yellow' ? 'zone_yellow'
+    : zone === 'red_pain' ? 'zone_redpain' : 'zone_red';
   $('verdict-zone').textContent = t(zoneNameKey);
+
+  // «Что у тебя уже есть» - признать сильные стороны до разговора о пробелах
+  const strengths = computeStrengths();
+  const stEl = $('verdict-strengths');
+  if (strengths.length) {
+    stEl.hidden = false;
+    stEl.textContent = '';
+    stEl.append(t('strengths_label') + ' ');
+    strengths.forEach((k, i) => {
+      const item = document.createElement('span');
+      item.className = 'st-item';
+      const check = document.createElement('span');
+      check.className = 'st-check';
+      check.textContent = '\u2713';
+      item.append(check, interpolate(t(k)));
+      stEl.append(item);
+      if (i < strengths.length - 1) stEl.append('   ');
+    });
+  } else {
+    stEl.hidden = true;
+  }
 
   const keyBase = zone === 'red_pain' ? 'verdict_redpain' : 'verdict_' + zone;
   $('verdict-title').textContent = t(keyBase + '_title');
