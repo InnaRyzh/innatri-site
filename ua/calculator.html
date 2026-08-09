@@ -2,6 +2,15 @@
 <html lang="uk">
 <head>
  <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2JMDGV643K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2JMDGV643K');
+</script>
+
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
  <title>Калькулятор VDOT: темп бігу, спліти та харчування на гонку</title>
  <meta name="description" id="meta-description" content="Калькулятор VDOT онлайн за формулою Джека Денієлса: темпи тренувань, 5 пульсових зон, прогнози від 5К до марафону, таблиця сплітів і план харчування на гонку.">
@@ -329,7 +338,25 @@
   </div>
  </section>
 
- <footer class="footer">
+ 
+  <!-- Internal: put calculator paces to work -->
+  <section style="padding:0 0 80px;">
+    <div class="container" style="max-width:860px;">
+      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);text-align:center;">КУДИ ЗАСТОСУВАТИ ЦІ ТЕМПИ</h2>
+      <div style="display:grid;gap:16px;">
+        <a href="blog/pivmarafon-3-trenuvannya-na-tyzhden.html" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;text-decoration:none;color:inherit;display:block;">
+          <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--primary);">ПІВМАРАФОН НА 3 ТРЕНУВАННЯХ НА ТИЖДЕНЬ &rarr;</div>
+          <p style="font-size:14px;margin:0;color:var(--text-gray);">План підготовки саме на цих темпах: інтервали, темповий біг і довготривале. Для тих, у кого робота, сім'я і життя.</p>
+        </a>
+        <a href="blog/bih-za-pulsom.html" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;text-decoration:none;color:inherit;display:block;">
+          <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--primary);">БІГ ЗА ПУЛЬСОМ: ЯК РОЗРАХУВАТИ ЗОНИ &rarr;</div>
+          <p style="font-size:14px;margin:0;color:var(--text-gray);">Що означають 5 зон, як визначити свої і чому 80% бігу має бути легким.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
   <div class="container">
    <h2 class="title-font" style="font-size:24px;">ГОТОВІ СТАТИ IRONMAN?</h2>
    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
