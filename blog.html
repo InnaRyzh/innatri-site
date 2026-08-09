@@ -12,7 +12,7 @@
 
   <meta property="og:title" id="meta-og-title" content="Блог о триатлоне и беге – статьи тренера | InnaTri">
   <meta property="og:description" id="meta-og-description" content="Экспертные статьи тренера по триатлону и бегу: пульсовые зоны, плавание на открытой воде, онлайн-коучинг, зимний бег и подготовка к Ironman.">
-  <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.png">
+  <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.jpg">
   <meta property="og:url" id="meta-og-url" content="https://innatri.com/blog.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="InnaTri">
@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" id="meta-twitter-title" content="Блог о триатлоне и беге – статьи тренера | InnaTri">
   <meta name="twitter:description" id="meta-twitter-description" content="Экспертные статьи тренера по триатлону и бегу: пульсовые зоны, плавание на открытой воде, онлайн-коучинг, зимний бег и подготовка к Ironman.">
-  <meta name="twitter:image" id="meta-twitter-image" content="https://innatri.com/assets/hero/og-image.png">
+  <meta name="twitter:image" id="meta-twitter-image" content="https://innatri.com/assets/hero/og-image.jpg">
 
   <link rel="canonical" href="https://innatri.com/blog.html">
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
@@ -658,6 +658,9 @@
       backdrop-filter: blur(8px);
     }
     .to-top-btn.show { opacity: 1; pointer-events: auto; }
+  
+    /* h1 renders identically to section h2 (SEO: pages must have an H1) */
+    h1.title-font { font-size: 1.5em; line-height: var(--lh-heading); letter-spacing: -0.01em; margin: 0 0 24px; }
   </style>
   <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
 </head>
@@ -698,6 +701,7 @@
   <section class="section">
     <div class="container">
       <a href="index.html" class="article-back"><i class="ph ph-arrow-left"></i> Назад</a>
+      <h1 class="title-font">БЛОГ О БЕГЕ И ТРИАТЛОНЕ</h1>
       
       <div class="articles-grid">
         <a class="blog-card" href="blog/hardest-decision.html">

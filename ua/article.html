@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+<script>
+/* Legacy article URLs -> permanent blog pages. Runs before anything renders. */
+(function(){
+  var MAP = {"heart-rate-zones": "/ua/blog/bih-za-pulsom.html", "coach-online": "/ua/blog/onlajn-trener-z-bihu-ta-triatlonu.html", "open-water": "/ua/blog/plavannya-u-vidkrytij-vodi.html", "before-after": "/ua/blog/rezultaty-do-i-pislya.html", "winter-running": "/ua/blog/zymovyj-bih.html"};
+  var id = new URLSearchParams(location.search).get('id');
+  if (id) location.replace(MAP[id] || '/ua/blog.html');
+})();
+</script>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
  <title>Статті про триатлон і біг від тренера | InnaTri</title>
  <meta name="description" id="meta-description" content="Експертні статті тренера з триатлону та бігу: пульсові зони, плавання на відкритій воді, підготовка до Ironman, зимовий біг та онлайн-коучинг.">
  <meta name="keywords" content="статті про біг, статті про триатлон, пульсові зони біг, плавання відкрита вода триатлон, онлайн-тренер біг, підготовка до Ironman, зимовий біг поради, техніка бігу, біг за пульсом, VDOT калькулятор, триатлон для початківців, тренувальні зони">
  <meta name="author" content="Інна Рижих">
- <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
- <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+ <meta name="robots" content="noindex, follow">
+ <meta name="googlebot" content="noindex, follow">
 
  <meta property="og:title" id="meta-og-title" content="Статті про триатлон і біг від тренера | InnaTri">
  <meta property="og:description" id="meta-og-description" content="Експертні статті тренера з триатлону та бігу: пульсові зони, плавання на відкритій воді, підготовка до Ironman, зимовий біг та онлайн-коучинг.">
- <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.png">
+ <meta property="og:image" id="meta-og-image" content="https://innatri.com/assets/hero/og-image.jpg">
  <meta property="og:url" id="meta-og-url" content="https://innatri.com/ua/article.html">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="InnaTri">
@@ -21,7 +29,7 @@
  <meta name="twitter:card" content="summary_large_image">
  <meta name="twitter:title" id="meta-twitter-title" content="Статті про триатлон і біг від тренера | InnaTri">
  <meta name="twitter:description" id="meta-twitter-description" content="Експертні статті тренера з триатлону та бігу: пульсові зони, плавання на відкритій воді, підготовка до Ironman, зимовий біг та онлайн-коучинг.">
- <meta name="twitter:image" id="meta-twitter-image" content="https://innatri.com/assets/hero/og-image.png">
+ <meta name="twitter:image" id="meta-twitter-image" content="https://innatri.com/assets/hero/og-image.jpg">
 
  <link rel="canonical" href="https://innatri.com/ua/article.html">
  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
