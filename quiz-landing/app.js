@@ -1,7 +1,7 @@
 /* ============================================================
    Настройки — заменить перед запуском
    ============================================================ */
-const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbwjw9V1t5dhylCPj_fwENADSS5SzJ8kKx7iHJ7XZuEkL6yVIc8P4_290XbNbUxD-cBq/exec'; // URL Google Apps Script Web App
+const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbzT5DqeFBsnNipO_Oa3PO3dN_DkcgEIlrwZggxsGh6YEd_onYoQ46I1k4bNRc97At64/exec'; // URL Google Apps Script Web App
 
 /* ============================================================
    Состояние
