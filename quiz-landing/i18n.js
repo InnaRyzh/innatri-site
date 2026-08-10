@@ -102,7 +102,9 @@ const I18N = {
     form_error_required: 'Заполни это поле',
     form_error_contact: 'Укажи Telegram @ или email',
 
-    thanks_text: 'Готово. Напишу тебе в течение 24 часов. Пока ждёшь - загляни в Instagram @inna.tri, там я разбираю подготовку без воды.',
+    thanks_text: 'Готово. Напишу тебе в течение 24 часов. А пока - держи разбор по твоей теме в блоге: без воды и мотивационных лозунгов.',
+    thanks_cta: 'Читать разбор в блоге',
+    title_tag: 'Успеешь ли ты подготовиться к своему марафону? - диагностика за 90 секунд',
 
     footer: '© innatri.com · Instagram @inna.tri'
   },
@@ -209,7 +211,118 @@ const I18N = {
     form_error_required: 'Заповни це поле',
     form_error_contact: 'Вкажи Telegram @ або email',
 
-    thanks_text: 'Готово. Напишу тобі протягом 24 годин. Поки чекаєш - заглянь в Instagram @inna.tri, там я розбираю підготовку без води.',
+    thanks_text: 'Готово. Напишу тобі протягом 24 годин. А поки - тримай розбір за твоєю темою в блозі: без води та мотиваційних гасел.',
+    thanks_cta: 'Читати розбір у блозі',
+    title_tag: 'Чи встигнеш ти підготуватися до свого марафону? - діагностика за 90 секунд',
+
+    footer: '© innatri.com · Instagram @inna.tri'
+  },
+
+  en: {
+    lang_code: 'en',
+    hero_label: 'INNA.TRI',
+    hero_h1: 'Will you be ready for your race?',
+    hero_sub: 'A 9-question diagnostic. 90 seconds. An honest answer - no motivational fluff: what you already have, and what is critically missing before your marathon or half.',
+    hero_trust: 'Built by Inna - running and triathlon coach. 20 years in sport, 10 years of coaching. I train runners in the US, Europe and Ukraine through TrainingPeaks.',
+    hero_cta: 'Start the diagnostic',
+
+    back: 'Back',
+    next: 'Next',
+
+    q_distance: 'What are you training for?',
+    q_distance_marathon: 'Marathon (42.2 km / 26.2 mi)',
+    q_distance_half: 'Half marathon (21.1 km / 13.1 mi)',
+    q_distance_undecided: 'Still choosing a race',
+
+    q_race_date: 'When is your race?',
+    q_race_date_undecided: 'When are you roughly planning to race?',
+    q_race_date_error: 'Check the date - it has already passed',
+
+    q_volume: 'Your average weekly volume over the last 4 weeks?',
+    q_volume_v0: 'Under 20 km (12 mi)',
+    q_volume_v1: '20-40 km (12-25 mi)',
+    q_volume_v2: '40-60 km (25-37 mi)',
+    q_volume_v3: 'Over 60 km (37 mi)',
+
+    q_long_run: 'Longest run in the past month?',
+    q_long_run_l0: 'Under 10 km (6 mi)',
+    q_long_run_l1: '10-15 km (6-9 mi)',
+    q_long_run_l2: '16-21 km (10-13 mi)',
+    q_long_run_l3: '22-28 km (14-17 mi)',
+    q_long_run_l4: '29 km (18 mi) or more',
+
+    q_experience: 'Your experience at this distance?',
+    q_experience_e0: 'This will be my first',
+    q_experience_e1: 'Done it once',
+    q_experience_e2: 'Several races behind me',
+
+    q_injuries: 'Pain or injuries in the last 6 months?',
+    q_injuries_i0: 'None',
+    q_injuries_i1: 'Had some - it is gone',
+    q_injuries_i2: 'Aches now and then',
+    q_injuries_i3: 'Hurts right now',
+
+    q_days: 'How many days a week can you realistically train?',
+    q_days_d0: '2-3',
+    q_days_d1: '4-5',
+    q_days_d2: '6-7',
+
+    q_current_training: 'How do you train now?',
+    q_current_training_t0: 'A plan from the internet / an app',
+    q_current_training_t1: 'On my own, no real plan',
+    q_current_training_t2: 'With a coach',
+    q_current_training_t3: 'Irregularly, whenever life allows',
+
+    q_goal: 'What is the goal for this race?',
+    q_goal_g0: 'Finish it',
+    q_goal_g1: 'A personal record',
+    q_goal_g2: 'A specific time',
+    q_goal_time_label: 'Which?',
+
+    diag_label: 'DIAGNOSTIC',
+    zone_green: 'Green zone · The base is there',
+    zone_yellow: 'Yellow zone · On track, with gaps',
+    zone_red: 'Red zone · You need a different strategy',
+    zone_redpain: 'Red zone · Health first',
+    strengths_label: 'What you already have:',
+    st_volume: 'weekly volume in the working range',
+    st_long: 'long runs already in the schedule',
+    st_weeks: '{weeks} weeks to race day - there is time',
+    st_days: '4+ training days a week',
+    st_clean: 'no injuries in the way',
+    st_exp: 'race experience behind you',
+
+    race_marathon: 'marathon',
+    race_half: 'half marathon',
+
+    verdict_green_title: 'The base is there. The question is the quality of your prep.',
+    verdict_green_text: '{weeks} weeks to race day, and your volume and long runs are in the working range. Your risk is not "won\'t finish" - it is "finish at the same level you would hit without any plan". From here, the structure of intensity and the taper decide - that is where your result is hiding.',
+
+    verdict_yellow_title: 'You are on track. But the gaps will decide everything.',
+    verdict_yellow_text: '{weeks} weeks out is a workable window - but not one that forgives mistakes. Your answers show 2-3 weak spots, and if you patch them blindly, you will either come up short on fitness or overload and break down right at the peak. Which ones to close first - I will tell you in the full review.',
+
+    verdict_risk_title: 'You are going to run it - I get that. So the question is not "whether", it is "how to finish in one piece".',
+    verdict_risk_text: 'The slot is booked, the decision is made - I will not talk you out of it, it is your race. But your answers show a gap between your current base and the distance, and on a standard one-size-fits-all plan that gap collects its dues in the second half: cramps, walking kilometres, weeks of recovery instead of pride at the finish. The good news: for exactly this situation there is a different training strategy and a different race plan - not heroic, smart. The three things I would change in your training this week - in the full review.',
+
+    verdict_redpain_title: 'First - deal with the pain. Then - the plan.',
+    verdict_redpain_text: 'You marked that something hurts right now. Any training plan on top of pain is training for an injury, not for a race. Step one is understanding what it is: overload, technique, or something for a doctor. In the review I will tell you what I would do in your place and what you can already do - without making it worse.',
+
+    review_title: 'The full review - free',
+    review_text: 'I will send it personally: the three main gaps in your answers, what to do about each one, and where to start this week. Not a newsletter, not a bot - I write myself.',
+    review_hot: 'And if you send 30 seconds of video of your run - I will do a video review of your technique. I take 5 of these a week.',
+    review_cta: 'Get my review',
+
+    form_name: 'Name',
+    form_contact: 'Telegram @ or email',
+    form_city: 'City and country',
+    form_city_placeholder: 'e.g.: Chicago, USA',
+    form_submit: 'Get my review',
+    form_error_required: 'This field is required',
+    form_error_contact: 'Enter a Telegram @ or an email',
+
+    thanks_text: 'Done. I will write to you within 24 hours. Meanwhile - here is a deep dive on your topic: no fluff, no slogans.',
+    thanks_cta: 'Read it on the blog',
+    title_tag: 'Will you be ready for your race? - a 90-second diagnostic',
 
     footer: '© innatri.com · Instagram @inna.tri'
   }

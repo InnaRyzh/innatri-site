@@ -10,6 +10,8 @@ const LANG_KEY = 'quiz_lang';
 const QUEUE_KEY = 'quiz_lead_queue';
 
 let lang = localStorage.getItem(LANG_KEY) || 'ru';
+const urlLang = new URLSearchParams(location.search).get('lang');
+if (urlLang && I18N[urlLang]) lang = urlLang;
 if (!I18N[lang]) lang = 'ru';
 
 const state = {
@@ -471,6 +473,7 @@ async function onSubmit(e) {
   }
 
   track('Lead', false);
+  $('thanks-blog-link').href = blogUrl();
   showScreen('screen-thanks');
 }
 
@@ -502,9 +505,22 @@ function formatDate(d) {
 /* ============================================================
    Инициализация
    ============================================================ */
+
+function blogUrl() {
+  const half = state.answers.distance === 'half';
+  const map = {
+    ru: half ? 'https://innatri.com/blog/polumarafon-3-trenirovki-v-nedelyu.html' : 'https://innatri.com/blog.html',
+    ua: half ? 'https://innatri.com/ua/blog/pivmarafon-3-trenuvannya-na-tyzhden.html' : 'https://innatri.com/ua/blog.html',
+    en: half ? 'https://innatri.com/en/blog/half-marathon-3-runs-a-week.html' : 'https://innatri.com/en/blog.html'
+  };
+  return map[lang] || map.ru;
+}
+
 function setLang(next) {
   lang = next;
   localStorage.setItem(LANG_KEY, lang);
+  document.documentElement.lang = t('lang_code');
+  document.title = t('title_tag');
   applyStaticTexts();
   const active = document.querySelector('.screen.active').id;
   if (active === 'screen-quiz') renderQuestion();
@@ -526,5 +542,7 @@ $('btn-back').addEventListener('click', goBack);
 $('btn-to-form').addEventListener('click', () => showScreen('screen-form'));
 $('lead-form').addEventListener('submit', onSubmit);
 
+document.documentElement.lang = t('lang_code');
+document.title = t('title_tag');
 applyStaticTexts();
 retryQueue();
