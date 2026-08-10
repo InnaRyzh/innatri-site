@@ -32,9 +32,10 @@ const t = (key) => I18N[lang][key];
    ============================================================ */
 const QUESTIONS = [
   { key: 'distance', type: 'options', titleKey: 'q_distance', options: [
-    { code: 'marathon', labelKey: 'q_distance_marathon' },
+    { code: '5k', labelKey: 'q_distance_5k' },
+    { code: '10k', labelKey: 'q_distance_10k' },
     { code: 'half', labelKey: 'q_distance_half' },
-    { code: 'undecided', labelKey: 'q_distance_undecided' }
+    { code: 'marathon', labelKey: 'q_distance_marathon' }
   ]},
   { key: 'race_date', type: 'date' },
   { key: 'volume', type: 'options', titleKey: 'q_volume', options: [
@@ -82,13 +83,27 @@ const QUESTIONS = [
 /* ============================================================
    Скоринг
    ============================================================ */
-/* Для полумарафона пороги объёма и длинной снижены на уровень:
-   ответ засчитывается как уровень выше. */
-const HALF_VOLUME_MAP = { v0: 'v1', v1: 'v2', v2: 'v3', v3: 'v3' };
-const HALF_LONG_MAP = { l0: 'l1', l1: 'l2', l2: 'l3', l3: 'l4', l4: 'l4' };
-
-const VOLUME_POINTS = { v0: 5, v1: 15, v2: 25, v3: 30 };
-const LONG_POINTS = { l0: 3, l1: 10, l2: 18, l3: 25, l4: 25 };
+/* Пороги зависят от дистанции: объём «меньше 20 км/нед» для марафона - мало,
+   для 5К - рабочая норма. У каждой дистанции своя таблица очков. */
+const VOLUME_POINTS_BY_DIST = {
+  '5k':     { v0: 25, v1: 30, v2: 30, v3: 30 },
+  '10k':    { v0: 18, v1: 28, v2: 30, v3: 30 },
+  half:     { v0: 15, v1: 25, v2: 30, v3: 30 },
+  marathon: { v0: 5,  v1: 15, v2: 25, v3: 30 }
+};
+const LONG_POINTS_BY_DIST = {
+  '5k':     { l0: 25, l1: 25, l2: 25, l3: 25, l4: 25 },
+  '10k':    { l0: 15, l1: 25, l2: 25, l3: 25, l4: 25 },
+  half:     { l0: 10, l1: 18, l2: 25, l3: 25, l4: 25 },
+  marathon: { l0: 3,  l1: 10, l2: 18, l3: 25, l4: 25 }
+};
+/* Сколько недель до старта достаточно - тоже своё для каждой дистанции */
+const WEEKS_POINTS_BY_DIST = {
+  '5k':     [[6, 15], [4, 12], [3, 8], [2, 4]],
+  '10k':    [[8, 15], [6, 12], [4, 8], [2, 4]],
+  half:     [[12, 15], [10, 12], [8, 8], [4, 4]],
+  marathon: [[16, 15], [12, 12], [8, 8], [4, 4]]
+};
 const INJURY_POINTS = { i0: 15, i1: 12, i2: 6, i3: 0 };
 const DAYS_POINTS = { d0: 5, d1: 10, d2: 10 };
 const EXP_POINTS = { e0: 0, e1: 3, e2: 5 };
@@ -98,26 +113,23 @@ function computeResult() {
   const pain = a.injuries === 'i3';
   let score = 0;
 
-  // weeks_to_race
-  const w = state.weeks_to_race;
-  if (w >= 16) score += 15;
-  else if (w >= 12) score += 12;
-  else if (w >= 8) score += 8;
-  else if (w >= 4) score += 4;
+  const dist = VOLUME_POINTS_BY_DIST[a.distance] ? a.distance : 'marathon';
 
-  // volume и long run (для half сдвиг уровня)
-  const isHalf = a.distance === 'half';
-  const volCode = isHalf ? HALF_VOLUME_MAP[a.volume] : a.volume;
-  score += VOLUME_POINTS[volCode];
-  const longCode = isHalf ? HALF_LONG_MAP[a.long_run] : a.long_run;
-  score += LONG_POINTS[longCode];
+  // weeks_to_race - по порогам своей дистанции
+  const w = state.weeks_to_race;
+  for (const [minW, pts] of WEEKS_POINTS_BY_DIST[dist]) {
+    if (w >= minW) { score += pts; break; }
+  }
+
+  score += VOLUME_POINTS_BY_DIST[dist][a.volume];
+  score += LONG_POINTS_BY_DIST[dist][a.long_run];
 
   score += INJURY_POINTS[a.injuries];
   score += DAYS_POINTS[a.days];
   score += EXP_POINTS[a.experience];
 
-  // бонус: полумарафон с целью «финишировать»
-  if (isHalf && a.goal === 'g0') score += 5;
+  // бонус: короткая дистанция с целью «финишировать» - база достижимее
+  if (dist !== 'marathon' && a.goal === 'g0') score += 5;
 
   // Зона: только боль даёт отдельный сценарий, остальное - по сумме баллов
   let zone;
@@ -223,7 +235,7 @@ function renderQuestion() {
       wrap.appendChild(sub);
     }
   } else if (q.type === 'date') {
-    h2.textContent = state.answers.distance === 'undecided' ? t('q_race_date_undecided') : t('q_race_date');
+    h2.textContent = t('q_race_date');
 
     const block = document.createElement('div');
     block.className = 'field-block';
@@ -305,7 +317,8 @@ function goBack() {
    Вердикт
    ============================================================ */
 function interpolate(text) {
-  const raceKey = state.answers.distance === 'half' ? 'race_half' : 'race_marathon';
+  const raceKeys = { '5k': 'race_5k', '10k': 'race_10k', half: 'race_half', marathon: 'race_marathon' };
+  const raceKey = raceKeys[state.answers.distance] || 'race_marathon';
   return text
     .replaceAll('{weeks}', String(state.weeks_to_race))
     .replaceAll('{race}', t(raceKey));
@@ -314,13 +327,11 @@ function interpolate(text) {
 
 function computeStrengths() {
   const a = state.answers;
-  const isHalf = a.distance === 'half';
-  const vol = isHalf ? HALF_VOLUME_MAP[a.volume] : a.volume;
-  const lng = isHalf ? HALF_LONG_MAP[a.long_run] : a.long_run;
+  const dist = VOLUME_POINTS_BY_DIST[a.distance] ? a.distance : 'marathon';
   const out = [];
-  if (['v2', 'v3'].includes(vol)) out.push('st_volume');
-  if (['l2', 'l3', 'l4'].includes(lng)) out.push('st_long');
-  if (state.weeks_to_race >= 12) out.push('st_weeks');
+  if (VOLUME_POINTS_BY_DIST[dist][a.volume] >= 25) out.push('st_volume');
+  if (LONG_POINTS_BY_DIST[dist][a.long_run] >= 18) out.push('st_long');
+  if (state.weeks_to_race >= WEEKS_POINTS_BY_DIST[dist][0][0]) out.push('st_weeks');
   if (['d1', 'd2'].includes(a.days)) out.push('st_days');
   if (['i0', 'i1'].includes(a.injuries)) out.push('st_clean');
   if (['e1', 'e2'].includes(a.experience)) out.push('st_exp');

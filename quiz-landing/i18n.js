@@ -12,9 +12,10 @@ const I18N = {
     next: 'Дальше',
 
     q_distance: 'Куда готовишься?',
-    q_distance_marathon: 'Марафон (42.2 км)',
+    q_distance_5k: '5 км',
+    q_distance_10k: '10 км',
     q_distance_half: 'Полумарафон (21.1 км)',
-    q_distance_undecided: 'Ещё выбираю старт',
+    q_distance_marathon: 'Марафон (42.2 км)',
 
     q_race_date: 'Когда старт?',
     q_race_date_undecided: 'Когда ориентировочно планируешь стартовать?',
@@ -76,6 +77,8 @@ const I18N = {
 
     race_marathon: 'марафону',
     race_half: 'полумарафону',
+    race_10k: 'десятке',
+    race_5k: 'пятёрке',
 
     verdict_green_title: 'База есть. Вопрос - в качестве подготовки.',
     verdict_green_text: 'До старта {weeks} недель, и по объёму и длинным ты в рабочей зоне. Твой риск сейчас не "не добегу", а "пробегу на том же уровне, что и мог(ла) бы без подготовки". Дальше решают структура интенсивности и подводка - именно там прячется твой результат.',
@@ -121,9 +124,10 @@ const I18N = {
     next: 'Далі',
 
     q_distance: 'Куди готуєшся?',
-    q_distance_marathon: 'Марафон (42.2 км)',
+    q_distance_5k: '5 км',
+    q_distance_10k: '10 км',
     q_distance_half: 'Напівмарафон (21.1 км)',
-    q_distance_undecided: 'Ще обираю старт',
+    q_distance_marathon: 'Марафон (42.2 км)',
 
     q_race_date: 'Коли старт?',
     q_race_date_undecided: 'Коли орієнтовно плануєш стартувати?',
@@ -185,6 +189,8 @@ const I18N = {
 
     race_marathon: 'марафону',
     race_half: 'напівмарафону',
+    race_10k: 'десятки',
+    race_5k: "п'ятірки",
 
     verdict_green_title: 'База є. Питання - в якості підготовки.',
     verdict_green_text: 'До старту {weeks} тижнів, і за об\'ємом та довгими ти в робочій зоні. Твій ризик зараз не "не добіжу", а "пробіжу на тому ж рівні, що й міг (могла) би без підготовки". Далі вирішують структура інтенсивності та підводка - саме там ховається твій результат.',
@@ -230,9 +236,10 @@ const I18N = {
     next: 'Next',
 
     q_distance: 'What are you training for?',
-    q_distance_marathon: 'Marathon (42.2 km / 26.2 mi)',
+    q_distance_5k: '5K',
+    q_distance_10k: '10K',
     q_distance_half: 'Half marathon (21.1 km / 13.1 mi)',
-    q_distance_undecided: 'Still choosing a race',
+    q_distance_marathon: 'Marathon (42.2 km / 26.2 mi)',
 
     q_race_date: 'When is your race?',
     q_race_date_undecided: 'When are you roughly planning to race?',
@@ -294,6 +301,8 @@ const I18N = {
 
     race_marathon: 'marathon',
     race_half: 'half marathon',
+    race_10k: '10K',
+    race_5k: '5K',
 
     verdict_green_title: 'The base is there. The question is the quality of your prep.',
     verdict_green_text: '{weeks} weeks to race day, and your volume and long runs are in the working range. Your risk is not "won\'t finish" - it is "finish at the same level you would hit without any plan". From here, the structure of intensity and the taper decide - that is where your result is hiding.',
