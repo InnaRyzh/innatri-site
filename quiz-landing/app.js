@@ -395,6 +395,118 @@ function isValidContact(v) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
 }
 
+
+/* ============================================================
+   Telegram-текст лида формируется ЗДЕСЬ, а не в Apps Script.
+   Скрипт в таблице - тупая труба: любые правки логики/текстов
+   делаются в этом файле и уезжают через git, без переустановки
+   скрипта у Инны.
+   ============================================================ */
+const TG_RU = {
+  distance: { '5k': '5 км', '10k': '10 км', half: 'Полумарафон (21.1 км)', marathon: 'Марафон (42.2 км)' },
+  zone: { green: '\u{1F7E2} Зелёная', yellow: '\u{1F7E1} Жёлтая', risk: '\u{1F534} Красная (разрыв база/дистанция)', red_pain: '\u{1F534} Красная (боль сейчас)' },
+  segment: { hot: 'горячий \u{1F525}', warm: 'тёплый', cold: 'холодный' }
+};
+
+/* Черновик ответа клиенту - на языке клиента, готов к отправке */
+const DRAFTS = {
+  ru: {
+    hi: 'Привет, {name}! Посмотрела твои ответы - вот с чего я бы начала:',
+    pain: 'Сначала - боль. Любой план поверх боли - это подготовка к травме, а не к старту. Разберись, что болит и на чём усиливается. Если дольше недели или нарастает - к спортивному врачу, а бег пока замени на вело или плавание.',
+    volume: 'Объём сейчас {vol} - для дистанции «{race}» этого мало. Поднимай постепенно: не больше +10% в неделю, каждая 4-я неделя - легче на треть. Резкий скачок объёма - главная причина травм у любителей.',
+    long: 'Длинная сейчас {long} - для «{race}» коротко. Наращивай на 1-2 км раз в 1-2 недели, всю длинную беги разговорным темпом. Пик - за 2-3 недели до старта, дальше тейпер.',
+    weeks: 'До старта {weeks} нед. - впритык. Приоритет: длинная + одна качественная работа в неделю, всё остальное - легко. Догонять форму героизмом опаснее, чем скорректировать цель.',
+    aches: 'Периодические боли - это звонок, не фон. Добавь силовую 2 раза в неделю (стопа, голень, ягодицы, кор) и следи за реакцией на рост нагрузки. Усиливается - не терпи, к врачу.',
+    structure: 'Сейчас у тренировок нет структуры. База: 80% объёма - лёгкий бег, 20% - качество. Три ключевые тренировки в неделе: интервалы, темп, длинная. Остальное - восстановление.',
+    goalgap: 'Цель «{goal}» амбициозна относительно текущей базы. Честный вариант: этот старт - сильный ровный финиш, рекорд - в следующем цикле.',
+    solid: 'База у тебя в порядке - дальше решает качество: структура интенсивности, подводка к старту, раскладка темпа и питание на дистанции. Именно здесь прячется результат.',
+    bye: 'Если захочешь, разложу это в конкретный план под твой календарь и график - просто ответь на это сообщение.'
+  },
+  ua: {
+    hi: 'Привіт, {name}! Подивилася твої відповіді - ось з чого я б почала:',
+    pain: 'Спочатку - біль. Будь-який план поверх болю - це підготовка до травми, а не до старту. Розберися, що болить і на чому посилюється. Якщо довше тижня або наростає - до спортивного лікаря, а біг поки заміни на вело чи плавання.',
+    volume: "Об'єм зараз {vol} - для дистанції «{race}» цього мало. Піднімай поступово: не більше +10% на тиждень, кожен 4-й тиждень - легший на третину. Різкий стрибок об'єму - головна причина травм у любителів.",
+    long: 'Довготривала зараз {long} - для «{race}» коротко. Нарощуй на 1-2 км раз на 1-2 тижні, всю довгу біжи розмовним темпом. Пік - за 2-3 тижні до старту, далі тейпер.',
+    weeks: 'До старту {weeks} тиж. - впритул. Пріоритет: довга + одна якісна робота на тиждень, решта - легко. Наздоганяти форму героїзмом небезпечніше, ніж скоригувати ціль.',
+    aches: 'Періодичні болі - це дзвінок, не фон. Додай силову 2 рази на тиждень (стопа, гомілка, сідниці, кор) і стеж за реакцією на зростання навантаження. Посилюється - не терпи, до лікаря.',
+    structure: 'Зараз у тренувань немає структури. База: 80% об\'єму - легкий біг, 20% - якість. Три ключові тренування на тижні: інтервали, темп, довга. Решта - відновлення.',
+    goalgap: 'Ціль «{goal}» амбітна відносно поточної бази. Чесний варіант: цей старт - сильний рівний фініш, рекорд - у наступному циклі.',
+    solid: 'База в тебе в порядку - далі вирішує якість: структура інтенсивності, підводка до старту, розкладка темпу та харчування на дистанції. Саме тут ховається результат.',
+    bye: 'Якщо захочеш, розкладу це в конкретний план під твій календар і графік - просто відповіси на це повідомлення.'
+  },
+  en: {
+    hi: "Hi {name}! I went through your answers - here is where I would start:",
+    pain: 'First - the pain. Any training plan on top of pain is training for an injury, not for a race. Figure out what hurts and what makes it worse. If it lasts more than a week or grows - see a sports doctor, and swap running for cycling or swimming meanwhile.',
+    volume: 'Your volume is {vol} right now - for a {race} that is low. Build it gradually: no more than +10% per week, every 4th week a third lighter. A volume spike is the #1 cause of injuries in recreational runners.',
+    long: 'Your long run is {long} - short for a {race}. Add 1-2 km every week or two, run all of it at a conversational pace. Peak 2-3 weeks before race day, then taper.',
+    weeks: '{weeks} weeks to race day is tight. Priority: the long run plus one quality session per week, everything else easy. Chasing fitness with heroics is more dangerous than adjusting the goal.',
+    aches: 'Recurring aches are a signal, not background noise. Add strength work twice a week (feet, calves, glutes, core) and watch how your body reacts to added load. If it grows - do not push through, see a doctor.',
+    structure: 'Right now your training has no structure. The base rule: 80% of volume easy, 20% quality. Three key sessions a week - intervals, tempo, long run. Everything else is recovery.',
+    goalgap: 'The goal "{goal}" is ambitious relative to your current base. The honest play: make this race a strong, even finish - and chase the record next cycle.',
+    solid: 'Your base is in good shape - from here it is about quality: intensity structure, the taper, race pacing and fueling. That is where the result hides.',
+    bye: 'If you want, I can turn this into a concrete plan around your calendar and schedule - just reply to this message.'
+  }
+};
+
+function tgLabel(l, key) { return (I18N[l] && I18N[l][key]) || I18N.ru[key] || ''; }
+
+function buildTelegramText(formData) {
+  const a = state.answers;
+  const dist = VOLUME_POINTS_BY_DIST[a.distance] ? a.distance : 'marathon';
+  const L = DRAFTS[lang] ? lang : 'ru';
+  const D = DRAFTS[L];
+  const ruLabel = (key) => I18N.ru[key] || '';
+  const raceRu = TG_RU.distance[dist] || dist;
+  const raceLead = tgLabel(L, 'q_distance_' + dist).replace(/\s*\(.*\)/, '');
+  const fill = (t, extra) => t
+    .replaceAll('{name}', formData.name || '')
+    .replaceAll('{race}', raceLead)
+    .replaceAll('{weeks}', String(state.weeks_to_race))
+    .replaceAll('{vol}', tgLabel(L, 'q_volume_' + a.volume))
+    .replaceAll('{long}', tgLabel(L, 'q_long_run_' + a.long_run))
+    .replaceAll('{goal}', tgLabel(L, 'q_goal_' + a.goal) + (state.goal_time ? ' ' + state.goal_time : ''));
+
+  /* Пробелы - те же пороги, что в скоринге */
+  const gaps = [];
+  if (a.injuries === 'i3') gaps.push(D.pain);
+  if (VOLUME_POINTS_BY_DIST[dist][a.volume] < 25) gaps.push(fill(D.volume));
+  if (LONG_POINTS_BY_DIST[dist][a.long_run] < 18) gaps.push(fill(D.long));
+  const minWeeks = { '5k': 4, '10k': 6, half: 10, marathon: 12 }[dist];
+  if (state.weeks_to_race < minWeeks && a.injuries !== 'i3') gaps.push(fill(D.weeks));
+  if (a.injuries === 'i2') gaps.push(D.aches);
+  if (a.current_training !== 't2') gaps.push(D.structure);
+  if ((a.goal === 'g1' || a.goal === 'g2') && VOLUME_POINTS_BY_DIST[dist][a.volume] < 25) gaps.push(fill(D.goalgap));
+  const top = gaps.length ? gaps.slice(0, 3) : [D.solid];
+
+  const draft = [fill(D.hi), '']
+    .concat(top.map((g, i) => (i + 1) + '. ' + g + '\n'))
+    .concat([D.bye]).join('\n');
+
+  const fire = state.segment === 'hot' ? ' \u{1F525}' : '';
+  const langNote = L === 'en' ? ' - черновик ниже уже НА АНГЛИЙСКОМ' : (L === 'ua' ? ' - чернетка нижче українською' : '');
+  const header = [
+    'Новый лид с квиза' + fire,
+    '',
+    '\u{1F464} ' + (formData.name || '-') + ' \u00B7 ' + (formData.contact || '-') + ' \u00B7 ' + (formData.city || '-'),
+    'Язык: ' + L.toUpperCase() + langNote,
+    '',
+    'Дистанция: ' + raceRu,
+    'Старт: ' + (state.race_date || 'дата не выбрана') + ' (через ' + state.weeks_to_race + ' нед.)',
+    'Цель: ' + ruLabel('q_goal_' + a.goal).toLowerCase() + (state.goal_time ? ' - ' + state.goal_time : ''),
+    'Объём: ' + ruLabel('q_volume_' + a.volume) + ' \u00B7 Длинная: ' + ruLabel('q_long_run_' + a.long_run),
+    'Опыт: ' + ruLabel('q_experience_' + a.experience) + ' \u00B7 Травмы: ' + ruLabel('q_injuries_' + a.injuries),
+    'Дней в неделю: ' + ruLabel('q_days_' + a.days) + ' \u00B7 Сейчас: ' + ruLabel('q_current_training_' + a.current_training),
+    '',
+    'Зона: ' + (TG_RU.zone[state.zone] || state.zone) + ' \u00B7 Сегмент: ' + (TG_RU.segment[state.segment] || state.segment) + ' \u00B7 ' + state.score + ' баллов',
+    '',
+    '\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501',
+    '\u{1F4DD} ЧЕРНОВИК ОТВЕТА (поправь и отправь клиенту):',
+    '',
+    draft
+  ].join('\n');
+  return header.slice(0, 3900);
+}
+
 function buildPayload(formData) {
   return {
     distance: state.answers.distance,
@@ -415,6 +527,7 @@ function buildPayload(formData) {
     contact: formData.contact,
     city: formData.city,
     lang: lang,
+    tg_text: buildTelegramText(formData),
     timestamp: new Date().toISOString(),
     userAgent: navigator.userAgent
   };
@@ -452,6 +565,7 @@ async function retryQueue() {
 }
 
 function track(event, custom) {
+  if (typeof gtag === 'function') gtag('event', 'quiz_' + event.toLowerCase());
   if (typeof fbq !== 'function') return;
   if (custom) fbq('trackCustom', event);
   else fbq('track', event);
