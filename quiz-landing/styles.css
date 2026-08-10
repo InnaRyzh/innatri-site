@@ -393,3 +393,14 @@ footer {
   font-family: var(--font-mono);
   text-align: center;
 }
+
+/* Согласие под формой */
+.form-consent {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+.form-consent a { color: var(--muted); text-decoration: underline; }
+.form-consent a:hover { color: var(--text); }

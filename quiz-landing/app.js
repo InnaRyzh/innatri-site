@@ -641,11 +641,14 @@ function blogUrl() {
   return map[lang] || map.ru;
 }
 
+const PRIVACY_URLS = { ru: '/privacy.html', ua: '/ua/privacy.html', en: '/en/privacy.html' };
+
 function setLang(next) {
   lang = next;
   localStorage.setItem(LANG_KEY, lang);
   document.documentElement.lang = t('lang_code');
   document.title = t('title_tag');
+  $('consent-link').href = PRIVACY_URLS[lang] || PRIVACY_URLS.ru;
   applyStaticTexts();
   const active = document.querySelector('.screen.active').id;
   if (active === 'screen-quiz') renderQuestion();
@@ -669,5 +672,6 @@ $('lead-form').addEventListener('submit', onSubmit);
 
 document.documentElement.lang = t('lang_code');
 document.title = t('title_tag');
+$('consent-link').href = PRIVACY_URLS[lang] || PRIVACY_URLS.ru;
 applyStaticTexts();
 retryQueue();

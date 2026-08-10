@@ -104,6 +104,8 @@ const I18N = {
     form_submit: 'Получить разбор',
     form_error_required: 'Заполни это поле',
     form_error_contact: 'Укажи Telegram @ или email',
+    form_consent: 'Нажимая кнопку, ты соглашаешься на обработку своих данных.',
+    form_consent_link: 'Политика конфиденциальности',
 
     thanks_text: 'Готово. Напишу тебе в течение 24 часов. А пока - держи разбор по твоей теме в блоге: без воды и мотивационных лозунгов.',
     thanks_cta: 'Читать разбор в блоге',
@@ -216,6 +218,8 @@ const I18N = {
     form_submit: 'Отримати розбір',
     form_error_required: 'Заповни це поле',
     form_error_contact: 'Вкажи Telegram @ або email',
+    form_consent: 'Натискаючи кнопку, ти погоджуєшся на обробку своїх даних.',
+    form_consent_link: 'Політика конфіденційності',
 
     thanks_text: 'Готово. Напишу тобі протягом 24 годин. А поки - тримай розбір за твоєю темою в блозі: без води та мотиваційних гасел.',
     thanks_cta: 'Читати розбір у блозі',
@@ -328,6 +332,8 @@ const I18N = {
     form_submit: 'Get my review',
     form_error_required: 'This field is required',
     form_error_contact: 'Enter a Telegram @ or an email',
+    form_consent: 'By tapping the button you agree to the processing of your data.',
+    form_consent_link: 'Privacy Policy',
 
     thanks_text: 'Done. I will write to you within 24 hours. Meanwhile - here is a deep dive on your topic: no fluff, no slogans.',
     thanks_cta: 'Read it on the blog',
