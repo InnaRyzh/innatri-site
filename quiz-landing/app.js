@@ -571,8 +571,11 @@ function track(event, custom) {
   else fbq('track', event);
 }
 
+let submitting = false;
+
 async function onSubmit(e) {
   e.preventDefault();
+  if (submitting) return; // защита от повторных нажатий
 
   const name = $('f-name').value.trim();
   const contact = $('f-contact').value.trim();
@@ -588,13 +591,20 @@ async function onSubmit(e) {
   if (!city) ok = false;
   if (!ok) return;
 
+  submitting = true;
+  const btn = $('lead-form').querySelector('button[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = t('form_sending'); }
+
   const payload = buildPayload({ name, contact, city });
 
+  /* Экран «спасибо» показываем СРАЗУ, отправка уходит в фоне:
+     Apps Script на холодном старте отвечает секунды, ждать его - значит
+     заставить человека жать кнопку повторно. Обрыв сети - лид в очередь,
+     дошлётся при следующем визите. */
   if (ENDPOINT_URL === 'ENDPOINT_URL') {
-    enqueue(payload); // endpoint ещё не настроен — лид в очередь
+    enqueue(payload);
   } else {
-    try { await sendPayload(payload); }
-    catch (err) { enqueue(payload); } // сеть упала — лид не теряем
+    sendPayload(payload).catch(function () { enqueue(payload); });
   }
 
   track('Lead', false);

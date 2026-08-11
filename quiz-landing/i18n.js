@@ -104,6 +104,7 @@ const I18N = {
     form_submit: 'Получить разбор',
     form_error_required: 'Заполни это поле',
     form_error_contact: 'Укажи Telegram @ или email',
+    form_sending: 'Отправляю…',
     form_consent: 'Нажимая кнопку, ты соглашаешься на обработку своих данных.',
     form_consent_link: 'Политика конфиденциальности',
 
@@ -218,6 +219,7 @@ const I18N = {
     form_submit: 'Отримати розбір',
     form_error_required: 'Заповни це поле',
     form_error_contact: 'Вкажи Telegram @ або email',
+    form_sending: 'Надсилаю…',
     form_consent: 'Натискаючи кнопку, ти погоджуєшся на обробку своїх даних.',
     form_consent_link: 'Політика конфіденційності',
 
@@ -332,6 +334,7 @@ const I18N = {
     form_submit: 'Get my review',
     form_error_required: 'This field is required',
     form_error_contact: 'Enter a Telegram @ or an email',
+    form_sending: 'Sending…',
     form_consent: 'By tapping the button you agree to the processing of your data.',
     form_consent_link: 'Privacy Policy',
 

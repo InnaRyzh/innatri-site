@@ -404,3 +404,7 @@ footer {
 }
 .form-consent a { color: var(--muted); text-decoration: underline; }
 .form-consent a:hover { color: var(--text); }
+
+/* Кнопка в момент отправки */
+.btn:disabled { opacity: 0.55; cursor: default; transform: none; box-shadow: none; }
+.btn:disabled:hover { background: var(--accent); box-shadow: none; }
