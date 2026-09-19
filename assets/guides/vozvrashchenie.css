@@ -68,8 +68,9 @@ section{padding-top:64px;padding-bottom:64px}
 .btn-wide{width:100%}
 
 /* ---------- Экран 1 ---------- */
-.hero{padding-top:clamp(26px,5vw,56px);padding-bottom:clamp(38px,6vw,68px)}
-.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero{padding-top:clamp(30px,6vw,64px);padding-bottom:clamp(40px,6vw,72px)}
+.hero-text{max-width:660px}
+.hero-grid{display:block}
 .hero-grid>*{min-width:0}
 .hero .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px}
 .chip{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
@@ -77,12 +78,6 @@ section{padding-top:64px;padding-bottom:64px}
 .hero .note{font-family:var(--font-mono);font-size:11.5px;color:var(--muted-dim);
   letter-spacing:.06em;margin-top:15px}
 
-.cover-shot{position:relative;max-width:352px;width:100%;justify-self:end}
-.cover-shot img{width:100%;height:auto;border-radius:6px;
-  box-shadow:0 26px 54px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08)}
-/* тонкий корешок слева — намёк на физический документ, без 3D-перекоса */
-.cover-shot::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;
-  border-radius:6px 0 0 6px;background:linear-gradient(90deg,rgba(0,0,0,.5),rgba(0,0,0,0))}
 
 /* ---------- Список содержимого ---------- */
 .inside{display:grid;gap:13px;margin-top:26px}
@@ -113,13 +108,10 @@ section{padding-top:64px;padding-bottom:64px}
 /* ---------- Адаптив ---------- */
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:34px}
-  .cover-shot{max-width:320px;margin:0 auto}
-  .cover-shot img{transform:rotateY(-7deg) rotate(-1deg)}
-  .tiles{grid-template-columns:1fr 1fr}
+      .tiles{grid-template-columns:1fr 1fr}
   .recog{grid-template-columns:1fr}
   .inside{grid-template-columns:1fr}
-  .cover-shot{max-width:290px}
-}
+  }
 @media (max-width:740px){
   .spread .shot{margin:-2px 0}
   .spread img{width:auto;max-width:none;min-width:700px}
@@ -139,7 +131,7 @@ section{padding-top:64px;padding-bottom:64px}
 }
 
 /* ---------- Кнопка скачивания ---------- */
-.btn-dl{padding:20px 38px;font-size:15px}
+.btn-dl{padding:20px 38px;font-size:15px;margin-top:28px}
 .hero .note{margin-top:13px}
 .dl-again{margin-top:30px}
 
@@ -156,11 +148,8 @@ section{padding-top:64px;padding-bottom:64px}
 
 /* ---------- Мобильный приоритет ---------- */
 @media (max-width:900px){
-  .hero-grid{display:flex;flex-direction:column;gap:30px}
   /* кнопка скачивания должна попадать на первый экран - обложка уходит под неё */
-  .hero-text{order:1}
-  .cover-shot{order:2;max-width:236px;margin:0 auto;justify-self:auto}
-  h1{font-size:clamp(28px,8vw,40px)}
+    h1{font-size:clamp(28px,8vw,40px)}
   .hero .sub{font-size:16.5px}
   .btn-dl{width:100%;padding:19px 20px}
   .author{flex-direction:row;text-align:left;align-items:flex-start;gap:18px;padding:22px}
