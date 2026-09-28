@@ -678,6 +678,7 @@
     .to-top-btn.show { opacity: 1; pointer-events: auto; }
   </style>
   <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
+ <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-article">
 <script>(function(){var m={"heart-rate-zones": "heart-rate-zones", "coach-online": "online-running-triathlon-coach", "before-after": "training-results-before-after", "open-water": "open-water-swimming-triathlon", "winter-running": "winter-running-tips"};var p=new URLSearchParams(location.search).get("id")||(location.hash?location.hash.slice(1):"");if(m[p]){location.replace("blog/"+m[p]+".html");}})();</script>
@@ -1019,11 +1020,11 @@
 <p class="article-note">When setting ambitious goals, your approach to training must match. From inner commitment and discipline to smart time management.</p>
 <p class="article-highlight">In the photo gallery below you can see how the body and fitness level transform in just 2.5 to 4 months.</p>
 <div class="article-gallery">
- <img src="../assets/blog/9b8ff5_7d820a7599284ad7b6b0eecaa2c721cc~mv2.webp" alt="Before and after 1">
- <img src="../assets/blog/9b8ff5_f7b361eb3ed04e1a80a4515dc9d6b92e~mv2.webp" alt="Before and after 2">
- <img src="../assets/blog/9b8ff5_a116f54a5ecf480cad5a71bebe4ba8f7~mv2.webp" alt="Before and after 3">
- <img src="../assets/blog/9b8ff5_7ff31e1e9f2c47a798395d6a102410b2~mv2.webp" alt="Before and after 4">
- <img src="../assets/blog/9b8ff5_b4d028e177894175a2947412613871e3~mv2.webp" alt="Before and after 5">
+ <img src="../assets/blog/9b8ff5_7d820a7599284ad7b6b0eecaa2c721cc~mv2.webp" alt="Before and after 1" width="960" height="957" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_f7b361eb3ed04e1a80a4515dc9d6b92e~mv2.webp" alt="Before and after 2" width="960" height="960" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_a116f54a5ecf480cad5a71bebe4ba8f7~mv2.webp" alt="Before and after 3" width="960" height="960" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_7ff31e1e9f2c47a798395d6a102410b2~mv2.webp" alt="Before and after 4" width="768" height="765" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_b4d028e177894175a2947412613871e3~mv2.webp" alt="Before and after 5" width="960" height="960" loading="lazy" decoding="async">
 </div>
 <p>And most importantly: these results keep improving.</p>
 <p class="article-note">P.S. Sport is not about kilometers. It is about individualization. Templates work up to a certain level; beyond that, the coach's fine-tuning makes all the difference.</p>`
@@ -1283,7 +1284,7 @@
       document.getElementById('articleDate').textContent = article.date || '2026';
       document.getElementById('articleRead').textContent = article.read || '';
       const imageEl = document.getElementById('articleImage');
-      imageEl.src = article.image;
+      imageEl.src = article.image.startsWith("http") ? article.image : article.image.replace(/\.(jpe?g|png)$/i, ".webp");
       imageEl.alt = article.title;
       document.getElementById('articleContent').innerHTML = article.content;
       if (captionEl) {

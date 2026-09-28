@@ -666,6 +666,7 @@
     .to-top-btn.show { opacity: 1; pointer-events: auto; }
   </style>
   <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
+ <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-article">
 <script>(function(){var m={"heart-rate-zones": "beg-po-pulsu", "coach-online": "onlajn-trener-po-begu-i-triatlonu", "before-after": "rezultaty-do-i-posle", "open-water": "plavanie-v-otkrytoj-vode", "winter-running": "beg-zimoj"};var p=new URLSearchParams(location.search).get("id")||(location.hash?location.hash.slice(1):"");if(m[p]){location.replace("blog/"+m[p]+".html");}})();</script>
@@ -1007,11 +1008,11 @@
 <p class="article-note">Ставя амбициозные цели, подход к тренировкам должен быть соответствующим. От внутреннего решения и дисциплины до грамотного тайм-менеджмента.</p>
 <p class="article-highlight">В фотогалерее - примеры того, как всего за 2.5-4 месяца меняется тело и форма.</p>
 <div class="article-gallery">
- <img src="assets/blog/9b8ff5_7d820a7599284ad7b6b0eecaa2c721cc~mv2.webp" alt="До и после 1">
- <img src="assets/blog/9b8ff5_f7b361eb3ed04e1a80a4515dc9d6b92e~mv2.webp" alt="До и после 2">
- <img src="assets/blog/9b8ff5_a116f54a5ecf480cad5a71bebe4ba8f7~mv2.webp" alt="До и после 3">
- <img src="assets/blog/9b8ff5_7ff31e1e9f2c47a798395d6a102410b2~mv2.webp" alt="До и после 4">
- <img src="assets/blog/9b8ff5_b4d028e177894175a2947412613871e3~mv2.webp" alt="До и после 5">
+ <img src="assets/blog/9b8ff5_7d820a7599284ad7b6b0eecaa2c721cc~mv2.webp" alt="До и после 1" width="960" height="957" loading="lazy" decoding="async">
+ <img src="assets/blog/9b8ff5_f7b361eb3ed04e1a80a4515dc9d6b92e~mv2.webp" alt="До и после 2" width="960" height="960" loading="lazy" decoding="async">
+ <img src="assets/blog/9b8ff5_a116f54a5ecf480cad5a71bebe4ba8f7~mv2.webp" alt="До и после 3" width="960" height="960" loading="lazy" decoding="async">
+ <img src="assets/blog/9b8ff5_7ff31e1e9f2c47a798395d6a102410b2~mv2.webp" alt="До и после 4" width="768" height="765" loading="lazy" decoding="async">
+ <img src="assets/blog/9b8ff5_b4d028e177894175a2947412613871e3~mv2.webp" alt="До и после 5" width="960" height="960" loading="lazy" decoding="async">
 </div>
 <p>И самое главное: эти результаты продолжают расти.</p>
 <p class="article-note">P.S. Спорт - это не про километры. Это про индивидуализацию. Шаблоны работают до определенного уровня, дальше решает тонкая настройка тренера.</p>`
@@ -1271,7 +1272,7 @@
       document.getElementById('articleDate').textContent = article.date || '2026';
       document.getElementById('articleRead').textContent = article.read || '';
       const imageEl = document.getElementById('articleImage');
-      imageEl.src = article.image;
+      imageEl.src = article.image.startsWith("http") ? article.image : article.image.replace(/\.(jpe?g|png)$/i, ".webp");
       imageEl.alt = article.title;
       document.getElementById('articleContent').innerHTML = article.content;
       if (captionEl) {
