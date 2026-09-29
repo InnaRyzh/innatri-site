@@ -1245,3 +1245,140 @@ body.page-calculator > section:nth-of-type(2) details::before { display: none; }
   from { opacity: 0; transform: translateY(28px); filter: blur(14px); }
   to   { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
+
+/* ============================================================
+   СТРАНИЦА КОНТАКТОВ: тёмное полотно с «рассветом», как на главной
+   ============================================================ */
+body.page-contact .footer { background: transparent; border-top-color: rgba(242,232,218,0.08); }
+
+.contact-hero, .contact-body { position: relative; overflow-x: clip; }
+.contact-hero::after, .contact-body::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+}
+.contact-hero::after {
+  left: -20%; right: -40%; top: 20%; bottom: -40%;
+  background: radial-gradient(closest-side at 62% 55%,
+    rgba(214,104,56,0.70) 0%, rgba(176,62,30,0.48) 30%, rgba(112,30,15,0.24) 60%, rgba(0,0,0,0) 100%);
+}
+.contact-body::after {
+  left: -35%; right: -35%; top: 30%; bottom: -10%;
+  background: radial-gradient(closest-side,
+    rgba(160,48,24,0.30) 0%, rgba(96,24,12,0.14) 55%, rgba(0,0,0,0) 100%);
+}
+
+/* первый экран */
+.contact-hero { padding: 168px 0 72px; }
+.contact-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center; }
+.contact-intro h1 {
+  font-size: clamp(40px, 6vw, 76px); line-height: 0.98; letter-spacing: -0.02em;
+  margin: 0 0 28px; color: #FFF4EC;
+}
+.contact-intro h1 em { font-style: normal; color: var(--itri-red-bright); }
+.contact-intro p { max-width: 560px; color: var(--text-body); }
+.contact-intro .contact-lead { font-size: 21px; line-height: 1.5; color: #FFF4EC; margin-bottom: 14px; }
+
+.contact-portrait { margin: 0; position: relative; justify-self: end; width: 100%; max-width: 440px; }
+.contact-portrait img {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%;
+  border-radius: 28px; border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+}
+.contact-portrait figcaption {
+  position: absolute; left: 16px; right: 16px; bottom: 16px;
+  display: grid; gap: 4px; padding: 18px 20px; border-radius: 20px;
+  background: rgba(14,8,7,0.55); border: 1px solid rgba(255,255,255,0.12);
+  -webkit-backdrop-filter: blur(18px) saturate(130%); backdrop-filter: blur(18px) saturate(130%);
+  color: #F3E6DD; font-size: 14px; line-height: 1.45;
+}
+.contact-portrait figcaption strong { font-family: 'Unbounded', sans-serif; font-size: 17px; color: #FFF4EC; }
+.contact-facts b { color: var(--itri-red-bright); font-weight: 700; }
+.contact-badge {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; width: fit-content;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #FFB59A; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,90,60,0.35);
+}
+
+/* способы связи */
+.contact-body { padding: 24px 0 120px; }
+h2.contact-h2.title-font { font-size: clamp(24px, 3vw, 34px); color: #FFF4EC; margin: 0 0 24px; }
+.channel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 56px; }
+.channel-card {
+  display: grid; gap: 6px; padding: 26px 24px; border-radius: 24px; text-decoration: none; color: #F3E6DD;
+  background: rgba(22,10,8,0.40); border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 60px rgba(10,3,2,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+  -webkit-backdrop-filter: blur(22px) saturate(130%); backdrop-filter: blur(22px) saturate(130%);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.channel-card > .ph { font-size: 28px; color: #FFCDB8; margin-bottom: 10px; }
+.channel-name { font-family: 'Unbounded', sans-serif; font-size: 18px; font-weight: 700; color: #FFF4EC; }
+.channel-handle { font-size: 15px; color: rgba(255,236,226,0.72); overflow-wrap: anywhere; }
+.channel-cta { margin-top: 14px; font-weight: 600; font-size: 15px; color: #FFB59A; display: inline-flex; align-items: center; gap: 6px; }
+.channel-card.is-primary { background: linear-gradient(145deg, rgba(255,74,63,0.95), rgba(196,40,28,0.92)); border-color: rgba(255,255,255,0.18); }
+.channel-card.is-primary > .ph, .channel-card.is-primary .channel-cta { color: #FFFFFF; }
+.channel-card.is-primary .channel-handle { color: rgba(255,255,255,0.86); }
+@media (hover: hover) {
+  .channel-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.26); box-shadow: 0 30px 70px rgba(10,3,2,0.36); }
+}
+
+/* диагностика */
+.contact-quiz {
+  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  padding: 36px 40px; border-radius: 28px; margin-bottom: 72px;
+  background: rgba(22,10,8,0.40); border: 1px solid rgba(255,120,90,0.28);
+  -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px);
+}
+.contact-quiz h2.title-font { font-size: clamp(20px, 2.4vw, 26px); color: #FFF4EC; margin: 0 0 10px; }
+.contact-quiz p { color: var(--text-body); margin: 0; max-width: 620px; }
+.contact-quiz-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
+  background: #FFF4EC; color: #140908; font-weight: 700; font-size: 15px; text-decoration: none;
+  padding: 16px 26px; border-radius: 999px; transition: transform .2s ease, background .2s ease;
+}
+.contact-quiz-btn:hover { background: #FFFFFF; transform: translateY(-2px); }
+
+/* что будет дальше */
+.contact-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.contact-step {
+  display: grid; gap: 14px; align-content: start; padding: 28px 26px; border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.10); background: rgba(255,247,234,0.03);
+}
+.contact-step + .contact-step { margin-top: 0; }
+.contact-step-num { font-family: 'Unbounded', sans-serif; font-size: 36px; font-weight: 700; color: var(--itri-red-bright); line-height: 1; }
+.contact-step h3 { font-size: 16px; color: #FFF4EC; margin: 0 0 8px; }
+.contact-step p { font-size: 15px; color: var(--text-body); margin: 0; }
+
+@media (max-width: 1024px) {
+  .channel-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-steps { grid-template-columns: 1fr; }
+}
+@media (max-width: 899px) {
+  .contact-hero { padding: 136px 0 48px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .contact-portrait { justify-self: stretch; max-width: none; }
+  .contact-portrait img { aspect-ratio: 4 / 5; object-position: 50% 12%; }
+  .contact-portrait figcaption { position: relative; left: auto; right: auto; bottom: auto; margin: -56px 14px 0; }
+  .contact-intro .contact-lead { font-size: 19px; }
+}
+@media (max-width: 640px) {
+  .channel-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 40px; }
+  .channel-card { grid-template-columns: auto 1fr auto; grid-template-areas: "icon name cta" "icon handle cta"; align-items: center; column-gap: 16px; padding: 20px; }
+  .channel-card > .ph { grid-area: icon; margin: 0; font-size: 26px; }
+  .channel-name { grid-area: name; font-size: 16px; }
+  .channel-handle { grid-area: handle; font-size: 14px; }
+  .channel-cta { grid-area: cta; margin: 0; font-size: 0; }
+  .channel-cta .ph { font-size: 20px; }
+  .contact-quiz { grid-template-columns: 1fr; padding: 26px 22px; margin-bottom: 52px; }
+  .contact-quiz-btn { white-space: normal; text-align: center; }
+  .contact-body { padding-bottom: 80px; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .contact-hero::after, .contact-body::after {
+      animation: itri-sunrise both ease-out; animation-timeline: view(); animation-range: entry 0% cover 50%;
+    }
+    .channel-card, .contact-quiz, .contact-step, .contact-portrait {
+      animation: itri-glass both linear; animation-timeline: view(); animation-range: entry 8% cover 26%;
+    }
+  }
+}

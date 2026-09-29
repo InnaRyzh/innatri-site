@@ -645,7 +645,7 @@
     }
     .to-top-btn.show { opacity: 1; pointer-events: auto; }
   </style>
-  <link rel="stylesheet" href="/typography.css?v=sunrise-20260929">
+  <link rel="stylesheet" href="/typography.css?v=contact-20260929">
 </head>
 <body class="site-page page-contact">
 
@@ -661,8 +661,8 @@
         <a href="calculator.html" class="nav-link">CALCULATOR</a>
         <a href="pricing.html" class="nav-link">PRICING</a>
         <a href="contact.html" class="nav-link active">CONTACT</a>
-        <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="../ua/contact.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">UA</a><a href="contact.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">EN</a><a href="../contact.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></span>
       </nav>
+        <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="../ua/contact.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">UA</a><a href="contact.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">EN</a><a href="../contact.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></span>
       <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
     </div>
   </header>
@@ -682,21 +682,88 @@
 
 
 
-  <section class="section">
+  <section class="contact-hero">
+    <div class="container contact-grid">
+      <div class="contact-intro">
+        <div class="section-label"><span>01</span><span>Contact</span></div>
+        <h1 class="title-font">Let’s talk about<br>your <em>goal</em></h1>
+        <p class="contact-lead">Tell me what you’re training for: your first race, a marathon, 70.3 or Ironman.</p>
+        <p>Message me on Telegram, WhatsApp or by email. I’ll reply personally, look at your situation and suggest the training format that fits you best.</p>
+      </div>
+      <figure class="contact-portrait">
+        <img src="../assets/people/inna-portrait-904.webp" srcset="../assets/people/inna-portrait-904-480.webp 480w, ../assets/people/inna-portrait-904-720.webp 720w, ../assets/people/inna-portrait-904.webp 904w" sizes="(max-width: 899px) calc(100vw - 48px), 440px" alt="Inna Ryzhykh, triathlon and running coach" width="1350" height="2400" decoding="async">
+        <figcaption>
+          <strong>Inna Ryzhykh</strong>
+          <span>Triathlon & running coach</span>
+          <span class="contact-facts"><b>20+</b> years in pro sport · <b>10+</b> years of coaching</span>
+          <span class="contact-badge"><i class="ph ph-certificate"></i> TrainingPeaks Certified Coach</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="contact-body">
     <div class="container">
-      <h1 class="title-font" style="margin: 24px 0;">CONTACT</h1>
-      <p style="max-width: 620px;">Tell me what you're training for: your first race, a marathon, 70.3 or Ironman.</p>
-      <p style="max-width: 620px;">Message me on Telegram, WhatsApp or by email. I'll reply personally, look at your situation and suggest the training format that fits you best.</p>
-      <div class="run-calc-promo" style="max-width:620px; margin:28px 0 0; background:rgba(255,59,48,0.06); border:1px solid rgba(255,59,48,0.25); border-radius:16px; padding:24px;">
-        <div class="title-font" style="font-size:18px; margin-bottom:8px;">NOT SURE HOW TO START THE EMAIL?</div>
-        <p style="color:var(--text-gray); font-size:15px; margin-bottom:16px;">Then don't write one. Take the check instead - 9 questions, 90 seconds. I'll see your situation before your first message and reply with something useful.</p>
-        <a href="../quiz-landing/?lang=en" style="display:inline-block; background:var(--primary); color:#fff; text-decoration:none; font-weight:700; font-size:15px; padding:14px 28px; border-radius:12px;">Take the 90-second check &rarr;</a>
+      <h2 class="contact-h2 title-font">Where to reach me</h2>
+      <div class="channel-grid">
+        <a class="channel-card is-primary" href="https://t.me/InnaRH">
+          <i class="ph ph-telegram-logo"></i>
+          <span class="channel-name">Telegram</span>
+          <span class="channel-handle">@InnaRH</span>
+          <span class="channel-cta">Message <i class="ph ph-arrow-up-right"></i></span>
+        </a>
+        <a class="channel-card " href="https://wa.me/13322016516">
+          <i class="ph ph-whatsapp-logo"></i>
+          <span class="channel-name">WhatsApp</span>
+          <span class="channel-handle">+1 332 201 6516</span>
+          <span class="channel-cta">Message <i class="ph ph-arrow-up-right"></i></span>
+        </a>
+        <a class="channel-card " href="mailto:innaryzhykh@gmail.com">
+          <i class="ph ph-envelope"></i>
+          <span class="channel-name">Email</span>
+          <span class="channel-handle">innaryzhykh@gmail.com</span>
+          <span class="channel-cta">Message <i class="ph ph-arrow-up-right"></i></span>
+        </a>
+        <a class="channel-card " href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">
+          <i class="ph ph-instagram-logo"></i>
+          <span class="channel-name">Instagram</span>
+          <span class="channel-handle">@inna.tri</span>
+          <span class="channel-cta">Open <i class="ph ph-arrow-up-right"></i></span>
+        </a>
       </div>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
-        <a href="mailto:innaryzhykh@gmail.com" class="btn" style="background: var(--primary); border: 1px solid var(--primary); color: #fff; display: inline-flex; align-items: center; gap: 8px;"><i class="ph ph-envelope"></i> EMAIL</a>
-        <a href="https://wa.me/13322016516" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="ph ph-whatsapp-logo"></i> WHATSAPP</a>
-        <a href="https://t.me/InnaRH" class="btn" style="background: transparent; border: 1px solid #333; color: white; display: inline-flex; align-items: center; gap: 8px;"><i class="ph ph-telegram-logo"></i> TELEGRAM</a>
+
+      <div class="contact-quiz">
+        <div>
+          <h2 class="title-font">Not sure how to start the email?</h2>
+          <p>Then don’t write one. Take the check instead - 9 questions, 90 seconds. I’ll see your situation before your first message and reply with something useful.</p>
+        </div>
+        <a class="contact-quiz-btn" href="../quiz-landing/?lang=en">Take the 90-second check <i class="ph ph-arrow-right"></i></a>
       </div>
+
+      <h2 class="contact-h2 title-font">What happens next</h2>
+      <ol class="contact-steps">
+        <li class="contact-step">
+          <span class="contact-step-num">01</span>
+          <div>
+            <h3 class="title-font">GOAL ASSESSMENT</h3>
+            <p>We discuss your sporting background, current fitness, health, available training time, work schedule and chosen event. I assess whether the goal is realistic and recommend the most suitable coaching format.</p>
+          </div>
+        </li>
+        <li class="contact-step">
+          <span class="contact-step-num">02</span>
+          <div>
+            <h3 class="title-font">SYSTEM SETUP</h3>
+            <p>We connect TrainingPeaks and your sports watch, define training zones, analyse your current data and build the first phase of the programme.</p>
+          </div>
+        </li>
+        <li class="contact-step">
+          <span class="contact-step-num">03</span>
+          <div>
+            <h3 class="title-font">PERSONAL COACHING</h3>
+            <p>You complete the sessions while I analyse the data, collect your feedback and adjust the plan regularly. Before race day, we also build a detailed strategy for pacing, nutrition and completing the distance.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
