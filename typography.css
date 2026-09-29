@@ -1129,3 +1129,103 @@ body.page-calculator > section:nth-of-type(2) details::before { display: none; }
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ============================================================
+   ФОН «СВЕЧЕНИЕ» + СТЕКЛЯННЫЕ КАРТОЧКИ (главная)
+   Тёплые секции — тёмно-бордовые с большим оранжевым кругом света,
+   тёмные — с мягким тёплым свечением снизу. Свечение разгорается,
+   а карточки проявляются из размытия по мере прокрутки
+   (scroll-driven, без JS; без поддержки просто показано сразу).
+   ============================================================ */
+#view-home .tone-warm,
+#view-home .tone-dark:not(.hero):not(.marquee-section) {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+#view-home .tone-warm::after,
+#view-home .tone-dark:not(.hero):not(.marquee-section)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Тёплые секции */
+#view-home .tone-warm {
+  background: linear-gradient(180deg, #160605 0%, #2A0A07 50%, #160605 100%);
+  color: #FFF6F0;
+  --itri-on-warm: #FFF6F0;
+  --itri-muted-warm: rgba(255,238,228,0.70);
+  --text-body: #FFEDE3;
+  --text-muted: rgba(255,238,228,0.70);
+  --text-gray: rgba(255,238,228,0.78);
+  --border-color: rgba(255,255,255,0.18);
+  --bg-card: rgba(255,255,255,0.08);
+}
+#view-home .tone-warm::after {
+  inset: 4% -30%;
+  background: radial-gradient(closest-side,
+    #F2894A 0%, #E0622F 26%, #B83A1B 48%, rgba(122,28,14,0.55) 70%, rgba(40,8,5,0) 100%);
+}
+#view-home .tone-warm .section-label span:first-child,
+#view-home .tone-warm .title-font em { color: #FFD9C7; }
+
+/* Тёмные секции */
+#view-home .tone-dark:not(.hero):not(.marquee-section)::after {
+  left: -20%; right: -20%; bottom: -35%; height: 70%;
+  background: radial-gradient(closest-side, rgba(214,74,34,0.42) 0%, rgba(150,34,18,0.20) 55%, rgba(7,6,6,0) 100%);
+}
+
+/* Стеклянные карточки на тёплом */
+#view-home .tone-warm .bento-card,
+#view-home .tone-warm .price-card,
+#view-home .tone-warm .step-card,
+#view-home .tone-warm .stat-card,
+#view-home .tone-warm .faq-item {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 24px 60px rgba(20,4,2,0.22), inset 0 1px 0 rgba(255,255,255,0.14);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+#view-home .tone-warm .price-card.is-featured {
+  background: rgba(14,11,11,0.86);
+  border-color: rgba(255,255,255,0.12);
+}
+#view-home .tone-warm .price-card:not(.is-featured) .price-amount,
+#view-home .tone-warm .price-card:not(.is-featured) .ph { color: #FFFFFF !important; }
+#view-home .tone-warm .card-icon { color: #FFE3D6; }
+@media (hover: hover) {
+  #view-home .tone-warm .bento-card:hover,
+  #view-home .tone-warm .price-card:hover,
+  #view-home .tone-warm .step-card:hover {
+    border-color: rgba(255,255,255,0.32);
+    box-shadow: 0 28px 70px rgba(20,4,2,0.30), inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* свечение вырастает и разгорается, пока секция въезжает в экран */
+    #view-home .tone-warm::after,
+    #view-home .tone-dark:not(.hero):not(.marquee-section)::after {
+      animation: itri-glow both ease-out;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+    /* карточки главной проявляются из размытия, как стекло */
+    #view-home .bento-card, #view-home .price-card, #view-home .step-card,
+    #view-home .review-card, #view-home .stat-card, #view-home .faq-item {
+      animation-name: itri-glass;
+    }
+  }
+}
+@keyframes itri-glow {
+  from { opacity: 0; transform: scale(0.55); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes itri-glass {
+  from { opacity: 0; transform: translateY(28px); filter: blur(14px); }
+  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}

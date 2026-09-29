@@ -81,19 +81,12 @@
         radial-gradient(1200px 600px at 50% -10%, rgba(255, 59, 48, 0.20) 0%, rgba(8,8,8,0) 60%),
         radial-gradient(900px 500px at 15% 35%, rgba(255, 59, 48, 0.10) 0%, rgba(8,8,8,0) 55%),
         radial-gradient(1200px 700px at 85% 70%, rgba(255, 59, 48, 0.08) 0%, rgba(8,8,8,0) 60%),
-        linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(8,8,8,0) 45%),
-        repeating-linear-gradient(120deg, rgba(255,59,48,0.03) 0 1px, rgba(8,8,8,0) 1px 12px);
+        linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(8,8,8,0) 45%);
       background-attachment: fixed;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* NOISE TEXTURE */
-    body::before {
-      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: -1; opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
 
     /* Typography */
     .tech-font { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; font-size: 12px; opacity: 0.7; text-transform: uppercase; }
@@ -617,7 +610,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "«Я физически не могу бежать медленно»: что делать, если пульс зашкаливает на лёгком беге", "description": "Пульс 170+ на «лёгкой» пробежке, а совет «просто беги медленнее» не работает? Тренер объясняет 4 настоящие причины и даёт план, как построить зону 2 без паники.", "image": "https://innatri.com/assets/blog/vysokij-puls-legkij-beg.jpg", "author": {"@type": "Person", "name": "Инна Рыжих", "url": "https://innatri.com", "jobTitle": "Тренер по бегу и триатлону", "description": "20 лет в профессиональном спорте, более 10 лет тренерской практики. Основатель InnaTri, тренер команды REDHEAD."}, "publisher": {"@type": "Organization", "name": "InnaTri", "logo": {"@type": "ImageObject", "url": "https://innatri.com/assets/favicon-512.png"}}, "datePublished": "2026-07-21", "dateModified": "2026-07-21", "mainEntityOfPage": "https://innatri.com/blog/ne-mogu-bezhat-medlenno-zona-2.html", "inLanguage": "ru-RU"}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://innatri.com/"}, {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://innatri.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "«Я физически не могу бежать медленно»: что делать, если пульс зашкаливает на лёгком беге"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Высокий пульс на лёгком беге - это опасно?", "acceptedAnswer": {"@type": "Answer", "text": "Сам по себе высокий пульс при нагрузке у здорового человека - это просто работа сердца. Насторожить должны боль или давление в груди, головокружение, перебои ритма, одышка, не соответствующая нагрузке. При таких симптомах нужно к кардиологу, без самодиагностики по часам. Если их нет - спокойно стройте аэробную базу."}}, {"@type": "Question", "name": "Сколько ждать, пока пульс на беге снизится?", "acceptedAnswer": {"@type": "Answer", "text": "Первые сдвиги - обычно через 6–8 недель регулярных лёгких пробежек. Существенные изменения - через 4–6 месяцев. Быстрых способов нет."}}, {"@type": "Question", "name": "Можно ли вообще не смотреть на пульс?", "acceptedAnswer": {"@type": "Answer", "text": "На лёгких пробежках - можно и часто нужно: тест разговора надёжнее неоткалиброванных зон. Если получается говорить целыми предложениями - это лёгкий бег. Пульсометр полезен позже, для контроля прогресса и на длительных тренировках."}}, {"@type": "Question", "name": "Если я хожу больше, чем бегу, - это ещё бег?", "acceptedAnswer": {"@type": "Answer", "text": "Это тренировка выносливости, и она работает. Чередование бега и ходьбы - стандартный инструмент подготовки, доля бега будет расти сама."}}]}</script>
-  <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
+  <link rel="stylesheet" href="/typography.css?v=glow-20260929">
  <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-article">
