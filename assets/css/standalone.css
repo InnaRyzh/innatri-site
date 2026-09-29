@@ -1,0 +1,67 @@
+/* ============================================================
+   Отдельные страницы (лендинг планов, политика, гайд, квиз) в
+   общей системе сайта: тёмное полотно с тёплыми свечениями,
+   стеклянные карточки, шкала текста и отступов как в typography.css.
+   Подключается последним; страница помечена классом sa-*.
+   ============================================================ */
+body.sa-plans, body.sa-privacy, body.sa-guide, body.sa-quiz {
+  background:
+    radial-gradient(900px 600px at 85% 0%, rgba(214,104,56,0.28), transparent 70%),
+    radial-gradient(800px 700px at 0% 45%, rgba(150,44,22,0.18), transparent 70%),
+    radial-gradient(900px 700px at 100% 92%, rgba(176,62,30,0.16), transparent 70%),
+    #070505 !important;
+  background-attachment: scroll !important;
+  overflow-x: clip;
+}
+
+/* ---------- лендинг планов ---------- */
+body.sa-plans {
+  --bg: #070505; --bg-2: #0e0707;
+  --card: rgba(22,10,8,0.42); --card-2: rgba(30,14,11,0.55);
+  --line: rgba(255,255,255,0.12);
+  --t1: #FFF4EC; --t2: rgba(255,236,226,0.74); --t3: rgba(255,232,220,0.55);
+  --orange: #FF4A3F;
+  --grad: linear-gradient(90deg,#FF4A3F,#F2894A);
+  --grad-135: linear-gradient(135deg,#FF4A3F,#D66838);
+}
+body.sa-plans .pcard, body.sa-plans .prob-col, body.sa-plans .bridge,
+body.sa-plans .feat-grid > *, body.sa-plans .faq details, body.sa-plans .faq-item {
+  background: rgba(22,10,8,0.42) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow: 0 24px 60px rgba(10,3,2,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
+  -webkit-backdrop-filter: blur(20px) saturate(130%); backdrop-filter: blur(20px) saturate(130%);
+}
+body.sa-plans .pcard.feat { background: rgba(12,9,9,0.86) !important; border-color: rgba(255,90,60,0.45) !important; }
+body.sa-plans p { line-height: 1.55; }
+body.sa-plans li { line-height: 1.45; }
+
+/* ---------- политика конфиденциальности ---------- */
+body.sa-privacy { line-height: 1.6 !important; }
+body.sa-privacy .wrap { padding-top: 40px; }
+body.sa-privacy h1 { margin: 48px 0 8px; }
+body.sa-privacy h2 { font-size: 18px; line-height: 1.25; margin: 40px 0 12px; color: #FFF4EC; }
+body.sa-privacy p, body.sa-privacy li { color: #E9DDD4; margin-bottom: 12px; }
+body.sa-privacy li + li { margin-top: 0; }
+
+/* ---------- гайд ---------- */
+body.sa-guide {
+  --white: #070505; --paper: rgba(22,10,8,0.42);
+  --ink: #F3E6DD; --muted: rgba(255,236,226,0.70); --line: rgba(255,255,255,0.12);
+  --red: #FF4A3F;
+  line-height: 1.55;
+}
+body.sa-guide .preview-band, body.sa-guide .author-band {
+  border-block: 1px solid rgba(255,255,255,0.08);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+body.sa-guide .preview-dialog { background: #140a08; }
+body.sa-guide .download { border-radius: 999px; }
+body.sa-guide h1 { color: #FFF4EC; }
+
+/* ---------- квиз ---------- */
+body.sa-quiz {
+  --bg: #070505;
+  --surface: rgba(22,10,8,0.42); --surface-hover: rgba(34,16,12,0.55);
+  --border: rgba(255,255,255,0.12); --border-strong: rgba(255,255,255,0.22);
+  --muted: rgba(255,232,220,0.62); --accent: #FF4A3F;
+}
