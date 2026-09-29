@@ -1131,17 +1131,20 @@ body.page-calculator > section:nth-of-type(2) details::before { display: none; }
 }
 
 /* ============================================================
-   ФОН «СВЕЧЕНИЕ» + СТЕКЛЯННЫЕ КАРТОЧКИ (главная)
-   Тёплые секции — тёмно-бордовые с большим оранжевым кругом света,
-   тёмные — с мягким тёплым свечением снизу. Свечение разгорается,
-   а карточки проявляются из размытия по мере прокрутки
-   (scroll-driven, без JS; без поддержки просто показано сразу).
+   ФОН «РАССВЕТ» + СТЕКЛЯННЫЕ КАРТОЧКИ (главная)
+   Одно тёмное полотно без границ между секциями. В тёплых секциях
+   снизу поднимается приглушённое «солнце», в тёмных тлеет слабый
+   отсвет. Свечения не обрезаются секциями и гаснут плавно, поэтому
+   стыков не видно. Солнце встаёт, а карточки проявляются из размытия
+   по мере прокрутки (scroll-driven, без JS; без поддержки просто
+   показано сразу).
    ============================================================ */
+#view-home { overflow-x: clip; }
 #view-home .tone-warm,
-#view-home .tone-dark:not(.hero):not(.marquee-section) {
+#view-home .tone-dark:not(.hero):not(.marquee-section),
+.home-footer.tone-dark {
+  background: transparent;
   position: relative;
-  isolation: isolate;
-  overflow: clip;
 }
 #view-home .tone-warm::after,
 #view-home .tone-dark:not(.hero):not(.marquee-section)::after {
@@ -1151,68 +1154,77 @@ body.page-calculator > section:nth-of-type(2) details::before { display: none; }
   pointer-events: none;
 }
 
-/* Тёплые секции */
+/* Тёплые секции: светлый текст на тёмном полотне */
 #view-home .tone-warm {
-  background: linear-gradient(180deg, #160605 0%, #2A0A07 50%, #160605 100%);
-  color: #FFF6F0;
-  --itri-on-warm: #FFF6F0;
-  --itri-muted-warm: rgba(255,238,228,0.70);
-  --text-body: #FFEDE3;
-  --text-muted: rgba(255,238,228,0.70);
-  --text-gray: rgba(255,238,228,0.78);
-  --border-color: rgba(255,255,255,0.18);
-  --bg-card: rgba(255,255,255,0.08);
+  color: #FFF4EC;
+  --itri-on-warm: #FFF4EC;
+  --itri-muted-warm: rgba(255,232,220,0.66);
+  --text-body: #F3E6DD;
+  --text-muted: rgba(255,232,220,0.66);
+  --text-gray: rgba(255,236,226,0.76);
+  --border-color: rgba(255,255,255,0.14);
+  --bg-card: rgba(22,10,8,0.34);
 }
+/* «солнце»: широкий мягкий эллипс снизу, без резких краёв */
 #view-home .tone-warm::after {
-  inset: 4% -30%;
+  left: -35%; right: -35%; top: 4%; bottom: -16%;
   background: radial-gradient(closest-side,
-    #F2894A 0%, #E0622F 26%, #B83A1B 48%, rgba(122,28,14,0.55) 70%, rgba(40,8,5,0) 100%);
+    rgba(214,104,56,0.86) 0%,
+    rgba(176,62,30,0.62) 30%,
+    rgba(112,30,15,0.34) 58%,
+    rgba(44,9,5,0.10) 82%,
+    rgba(0,0,0,0) 100%);
 }
 #view-home .tone-warm .section-label span:first-child,
-#view-home .tone-warm .title-font em { color: #FFD9C7; }
+#view-home .tone-warm .title-font em { color: #FFB59A; }
 
-/* Тёмные секции */
+/* Тёмные секции: слабый тлеющий отсвет */
 #view-home .tone-dark:not(.hero):not(.marquee-section)::after {
-  left: -20%; right: -20%; bottom: -35%; height: 70%;
-  background: radial-gradient(closest-side, rgba(214,74,34,0.42) 0%, rgba(150,34,18,0.20) 55%, rgba(7,6,6,0) 100%);
+  left: -30%; right: -30%; top: 45%; bottom: -35%;
+  background: radial-gradient(closest-side,
+    rgba(160,48,24,0.28) 0%, rgba(96,24,12,0.13) 55%, rgba(0,0,0,0) 100%);
 }
 
-/* Стеклянные карточки на тёплом */
+/* Стеклянные карточки на тёплом: затемнённое стекло */
 #view-home .tone-warm .bento-card,
 #view-home .tone-warm .price-card,
 #view-home .tone-warm .step-card,
 #view-home .tone-warm .stat-card,
 #view-home .tone-warm .faq-item {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 24px 60px rgba(20,4,2,0.22), inset 0 1px 0 rgba(255,255,255,0.14);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(22,10,8,0.34);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 60px rgba(10,3,2,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+  backdrop-filter: blur(22px) saturate(130%);
 }
 #view-home .tone-warm .price-card.is-featured {
-  background: rgba(14,11,11,0.86);
-  border-color: rgba(255,255,255,0.12);
+  background: rgba(12,9,9,0.82);
+  border-color: rgba(255,255,255,0.10);
 }
 #view-home .tone-warm .price-card:not(.is-featured) .price-amount,
 #view-home .tone-warm .price-card:not(.is-featured) .ph { color: #FFFFFF !important; }
-#view-home .tone-warm .card-icon { color: #FFE3D6; }
+#view-home .tone-warm .card-icon { color: #FFCDB8; }
 @media (hover: hover) {
   #view-home .tone-warm .bento-card:hover,
   #view-home .tone-warm .price-card:hover,
   #view-home .tone-warm .step-card:hover {
-    border-color: rgba(255,255,255,0.32);
-    box-shadow: 0 28px 70px rgba(20,4,2,0.30), inset 0 1px 0 rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.24);
+    box-shadow: 0 28px 70px rgba(10,3,2,0.36), inset 0 1px 0 rgba(255,255,255,0.12);
   }
 }
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    /* свечение вырастает и разгорается, пока секция въезжает в экран */
-    #view-home .tone-warm::after,
-    #view-home .tone-dark:not(.hero):not(.marquee-section)::after {
-      animation: itri-glow both ease-out;
+    /* солнце поднимается и разгорается, пока секция въезжает в экран */
+    #view-home .tone-warm::after {
+      animation: itri-sunrise both ease-out;
       animation-timeline: view();
-      animation-range: entry 0% cover 45%;
+      animation-range: entry 0% cover 50%;
+    }
+    #view-home .tone-dark:not(.hero):not(.marquee-section)::after {
+      animation: itri-ember both ease-out;
+      animation-timeline: view();
+      animation-range: entry 0% cover 50%;
     }
     /* карточки главной проявляются из размытия, как стекло */
     #view-home .bento-card, #view-home .price-card, #view-home .step-card,
@@ -1221,9 +1233,13 @@ body.page-calculator > section:nth-of-type(2) details::before { display: none; }
     }
   }
 }
-@keyframes itri-glow {
-  from { opacity: 0; transform: scale(0.55); }
-  to   { opacity: 1; transform: scale(1); }
+@keyframes itri-sunrise {
+  from { opacity: 0; transform: translateY(22%) scale(0.85); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes itri-ember {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 @keyframes itri-glass {
   from { opacity: 0; transform: translateY(28px); filter: blur(14px); }
