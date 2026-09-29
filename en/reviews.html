@@ -124,19 +124,12 @@
         radial-gradient(1200px 600px at 50% -10%, rgba(255, 59, 48, 0.20) 0%, rgba(8,8,8,0) 60%),
         radial-gradient(900px 500px at 15% 35%, rgba(255, 59, 48, 0.10) 0%, rgba(8,8,8,0) 55%),
         radial-gradient(1200px 700px at 85% 70%, rgba(255, 59, 48, 0.08) 0%, rgba(8,8,8,0) 60%),
-        linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(8,8,8,0) 45%),
-        repeating-linear-gradient(120deg, rgba(255,59,48,0.03) 0 1px, rgba(8,8,8,0) 1px 12px);
+        linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(8,8,8,0) 45%);
       background-attachment: fixed;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* NOISE TEXTURE */
-    body::before {
-      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: -1; opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
 
     /* Typography */
     .tech-font { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; font-size: 12px; opacity: 0.7; text-transform: uppercase; }
@@ -656,7 +649,7 @@
     /* h1 renders identically to section h2 (SEO: pages must have an H1) */
     h1.title-font { font-size: 1.5em; line-height: var(--lh-heading); letter-spacing: -0.01em; margin: 0 0 24px; }
   </style>
-  <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
+  <link rel="stylesheet" href="/typography.css?v=glow-20260929">
  <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-reviews">
