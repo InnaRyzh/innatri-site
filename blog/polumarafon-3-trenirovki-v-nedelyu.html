@@ -108,7 +108,6 @@
 
     /* --- 2. HEADER --- */
     /* --- UA STRIPE --- */
-    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
 
     .header {
       position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
@@ -552,7 +551,6 @@
       .run-quote { font-size: 16px; line-height: 1.7; }
       .review-arrow { width: 36px; height: 36px; font-size: 14px; }
       /* --- UA STRIPE --- */
-    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
 
     .header { top: 12px; }
       .about-text p { font-size: 17px; line-height: 1.8; }
@@ -623,7 +621,6 @@
  <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-article">
-  <div class="ua-stripe"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -674,7 +671,7 @@
 
         <div class="article-divider"></div>
 
-        <img src="../assets/blog/polumarafon-3-trenirovki.webp" class="article-cover" id="articleImage" alt="Подготовка к полумарафону - тренер Инна Рыжих на дистанции Dnipro Marathon" loading="eager" style="filter:brightness(0.9) contrast(1.05) saturate(0.85);" width="1600" height="900" decoding="async">
+        <img src="../assets/blog/polumarafon-3-trenirovki.webp" srcset="../assets/blog/polumarafon-3-trenirovki-480.webp 480w, ../assets/blog/polumarafon-3-trenirovki-720.webp 720w, ../assets/blog/polumarafon-3-trenirovki-1080.webp 1080w, ../assets/blog/polumarafon-3-trenirovki.webp 1424w" sizes="(max-width: 767px) calc(100vw - 32px), 712px" class="article-cover" id="articleImage" alt="Подготовка к полумарафону - тренер Инна Рыжих на дистанции Dnipro Marathon" loading="eager" style="filter:brightness(0.9) contrast(1.05) saturate(0.85);" width="1600" height="900" decoding="async">
         <div class="article-caption" id="articleCaption"></div>
 
         <div class="article-content" id="articleContent">

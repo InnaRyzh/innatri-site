@@ -214,7 +214,6 @@
 
   /* --- 2. HEADER --- */
   /* --- UA STRIPE --- */
-  .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
 
   .header {
    position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
@@ -702,7 +701,6 @@
    .run-quote { font-size: 16px; line-height: 1.7; }
    .review-arrow { width: 36px; height: 36px; font-size: 14px; }
    /* --- UA STRIPE --- */
-  .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
 
   .header { top: 12px; }
    .about-text p { font-size: 17px; line-height: 1.8; }
@@ -754,7 +752,6 @@
  <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-run">
- <div class="ua-stripe"></div>
 
  <!-- HEADER -->
  <header class="header">
@@ -799,7 +796,7 @@
     <div class="article-view">
      <header class="article-header">
       <div class="tech-font">/біг як стиль/</div>
-      <img src="../assets/run/Image_202601241814.webp" class="article-cover" alt="Онлайн-тренер з бігу Інна Рижих – персональні плани тренувань" width="1376" height="768" fetchpriority="high" decoding="async">
+      <img src="../assets/run/Image_202601241814.webp" srcset="../assets/run/Image_202601241814-480.webp 480w, ../assets/run/Image_202601241814-720.webp 720w, ../assets/run/Image_202601241814-1080.webp 1080w, ../assets/run/Image_202601241814.webp 1376w" sizes="(max-width: 767px) calc(100vw - 32px), 760px" class="article-cover" alt="Онлайн-тренер з бігу Інна Рижих – персональні плани тренувань" width="1376" height="768" fetchpriority="high" decoding="async">
       <h1 class="title-font">ОНЛАЙН-ТРЕНЕР З БІГУ</h1>
      </header>
 

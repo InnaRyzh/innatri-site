@@ -108,7 +108,6 @@
 
     /* --- 2. HEADER --- */
     /* --- UA STRIPE --- */
-    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
 
     .header {
       position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
@@ -552,7 +551,6 @@
       .run-quote { font-size: 16px; line-height: 1.7; }
       .review-arrow { width: 36px; height: 36px; font-size: 14px; }
       /* --- UA STRIPE --- */
-    .ua-stripe { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999; background: linear-gradient(to right, #005BBB 50%, #FFD500 50%); }
 
     .header { top: 12px; }
       .about-text p { font-size: 17px; line-height: 1.8; }
@@ -601,6 +599,21 @@
     }
     .to-top-btn.show { opacity: 1; pointer-events: auto; }
   </style>
+  <style>
+    /* --- ARTICLE: knees --- */
+    .article-content .faq-item { margin: 12px 0; }
+    .article-content .faq-summary { font-size: 16px; gap: 16px; }
+    .article-content .faq-summary::-webkit-details-marker { display: none; }
+    .article-content .faq-summary::marker { content: ""; }
+    .article-content details[open] .faq-summary { color: var(--primary); }
+    .article-content details[open] .faq-summary i { transform: rotate(180deg); }
+    .article-content .faq-summary i { transition: transform 0.3s; flex-shrink: 0; }
+    .article-content .faq-content { font-size: 16px; line-height: 1.7; }
+    @media (max-width: 640px) {
+      .stat-row { grid-template-columns: 1fr !important; gap: 12px !important; }
+      .run-calc-promo { flex-direction: column; align-items: flex-start !important; gap: 14px !important; padding: 20px !important; }
+    }
+  </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ЧИ ШКІДЛИВИЙ БІГ ДЛЯ КОЛІН? НАУКА КАЖЕ: НАВПАКИ","description":"Дані 114 000+ людей: у бігунів-аматорів артроз колін трапляється втричі рідше, ніж у малорухливих. Чому біг зміцнює хрящ і що робити, якщо коліна болять.","image":"https://innatri.com/assets/blog/beg-i-koleni.jpg","author":{"@type":"Person","name":"Інна Рижих","url":"https://innatri.com","jobTitle":"Тренерка з бігу та тріатлону","description":"20 років у професійному спорті, понад 10 років тренерської практики. Засновниця InnaTri, тренерка команди REDHEAD."},"publisher":{"@type":"Organization","name":"InnaTri","logo":{"@type":"ImageObject","url":"https://innatri.com/assets/favicon-512.png"}},"datePublished":"2026-07-20","dateModified":"2026-07-20","mainEntityOfPage":"https://innatri.com/ua/blog/chy-shkidlyvyj-bih-dlya-kolin.html","inLanguage":"uk-UA"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://innatri.com/ua/"},{"@type":"ListItem","position":2,"name":"Блог","item":"https://innatri.com/ua/blog.html"},{"@type":"ListItem","position":3,"name":"ЧИ ШКІДЛИВИЙ БІГ ДЛЯ КОЛІН? НАУКА КАЖЕ: НАВПАКИ"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Чи правда, що біг зношує колінні суглоби?","acceptedAnswer":{"@type":"Answer","text":"Ні. Метааналіз 114 000 людей показав, що артроз колінного та кульшового суглобів трапляється у бігунів-аматорів у 3,5% випадків проти 10,2% у малорухливих людей. Хрящ не деталь машини: він живий і живиться лише через рух. Без циклічного навантаження він голодує і деградує швидше."}},{"@type":"Question","name":"Чому у початківців болять коліна?","acceptedAnswer":{"@type":"Answer","text":"Найчастіше це не руйнування хряща, а перевантаження м'яких тканин: пателофеморальний синдром або синдром ілеотибіального тракту. Причина зазвичай у різкому зростанні обсягу тренувань, слабких сідничних м'язах і корі або у старій травмі. Серце і легені адаптуються швидше за зв'язки і сухожилля, тому навантаження треба додавати поступово."}},{"@type":"Question","name":"Чи можна починати бігати із зайвою вагою?","acceptedAnswer":{"@type":"Answer","text":"Можна, але не з бігу. Під час бігу навантаження на коліно у кілька разів перевищує вагу тіла, тому кожен зайвий кілограм множиться. Почніть зі швидкої ходьби та загальної фізичної підготовки на 4-8 тижнів, а біг додавайте короткими відрізками. Саме зайва вага, а не кілометраж, названа дослідженнями головним фактором ризику."}},{"@type":"Question","name":"Чи можна бігати після травми або операції на коліні?","acceptedAnswer":{"@type":"Answer","text":"У багатьох випадках так, але рішення ухвалюється разом із лікарем, який вів вашу реабілітацію. Перенесені операції, наприклад резекція меніска або пластика передньої хрестоподібної зв'язки, змінюють розподіл навантаження в суглобі, тому потрібні індивідуальний план, силова робота на стабілізатори та поступовий вихід на обсяги."}}]}</script>
@@ -608,7 +621,6 @@
  <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-article">
-  <div class="ua-stripe"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -659,7 +671,7 @@
 
         <div class="article-divider"></div>
 
-        <img src="../../assets/blog/beg-i-koleni.webp" class="article-cover" id="articleImage" alt="Тренерка Інна Рижих дивиться на свої коліна перед пробіжкою біля озера" loading="eager" style="filter:brightness(0.88) contrast(1.08) saturate(0.82);object-position:center 62%;" width="1591" height="941" decoding="async">
+        <img src="../../assets/blog/beg-i-koleni.webp" srcset="../../assets/blog/beg-i-koleni-480.webp 480w, ../../assets/blog/beg-i-koleni-720.webp 720w, ../../assets/blog/beg-i-koleni-1080.webp 1080w, ../../assets/blog/beg-i-koleni.webp 1424w" sizes="(max-width: 767px) calc(100vw - 32px), 712px" class="article-cover" id="articleImage" alt="Тренерка Інна Рижих дивиться на свої коліна перед пробіжкою біля озера" loading="eager" style="filter:brightness(0.88) contrast(1.08) saturate(0.82);object-position:center 62%;" width="1591" height="941" decoding="async">
         <div class="article-caption" id="articleCaption"></div>
 
         <div class="article-content" id="articleContent">
