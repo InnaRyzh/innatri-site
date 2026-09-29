@@ -45,8 +45,6 @@
  <link rel="alternate" hreflang="x-default" href="https://innatri.com/">
 
  <!-- FONTS -->
- <link rel="preload" as="image" href="../assets/hero/hero-860.webp" media="(max-width: 640px)" fetchpriority="high">
- <link rel="preload" as="image" href="../assets/hero/hero-1376.webp" media="(min-width: 641px)" fetchpriority="high">
  <link rel="preload" href="/assets/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
@@ -778,7 +776,7 @@
   }
   .to-top-btn.show { opacity: 1; pointer-events: auto; }
  </style>
- <link rel="stylesheet" href="/typography.css?v=contact-20260929">
+ <link rel="stylesheet" href="/typography.css?v=hero-live-20260929">
  <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body>
@@ -816,16 +814,20 @@
 
  <!-- === HOME VIEW === -->
  <div id="view-home" class="fade-in">
-  <section class="hero tone-dark">
-   <div class="hero-bg"></div>
-   <div class="hero-overlay"></div>
-   <div class="hero-content container">
+  <section class="hero tone-dark hero-live">
+   <div class="hero-content container hero-grid">
+    <div class="hero-copy">
     <div class="hero-tag tech-font hero-subline-accent" style="color: #FFD5D2; border-color: rgba(255,59,48,0.45); background: rgba(255,59,48,0.08);"><i class="ph ph-lightning"></i> EST. 2005 • UKRAINE • PRO COACHING</div>
     <h1 class="hero-title title-font"><span class="hero-title-3d">ONLINE TRIATHLON</span><span class="hero-subline-title">& RUNNING COACH</span></h1>
     <p class="hero-subtitle">Marathon, 70.3 and Ironman coaching that adapts to your life - instead of demanding you give it up.</p>
-    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+    <div style="display: flex; gap: 10px; justify-content: flex-start; flex-wrap: wrap;">
      <a href="contact.html" class="btn">DISCUSS YOUR GOAL <span class="btn-arrow" aria-hidden="true">↗</span></a>
     </div>
+    </div>
+    <figure class="hero-portrait">
+     <img src="/assets/hero/inna-live-720.webp" srcset="/assets/hero/inna-live-480.webp 480w, /assets/hero/inna-live-720.webp 720w, /assets/hero/inna-live-1080.webp 1080w" sizes="(max-width: 860px) calc(100vw - 32px), 500px" width="1080" height="1350" alt="Inna Ryzhykh, triathlon and running coach" fetchpriority="high" decoding="async">
+     <video class="hero-video" muted playsinline loop preload="none" aria-hidden="true" data-src-sm="/assets/hero/inna-live-720.mp4" data-src-lg="/assets/hero/inna-live-1080.mp4"></video>
+    </figure>
    </div>
   </section>
 
@@ -1292,5 +1294,6 @@
    });
   }
  </script>
+<script src="/assets/js/hero-live.js" defer></script>
 </body>
 </html>
