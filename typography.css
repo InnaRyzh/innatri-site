@@ -1430,3 +1430,149 @@ h2.contact-h2.title-font { font-size: clamp(24px, 3vw, 34px); color: #FFF4EC; ma
   #view-home .hero-live::after { left: -30%; right: -30%; top: 5%; bottom: 20%; }
 }
 #view-home .hero-live .btn { margin-left: 0; margin-right: 0; }
+
+/* ============================================================
+   ЕДИНЫЙ СТИЛЬ ВНУТРЕННИХ СТРАНИЦ
+   Тёмное полотно с тёплыми свечениями, стеклянные карточки и
+   типографическая система, как на главной и в контактах.
+   ============================================================ */
+body.site-page {
+  background:
+    radial-gradient(900px 600px at 85% 0%, rgba(214,104,56,0.30), transparent 70%),
+    radial-gradient(800px 700px at 0% 45%, rgba(150,44,22,0.20), transparent 70%),
+    radial-gradient(900px 700px at 100% 90%, rgba(176,62,30,0.18), transparent 70%),
+    #070505 !important;
+  overflow-x: clip;
+}
+
+/* первый блок: отступ под шапку */
+body.site-page > .section:first-of-type,
+body.site-page > .article-view,
+body.site-page > .run-section { padding-top: 150px !important; }
+@media (max-width: 860px) {
+  body.site-page > .section:first-of-type,
+  body.site-page > .article-view,
+  body.site-page > .run-section { padding-top: 116px !important; }
+}
+
+/* заголовки страниц в одном стиле */
+body.site-page h1 {
+  font-family: 'Unbounded', sans-serif !important; text-transform: uppercase;
+  font-size: clamp(32px, 6vw, 64px) !important; line-height: 1.02 !important; letter-spacing: -0.02em;
+  color: #FFF4EC !important; text-wrap: balance;
+}
+body.site-page h2.title-font { color: #FFF4EC; }
+
+/* бывшие светлые секции → тёмное полотно */
+body.page-pricing .section,
+body.page-reviews #pricing,
+body.page-calculator > section:nth-of-type(2) {
+  background: transparent !important;
+  color: #F3E6DD !important;
+  --text-white: #F6EFE8; --text-body: #E9DDD4; --text-muted: rgba(255,232,220,0.62);
+  --text-gray: rgba(255,236,226,0.74); --border-color: rgba(255,255,255,0.12); --bg-card: rgba(22,10,8,0.4);
+  --itri-on-warm: #FFF4EC;
+}
+body.page-pricing h1, body.page-pricing h2, body.page-pricing h3, body.page-pricing .price-title,
+body.page-reviews #pricing h2, body.page-reviews #pricing .price-title,
+body.page-calculator > section:nth-of-type(2) h2, body.page-calculator > section:nth-of-type(2) h3 { color: #FFF4EC !important; }
+body.page-pricing p, body.page-pricing li,
+body.page-reviews #pricing p, body.page-reviews #pricing li,
+body.page-calculator > section:nth-of-type(2) p, body.page-calculator > section:nth-of-type(2) li { color: #E9DDD4 !important; }
+body.page-pricing .btn, body.page-reviews #pricing .btn { background: #FFF4EC !important; color: #140908 !important; }
+
+/* стеклянные карточки */
+body.site-page .price-card, body.site-page .review-card, body.site-page .calc-container,
+body.site-page .faq-item, body.site-page .bento-card, body.site-page .featured-article,
+body.site-page .run-card, body.site-page .step-card,
+body.page-calculator > section:nth-of-type(2) details {
+  background: rgba(22,10,8,0.42) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 24px 60px rgba(10,3,2,0.30), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(130%); backdrop-filter: blur(20px) saturate(130%);
+}
+body.site-page .price-card.is-featured { background: rgba(12,9,9,0.86) !important; border-color: rgba(255,90,60,0.45) !important; }
+
+/* блог: карточки статей */
+body.page-blog .blog-card {
+  padding: 14px !important; border-radius: 24px !important;
+  background: rgba(22,10,8,0.42); border: 1px solid rgba(255,255,255,0.10);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+body.page-blog .card-img-wrap { border-radius: 16px !important; }
+body.page-blog .articles-grid { gap: 16px !important; }
+
+/* статья: удобная колонка для чтения */
+body.page-article .article-content, body.page-run .article-content { max-width: 720px; margin-left: auto; margin-right: auto; }
+body.page-article .article-view .container > *:not(.article-content) { max-width: 720px; margin-left: auto; margin-right: auto; }
+body.page-article .article-content p, body.page-article .article-content li { font-size: 18px !important; line-height: 1.75 !important; color: #E9DDD4; }
+body.page-article .article-content h2 { font-family: 'Unbounded', sans-serif; font-size: 24px; line-height: 1.2; color: #FFF4EC; margin: 48px 0 16px; }
+body.page-article .article-cover { border-radius: 22px !important; box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+body.page-article .article-content blockquote {
+  border-left: 2px solid #FF4A3F; padding: 4px 0 4px 20px; margin: 28px 0; font-size: 20px; color: #FFF4EC;
+}
+@media (max-width: 640px) {
+  body.page-article .article-content p, body.page-article .article-content li { font-size: 17px !important; }
+}
+
+/* светлый текст на тёмном для страницы тарифов (body остаётся непрозрачным) */
+body.page-pricing { --text-white: #F6EFE8; --text-body: #E9DDD4; --text-gray: rgba(255,236,226,0.74); --border-color: rgba(255,255,255,0.12); color: #F3E6DD !important; }
+body.page-calculator #calculator h1.title-font {
+  font-family: 'Unbounded', sans-serif !important; text-transform: uppercase !important;
+  letter-spacing: -0.02em !important; font-size: clamp(32px, 6vw, 64px) !important;
+}
+body.page-article h1 { font-size: clamp(28px, 4.2vw, 46px) !important; line-height: 1.08 !important; }
+
+/* ============================================================
+   ТИПОГРАФИЧЕСКАЯ СИСТЕМА: 6 уровней текста + шкала отступов
+   Каждый элемент берёт размер/интерлиньяж/отступ отсюда.
+   ============================================================ */
+:root {
+  --fs-display: clamp(32px, 6vw, 64px);   --lh-display: 1.02;  /* H1 страницы */
+  --fs-h2: clamp(24px, 3.4vw, 40px);      --lh-h2: 1.08;       /* заголовок секции */
+  --fs-h3: 18px;                          --lh-h3: 1.25;       /* заголовок карточки */
+  --fs-lead: clamp(17px, 1.5vw, 19px);    --lh-lead: 1.5;      /* вводный текст */
+  --fs-body: 16px;                        --lh-body: 1.55;     /* основной текст */
+  --fs-small: 14px;                       --lh-small: 1.45;    /* подписи, мета */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+}
+body.site-page { font-size: var(--fs-body); line-height: var(--lh-body); }
+body.site-page p { font-size: var(--fs-body); line-height: var(--lh-body); }
+body.site-page p + p { margin-top: var(--sp-3); }
+body.site-page li { font-size: var(--fs-body) !important; line-height: 1.45 !important; }
+body.site-page li + li { margin-top: var(--sp-2) !important; }
+
+/* заголовок страницы и подзаголовок под ним */
+body.site-page h1 { margin: 0 0 var(--sp-4) !important; }
+body.site-page h1 + p, body.site-page h1 + .page-subtitle { margin-top: 0 !important; font-size: var(--fs-lead) !important; line-height: var(--lh-lead) !important; max-width: 40em; }
+body.site-page h2.title-font { font-size: var(--fs-h2); line-height: var(--lh-h2); margin: var(--sp-7) 0 var(--sp-4); }
+body.site-page h3, body.site-page .price-title { font-size: var(--fs-h3) !important; line-height: var(--lh-h3) !important; }
+
+/* тарифы */
+body.site-page .price-card { padding: var(--sp-6) !important; }
+body.site-page .price-title { font-size: 22px !important; margin-bottom: var(--sp-2) !important; letter-spacing: 0.02em; }
+body.site-page .price-amount { font-size: 34px !important; line-height: 1.05 !important; margin: var(--sp-2) 0 var(--sp-4) !important; }
+body.site-page .price-main p { margin-top: 0 !important; font-size: var(--fs-small) !important; line-height: var(--lh-small) !important; }
+body.site-page .price-features ul { gap: var(--sp-2) !important; margin-bottom: var(--sp-5) !important; font-size: var(--fs-body) !important; }
+body.site-page .price-features li + li { margin-top: 0 !important; }
+body.site-page .price-features p { font-size: var(--fs-small) !important; line-height: var(--lh-small) !important; margin-bottom: var(--sp-5) !important; }
+body.site-page .pricing-grid { gap: var(--sp-4) !important; }
+
+/* отзывы */
+body.site-page .review-card { padding: var(--sp-6) !important; gap: var(--sp-4) !important; }
+body.site-page .review-card ul { margin: var(--sp-3) 0 !important; padding-left: 1.1em; }
+body.site-page .review-card li + li { margin-top: var(--sp-1) !important; }
+
+/* бег: убираем двойной отступ перед фото */
+body.page-run > .run-section .article-view { padding-top: 0 !important; }
+body.page-run .article-cover { margin-bottom: var(--sp-5) !important; border-radius: 22px; }
+body.page-run .article-divider { margin: var(--sp-4) 0 !important; }
+
+/* статьи: чуть крупнее для чтения, но в той же системе */
+body.page-article .article-content p, body.page-article .article-content li { font-size: 18px !important; line-height: 1.7 !important; }
+body.page-article .article-content li + li { margin-top: var(--sp-2) !important; }
+@media (max-width: 640px) {
+  body.page-article .article-content p, body.page-article .article-content li { font-size: 17px !important; }
+  body.site-page .price-card, body.site-page .review-card { padding: var(--sp-5) !important; }
+}
