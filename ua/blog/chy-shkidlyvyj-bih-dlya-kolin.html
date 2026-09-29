@@ -44,12 +44,12 @@
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/blog/vreden-li-beg-dlya-kolenej.html">
 
   <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" href="/assets/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
   <!-- ICONS -->
-  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+ <link rel="preload" href="/assets/icons/phosphor.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/icons/phosphor.css">
 
   <style>
     /* --- 1. GLOBAL VARIABLES --- */
@@ -605,6 +605,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://innatri.com/ua/"},{"@type":"ListItem","position":2,"name":"Блог","item":"https://innatri.com/ua/blog.html"},{"@type":"ListItem","position":3,"name":"ЧИ ШКІДЛИВИЙ БІГ ДЛЯ КОЛІН? НАУКА КАЖЕ: НАВПАКИ"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Чи правда, що біг зношує колінні суглоби?","acceptedAnswer":{"@type":"Answer","text":"Ні. Метааналіз 114 000 людей показав, що артроз колінного та кульшового суглобів трапляється у бігунів-аматорів у 3,5% випадків проти 10,2% у малорухливих людей. Хрящ не деталь машини: він живий і живиться лише через рух. Без циклічного навантаження він голодує і деградує швидше."}},{"@type":"Question","name":"Чому у початківців болять коліна?","acceptedAnswer":{"@type":"Answer","text":"Найчастіше це не руйнування хряща, а перевантаження м'яких тканин: пателофеморальний синдром або синдром ілеотибіального тракту. Причина зазвичай у різкому зростанні обсягу тренувань, слабких сідничних м'язах і корі або у старій травмі. Серце і легені адаптуються швидше за зв'язки і сухожилля, тому навантаження треба додавати поступово."}},{"@type":"Question","name":"Чи можна починати бігати із зайвою вагою?","acceptedAnswer":{"@type":"Answer","text":"Можна, але не з бігу. Під час бігу навантаження на коліно у кілька разів перевищує вагу тіла, тому кожен зайвий кілограм множиться. Почніть зі швидкої ходьби та загальної фізичної підготовки на 4-8 тижнів, а біг додавайте короткими відрізками. Саме зайва вага, а не кілометраж, названа дослідженнями головним фактором ризику."}},{"@type":"Question","name":"Чи можна бігати після травми або операції на коліні?","acceptedAnswer":{"@type":"Answer","text":"У багатьох випадках так, але рішення ухвалюється разом із лікарем, який вів вашу реабілітацію. Перенесені операції, наприклад резекція меніска або пластика передньої хрестоподібної зв'язки, змінюють розподіл навантаження в суглобі, тому потрібні індивідуальний план, силова робота на стабілізатори та поступовий вихід на обсяги."}}]}</script>
   <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
+ <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-article">
   <div class="ua-stripe"></div>
@@ -658,7 +659,7 @@
 
         <div class="article-divider"></div>
 
-        <img src="../../assets/blog/beg-i-koleni.jpg" class="article-cover" id="articleImage" alt="Тренерка Інна Рижих дивиться на свої коліна перед пробіжкою біля озера" loading="eager" style="filter:brightness(0.88) contrast(1.08) saturate(0.82);object-position:center 62%;">
+        <img src="../../assets/blog/beg-i-koleni.webp" class="article-cover" id="articleImage" alt="Тренерка Інна Рижих дивиться на свої коліна перед пробіжкою біля озера" loading="eager" style="filter:brightness(0.88) contrast(1.08) saturate(0.82);object-position:center 62%;" width="1591" height="941" decoding="async">
         <div class="article-caption" id="articleCaption"></div>
 
         <div class="article-content" id="articleContent">
@@ -790,7 +791,7 @@
 <p>Стоп. Давайте ще раз. Люди пробігли марафон - і їхні коліна стали кращими, ніж були до підготовки.</p>
 
 <figure style="margin:32px 0;">
-  <img src="../../assets/blog/mrt-koleno-do-posle.jpg" alt="МРТ колінного суглоба до марафону, через 2 тижні та через 6 місяців після: набряк кісткового мозку зменшився" loading="lazy" style="width:100%;max-width:684px;height:auto;display:block;margin:0 auto;border-radius:12px;background:#000;">
+  <img src="../../assets/blog/mrt-koleno-do-posle.webp" alt="МРТ колінного суглоба до марафону, через 2 тижні та через 6 місяців після: набряк кісткового мозку зменшився" loading="lazy" style="width:100%;max-width:684px;height:auto;display:block;margin:0 auto;border-radius:12px;background:#000;" width="684" height="279" decoding="async">
   <figcaption style="font-size:14px;line-height:1.6;color:#9CA3AF;margin-top:12px;">
     <span style="color:#E8EBF0;">Це не ілюстрація, а реальні знімки з того самого дослідження.</span> Одне й те саме коліно у трьох точках: <span style="color:#E8EBF0;">MRI&nbsp;1</span> - до підготовки до марафону, <span style="color:#E8EBF0;">MRI&nbsp;2</span> - через 2 тижні після фінішу, <span style="color:#E8EBF0;">MRI&nbsp;3</span> - через пів року. Зелена стрілка вказує на набряк кісткового мозку, літера G з цифрою - його ступінь: G2 означає виражений, G0 - його більше немає.
     <br><br>
@@ -820,7 +821,7 @@
 <p>І знаєте, що мені подобається в тому дослідженні найбільше? Воно не ховає незручне. У частини учасників набряк після марафону навпаки <span class="article-soft">з'явився</span>. Ось ці знімки:</p>
 
 <figure style="margin:32px 0;">
-  <img src="../../assets/blog/mrt-koleno-otek.jpg" alt="МРТ: набряк наколінка з'явився після марафону і повністю минув через 6 місяців" loading="lazy" style="width:100%;max-width:684px;height:auto;display:block;margin:0 auto;border-radius:12px;background:#000;">
+  <img src="../../assets/blog/mrt-koleno-otek.webp" alt="МРТ: набряк наколінка з'явився після марафону і повністю минув через 6 місяців" loading="lazy" style="width:100%;max-width:684px;height:auto;display:block;margin:0 auto;border-radius:12px;background:#000;" width="684" height="187" decoding="async">
   <figcaption style="font-size:14px;line-height:1.6;color:#9CA3AF;margin-top:12px;">
     Ті самі три точки: до підготовки, через 2 тижні після марафону і через пів року. Тут до старту було чисто (G0), одразу після гонки з'явився виражений набряк наколінка (G3) - а через пів року він минув: у верхньому ряду майже повністю (G1), у нижньому - без сліду (G0).
     <br><br>

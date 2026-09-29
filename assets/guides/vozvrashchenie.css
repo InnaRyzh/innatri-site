@@ -1,4 +1,4 @@
-@font-face{font-family:Unbounded;src:url('./unbounded-600.woff') format('woff');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:Unbounded;src:url('./unbounded-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
 :root{--paper:#f7f5f0;--white:#fff;--ink:#202020;--muted:#625e58;--red:#d92525;--line:#dedbd5;--display:Unbounded,Arial,sans-serif}
 *{box-sizing:border-box;letter-spacing:0}
 body{margin:0;background:var(--white);color:var(--ink);font:18px/1.55 Arial,sans-serif}

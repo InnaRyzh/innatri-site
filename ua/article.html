@@ -52,12 +52,12 @@
  <link rel="alternate" hreflang="x-default" href="https://innatri.com/article.html">
 
  <!-- FONTS -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+ <link rel="preload" href="/assets/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/fonts/fonts.css">
  
  <!-- ICONS -->
- <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+ <link rel="preload" href="/assets/icons/phosphor.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/icons/phosphor.css">
 
  <script type="application/ld+json" id="schema-site">
   {
@@ -665,6 +665,7 @@
   .to-top-btn.show { opacity: 1; pointer-events: auto; }
  </style>
  <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
+ <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-article">
 <script>(function(){var m={"heart-rate-zones": "bih-za-pulsom", "coach-online": "onlajn-trener-z-bihu-ta-triatlonu", "before-after": "rezultaty-do-i-pislya", "open-water": "plavannya-u-vidkrytij-vodi", "winter-running": "zymovyj-bih"};var p=new URLSearchParams(location.search).get("id")||(location.hash?location.hash.slice(1):"");if(m[p]){location.replace("blog/"+m[p]+".html");}})();</script>
@@ -1006,12 +1007,11 @@
 <p class="article-note">Коли ставиш амбітні цілі, підхід до тренувань має бути відповідним. Від внутрішнього рішення й дисципліни до грамотного тайм-менеджменту.</p>
 <p class="article-highlight">У фотогалереї - приклади того, як усього за 2.5-4 місяці змінюється тіло та форма.</p>
 <div class="article-gallery">
- <img src="../assets/blog/9b8ff5_7d820a7599284ad7b6b0eecaa2c721cc~mv2.webp" alt="До і після 1">
- <img src="../assets/blog/9b8ff5_f7b361eb3ed04e1a80a4515dc9d6b92e~mv2.webp" alt="До і після 2">
- <img src="../assets/blog/9b8ff5_a116f54a5ecf480cad5a71bebe4ba8f7~mv2.webp" alt="До і після 3">
- <img src="../assets/blog/9b8ff5_7ff31e1e9f2c47a798395d6a102410b2~mv2.webp" alt="До і після 4">
- <img src="../assets/blog/9b8ff5_b4d028e177894175a2947412613871e3~mv2.webp" alt="До і після 5">
- <img src="../assets/blog/9b8ff5_2388f720ec634d2ebeeccfb1ea35aeb1~mv2.png.avif" alt="До і після 6">
+ <img src="../assets/blog/9b8ff5_7d820a7599284ad7b6b0eecaa2c721cc~mv2.webp" alt="До і після 1" width="960" height="957" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_f7b361eb3ed04e1a80a4515dc9d6b92e~mv2.webp" alt="До і після 2" width="960" height="960" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_a116f54a5ecf480cad5a71bebe4ba8f7~mv2.webp" alt="До і після 3" width="960" height="960" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_7ff31e1e9f2c47a798395d6a102410b2~mv2.webp" alt="До і після 4" width="768" height="765" loading="lazy" decoding="async">
+ <img src="../assets/blog/9b8ff5_b4d028e177894175a2947412613871e3~mv2.webp" alt="До і після 5" width="960" height="960" loading="lazy" decoding="async">
 </div>
 <p>І найголовніше: ці результати продовжують зростати.</p>
 <p class="article-note">P.S. Спорт - це не про кілометри. Це про індивідуалізацію. Шаблони працюють до певного рівня, далі вирішує тонке налаштування тренера.</p>`
@@ -1070,7 +1070,7 @@
     meta: 'TRAINING',
     date: '2026-01-21',
     read: '2 MIN READ',
-    image: '../assets/blog/9b8ff5_2388f720ec634d2ebeeccfb1ea35aeb1~mv2.png.avif',
+    image: '../assets/blog/Expand_this_photo_202601241237.jpeg',
     excerpt: 'Кому підходять онлайн-тренування, наскільки вони ефективні й коли є сенс платити за супровід.',
     content: `<p class="article-lead">Сьогодні я хочу поговорити з вами про онлайн-тренування.</p>
 <p>І максимально розкрити цей вид тренінгу, відповівши на найделікатніші питання:</p>
@@ -1269,7 +1269,7 @@
    document.getElementById('articleDate').textContent = article.date || '2026';
    document.getElementById('articleRead').textContent = article.read || '';
    const imageEl = document.getElementById('articleImage');
-   imageEl.src = article.image;
+   imageEl.src = article.image.startsWith("http") ? article.image : article.image.replace(/\.(jpe?g|png)$/i, ".webp");
    imageEl.alt = article.title;
    document.getElementById('articleContent').innerHTML = article.content;
    if (captionEl) {

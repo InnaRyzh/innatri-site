@@ -44,12 +44,12 @@
  <link rel="alternate" hreflang="x-default" href="https://innatri.com/reviews.html">
  
  <!-- FONTS -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+ <link rel="preload" href="/assets/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/fonts/fonts.css">
  
  <!-- ICONS -->
- <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+ <link rel="preload" href="/assets/icons/phosphor.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/icons/phosphor.css">
 
  <script type="application/ld+json" id="schema-site">
   {
@@ -646,6 +646,7 @@
     h1.title-font { font-size: 1.5em; line-height: var(--lh-heading); letter-spacing: -0.01em; margin: 0 0 24px; }
   </style>
  <link rel="stylesheet" href="/typography.css?v=calc-mobile-20260720">
+ <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body class="site-page page-reviews">
  <div class="ua-stripe"></div>
@@ -690,7 +691,7 @@
       <div class="reviews-slider" id="reviewsSlider">
        <div class="review-card">
         <div class="review-header">
-         <img src="../assets/reviews/Karbovska.jpg" class="review-avatar" alt="Оксана Карбовська">
+         <img src="../assets/reviews/Karbovska.webp" class="review-avatar" alt="Оксана Карбовська" width="577" height="718" decoding="async">
          <div>
           <div class="title-font" style="font-size: 18px;">ОКСАНА КАРБОВСЬКА</div>
           <div class="tech-font" style="color: var(--primary);">АМАТОРКА, МАМА 3 ДІТЕЙ</div>
@@ -707,7 +708,7 @@
        </div>
        <div class="review-card">
         <div class="review-header">
-         <img src="../assets/reviews/Sherbina.jpg" class="review-avatar" alt="Микола Щербина">
+         <img src="../assets/reviews/Sherbina.webp" class="review-avatar" alt="Микола Щербина" width="744" height="928" decoding="async">
          <div>
           <div class="title-font" style="font-size: 18px;">МИКОЛА ЩЕРБИНА</div>
           <div class="tech-font" style="color: var(--primary);">АМАТОР</div>
@@ -719,7 +720,7 @@
        </div>
        <div class="review-card">
         <div class="review-header">
-         <img src="../assets/reviews/Mashkara.jpg" class="review-avatar" alt="Віталій Машкара">
+         <img src="../assets/reviews/Mashkara.webp" class="review-avatar" alt="Віталій Машкара" width="744" height="928" decoding="async">
          <div>
           <div class="title-font" style="font-size: 18px;">ВІТАЛІЙ МАШКАРА</div>
           <div class="tech-font" style="color: var(--primary);">АМАТОР</div>

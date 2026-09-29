@@ -24,9 +24,10 @@
   <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="preload" href="/assets/guides/unbounded-600.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/assets/guides/unbounded-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/guides/vozvrashchenie.css?v=light-20260920">
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.2" defer></script>
+ <link rel="preload" href="/assets/icons/phosphor.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/icons/phosphor.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JMDGV643K"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -47,6 +48,7 @@
     "description":"Практический протокол возвращения к бегу после отпуска, болезни, травмы или выгорания."
   }
   </script>
+ <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body>
   <a class="skip" href="#main">Перейти к гайду</a>
@@ -73,19 +75,19 @@
         <div class="preview-top"><p>Внутри гайда</p><p>Без почты и регистрации</p></div>
         <div class="pages">
           <button class="page-preview" type="button" data-page="1" aria-label="Открыть обложку гайда" aria-haspopup="dialog">
-            <img src="/assets/guides/preview/page-1.webp" width="780" height="1688" alt="Обложка гайда с фотографией Инны Рыжих" fetchpriority="high">
+            <img src="/assets/guides/preview/page-1.webp" width="780" height="1688" alt="Обложка гайда с фотографией Инны Рыжих" fetchpriority="high" decoding="async">
             <span class="page-label">Обложка <i class="ph ph-magnifying-glass-plus" aria-hidden="true"></i></span>
           </button>
           <button class="page-preview" type="button" data-page="3" aria-label="Открыть вступление, страница 3" aria-haspopup="dialog">
-            <img src="/assets/guides/preview/page-3.webp" width="780" height="1688" alt="Вступление: личный опыт Инны">
+            <img src="/assets/guides/preview/page-3.webp" width="780" height="1688" alt="Вступление: личный опыт Инны" decoding="async">
             <span class="page-label">Мой опыт <i class="ph ph-magnifying-glass-plus" aria-hidden="true"></i></span>
           </button>
           <button class="page-preview" type="button" data-page="28" aria-label="Открыть схему бег и ходьба, страница 28" aria-haspopup="dialog">
-            <img src="/assets/guides/preview/page-28.webp" width="780" height="1688" alt="Пример схемы чередования бега и ходьбы">
+            <img src="/assets/guides/preview/page-28.webp" width="780" height="1688" alt="Пример схемы чередования бега и ходьбы" decoding="async">
             <span class="page-label">Бег / ходьба <i class="ph ph-magnifying-glass-plus" aria-hidden="true"></i></span>
           </button>
           <button class="page-preview" type="button" data-page="41" aria-label="Открыть чек-лист, страница 41" aria-haspopup="dialog">
-            <img src="/assets/guides/preview/page-41.webp" width="780" height="1688" alt="Чек-лист первой недели возвращения">
+            <img src="/assets/guides/preview/page-41.webp" width="780" height="1688" alt="Чек-лист первой недели возвращения" decoding="async">
             <span class="page-label">Чек-лист <i class="ph ph-magnifying-glass-plus" aria-hidden="true"></i></span>
           </button>
         </div>
@@ -109,7 +111,7 @@
 
     <section class="author-band section" aria-labelledby="author-title">
       <div class="wrap author-layout">
-        <img class="portrait" src="/assets/people/inna-portrait.webp" width="1350" height="2400" alt="Инна Рыжих, тренер по бегу и триатлону" loading="lazy">
+        <img class="portrait" src="/assets/people/inna-portrait-904.webp" width="1350" height="2400" alt="Инна Рыжих, тренер по бегу и триатлону" loading="lazy" decoding="async">
         <div class="author-copy">
           <p class="eyebrow">Автор гайда</p>
           <h2 id="author-title">Инна Рыжих</h2>
