@@ -1779,3 +1779,28 @@ body.page-run .rn-final { position: relative; overflow: hidden; }
 body.page-run .rn-final::before { content: ""; position: absolute; z-index: -1; left: -20%; right: -20%; top: 30%; bottom: -80%;
   background: radial-gradient(closest-side, rgba(214,104,56,0.50) 0%, rgba(112,30,15,0.18) 60%, rgba(0,0,0,0) 100%); }
 body.page-run .rn-final { isolation: isolate; }
+/* Диагностика (квиз) на главной, «Беге» и тарифах */
+.quiz-promo { margin-bottom: 0; }
+.quiz-promo.quiz-home { margin-top: 32px; }
+.quiz-promo.quiz-pricing { margin-top: 40px; text-align: left; }
+.quiz-promo.quiz-run { margin-top: var(--sp-8, 64px); }
+.quiz-promo h2.title-font { text-transform: none; }
+@media (max-width: 760px) {
+  .quiz-promo { grid-template-columns: 1fr; padding: 26px 22px; gap: 20px; }
+  .quiz-promo .contact-quiz-btn { white-space: normal; text-align: center; }
+}
+/* Кнопка «Написать» на телефоне: появляется после первого экрана, прячется у футера */
+.lead-sticky { display: none; }
+@media (max-width: 760px) {
+  .lead-sticky { display: block; position: fixed; z-index: 900; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    transform: translateY(140%); opacity: 0; transition: transform .35s ease, opacity .35s ease; pointer-events: none; }
+  .lead-sticky.is-on { transform: none; opacity: 1; pointer-events: auto; }
+  .lead-sticky a { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px;
+    background: #FFF4EC; color: #140908; font-weight: 700; font-size: 16px; text-decoration: none;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.10); }
+}
+@media (prefers-reduced-motion: reduce) { .lead-sticky { transition: none; } }
+@media (max-width: 760px) {
+  body.lead-sticky-on .to-top-btn { bottom: calc(82px + env(safe-area-inset-bottom, 0px)) !important; transition: bottom .35s ease, opacity .3s ease; }
+}
+body.site-page .quiz-promo h2.title-font, .quiz-promo h2.title-font { font-size: clamp(20px, 2.4vw, 26px) !important; line-height: 1.2 !important; margin: 0 0 10px !important; max-width: none; }
