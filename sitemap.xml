@@ -123,6 +123,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/run.html"/>
   </url>
   <url>
+    <loc>https://innatri.com/triathlon.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/triathlon.html"/>
+  </url>
+  <url>
+    <loc>https://innatri.com/en/triathlon.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/triathlon.html"/>
+  </url>
+  <url>
+    <loc>https://innatri.com/ua/triathlon.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/triathlon.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/triathlon.html"/>
+  </url>
+  <url>
     <loc>https://innatri.com/pricing.html</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
