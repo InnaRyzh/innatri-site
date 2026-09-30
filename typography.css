@@ -1576,3 +1576,87 @@ body.page-article .article-content li + li { margin-top: var(--sp-2) !important;
   body.page-article .article-content p, body.page-article .article-content li { font-size: 17px !important; }
   body.site-page .price-card, body.site-page .review-card { padding: var(--sp-5) !important; }
 }
+
+/* ============================================================
+   БЛОК «ТРЕНЕР» НА ГЛАВНОЙ
+   Иерархия: заголовок секции → весь текст одним размером и
+   начертанием. Ключевые фразы выделены только цветом.
+   Цифры 20+/10+ — компактная стеклянная строка под фото.
+   ============================================================ */
+#view-home #about .about-title { font-size: var(--fs-h2, 32px) !important; line-height: 1.08 !important; margin: 0 0 var(--sp-4, 16px) !important; color: #FFF4EC; }
+#view-home #about .about-text-content p,
+#view-home #about .about-text-content p {
+  font-size: 17px !important; line-height: 1.6 !important; font-weight: 400 !important;
+  color: rgba(243,230,221,0.72) !important; max-width: 60ch; margin: 0;
+}
+#view-home #about .about-text-content p + p { margin-top: 12px !important; }
+#view-home #about .about-block + .about-block { margin-top: 20px !important; }
+#view-home #about .about-text-content .about-lead,
+#view-home #about .about-text-content .about-callout {
+  color: #FFF4EC !important; font-weight: 400 !important; font-size: 17px !important;
+  border: 0 !important; padding: 0 !important; background: none !important;
+}
+#view-home #about .about-block { border: 0 !important; padding: 0 !important; }
+@media (max-width: 640px) {
+  #view-home #about .about-text-content p { font-size: 16px !important; }
+  #view-home #about .about-text-content .about-lead,
+  #view-home #about .about-text-content .about-callout { font-size: 16px !important; }
+}
+
+#view-home .tone-dark .stats-wrapper {
+  display: flex !important; gap: 0 !important; margin-top: 16px !important;
+  border-radius: 20px; background: rgba(22,10,8,0.45); border: 1px solid rgba(255,255,255,0.12);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+#view-home .tone-dark .stats-wrapper .stat-card {
+  flex: 1; height: auto !important; padding: 16px 20px !important;
+  background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+  flex-direction: row !important; align-items: center; gap: 12px; justify-content: flex-start !important;
+}
+#view-home .tone-dark .stats-wrapper .stat-card + .stat-card { border-left: 1px solid rgba(255,255,255,0.12) !important; }
+#view-home .tone-dark .stats-wrapper .stat-card::before { display: none !important; }
+#view-home .tone-dark .stats-wrapper .stat-card .title-font { font-size: 30px !important; line-height: 1 !important; margin: 0 !important; }
+#view-home .tone-dark .stats-wrapper .stat-card .tech-font { font-size: 10px !important; line-height: 1.3 !important; margin: 0 !important; letter-spacing: 0.08em; }
+
+/* ============================================================
+   СТАТЬИ: РЕЖИМ «БУМАГА»
+   Текст статьи лежит на тёплом светлом листе внутри тёмного
+   сайта: меньше ряби от белого текста на чёрном.
+   ============================================================ */
+body.page-article .article-content {
+  background: #F4EEE6; border-radius: 24px; padding: 36px 32px !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+  --text-white: #17110E; --text-body: #2B231E; --text-gray: #5C514A; --text-muted: #6F645C;
+  --border-color: rgba(43,35,30,0.14); --bg-card: rgba(43,35,30,0.05);
+  color: #2B231E;
+}
+body.page-article .article-content p, body.page-article .article-content li { color: #2B231E !important; }
+body.page-article .article-content strong, body.page-article .article-content b { color: #17110E; }
+body.page-article .article-content h2, body.page-article .article-content h3, body.page-article .article-content h4 { color: #17110E !important; }
+body.page-article .article-content a { color: #C4271D; }
+body.page-article .article-content blockquote { color: #17110E !important; border-left-color: #D93A2B !important; }
+@media (max-width: 640px) {
+  body.page-article .article-content { padding: 28px 20px !important; border-radius: 20px; }
+}
+/* внутри листа всё наследует тёмный цвет; блоки, рассчитанные на тёмный фон,
+   получают лёгкую бежевую подложку; акценты — тёмно-красные для контраста */
+body.page-article .article-content *:not(img):not(svg):not(path) { color: inherit !important; }
+body.page-article .article-content [style*="rgba(255,255,255"],
+body.page-article .article-content .faq-item,
+body.page-article .article-content details,
+body.page-article .article-content .run-highlight,
+body.page-article .article-content .run-calc-promo {
+  background: rgba(43,35,30,0.05) !important; border-color: rgba(43,35,30,0.14) !important;
+}
+body.page-article .article-content .run-highlight { border-left-color: #C4271D !important; }
+body.page-article .article-content a,
+body.page-article .article-content .article-accent,
+body.page-article .article-content th,
+body.page-article .article-content .chnum,
+body.page-article .article-content em { color: #B3261C !important; }
+body.page-article .article-content .article-soft { color: #17110E !important; }
+body.page-article .article-content figcaption { color: #5C514A !important; }
+body.page-article .article-content table, body.page-article .article-content td, body.page-article .article-content th { border-color: rgba(43,35,30,0.14) !important; }
+body.page-article .article-content hr, body.page-article .article-content .article-divider { background: rgba(43,35,30,0.14) !important; border-color: rgba(43,35,30,0.14) !important; }
+/* широкие таблицы прокручиваются внутри листа, а не распирают страницу */
+body.page-article .article-content table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
