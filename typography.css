@@ -1665,3 +1665,30 @@ body.page-article .article-content table { display: block; max-width: 100%; over
   body.page-article .article-content h3 { font-size: 18px !important; }
 }
 body.page-article .article-content h2, body.page-article .article-content h3 { overflow-wrap: break-word; }
+/* схемы в статьях рисовались для тёмного фона: на листе перекрашиваем их в чернила */
+body.page-article .article-content svg { --ink: #17110E; --ink-2: #3A302A; --ink-3: #5C514A; }
+body.page-article .article-content svg[style] { background: rgba(43,35,30,0.03) !important; border-color: rgba(43,35,30,0.12) !important; }
+body.page-article .article-content svg [fill="#F4F6F9" i],
+body.page-article .article-content svg text[fill="#E8EBF0" i] { fill: var(--ink); }
+body.page-article .article-content svg [fill="#C6CDD8" i] { fill: var(--ink-2); }
+body.page-article .article-content svg [fill="#9CA3AF" i] { fill: var(--ink-3); }
+body.page-article .article-content svg text[fill="#FF3B30" i],
+body.page-article .article-content svg [fill="#FF6A60" i] { fill: #B3261C; }
+body.page-article .article-content svg [fill="rgba(255,255,255,0.08)"] { fill: rgba(43,35,30,0.10); }
+body.page-article .article-content svg [fill="rgba(255,255,255,0.04)"] { fill: rgba(43,35,30,0.06); }
+body.page-article .article-content svg [fill="rgba(255,255,255,0.55)"] { fill: rgba(43,35,30,0.45); }
+body.page-article .article-content svg :not(text)[fill="#E8EBF0" i],
+body.page-article .article-content svg g[fill="#E8EBF0" i] > * { fill: #6B5E55; }
+body.page-article .article-content svg [fill="#AEB6C2" i] { fill: #5C514A; }
+body.page-article .article-content svg [stop-color="#E8EBF0" i] { stop-color: #9A8C81; }
+body.page-article .article-content svg [stop-color="#AEB6C2" i] { stop-color: #5C514A; }
+body.page-article .article-content svg [fill="#080808" i] { fill: #F4EEE6; }
+body.page-article .article-content svg [stroke="rgba(255,255,255,0.10)"] { stroke: rgba(43,35,30,0.14); }
+body.page-article .article-content svg [stroke="rgba(255,255,255,0.25)"] { stroke: rgba(43,35,30,0.30); }
+body.page-article .article-content svg [stroke="rgba(255,255,255,0.40)"],
+body.page-article .article-content svg [stroke="rgba(255,255,255,0.45)"],
+body.page-article .article-content svg [stroke="rgba(255,255,255,0.55)"] { stroke: rgba(43,35,30,0.50); }
+body.page-article .article-content svg [stroke="#F4F6F9" i] { stroke: var(--ink); }
+body.page-article .article-content svg [stroke="#9CA3AF" i] { stroke: #7A6D64; }
+/* «светлая зона» лёгкого бега остаётся самой светлой полосой */
+body.page-article .article-content svg rect[fill="#E8EBF0" i] { fill: #CDBFB2; }
