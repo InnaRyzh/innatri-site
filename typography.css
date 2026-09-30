@@ -1660,3 +1660,8 @@ body.page-article .article-content table, body.page-article .article-content td,
 body.page-article .article-content hr, body.page-article .article-content .article-divider { background: rgba(43,35,30,0.14) !important; border-color: rgba(43,35,30,0.14) !important; }
 /* широкие таблицы прокручиваются внутри листа, а не распирают страницу */
 body.page-article .article-content table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (max-width: 640px) {
+  body.page-article .article-content h2 { font-size: clamp(19px, 5.6vw, 22px) !important; line-height: 1.2 !important; }
+  body.page-article .article-content h3 { font-size: 18px !important; }
+}
+body.page-article .article-content h2, body.page-article .article-content h3 { overflow-wrap: break-word; }
