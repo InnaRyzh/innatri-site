@@ -47,6 +47,7 @@
 .ph.ph-envelope:before{content:"\e214"}
 .ph.ph-envelope-simple:before{content:"\e218"}
 .ph.ph-fire:before{content:"\e242"}
+.ph.ph-flag-checkered:before{content:"\ea38"}
 .ph.ph-flask:before{content:"\e79e"}
 .ph.ph-globe:before{content:"\e288"}
 .ph.ph-handshake:before{content:"\e582"}
@@ -67,6 +68,7 @@
 .ph.ph-target:before{content:"\e47c"}
 .ph.ph-telegram-logo:before{content:"\e5bc"}
 .ph.ph-trophy:before{content:"\e67e"}
+.ph.ph-video-camera:before{content:"\e4da"}
 .ph.ph-watch:before{content:"\e4e6"}
 .ph.ph-whatsapp-logo:before{content:"\e5d0"}
 .ph.ph-x:before{content:"\e4f6"}
