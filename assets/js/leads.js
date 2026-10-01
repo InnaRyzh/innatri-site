@@ -32,7 +32,8 @@
 
   var bar = document.createElement('div');
   bar.className = 'lead-sticky';
-  bar.innerHTML = '<a href="' + cfg[0] + '">' + cfg[1] + ' <i class="ph ph-arrow-right" aria-hidden="true"></i></a>';
+  var target = document.getElementById('start') ? '#start' : cfg[0];
+  bar.innerHTML = '<a href="' + target + '">' + cfg[1] + ' <i class="ph ph-arrow-right" aria-hidden="true"></i></a>';
   body.appendChild(bar);
 
   var footerSeen = false;
