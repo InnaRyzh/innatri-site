@@ -1,0 +1,23 @@
+
+.marathon-route{margin:32px 0;padding:clamp(18px,4vw,32px);background:#fff7ed;border:1px solid #d7b9a0;border-radius:22px;color:#30251e}
+.marathon-route figcaption{font-family:Unbounded,sans-serif;font-size:clamp(19px,3vw,26px);line-height:1.5;margin-bottom:8px;color:#30251e}
+.marathon-route .route-intro{font-size:16px;color:#594a40;margin:0 0 24px}
+.marathon-route ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.marathon-route li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;padding:18px 16px;border:1px solid #dec9b7;border-radius:14px;background:#fffdf9;margin:0}
+.marathon-route .route-number{font:600 14px/36px Unbounded,sans-serif;text-align:center;width:36px;height:36px;border-radius:50%;background:#a42b20;color:white}
+.marathon-route h3{font:500 16px/1.6 Unbounded,sans-serif;color:#30251e;margin:0 0 6px;letter-spacing:0;text-transform:none}
+.marathon-route .route-time{display:block;font:600 15px/1.6 Unbounded,sans-serif;color:#a42b20;margin-bottom:8px}
+.marathon-route li p{font-size:16px;line-height:1.6;margin:0;color:#594a40}
+.marathon-route .route-cycle{font-size:15px;line-height:1.65;padding:16px 0;margin:0;color:#594a40}
+.marathon-route .route-total{border-top:1px solid #d7b9a0;padding-top:20px}
+.marathon-route .route-total strong{display:block;font:600 clamp(22px,4vw,30px)/1.5 Unbounded,sans-serif;color:#a42b20}
+.marathon-route .route-total p{font-size:16px;line-height:1.6;margin:6px 0 0;color:#594a40}
+@media(max-width:420px){.marathon-route li{padding:14px 12px;gap:10px;grid-template-columns:30px minmax(0,1fr)}.marathon-route .route-number{width:30px;height:30px;line-height:30px}.marathon-route h3{font-size:14px}}
+
+/* Keep the diagram readable within the article's global typography rules. */
+.page-article .article-content .marathon-route p{font-size:16px!important;line-height:1.6!important;color:#594a40!important}
+.page-article .article-content .marathon-route h3{font-size:15px!important;line-height:1.5!important;margin:0 0 6px!important;color:#30251e!important}
+.page-article .article-content .marathon-route .route-number{color:#fff!important;font-size:13px!important}
+.page-article .article-content .marathon-route .route-time{font-size:14px!important;color:#a42b20!important}
+.page-article .article-content .marathon-route .route-total strong{color:#a42b20!important}
+#route-title{scroll-margin-top:110px}
