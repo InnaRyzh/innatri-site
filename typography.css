@@ -66,7 +66,7 @@ h2.title-font:first-child { margin-top: 0; } /* первый заголовок 
 /* --- Нумерация секций: 01 · Подход --- */
 .section-label {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Unbounded', sans-serif;
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--text-muted); margin-bottom: 18px;
 }
@@ -75,7 +75,7 @@ h2.title-font:first-child { margin-top: 0; } /* первый заголовок 
 
 /* --- Манифест --- */
 .manifesto-kicker {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Unbounded', sans-serif;
   font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--text-muted); margin-bottom: 18px;
 }
@@ -91,7 +91,7 @@ h2.manifesto-title { font-size: clamp(24px, 4vw, 40px); line-height: 1.18; max-w
   max-width: 100%;
   margin-bottom: 14px;
   padding: 7px 14px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Unbounded', sans-serif;
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1294,7 +1294,7 @@ body.page-contact .footer { background: transparent; border-top-color: rgba(242,
 .contact-facts b { color: var(--itri-red-bright); font-weight: 700; }
 .contact-badge {
   display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; width: fit-content;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  font-family: 'Unbounded', sans-serif; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
   color: #FFB59A; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,90,60,0.35);
 }
 
@@ -1723,12 +1723,12 @@ body.page-run .rn-card { display: flex; flex-direction: column; padding: var(--s
 body.page-run a.rn-card:hover { border-color: rgba(255,59,48,0.5); background: rgba(255,59,48,0.05); transform: translateY(-3px); }
 body.page-run .rn-card h3 { font-family: 'Unbounded', sans-serif; font-size: var(--fs-h3) !important; color: #FFF4EC; margin: 0 0 var(--sp-3); }
 body.page-run .rn-card p { font-size: 15px; color: rgba(243,230,221,0.7); margin: 0; }
-body.page-run .rn-tag { align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .04em; color: #FF6A5F; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,59,48,0.35); margin-bottom: var(--sp-5); }
+body.page-run .rn-tag { align-self: flex-start; font-family: 'Unbounded', sans-serif; font-size: 12px; letter-spacing: .04em; color: #FF6A5F; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,59,48,0.35); margin-bottom: var(--sp-5); }
 body.page-run .rn-more { margin-top: auto; padding-top: var(--sp-5); font-size: 14px; color: #FFF4EC; display: inline-flex; gap: 6px; align-items: center; }
 body.page-run .rn-ico { font-size: 28px; color: #FF3B30; margin-bottom: var(--sp-4); }
 body.page-run .rn-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); counter-reset: rn; }
 body.page-run .rn-steps li { margin: 0 !important; counter-increment: rn; padding-top: var(--sp-5); border-top: 1px solid rgba(255,244,236,0.14); }
-body.page-run .rn-steps li::before { content: "0" counter(rn); display: block; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF6A5F; margin-bottom: var(--sp-3); }
+body.page-run .rn-steps li::before { content: "0" counter(rn); display: block; font-family: 'Unbounded', sans-serif; font-size: 13px; color: #FF6A5F; margin-bottom: var(--sp-3); }
 body.page-run .rn-steps b { display: block; font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 600; color: #FFF4EC; margin-bottom: var(--sp-2); }
 body.page-run .rn-steps p { font-size: 15px; color: rgba(243,230,221,0.7); margin: 0; }
 body.page-run .rn-quote { margin: var(--sp-8) 0 0; padding: var(--sp-7) var(--sp-6); border-radius: 26px; background: linear-gradient(135deg, rgba(255,59,48,0.10), rgba(255,244,236,0.03)); border: 1px solid rgba(255,59,48,0.22); }
@@ -1847,14 +1847,14 @@ html { scroll-behavior: smooth; }
 body.page-run .tp #start { scroll-margin-top: 110px; }
 body.page-run .tp-h1 { font-size: clamp(34px, 5.4vw, 62px) !important; }
 body.page-run .tp-subtitle { font-family: 'Unbounded', sans-serif; font-size: clamp(18px, 1.9vw, 23px); line-height: 1.3; color: #FFCDB8; margin: 0 0 var(--sp-4); max-width: 22em; }
-body.page-run .tp-creds { margin: var(--sp-5) 0 0 !important; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: .02em; color: rgba(243,230,221,0.62); max-width: 40em; }
+body.page-run .tp-creds { margin: var(--sp-5) 0 0 !important; font-family: 'Unbounded', sans-serif; font-size: 12.5px; letter-spacing: .02em; color: rgba(243,230,221,0.62); max-width: 40em; }
 body.page-run .tp-portrait { aspect-ratio: 4 / 5; }
 body.page-run .tp-portrait img { object-position: 50% 22%; }
 body.page-run .tp-qa .rn-card h3 { font-size: clamp(18px, 1.7vw, 21px) !important; line-height: 1.25 !important; margin-bottom: var(--sp-3); }
 body.page-run .tp-grid-5 { grid-template-columns: repeat(6, 1fr); }
 body.page-run .tp-grid-5 > :nth-child(-n+3) { grid-column: span 2; }
 body.page-run .tp-grid-5 > :nth-child(n+4) { grid-column: span 3; }
-body.page-run .tp-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FFCDB8; margin-bottom: var(--sp-3); }
+body.page-run .tp-num { font-family: 'Unbounded', sans-serif; font-size: 13px; color: #FFCDB8; margin-bottom: var(--sp-3); }
 body.page-run .tp-why { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--sp-7); align-items: start; margin-top: var(--sp-8); position: relative; isolation: isolate; }
 body.page-run .tp-why::before { content: ""; position: absolute; z-index: -1; pointer-events: none; left: -30%; right: -10%; top: -10%; bottom: -20%;
   background: radial-gradient(50% 50% at 25% 45%, rgba(214,104,56,0.55) 0%, rgba(176,62,30,0.28) 45%, rgba(0,0,0,0) 80%); }
@@ -1885,7 +1885,7 @@ body.page-run .tp-fit li::before { content: "✓"; position: absolute; left: 0; 
 body.page-run .tp-prices { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--sp-4); align-items: start; }
 body.page-run .tp-price { padding: var(--sp-6) !important; }
 body.page-run .tp-price-main { background: rgba(22,10,8,0.55) !important; border-color: rgba(255,74,63,0.30) !important; }
-body.page-run .tp-price-name { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #FFCDB8; }
+body.page-run .tp-price-name { font-family: 'Unbounded', sans-serif; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #FFCDB8; }
 body.page-run .tp-price-amount { font-family: 'Unbounded', sans-serif; font-size: 40px; color: #FFF4EC; margin: var(--sp-3) 0 var(--sp-5); }
 body.page-run .tp-price-main .tp-price-amount { color: var(--itri-red-bright); }
 body.page-run .tp-price-amount span { font-family: inherit; font-size: 15px; color: rgba(243,230,221,0.6); }
@@ -1939,3 +1939,22 @@ body.page-run .tp-why-photo img { object-position: 50% 40%; }
 /* Compact footer metadata across all languages. */
 .footer p.tech-font { font-size: 12px !important; line-height: 1.6 !important; font-weight: 400 !important; letter-spacing: normal !important; text-transform: none !important; }
 .footer p.tech-font a { font: inherit !important; }
+
+/* Shared brand typography: labels and controls use the same face as headings. */
+.tech-font, .lang-switch a, .btn, .external-link-btn, .run-hero-kicker,
+.run-badge, .blog-meta, .price-badge, .lead-sticky a {
+ font-family: 'Unbounded', sans-serif !important;
+ letter-spacing: normal;
+}
+.tech-font { font-weight: 400; }
+.btn, .lead-sticky a { font-size: 13px; font-weight: 500; line-height: 1.5; }
+.hero-tag.tech-font { font-size: 11px; line-height: 1.65; }
+.external-link-btn { font-size: 12px; line-height: 1.6; }
+@media(max-width:760px){
+ .header-island { gap: 14px !important; }
+ .header-island .lang-switch { margin-left: auto !important; }
+ .lang-switch a { font-size: 10px !important; padding: 5px 6px !important; letter-spacing: normal !important; }
+ .header-island .burger { flex-shrink: 0; }
+ .hero-tag.tech-font { white-space: normal; }
+ .footer .btn { font-size: 11px; }
+}

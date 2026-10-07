@@ -60,7 +60,7 @@
   body { font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif; background-color:var(--bg-main); color:var(--text-white); line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased; background-image:radial-gradient(1200px 600px at 50% -10%,rgba(255,59,48,0.20) 0%,rgba(8,8,8,0) 60%),radial-gradient(900px 500px at 15% 35%,rgba(255,59,48,0.10) 0%,rgba(8,8,8,0) 55%),radial-gradient(1200px 700px at 85% 70%,rgba(255,59,48,0.08) 0%,rgba(8,8,8,0) 60%); background-attachment:fixed; min-height:100vh; overflow-x:hidden; }
   body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; opacity:0.04; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   .title-font { font-family:'Unbounded',sans-serif; text-transform:uppercase; letter-spacing:-0.02em; }
-  .tech-font { font-family:'JetBrains Mono',monospace; font-size:12px; opacity:0.7; text-transform:uppercase; }
+  .tech-font { font-family: 'Unbounded', sans-serif; font-size:12px; opacity:0.7; text-transform:uppercase; }
   a { text-decoration:none; color:inherit; transition:0.3s; cursor:pointer; }
   button { border:none; outline:none; cursor:pointer; }
   .container { max-width:var(--container-width); margin:0 auto; padding:0 24px; }
@@ -94,21 +94,21 @@
   @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
   .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
   .calc-input-group { margin-bottom:20px; }
-  .calc-label { display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-gray); margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
+  .calc-label { display:block; font-family: 'Unbounded', sans-serif; font-size:11px; color:var(--text-gray); margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
   .calc-select,.calc-input { width:100%; background:rgba(255,255,255,0.03); border:1px solid var(--border-color); color:white; padding:12px 14px; border-radius:10px; font-family:'Manrope',sans-serif; font-size:15px; outline:none; transition:0.3s; }
   .calc-select:focus,.calc-input:focus { border-color:var(--primary); background:rgba(255,59,48,0.02); }
   .calc-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .calc-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
   .toggle-group { display:inline-flex; background:rgba(255,255,255,0.04); border-radius:var(--radius-pill); border:1px solid var(--border-color); overflow:hidden; }
-  .toggle-btn { padding:6px 16px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-gray); cursor:pointer; transition:0.3s; background:transparent; letter-spacing:0.05em; }
+  .toggle-btn { padding:6px 16px; font-family: 'Unbounded', sans-serif; font-size:11px; color:var(--text-gray); cursor:pointer; transition:0.3s; background:transparent; letter-spacing:0.05em; }
   .toggle-btn.active { background:var(--primary); color:white; }
   .run-sub-tabs { display:flex; gap:6px; margin-bottom:20px; }
-  .run-sub-tab { background:rgba(255,255,255,0.03); color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:10px; cursor:pointer; padding:6px 14px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.03em; text-transform:uppercase; }
+  .run-sub-tab { background:rgba(255,255,255,0.03); color:var(--text-gray); font-family: 'Unbounded', sans-serif; font-size:10px; cursor:pointer; padding:6px 14px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.03em; text-transform:uppercase; }
   .run-sub-tab.active { color:white; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); }
   .run-sub-mode { display:none; }
   .run-sub-mode.active { display:block; }
   .calc-result-box { background:rgba(0,0,0,0.25); border-radius:16px; padding:24px; border:1px solid var(--border-color); }
-  .calc-res-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); margin-bottom:16px; letter-spacing:0.08em; text-transform:uppercase; }
+  .calc-res-title { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); margin-bottom:16px; letter-spacing:0.08em; text-transform:uppercase; }
   .calc-main-res { font-family:'Unbounded'; font-size:24px; color:var(--primary); line-height:1.1; margin-bottom:4px; letter-spacing:-0.02em; }
   .calc-sub-res { font-family:'Manrope'; font-size:13px; color:var(--text-gray); margin-bottom:20px; }
   .calc-details { border-top:1px solid var(--border-color); padding-top:16px; display:grid; gap:10px; }
@@ -120,44 +120,44 @@
   .nut-card { background:rgba(0,0,0,0.25); border-radius:14px; padding:18px; border:1px solid var(--border-color); }
   .nut-card-icon { font-size:20px; margin-bottom:8px; opacity:0.8; }
   .nut-card-value { font-family:'Unbounded'; font-size:24px; color:var(--primary); line-height:1.1; margin-bottom:2px; }
-  .nut-card-label { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; }
+  .nut-card-label { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; }
   .nut-card-sub { font-size:12px; color:var(--text-gray); margin-top:6px; }
   .nut-products { margin-top:16px; }
-  .nut-prod-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
+  .nut-prod-title { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
   .nut-prod-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.04); }
   .nut-prod-row:last-child { border-bottom:none; }
   .nut-prod-name { color:var(--text-gray); display:flex; align-items:center; gap:8px; }
   .nut-prod-name i { font-size:14px; width:18px; text-align:center; }
-  .nut-prod-qty { color:white; font-weight:500; font-family:'JetBrains Mono',monospace; font-size:12px; }
+  .nut-prod-qty { color:white; font-weight:500; font-family: 'Unbounded', sans-serif; font-size:12px; }
   .nut-timeline { margin-top:16px; }
-  .nut-tl-title { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
+  .nut-tl-title { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
   .nut-tl-item { display:flex; gap:12px; padding:8px 0; font-size:13px; }
-  .nut-tl-time { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--primary); min-width:70px; flex-shrink:0; }
+  .nut-tl-time { font-family: 'Unbounded', sans-serif; font-size:11px; color:var(--primary); min-width:70px; flex-shrink:0; }
   .nut-tl-desc { color:var(--text-gray); }
-  .vdot-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,59,48,0.08); border:1px solid rgba(255,59,48,0.25); border-radius:var(--radius-pill); padding:5px 14px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; margin-top:8px; }
+  .vdot-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,59,48,0.08); border:1px solid rgba(255,59,48,0.25); border-radius:var(--radius-pill); padding:5px 14px; font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; margin-top:8px; }
   .vdot-badge span { font-family:'Unbounded'; font-size:15px; color:var(--primary); font-weight:600; letter-spacing:-0.02em; }
   .zone-row { display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13px; font-family:'Manrope'; border-bottom:1px solid rgba(255,255,255,0.04); }
   .zone-row:last-child { border-bottom:none; }
   .zone-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
   .zone-name { color:var(--text-gray); min-width:100px; font-size:12px; }
-  .zone-pace { color:white; font-weight:500; font-size:12px; font-family:'JetBrains Mono',monospace; }
+  .zone-pace { color:white; font-weight:500; font-size:12px; font-family: 'Unbounded', sans-serif; }
   .split-controls { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
   .split-table { max-height:280px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.1) transparent; }
   .split-table::-webkit-scrollbar { width:4px; }
   .split-table::-webkit-scrollbar-track { background:transparent; }
   .split-table::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:2px; }
-  .split-header { display:flex; justify-content:space-between; padding:6px 0; font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--border-color); }
+  .split-header { display:flex; justify-content:space-between; padding:6px 0; font-size:10px; font-family: 'Unbounded', sans-serif; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--border-color); }
   .split-row { display:flex; justify-content:space-between; padding:5px 0; font-size:12px; border-bottom:1px solid rgba(255,255,255,0.03); }
-  .split-row span:first-child { color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:11px; min-width:50px; }
-  .split-row span:nth-child(2) { color:white; font-weight:500; font-family:'JetBrains Mono',monospace; font-size:11px; min-width:65px; text-align:right; }
-  .split-row span:last-child { color:var(--text-gray); font-family:'JetBrains Mono',monospace; font-size:11px; min-width:75px; text-align:right; }
+  .split-row span:first-child { color:var(--text-gray); font-family: 'Unbounded', sans-serif; font-size:11px; min-width:50px; }
+  .split-row span:nth-child(2) { color:white; font-weight:500; font-family: 'Unbounded', sans-serif; font-size:11px; min-width:65px; text-align:right; }
+  .split-row span:last-child { color:var(--text-gray); font-family: 'Unbounded', sans-serif; font-size:11px; min-width:75px; text-align:right; }
   .footer { padding:80px 0 40px; border-top:1px solid var(--border-color); text-align:center; }
   .to-top-btn { position:fixed; right:24px; bottom:24px; width:46px; height:46px; border-radius:50%; background:rgba(10,10,10,0.7); border:1px solid rgba(255,255,255,0.15); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:18px; opacity:0; pointer-events:none; transition:0.25s; z-index:999; backdrop-filter:blur(8px); }
   .to-top-btn.show { opacity:1; pointer-events:auto; }
   @media(max-width:1024px) { .header-island{width:100%;margin:0 16px;padding:12px 24px;justify-content:space-between} .nav-desk{display:none} .burger{display:block} .calc-grid{grid-template-columns:1fr;gap:20px} .calc-container{padding:20px} .section{padding:108px 0 60px} }
   @media(max-width:640px) { body{background-attachment:scroll} .container{padding:0 20px} .nut-result-grid{grid-template-columns:1fr 1fr;gap:8px} .nut-card{padding:14px} .nut-card-value{font-size:20px} .calc-main-res{font-size:20px} .run-sub-tabs{flex-wrap:wrap} .zone-name{min-width:80px;font-size:11px} .zone-pace{font-size:11px} }
  </style>
- <link rel="stylesheet" href="/typography.css?v=20261007">
+ <link rel="stylesheet" href="/typography.css?v=20261007b">
 </head>
 <body class="site-page page-calculator">
  <header class="header">
@@ -173,7 +173,7 @@
     <a href="pricing.html" class="nav-link">ТАРИФИ</a>
     <a href="contact.html" class="nav-link">КОНТАКТИ</a>
    </nav>
-   <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="calculator.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">UA</a><a href="../en/calculator.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="../calculator.html" style="font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></span>
+   <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="calculator.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">UA</a><a href="../en/calculator.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="../calculator.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></span>
    <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
   </div>
  </header>
@@ -188,7 +188,7 @@
   <a href="calculator.html" class="mobile-link" onclick="toggleMenu()">КАЛЬКУЛЯТОР</a>
   <a href="pricing.html" class="mobile-link" onclick="toggleMenu()">ТАРИФИ</a>
   <a href="contact.html" class="mobile-link" onclick="toggleMenu()">КОНТАКТИ</a>
-  <div style="display:flex;gap:10px;margin-top:12px;"><a href="calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">UA</a><a href="../en/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="../calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family:'JetBrains Mono',monospace;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></div>
+  <div style="display:flex;gap:10px;margin-top:12px;"><a href="calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">UA</a><a href="../en/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="../calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></div>
  </div>
 
  <section id="calculator" class="section">

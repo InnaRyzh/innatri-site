@@ -64,3 +64,9 @@ body.page-triathlon .tp .rn-h2 { scroll-margin-top: 110px; }
 
 
 body.page-triathlon .lead-sticky a { font-family: var(--brand-font); font-size: 13px; font-weight: 500; }
+
+/* Same live portrait as the homepage, preserving the full 4:5 frame. */
+body.page-triathlon .tp-live { position: relative; }
+body.page-triathlon .tp-live video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .9s ease; }
+body.page-triathlon .tp-live.is-playing video { opacity: 1; }
+@media(prefers-reduced-motion:reduce){body.page-triathlon .tp-live video{display:none;transition:none}}
