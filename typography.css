@@ -1935,3 +1935,7 @@ body.page-run .tp-form input, body.page-run .tp-form select { height: 52px; }
 body.page-run .tp-why-photo { aspect-ratio: 1080 / 1456; }
 body.page-run .tp-why-photo img { object-position: 50% 40%; }
 @media (max-width: 960px) { body.page-run .tp-why-photo { aspect-ratio: 4 / 5; } body.page-run .tp-why-photo img { object-position: 50% 55%; } }
+
+/* Compact footer metadata across all languages. */
+.footer p.tech-font { font-size: 12px !important; line-height: 1.6 !important; font-weight: 400 !important; letter-spacing: normal !important; text-transform: none !important; }
+.footer p.tech-font a { font: inherit !important; }

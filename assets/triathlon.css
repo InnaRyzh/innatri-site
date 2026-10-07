@@ -1,0 +1,66 @@
+/* Structural refinements only. Original palette, fonts, background and heading styles are inherited. */
+body.page-triathlon .tp-portrait, body.page-triathlon .tp-why-photo { aspect-ratio: auto; height: auto; }
+body.page-triathlon .tp-portrait img, body.page-triathlon .tp-why-photo img { width: 100%; height: auto; object-fit: contain; display: block; }
+
+body.page-triathlon .tp-qa { align-items: start; }
+body.page-triathlon details.gentle-question { display: block; padding-top: 0; padding-bottom: 0; }
+body.page-triathlon .gentle-question summary { display: flex; align-items: center; gap: 18px; justify-content: space-between; cursor: pointer; list-style: none; padding: 24px 0; min-height: 76px; }
+body.page-triathlon .gentle-question summary h3 { margin: 0 !important; }
+body.page-triathlon .gentle-question summary i, body.page-triathlon .gentle-more summary i { flex: none; transition: transform .2s; }
+body.page-triathlon .gentle-question[open]>summary i, body.page-triathlon .gentle-more[open]>summary i { transform: rotate(180deg); }
+body.page-triathlon .gentle-question .gentle-answer { padding: 0 0 28px; }
+body.page-triathlon .gentle-more summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; list-style: none; cursor: pointer; min-height: 48px; font-size: 15px; text-decoration: none; }
+body.page-triathlon .gentle-more { margin-top: 16px; }
+body.page-triathlon .gentle-more .gentle-answer { padding-top: 16px; }
+body.page-triathlon .credentials { margin: 0 0 28px; }
+body.page-triathlon .credentials .rn-btn-ghost { margin-bottom: 0; }
+body.page-triathlon .tp-why-text>p { margin-top: 24px; }
+body.page-triathlon .tp-review .gentle-more .gentle-answer p+p { margin-top: 20px !important; }
+body.page-triathlon .tp-qa, body.page-triathlon .tp-reviews { gap: 22px; }
+body.page-triathlon .tp .rn-h2 { margin-bottom: 28px !important; }
+body.page-triathlon .tp .rn-steps { gap: 24px; }
+body.page-triathlon .tp .rn-steps li p { margin-top: 14px; }
+body.page-triathlon .gentle-question summary::-webkit-details-marker, body.page-triathlon .gentle-more summary::-webkit-details-marker { display: none; }
+body.page-triathlon .gentle-question summary:focus-visible, body.page-triathlon .gentle-more summary:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; border-radius: 5px; }
+@media(max-width:640px){
+ body.page-triathlon .tp .rn-h2 { margin-top: 76px !important; }
+ body.page-triathlon .tp-why-text .rn-h2, body.page-triathlon .tp .rn-band .rn-h2 { margin-top: 0 !important; }
+ body.page-triathlon .tp-why { gap: 32px; }
+ body.page-triathlon .tp-review { padding-top: 28px; padding-bottom: 24px; }
+ body.page-triathlon .gentle-question summary { padding: 22px 0; }
+ body.page-triathlon .tp-why-photo { position: relative; top: auto; }
+}
+@media(prefers-reduced-motion:reduce){body.page-triathlon .gentle-question summary i,body.page-triathlon .gentle-more summary i{transition:none}}
+
+/* Two text families: Unbounded for identity/UI, system sans for continuous reading. */
+body.page-triathlon { --reading-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif; --brand-font: 'Unbounded', sans-serif; font-family: var(--reading-font); }
+body.page-triathlon .tech-font,
+body.page-triathlon .tp-creds,
+body.page-triathlon .tp-price-name,
+body.page-triathlon .tp-num,
+body.page-triathlon .rn-steps li::before,
+body.page-triathlon .lang-switch a,
+body.page-triathlon .mobile-menu a,
+body.page-triathlon .btn,
+body.page-triathlon .rn-btn,
+body.page-triathlon .rn-btn-ghost,
+body.page-triathlon .gentle-more summary { font-family: var(--brand-font) !important; letter-spacing: normal; }
+body.page-triathlon .tp-form input,
+body.page-triathlon .tp-form select,
+body.page-triathlon .tp-form textarea { font-family: var(--reading-font) !important; }
+body.page-triathlon .rn-eyebrow { font-size: 11px; line-height: 1.65; font-weight: 400; letter-spacing: normal; }
+body.page-triathlon .tp-creds { font-size: 12px; line-height: 1.8; font-weight: 400; }
+body.page-triathlon .btn { font-size: 13px; font-weight: 500; line-height: 1.5; white-space: normal; text-align: center; }
+body.page-triathlon .rn-btn-ghost, body.page-triathlon .gentle-more summary { font-size: 12px; line-height: 1.6; font-weight: 400; }
+body.page-triathlon .tp-price-name { font-size: 12px; line-height: 1.65; }
+body.page-triathlon .tp .rn-h2 { scroll-margin-top: 110px; }
+@media(max-width:640px){body.page-triathlon .rn-btn { max-width: 100%; padding-inline: 18px; } body.page-triathlon .footer .btn { font-size: 11px; }}
+@media(max-width:760px){
+ body.page-triathlon .header-island { gap: 14px !important; }
+ body.page-triathlon .header-island .lang-switch { margin-left: auto !important; }
+ body.page-triathlon .lang-switch a { font-size: 10px !important; padding: 5px 6px !important; }
+ body.page-triathlon .header-island .burger { flex-shrink: 0; }
+}
+
+
+body.page-triathlon .lead-sticky a { font-family: var(--brand-font); font-size: 13px; font-weight: 500; }
