@@ -168,7 +168,7 @@ function applyStaticTexts() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     el.textContent = t(el.dataset.i18n);
   });
-  document.documentElement.lang = lang === 'ua' ? 'uk' : 'ru';
+  document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
   document.querySelectorAll('.lang-switch button').forEach(b => {
     b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
   });
@@ -677,6 +677,16 @@ $('btn-start').addEventListener('click', () => {
 });
 
 $('btn-back').addEventListener('click', goBack);
+
+/* Пришли с кнопки дистанции на сайте (?distance=marathon): первый вопрос уже отвечен. */
+const urlDistance = new URLSearchParams(location.search).get('distance');
+if (QUESTIONS[0].options.some(o => o.code === urlDistance)) {
+  track('StartQuiz', true);
+  state.answers.distance = urlDistance;
+  state.step = 1;
+  showScreen('screen-quiz');
+  renderQuestion();
+}
 $('btn-to-form').addEventListener('click', () => showScreen('screen-form'));
 $('lead-form').addEventListener('submit', onSubmit);
 
