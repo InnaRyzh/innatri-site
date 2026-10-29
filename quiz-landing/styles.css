@@ -141,7 +141,7 @@ input:focus { outline: none; border-color: var(--ink); background: #fff; }
 /* ---------- footer ---------- */
 footer { padding: 28px 0 calc(32px + env(safe-area-inset-bottom, 0px)); color: var(--soft); font-size: 14px; text-align: center; }
 
-@media (max-width: 860px) { :root { --sw: 500; } }
+@media (max-width: 860px) { :root { --serif: 'Noto Serif', 'Noto Serif Display', Georgia, serif; --sw: 500; } }
 
 @media (prefers-reduced-motion: reduce) {
   .question.anim-in, .screen.active { animation: none; }

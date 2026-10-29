@@ -314,7 +314,7 @@ body, .tab, .qa:nth-child(even), .btn, .btn:hover { background-image: var(--grai
 }
 @media (max-width: 860px) {
   /* the display serif's hairlines thin out at phone sizes: a heavier cut, a little larger */
-  :root { --sw: 500; --s-quote: 25px; --s-head: 32px; --s-sub: 23px; --s-lead: 19px; --s-hero: clamp(32px, 9vw, 64px); }
+  :root { --serif: 'Noto Serif', 'Noto Serif Display', Georgia, serif; --sw: 500; --s-quote: 25px; --s-head: 32px; --s-sub: 23px; --s-lead: 19px; --s-hero: clamp(32px, 9vw, 64px); }
   .top { grid-template-columns: auto 1fr; height: 56px; }
   .tab { display: none; }
   .top-r { gap: 14px; }
