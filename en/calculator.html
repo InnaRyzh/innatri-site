@@ -37,170 +37,194 @@
   <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#FF3B30">
+  <meta name="theme-color" content="#151515">
   <link rel="alternate" hreflang="ru" href="https://innatri.com/calculator.html">
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/calculator.html">
   <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/calculator.html">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/calculator.html">
 
   <link rel="preload" href="/assets/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="stylesheet" href="/assets/fonts/fonts.css">
- <link rel="preload" href="/assets/icons/phosphor.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="stylesheet" href="/assets/icons/phosphor.css">
+ <link rel="preload" href="/assets/fonts/noto-serif-display-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029c">
+ <link rel="stylesheet" href="/assets/css/book.css?v=20261029e">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"InnaTri","url":"https://innatri.com","description":"Online triathlon and running coaching.","inLanguage":"en-US","publisher":{"@type":"Person","name":"Inna Ryzhykh"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"VDOT Calculator & Race Planner","url":"https://innatri.com/en/calculator.html","applicationCategory":"SportsApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":"VDOT Score, Training Pace Zones, Race Time Predictions, Split Tables, Race Nutrition Calculator, Triathlon Calculator","description":"Running pace calculator with VDOT score, 5 Daniels training zones, predictions for 8 distances, split tables and race nutrition planner."}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://innatri.com/en/"},{"@type":"ListItem","position":2,"name":"VDOT Calculator","item":"https://innatri.com/en/calculator.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Your Running Pace and VDOT Score","step":[{"@type":"HowToStep","name":"Enter your distance and time","text":"Select a distance (5K, 10K, Half Marathon, Marathon, or custom) and enter your finish time."},{"@type":"HowToStep","name":"Get your VDOT score and training zones","text":"The calculator shows your VDOT fitness score and 5 training pace zones: Easy, Marathon, Threshold, Interval, and Repetition."},{"@type":"HowToStep","name":"View race predictions and split table","text":"See predicted finish times for 8 distances and generate a split table with even or negative split options."},{"@type":"HowToStep","name":"Plan your race nutrition","text":"Enter your weight, intensity, and temperature to get carb, fluid, sodium, and caffeine recommendations with product suggestions."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the triathlon calculator work?","acceptedAnswer":{"@type":"Answer","text":"Select a distance (Sprint, Olympic, Ironman 70.3, or Ironman) and enter your swim pace, bike speed, run pace, and transitions. The calculator shows your predicted total time with a breakdown by discipline."}},{"@type":"Question","name":"How do I predict my marathon time from a 5K result?","acceptedAnswer":{"@type":"Answer","text":"Enter 5 km and your finish time in the RUNNING section. The calculator uses the Riegel formula to predict your marathon (42.2 km) and other race times. For example, a 25-minute 5K predicts roughly a 3:52 marathon."}},{"@type":"Question","name":"What is VDOT and what is a good score?","acceptedAnswer":{"@type":"Answer","text":"VDOT is a running fitness metric from Jack Daniels' Running Formula, calculated from your race performance. VDOT 30-35 is beginner, 40-45 intermediate, 50-55 advanced, and 60+ is elite level."}},{"@type":"Question","name":"What are the Jack Daniels training pace zones?","acceptedAnswer":{"@type":"Answer","text":"Five training zones: Easy (65-79% VO2max for recovery and base building), Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition (faster than VDOT pace for speed and economy)."}},{"@type":"Question","name":"How many gels should I take during a marathon?","acceptedAnswer":{"@type":"Answer","text":"Aim for 40-60g of carbs per hour, which is 2-3 gels per hour. For a 4-hour marathon, plan for 8-10 gels total. Use the NUTRITION section for a personalized calculation based on your weight and conditions."}},{"@type":"Question","name":"What is a negative split in running?","acceptedAnswer":{"@type":"Answer","text":"A race strategy where the second half is run faster than the first (typically 1-3% faster). Considered optimal for marathons. The split table in the calculator lets you toggle between even and negative split strategies."}},{"@type":"Question","name":"How much water should I drink during a marathon?","acceptedAnswer":{"@type":"Answer","text":"400-800 ml per hour depending on temperature and body weight. In hot conditions (above 25°C/77°F), aim for up to 800 ml/h. Drink 150-200ml every 15-20 minutes rather than waiting for thirst."}},{"@type":"Question","name":"How do I calculate my Ironman finish time?","acceptedAnswer":{"@type":"Answer","text":"In the TRIATHLON section, select Ironman 140.6, enter your swim pace (min/100m), bike speed (km/h), run pace (min/km), and transition times. The calculator shows total time and a breakdown by discipline."}}]}</script>
+ <style>
+.c-hero { padding-block: clamp(48px, 6vw, 96px) clamp(32px, 4vw, 56px); }
+.c-hero h1 { font: 400 var(--s-head)/1 var(--serif); letter-spacing: -0.03em; }
+.c-hero .lead { margin-top: 20px; max-width: 46ch; }
 
-  <style>
-    :root { --primary:#FF3B30; --primary-glow:rgba(255,59,48,0.5); --bg-main:#080808; --bg-card:rgba(255,255,255,0.03); --border-color:rgba(255,255,255,0.08); --text-white:#FFFFFF; --text-gray:#9CA3AF; --container-width:1240px; --radius-card:24px; --radius-pill:100px; }
-    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-    body { font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif; background-color:var(--bg-main); color:var(--text-white); line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased; background-image:radial-gradient(1200px 600px at 50% -10%,rgba(255,59,48,0.20) 0%,rgba(8,8,8,0) 60%),radial-gradient(900px 500px at 15% 35%,rgba(255,59,48,0.10) 0%,rgba(8,8,8,0) 55%),radial-gradient(1200px 700px at 85% 70%,rgba(255,59,48,0.08) 0%,rgba(8,8,8,0) 60%); background-attachment:fixed; min-height:100vh; overflow-x:hidden; }
-    body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; opacity:0.04; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-    .title-font { font-family:'Unbounded',sans-serif; text-transform:uppercase; letter-spacing:-0.02em; }
-    .tech-font { font-family: 'Unbounded', sans-serif; font-size:12px; opacity:0.7; text-transform:uppercase; }
-    a { text-decoration:none; color:inherit; transition:0.3s; cursor:pointer; }
-    button { border:none; outline:none; cursor:pointer; }
-    .container { max-width:var(--container-width); margin:0 auto; padding:0 24px; }
-    .section { padding:100px 0 80px; }
-    /* --- UA STRIPE --- */
+/* the tool: switches, inputs on grey paper, results on ink */
+.c-tool { padding-inline: var(--m); padding-bottom: clamp(80px, 9vw, 140px); }
+.calc-tabs { display: flex; flex-wrap: wrap; gap: 0; }
+.calc-tab, .run-sub-tab, .toggle-btn { cursor: pointer; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font: 600 var(--s-body)/1 var(--sans); }
+.calc-tab { min-height: 52px; padding: 0 26px; margin-right: -1px; }
+.calc-tab.active, .run-sub-tab.active { background: var(--ink); color: #fff; }
+.calc-tab:hover:not(.active), .run-sub-tab:hover:not(.active) { background: var(--surface); }
+.calc-mode { display: none; margin-top: 24px; }
+.calc-mode.active { display: block; }
+#calc-tri > .calc-input-group { max-width: 520px; }
+.calc-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: stretch; }
+.calc-grid > :first-child { background: var(--surface); padding: 32px; }
+.calc-grid > :last-child { background: var(--ink); color: #fff; padding: 32px 36px; }
+.calc-input-group { margin-bottom: 20px; }
+.calc-input-group:last-child { margin-bottom: 0; }
+.calc-label { display: block; margin-bottom: 8px; font-size: var(--s-small); font-weight: 600; }
+.calc-select, .calc-input { width: 100%; min-height: 52px; padding: 0 14px; border: 0; border-radius: 0; background: #fff; color: var(--ink); font: 500 var(--s-body)/1.2 var(--sans); }
+.calc-select { appearance: none; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23151515' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 16px center; padding-right: 40px; }
+#calc-tri > .calc-input-group .calc-select { background-color: var(--surface); }
+.calc-input::placeholder { color: #8f8983; }
+.calc-row, .calc-row-3 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.calc-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+.run-sub-tabs { display: flex; flex-wrap: wrap; margin-bottom: 24px; }
+.run-sub-tab { min-height: 44px; padding: 0 16px; margin-right: -1px; font-size: var(--s-small); }
+.run-sub-mode { display: none; }
+.run-sub-mode.active { display: block; }
+.toggle-group { display: inline-flex; }
+.toggle-btn { display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; margin-right: -1px; font-size: var(--s-small); font-weight: 500; }
+.toggle-btn.active { background: var(--ink); color: #fff; }
 
-    .header { position:fixed; top:24px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none; }
-    .header-island { pointer-events:auto; background:rgba(10,10,10,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-pill); padding:10px 32px; display:flex; align-items:center; gap:48px; box-shadow:0 20px 40px rgba(0,0,0,0.4); }
-    .logo { font-size:18px; font-weight:700; display:flex; align-items:center; gap:8px; font-family:'Unbounded'; }
-    .logo span { color:var(--primary); }
-    .nav-desk { display:flex; gap:32px; font-family:'Unbounded'; }
-    .nav-link { font-size:13px; font-weight:600; color:var(--text-gray); position:relative; font-family:'Unbounded'; }
-    .nav-link:hover { color:white; }
-    .nav-link.active { color:white; }
-    .nav-link.active::after { content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:4px; height:4px; background:var(--primary); border-radius:50%; }
-    .burger { display:none; font-size:28px; color:white; pointer-events:auto; cursor:pointer; }
-    .mobile-menu { position:fixed; inset:0; background:#080808; z-index:999; display:flex; flex-direction:column; justify-content:center; padding:40px; opacity:0; pointer-events:none; transition:0.3s; }
-    .mobile-menu.active { opacity:1; pointer-events:all; }
-    .mobile-link { font-family:'Unbounded'; font-size:32px; color:white; margin-bottom:32px; display:block; font-weight:700; }
-    .close-menu { position:absolute; top:32px; right:32px; font-size:32px; color:white; padding:10px; }
-    .btn { display:inline-flex; justify-content:center; align-items:center; background:var(--text-white); color:#000; height:56px; padding:0 40px; border-radius:var(--radius-pill); font-size:14px; font-weight:700; transition:0.3s; }
-    .btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(255,255,255,0.15); }
+.calc-res-title, .nut-prod-title, .nut-tl-title { font-size: var(--s-small); font-weight: 600; color: rgba(255,255,255,.7); }
+.calc-main-res { margin-top: 10px; font: 400 var(--s-head)/1 var(--serif); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.res-unit { font: 500 var(--s-body)/1 var(--sans); letter-spacing: 0; color: rgba(255,255,255,.7); margin: 0 6px 0 3px; }
+.calc-sub-res { margin-top: 6px; color: rgba(255,255,255,.7); }
+.vdot-badge { display: inline-flex; align-items: baseline; gap: 10px; margin-top: 20px; font-size: var(--s-small); font-weight: 600; color: rgba(255,255,255,.7); }
+.vdot-badge::before { content: ""; width: 8px; height: 8px; background: var(--red); align-self: center; }
+.vdot-badge span { font: 400 var(--s-sub)/1 var(--serif); color: #fff; }
+.calc-details { margin-top: 20px; display: grid; }
+.calc-details:empty { display: none; }
+.calc-detail-row { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.14); font-variant-numeric: tabular-nums; }
+.calc-detail-row span:first-child { color: rgba(255,255,255,.7); }
+.calc-detail-row span:last-child { text-align: right; }
+.calc-fold { border-top: 1px solid rgba(255,255,255,.14); }
+.calc-fold summary { min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; list-style: none; font-weight: 600; }
+.calc-fold summary::-webkit-details-marker { display: none; }
+.calc-fold summary::after { content: "+"; font-size: 22px; font-weight: 400; transition: transform .3s var(--ease); }
+.calc-fold[open] summary::after { transform: rotate(45deg); }
+.calc-fold-body { padding-bottom: 16px; }
+.calc-fold .calc-detail-row:first-child { border-top: 0; }
+.zone-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-variant-numeric: tabular-nums; }
+.zone-dot { width: 10px; height: 10px; flex-shrink: 0; }
+.zone-name { min-width: 110px; color: rgba(255,255,255,.7); }
+.zone-pace { margin-left: auto; text-align: right; }
+.split-controls { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.calc-grid > :last-child .toggle-btn { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+.calc-grid > :last-child .toggle-btn.active { background: #fff; color: var(--ink); border-color: #fff; }
+.split-header, .split-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding: 7px 0; font-variant-numeric: tabular-nums; }
+.split-header { font-size: var(--s-small); color: rgba(255,255,255,.7); border-bottom: 1px solid rgba(255,255,255,.14); }
+.split-row span:not(:first-child), .split-header span:not(:first-child) { text-align: right; }
+.split-row span:first-child { color: rgba(255,255,255,.7); }
+.split-table { max-height: 320px; overflow-y: auto; }
 
-    .calc-container { padding:32px; background:var(--bg-card); border-radius:var(--radius-card); border:1px solid var(--border-color); backdrop-filter:blur(10px); }
-    .calc-tabs { display:flex; gap:8px; margin-bottom:28px; }
-    .calc-tab { background:rgba(255,255,255,0.04); color:var(--text-gray); font-family:'Unbounded'; font-size:12px; cursor:pointer; padding:8px 20px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.02em; }
-    .calc-tab.active { color:white; background:var(--primary); }
-    .calc-tab:hover:not(.active) { background:rgba(255,255,255,0.08); color:white; }
-    .calc-mode { display:none; }
-    .calc-mode.active { display:block; animation:fadeIn 0.3s ease; }
-    @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
-    .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
-    .calc-input-group { margin-bottom:20px; }
-    .calc-label { display:block; font-family: 'Unbounded', sans-serif; font-size:11px; color:var(--text-gray); margin-bottom:6px; letter-spacing:0.05em; text-transform:uppercase; }
-    .calc-select,.calc-input { width:100%; background:rgba(255,255,255,0.03); border:1px solid var(--border-color); color:white; padding:12px 14px; border-radius:10px; font-family:'Manrope',sans-serif; font-size:15px; outline:none; transition:0.3s; }
-    .calc-select:focus,.calc-input:focus { border-color:var(--primary); background:rgba(255,59,48,0.02); }
-    .calc-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .calc-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
-    .toggle-group { display:inline-flex; background:rgba(255,255,255,0.04); border-radius:var(--radius-pill); border:1px solid var(--border-color); overflow:hidden; }
-    .toggle-btn { padding:6px 16px; font-family: 'Unbounded', sans-serif; font-size:11px; color:var(--text-gray); cursor:pointer; transition:0.3s; background:transparent; letter-spacing:0.05em; }
-    .toggle-btn.active { background:var(--primary); color:white; }
-    .run-sub-tabs { display:flex; gap:6px; margin-bottom:20px; }
-    .run-sub-tab { background:rgba(255,255,255,0.03); color:var(--text-gray); font-family: 'Unbounded', sans-serif; font-size:10px; cursor:pointer; padding:6px 14px; transition:0.3s; border-radius:var(--radius-pill); letter-spacing:0.03em; text-transform:uppercase; }
-    .run-sub-tab.active { color:white; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); }
-    .run-sub-mode { display:none; }
-    .run-sub-mode.active { display:block; }
-    .calc-result-box { background:rgba(0,0,0,0.25); border-radius:16px; padding:24px; border:1px solid var(--border-color); }
-    .calc-res-title { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); margin-bottom:16px; letter-spacing:0.08em; text-transform:uppercase; }
-    .calc-main-res { font-family:'Unbounded'; font-size:24px; color:var(--primary); line-height:1.1; margin-bottom:4px; letter-spacing:-0.02em; }
-    .calc-sub-res { font-family:'Manrope'; font-size:13px; color:var(--text-gray); margin-bottom:20px; }
-    .calc-details { border-top:1px solid var(--border-color); padding-top:16px; display:grid; gap:10px; }
-    .calc-detail-row { display:flex; justify-content:space-between; font-size:13px; font-family:'Manrope'; }
-    .calc-detail-row span:first-child { color:var(--text-gray); }
-    .calc-detail-row span:last-child { color:white; font-weight:500; }
-    .res-unit { font-size:0.55em; color:var(--text-gray); font-weight:400; margin:0 1px 0 2px; letter-spacing:0; }
-    .nut-result-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
-    .nut-card { background:rgba(0,0,0,0.25); border-radius:14px; padding:18px; border:1px solid var(--border-color); }
-    .nut-card-icon { font-size:20px; margin-bottom:8px; opacity:0.8; }
-    .nut-card-value { font-family:'Unbounded'; font-size:24px; color:var(--primary); line-height:1.1; margin-bottom:2px; }
-    .nut-card-label { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; }
-    .nut-card-sub { font-size:12px; color:var(--text-gray); margin-top:6px; }
-    .nut-products { margin-top:16px; }
-    .nut-prod-title { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
-    .nut-prod-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.04); }
-    .nut-prod-row:last-child { border-bottom:none; }
-    .nut-prod-name { color:var(--text-gray); display:flex; align-items:center; gap:8px; }
-    .nut-prod-name i { font-size:14px; width:18px; text-align:center; }
-    .nut-prod-qty { color:white; font-weight:500; font-family: 'Unbounded', sans-serif; font-size:12px; }
-    .nut-timeline { margin-top:16px; }
-    .nut-tl-title { font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border-color); }
-    .nut-tl-item { display:flex; gap:12px; padding:8px 0; font-size:13px; }
-    .nut-tl-time { font-family: 'Unbounded', sans-serif; font-size:11px; color:var(--primary); min-width:70px; flex-shrink:0; }
-    .nut-tl-desc { color:var(--text-gray); }
-    .vdot-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,59,48,0.08); border:1px solid rgba(255,59,48,0.25); border-radius:var(--radius-pill); padding:5px 14px; font-family: 'Unbounded', sans-serif; font-size:10px; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; margin-top:8px; }
-    .vdot-badge span { font-family:'Unbounded'; font-size:15px; color:var(--primary); font-weight:600; letter-spacing:-0.02em; }
-    .zone-row { display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13px; font-family:'Manrope'; border-bottom:1px solid rgba(255,255,255,0.04); }
-    .zone-row:last-child { border-bottom:none; }
-    .zone-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-    .zone-name { color:var(--text-gray); min-width:100px; font-size:12px; }
-    .zone-pace { color:white; font-weight:500; font-size:12px; font-family: 'Unbounded', sans-serif; }
-    .split-controls { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
-    .split-table { max-height:280px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.1) transparent; }
-    .split-table::-webkit-scrollbar { width:4px; }
-    .split-table::-webkit-scrollbar-track { background:transparent; }
-    .split-table::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:2px; }
-    .split-header { display:flex; justify-content:space-between; padding:6px 0; font-size:10px; font-family: 'Unbounded', sans-serif; color:var(--text-gray); text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--border-color); }
-    .split-row { display:flex; justify-content:space-between; padding:5px 0; font-size:12px; border-bottom:1px solid rgba(255,255,255,0.03); }
-    .split-row span:first-child { color:var(--text-gray); font-family: 'Unbounded', sans-serif; font-size:11px; min-width:50px; }
-    .split-row span:nth-child(2) { color:white; font-weight:500; font-family: 'Unbounded', sans-serif; font-size:11px; min-width:65px; text-align:right; }
-    .split-row span:last-child { color:var(--text-gray); font-family: 'Unbounded', sans-serif; font-size:11px; min-width:75px; text-align:right; }
-    .footer { padding:80px 0 40px; border-top:1px solid var(--border-color); text-align:center; }
-    .to-top-btn { position:fixed; right:24px; bottom:24px; width:46px; height:46px; border-radius:50%; background:rgba(10,10,10,0.7); border:1px solid rgba(255,255,255,0.15); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:18px; opacity:0; pointer-events:none; transition:0.25s; z-index:999; backdrop-filter:blur(8px); }
-    .to-top-btn.show { opacity:1; pointer-events:auto; }
-    @media(max-width:1024px) { .header-island{width:100%;margin:0 16px;padding:12px 24px;justify-content:space-between} .nav-desk{display:none} .burger{display:block} .calc-grid{grid-template-columns:1fr;gap:20px} .calc-container{padding:20px} .section{padding:108px 0 60px} }
-    @media(max-width:640px) { body{background-attachment:scroll} .container{padding:0 20px} .nut-result-grid{grid-template-columns:1fr 1fr;gap:8px} .nut-card{padding:14px} .nut-card-value{font-size:20px} .calc-main-res{font-size:20px} .run-sub-tabs{flex-wrap:wrap} .zone-name{min-width:80px;font-size:11px} .zone-pace{font-size:11px} }
-  </style>
-  <link rel="stylesheet" href="/typography.css?v=20261029b">
-  <script src="/assets/lang.js"></script>
+.nut-result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.14); }
+.nut-card { background: var(--ink); padding: 18px 18px 18px 0; }
+.nut-card:nth-child(even) { padding-left: 18px; }
+.nut-card-icon { display: none; }
+.nut-card-value { font: 400 var(--s-sub)/1.1 var(--serif); font-variant-numeric: tabular-nums; }
+.nut-card-value .res-unit { font-size: var(--s-small); }
+.nut-card-label { margin-top: 6px; font-weight: 600; }
+.nut-card-sub { margin-top: 4px; font-size: var(--s-small); color: rgba(255,255,255,.7); }
+.nut-products, .nut-timeline { margin-top: 28px; }
+.nut-prod-title, .nut-tl-title { padding-bottom: 10px; }
+.nut-prod-row, .nut-tl-item { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.14); }
+.nut-prod-name { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.86); }
+.nut-prod-name i { width: 18px; text-align: center; color: rgba(255,255,255,.6); }
+.nut-prod-qty { white-space: nowrap; font-weight: 600; font-variant-numeric: tabular-nums; }
+.nut-tl-item { justify-content: flex-start; }
+.nut-tl-time { min-width: 130px; flex-shrink: 0; font-weight: 600; }
+.nut-tl-desc { color: rgba(255,255,255,.8); }
+
+.page-calculator .close { min-height: 0; }
+.page-calculator .close-foot { margin-top: clamp(40px, 5vw, 64px); padding-top: 0; }
+
+/* how to use it: text in two columns under the heading */
+.c-info { padding-block: clamp(80px, 9vw, 140px); background: var(--surface); }
+.c-info h2 { max-width: 20ch; }
+.c-info .cols { margin-top: 40px; columns: 2; column-gap: 56px; }
+.c-info .cols p { break-inside: avoid; margin-bottom: 20px; }
+
+/* where to use the paces */
+.c-links { padding-block: clamp(80px, 9vw, 140px); }
+.c-links .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.go { position: relative; display: grid; gap: 14px; align-content: start; padding: 32px 32px 72px; background: var(--surface); text-decoration: none; transition: background-color .2s, color .2s; }
+.go-t { font: 400 var(--s-sub)/1.15 var(--serif); letter-spacing: -0.015em; }
+.go-p { color: var(--soft); }
+.go .arr { position: absolute; left: 32px; bottom: 28px; font-size: 22px; transition: transform .3s var(--ease); }
+.go:hover { background: var(--ink); color: #fff; }
+.go:hover .go-p { color: rgba(255,255,255,.75); }
+.go:hover .arr { transform: translateX(6px); }
+
+.c-tool .calc-grid > :first-child, .c-info, .go, .calc-tab, .run-sub-tab { background-image: var(--grain) !important; }
+.calc-grid > :last-child, .nut-card, .calc-tab.active, .run-sub-tab.active, .go:hover { background-image: var(--grain-dark) !important; }
+
+@media (max-width: 860px) {
+  .calc-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .calc-tab { padding: 0 8px; }
+  .calc-grid { grid-template-columns: minmax(0, 1fr); }
+  .calc-grid > :first-child, .calc-grid > :last-child { padding: 22px 18px; }
+  .run-sub-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .run-sub-tab { padding: 0 6px; font-size: 13px; }
+  .zone-row { flex-wrap: wrap; gap: 4px 12px; }
+  .zone-name { min-width: 0; }
+  .zone-pace { flex-basis: 100%; margin-left: 22px; text-align: left; }
+  .nut-tl-time { min-width: 96px; }
+  .c-info .cols { columns: 1; }
+  .c-links .pair { grid-template-columns: minmax(0, 1fr); }
+  .go { padding: 24px 20px 64px; }
+  .go .arr { left: 20px; }
+}
+ </style>
+ <script src="/assets/lang.js"></script>
 </head>
 <body class="site-page page-calculator">
-  <header class="header">
-    <div class="header-island">
-      <a href="index.html" class="logo">INNA<span>TRI</span></a>
-      <nav class="nav-desk">
-        <a href="index.html" class="nav-link">HOME</a>
-        <a href="run.html" class="nav-link">RUNNING</a>
-        <a href="triathlon.html" class="nav-link">TRIATHLON</a>
-        <a href="blog.html" class="nav-link">BLOG</a>
-        <a href="reviews.html" class="nav-link">REVIEWS</a>
-        <a href="calculator.html" class="nav-link active">CALCULATOR</a>
-        <a href="pricing.html" class="nav-link">PRICING</a>
-        <a href="contact.html" class="nav-link">CONTACT</a>
-      </nav>
-      <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="../ua/calculator.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">UA</a><a href="calculator.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">EN</a><a href="../calculator.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></span>
-      <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
-    </div>
-  </header>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="close-menu" onclick="toggleMenu()"><i class="ph ph-x"></i></div>
-    <a href="index.html" class="mobile-link" onclick="toggleMenu()">HOME</a>
-    <a href="run.html" class="mobile-link" onclick="toggleMenu()">RUNNING</a>
-    <a href="triathlon.html" class="mobile-link" onclick="toggleMenu()">TRIATHLON</a>
-    <a href="blog.html" class="mobile-link" onclick="toggleMenu()">BLOG</a>
-    <a href="reviews.html" class="mobile-link" onclick="toggleMenu()">REVIEWS</a>
-    <a href="calculator.html" class="mobile-link" onclick="toggleMenu()">CALCULATOR</a>
-    <a href="pricing.html" class="mobile-link" onclick="toggleMenu()">PRICING</a>
-    <a href="contact.html" class="mobile-link" onclick="toggleMenu()">CONTACT</a>
-    <div style="display:flex;gap:10px;margin-top:12px;"><a href="../ua/calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">UA</a><a href="calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">EN</a><a href="../calculator.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;margin-bottom:0;display:inline-block;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">RU</a></div>
+<header class="top">
+  <a class="mark" href="/en/">INNA TRI</a>
+  <nav class="tab" aria-label="Sections">
+    <a href="/en/run.html">Running</a>
+    <a href="/en/triathlon.html">Triathlon</a>
+    <a href="/en/blog.html">Blog</a>
+    <a href="/en/calculator.html" aria-current="page">Calculator</a>
+    <a href="/en/#pricing">Pricing</a>
+  </nav>
+  <div class="top-r">
+    <div class="lang"><a href="/ua/calculator.html">UA</a><a href="/en/calculator.html" aria-current="page">EN</a><a href="/calculator.html">RU</a></div>
+    <a class="btn btn-ink" href="/en/contact.html">Discuss your goal <span class="arr" aria-hidden="true">→</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-top"><a class="mark" href="/en/">INNA TRI</a><button class="menu-close" type="button">Close</button></div>
+  <nav aria-label="Menu">
+    <a href="/en/">Home</a>
+    <a href="/en/run.html">Running</a>
+    <a href="/en/triathlon.html">Triathlon</a>
+    <a href="/en/blog.html">Blog</a>
+    <a href="/en/#reviews">Reviews</a>
+    <a href="/en/calculator.html" aria-current="page">Calculator</a>
+    <a href="/en/#pricing">Pricing</a>
+    <a href="/en/contact.html">Contact</a>
+  </nav>
+  <div class="lang"><a href="/ua/calculator.html">UA</a><a href="/en/calculator.html" aria-current="page">EN</a><a href="/calculator.html">RU</a></div>
+  <a class="btn" href="/quiz-landing/?lang=en">Take the 90-second check <span class="arr" aria-hidden="true">→</span></a>
+</div>
 
-  <section id="calculator" class="section">
-    <div class="container">
-      <h1 class="title-font" style="text-align:center;margin-bottom:12px;font-size:clamp(22px,4vw,32px);">VDOT Calculator</h1>
-      <p style="text-align:center;max-width:720px;margin:0 auto 28px;color:var(--text-gray);font-size:15px;">Enter a recent race result and get your VDOT, pace, speed, training zones and race predictions.</p>
+<main>
+<section class="c-hero wrap" aria-labelledby="calc-h">
+  <h1 id="calc-h">VDOT Calculator</h1>
+  <p class="lead">Enter a recent race result and get your VDOT, pace, speed, training zones and race predictions.</p>
+</section>
+
+<section class="c-tool" id="calculator" aria-label="Calculator">
       <div class="calc-container">
-        <div class="calc-tabs">
-          <button class="calc-tab" onclick="switchCalcMode('tri',event)">TRIATHLON</button>
-          <button class="calc-tab active" onclick="switchCalcMode('run',event)">RUNNING</button>
-          <button class="calc-tab" onclick="switchCalcMode('nutrition',event)">NUTRITION</button>
+        <div class="calc-tabs" role="tablist" aria-label="Calculator mode">
+          <button class="calc-tab" onclick="switchCalcMode('tri',event)">Triathlon</button>
+          <button class="calc-tab active" onclick="switchCalcMode('run',event)">Running</button>
+          <button class="calc-tab" onclick="switchCalcMode('nutrition',event)">Nutrition</button>
         </div>
 
         <!-- TRIATHLON -->
@@ -216,12 +240,12 @@
           <div class="calc-grid">
             <div>
               <div class="calc-input-group"><label class="calc-label">Swimming (min/100m)</label><div class="calc-row"><input type="number" id="triSwimM" class="calc-input" placeholder="Min" value="2" min="0" inputmode="numeric"><input type="number" id="triSwimS" class="calc-input" placeholder="Sec" value="00" min="0" max="59" inputmode="numeric"></div></div>
-              <div class="calc-input-group"><label class="calc-label">Cycling (km/h)</label><input type="number" id="triBikeSpeed" class="calc-input" placeholder="km/h" value="30" min="0" step="0.1" inputmode="decimal"></div>
+              <div class="calc-input-group"><label class="calc-label">Cycling (km/h)</label><input type="number" id="triBikeSpeed" class="calc-input" placeholder="Km/h" value="30" min="0" step="0.1" inputmode="decimal"></div>
               <div class="calc-input-group"><label class="calc-label">Running (min/km)</label><div class="calc-row"><input type="number" id="triRunM" class="calc-input" placeholder="Min" value="5" min="0" inputmode="numeric"><input type="number" id="triRunS" class="calc-input" placeholder="Sec" value="30" min="0" max="59" inputmode="numeric"></div></div>
               <div class="calc-input-group"><label class="calc-label">Transitions T1+T2 (min)</label><input type="number" id="triT1T2" class="calc-input" placeholder="Min" value="5" min="0" inputmode="numeric"></div>
             </div>
             <div class="calc-result-box">
-              <div class="calc-res-title">RESULT</div>
+              <div class="calc-res-title">Result</div>
               <div class="calc-main-res" id="triTotalResult">--</div>
               <div class="calc-sub-res" id="triSubResult">total time</div>
               <div class="calc-details" id="triDetails"></div>
@@ -232,27 +256,27 @@
         <!-- RUNNING -->
         <div id="calc-run" class="calc-mode active">
           <div class="run-sub-tabs">
-            <button class="run-sub-tab active" onclick="switchRunMode('time',this)">I KNOW MY TIME</button>
-            <button class="run-sub-tab" onclick="switchRunMode('pace',this)">I KNOW MY PACE</button>
-            <button class="run-sub-tab" onclick="switchRunMode('speed',this)">I KNOW MY SPEED</button>
+            <button class="run-sub-tab active" onclick="switchRunMode('time',this)">I know my time</button>
+            <button class="run-sub-tab" onclick="switchRunMode('pace',this)">I know my pace</button>
+            <button class="run-sub-tab" onclick="switchRunMode('speed',this)">I know my speed</button>
           </div>
           <div class="calc-grid">
             <div>
               <div id="run-mode-time" class="run-sub-mode active">
-                <div class="calc-input-group"><label class="calc-label">Distance</label><select id="runDist1" class="calc-select run-input" onchange="handleDistChange(1)"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="21.1">Half Marathon (21.1 km)</option><option value="42.2">Marathon (42.2 km)</option><option value="custom">Custom distance</option></select><input type="number" id="runCustomDist1" class="calc-input run-input" placeholder="Distance in km" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
+                <div class="calc-input-group"><label class="calc-label">Distance</label><select id="runDist1" class="calc-select run-input" onchange="handleDistChange(1)"><option value="5">5K</option><option value="10" selected>10K</option><option value="21.1">Half marathon (21.1 km)</option><option value="42.2">Marathon (42.2 km)</option><option value="custom">Custom distance</option></select><input type="number" id="runCustomDist1" class="calc-input run-input" placeholder="Distance in km" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
                 <div class="calc-input-group"><label class="calc-label">Your Time</label><div class="calc-row-3"><input type="number" id="runH1" class="calc-input run-input" placeholder="Hr" min="0" inputmode="numeric"><input type="number" id="runM1" class="calc-input run-input" placeholder="Min" value="50" min="0" inputmode="numeric"><input type="number" id="runS1" class="calc-input run-input" placeholder="Sec" value="0" min="0" max="59" inputmode="numeric"></div></div>
               </div>
               <div id="run-mode-pace" class="run-sub-mode">
-                <div class="calc-input-group"><label class="calc-label">Distance</label><select id="runDist2" class="calc-select run-input" onchange="handleDistChange(2)"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="21.1">Half Marathon (21.1 km)</option><option value="42.2">Marathon (42.2 km)</option><option value="custom">Custom distance</option></select><input type="number" id="runCustomDist2" class="calc-input run-input" placeholder="Distance in km" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
-                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Pace</label><div class="toggle-group" id="paceUnitToggle"><span class="toggle-btn active" onclick="setPaceUnit('km',this)">MIN/KM</span><span class="toggle-btn" onclick="setPaceUnit('mi',this)">MIN/MI</span></div></div><div class="calc-row"><input type="number" id="paceM" class="calc-input run-input" placeholder="Min" value="5" min="0" inputmode="numeric"><input type="number" id="paceS" class="calc-input run-input" placeholder="Sec" value="30" min="0" max="59" inputmode="numeric"></div></div>
+                <div class="calc-input-group"><label class="calc-label">Distance</label><select id="runDist2" class="calc-select run-input" onchange="handleDistChange(2)"><option value="5">5K</option><option value="10" selected>10K</option><option value="21.1">Half marathon (21.1 km)</option><option value="42.2">Marathon (42.2 km)</option><option value="custom">Custom distance</option></select><input type="number" id="runCustomDist2" class="calc-input run-input" placeholder="Distance in km" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
+                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Pace</label><div class="toggle-group" id="paceUnitToggle"><span class="toggle-btn active" onclick="setPaceUnit('km',this)">min/km</span><span class="toggle-btn" onclick="setPaceUnit('mi',this)">min/mi</span></div></div><div class="calc-row"><input type="number" id="paceM" class="calc-input run-input" placeholder="Min" value="5" min="0" inputmode="numeric"><input type="number" id="paceS" class="calc-input run-input" placeholder="Sec" value="30" min="0" max="59" inputmode="numeric"></div></div>
               </div>
               <div id="run-mode-speed" class="run-sub-mode">
-                <div class="calc-input-group"><label class="calc-label">Distance</label><select id="runDist3" class="calc-select run-input" onchange="handleDistChange(3)"><option value="5">5 km</option><option value="10" selected>10 km</option><option value="21.1">Half Marathon (21.1 km)</option><option value="42.2">Marathon (42.2 km)</option><option value="custom">Custom distance</option></select><input type="number" id="runCustomDist3" class="calc-input run-input" placeholder="Distance in km" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
-                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Speed</label><div class="toggle-group" id="speedUnitToggle"><span class="toggle-btn active" onclick="setSpeedUnit('kmh',this)">KM/H</span><span class="toggle-btn" onclick="setSpeedUnit('mph',this)">MPH</span></div></div><input type="number" id="speedVal" class="calc-input run-input" placeholder="km/h" value="10.9" min="0" step="0.1" inputmode="decimal"></div>
+                <div class="calc-input-group"><label class="calc-label">Distance</label><select id="runDist3" class="calc-select run-input" onchange="handleDistChange(3)"><option value="5">5K</option><option value="10" selected>10K</option><option value="21.1">Half marathon (21.1 km)</option><option value="42.2">Marathon (42.2 km)</option><option value="custom">Custom distance</option></select><input type="number" id="runCustomDist3" class="calc-input run-input" placeholder="Distance in km" min="0.1" step="0.1" inputmode="decimal" style="display:none;margin-top:8px;"></div>
+                <div class="calc-input-group"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label class="calc-label" style="margin:0;">Speed</label><div class="toggle-group" id="speedUnitToggle"><span class="toggle-btn active" onclick="setSpeedUnit('kmh',this)">km/h</span><span class="toggle-btn" onclick="setSpeedUnit('mph',this)">mph</span></div></div><input type="number" id="speedVal" class="calc-input run-input" placeholder="Km/h" value="10.9" min="0" step="0.1" inputmode="decimal"></div>
               </div>
             </div>
             <div class="calc-result-box">
-              <div class="calc-res-title">RESULT</div>
+              <div class="calc-res-title">Result</div>
               <div class="calc-main-res" id="runMainResult">--</div>
               <div class="calc-sub-res" id="runSubResult"></div>
               <div id="runVdot"></div>
@@ -282,110 +306,62 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+</section>
 
-  <!-- SEO: Informational content block -->
-  <section style="padding:0 0 60px;">
-    <div class="container" style="max-width:860px;">
-      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);text-align:center;">HOW TO USE THE RUNNING PACE CALCULATOR</h2>
-      <div style="font-size:14px;">
-        <p style="margin-bottom:14px;">This running pace calculator combines everything a runner and triathlete needs in one tool: pace and speed calculation, a <strong style="color:var(--text-white);">VDOT</strong> fitness score based on Jack Daniels' Running Formula, five training pace zones, race predictions for 8 distances from 1 km to the marathon, a split table, and a race nutrition planner.</p>
-        <p style="margin-bottom:14px;"><strong style="color:var(--text-white);">VDOT</strong> is the key metric in the Daniels system. It is calculated from your race result at any distance and represents your current aerobic fitness level. Based on your VDOT, the calculator determines five training zones: Easy running, Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition. Each zone targets specific physiological adaptations.</p>
-        <p style="margin-bottom:14px;"><strong style="color:var(--text-white);">Race predictions</strong> are calculated using the Riegel formula: T2&nbsp;=&nbsp;T1&nbsp;&times;&nbsp;(D2/D1)<sup>1.06</sup>. Enter your result at one distance to get predictions for all others. The split table shows your per-km or per-mile splits with the option to choose between even pacing and a negative split strategy.</p>
-        <p><strong style="color:var(--text-white);">The nutrition calculator</strong> is based on ACSM and ISSN guidelines for recreational athletes. It estimates carbohydrates (30-90 g/hr), fluid (400-800 ml/hr), sodium, and caffeine based on your weight, intensity, and temperature, and provides specific product recommendations and a fueling timeline.</p>
-      </div>
-    </div>
-  </section>
+<section class="c-info wrap">
+  <h2 class="serif">How to use the running pace calculator</h2>
+  <div class="cols enter">
+    <p>This running pace calculator combines everything a runner and triathlete needs in one tool: pace and speed calculation, a <strong>VDOT</strong> fitness score based on Jack Daniels' Running Formula, five training pace zones, race predictions for 8 distances from 1 km to the marathon, a split table, and a race nutrition planner.</p>
+        <p><strong>VDOT</strong> is the key metric in the Daniels system. It is calculated from your race result at any distance and represents your current aerobic fitness level. Based on your VDOT, the calculator determines five training zones: Easy running, Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition. Each zone targets specific physiological adaptations.</p>
+        <p><strong>Race predictions</strong> are calculated using the Riegel formula: T2 = T1 × (D2/D1)<sup>1.06</sup>. Enter your result at one distance to get predictions for all others. The split table shows your per-km or per-mile splits with the option to choose between even pacing and a negative split strategy.</p>
+        <p><strong>The nutrition calculator</strong> is based on ACSM and ISSN guidelines for recreational athletes. It estimates carbohydrates (30-90 g/hr), fluid (400-800 ml/hr), sodium, and caffeine based on your weight, intensity, and temperature, and provides specific product recommendations and a fueling timeline.</p>
+  </div>
+</section>
 
-  <!-- SEO: Visible FAQ section -->
-  <section style="padding:0 0 80px;">
-    <div class="container" style="max-width:860px;">
-      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);text-align:center;">FREQUENTLY ASKED QUESTIONS</h2>
-      <div style="display:grid;gap:16px;">
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How do I predict my marathon time from a 5K result?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">Enter 5 km and your finish time in the RUNNING section. The calculator uses the Riegel formula to predict your marathon and other race times. For example, a 25-minute 5K predicts roughly a 3:52 marathon.</p>
-        </details>
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is VDOT and what is a good score?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">VDOT is a running fitness metric from Jack Daniels' Running Formula. VDOT 30-35 is beginner, 40-45 intermediate, 50-55 advanced, and 60+ is elite level.</p>
-        </details>
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">What are the Jack Daniels training pace zones?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">Five zones: Easy (65-79% VO2max for recovery), Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition (faster than VDOT pace). Each zone develops different physiological qualities.</p>
-        </details>
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How many gels should I take during a marathon?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">Aim for 40-60g of carbs per hour, which is 2-3 gels per hour. For a 4-hour marathon, plan for 8-10 gels. Use the NUTRITION section for a personalized calculation.</p>
-        </details>
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is a negative split in running?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">A race strategy where the second half is run faster than the first (typically 1-3% faster). Considered optimal for marathons. The split table lets you toggle between even and negative split strategies.</p>
-        </details>
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How much water should I drink during a marathon?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">400-800 ml per hour depending on temperature and body weight. In hot conditions (above 25°C/77°F), aim for up to 800 ml/h. Drink 150-200ml every 15-20 minutes.</p>
-        </details>
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How do I calculate my Ironman finish time?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">In the TRIATHLON section, select Ironman 140.6, enter your swim pace (min/100m), bike speed (km/h), run pace (min/km), and transition times. The calculator shows total time and a breakdown by discipline.</p>
-        </details>
-        <details style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;">
-          <summary style="cursor:pointer;font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;">How does the NUTRITION section work?<span style="color:var(--primary);font-size:18px;flex-shrink:0;margin-left:12px;">+</span></summary>
-          <p style="font-size:14px;">Enter your weight, race duration, intensity, and temperature. The calculator estimates carbs, fluid, sodium, and caffeine based on ACSM/ISSN guidelines, and provides specific product recommendations and a fueling timeline.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+<section class="faq" aria-labelledby="faq-h">
+  <div class="faq-head"><h2 class="serif" id="faq-h">Frequently asked questions</h2></div>
+  <div class="qa-list">
+    <div class="qa split"><h3>How do I predict my marathon time from a 5K result?</h3><div class="ans"><p>Enter 5 km and your finish time in the RUNNING section. The calculator uses the Riegel formula to predict your marathon and other race times. For example, a 25-minute 5K predicts roughly a 3:52 marathon.</p></div></div>
+    <div class="qa split"><h3>What is VDOT and what is a good score?</h3><div class="ans"><p>VDOT is a running fitness metric from Jack Daniels' Running Formula. VDOT 30-35 is beginner, 40-45 intermediate, 50-55 advanced, and 60+ is elite level.</p></div></div>
+    <div class="qa split"><h3>What are the Jack Daniels training pace zones?</h3><div class="ans"><p>Five zones: Easy (65-79% VO2max for recovery), Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition (faster than VDOT pace). Each zone develops different physiological qualities.</p></div></div>
+    <div class="qa split"><h3>How many gels should I take during a marathon?</h3><div class="ans"><p>Aim for 40-60g of carbs per hour, which is 2-3 gels per hour. For a 4-hour marathon, plan for 8-10 gels. Use the NUTRITION section for a personalized calculation.</p></div></div>
+    <div class="qa split"><h3>What is a negative split in running?</h3><div class="ans"><p>A race strategy where the second half is run faster than the first (typically 1-3% faster). Considered optimal for marathons. The split table lets you toggle between even and negative split strategies.</p></div></div>
+    <div class="qa split"><h3>How much water should I drink during a marathon?</h3><div class="ans"><p>400-800 ml per hour depending on temperature and body weight. In hot conditions (above 25°C/77°F), aim for up to 800 ml/h. Drink 150-200ml every 15-20 minutes.</p></div></div>
+    <div class="qa split"><h3>How do I calculate my Ironman finish time?</h3><div class="ans"><p>In the TRIATHLON section, select Ironman 140.6, enter your swim pace (min/100m), bike speed (km/h), run pace (min/km), and transition times. The calculator shows total time and a breakdown by discipline.</p></div></div>
+    <div class="qa split"><h3>How does the NUTRITION section work?</h3><div class="ans"><p>Enter your weight, race duration, intensity, and temperature. The calculator estimates carbs, fluid, sodium, and caffeine based on ACSM/ISSN guidelines, and provides specific product recommendations and a fueling timeline.</p></div></div>
+  </div>
+</section>
 
-  
-  <!-- Internal: put calculator paces to work -->
-  <section style="padding:0 0 80px;">
-    <div class="container" style="max-width:860px;">
-      <h2 class="title-font" style="font-size:clamp(18px,3vw,24px);text-align:center;">PUT YOUR PACES TO WORK</h2>
-      <div style="display:grid;gap:16px;">
-        <a href="blog/half-marathon-3-runs-a-week.html" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;text-decoration:none;color:inherit;display:block;">
-          <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--primary);">HALF MARATHON TRAINING PLAN: 3 DAYS A WEEK &rarr;</div>
-          <p style="font-size:14px;margin:0;color:var(--text-gray);">How three structured runs on exactly these paces get you to the finish line. For runners with a job, a family, and a life.</p>
-        </a>
-        <a href="blog/heart-rate-zones.html" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:18px 20px;text-decoration:none;color:inherit;display:block;">
-          <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--primary);">HEART RATE ZONE TRAINING FOR RUNNERS &rarr;</div>
-          <p style="font-size:14px;margin:0;color:var(--text-gray);">What the 5 zones mean, how to find yours and why 80% of your running should feel easy.</p>
-        </a>
-      </div>
-    </div>
-  </section>
+<section class="c-links wrap">
+  <h2 class="serif">Put your paces to work</h2>
+  <div class="pair">
+      <a class="go enter" href="/en/blog/half-marathon-3-runs-a-week.html"><span class="go-t">Half marathon training plan: 3 days a week</span><span class="go-p">How three structured runs on exactly these paces get you to the finish line. For runners with a job, a family, and a life.</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="go enter" href="/en/blog/heart-rate-zones.html"><span class="go-t">Heart rate zone training for runners</span><span class="go-p">What the 5 zones mean, how to find yours and why 80% of your running should feel easy.</span><span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</section>
 
-  <section style="padding:0 0 72px;">
-    <div class="container" style="max-width:860px;">
-      <div class="run-calc-promo" style="background:rgba(255,59,48,0.06); border:1px solid rgba(255,59,48,0.25); border-radius:16px; padding:28px 24px; text-align:center;">
-        <div class="title-font" style="font-size:20px; margin-bottom:10px;">YOU'VE GOT THE NUMBERS. NOW WHAT?</div>
-        <p style="color:var(--text-gray); font-size:15px; margin-bottom:16px;">Paces and zones - done. The interesting part starts now: turning them into a week that won't break you before race day: 9 questions, 90 seconds, an honest answer - and my personal feedback.</p>
-        <a href="../quiz-landing/?lang=en" style="display:inline-block; background:var(--primary); color:#fff; text-decoration:none; font-weight:700; font-size:15px; padding:14px 28px; border-radius:12px;">Take the 90-second check &rarr;</a>
-      </div>
-    </div>
-  </section>
+<section class="close" aria-labelledby="close-h">
+  <h2 class="serif" id="close-h"><span>You've got the numbers.</span><br><span>Now what?</span></h2>
+  <div class="close-foot enter">
+    <p>Paces and zones - done. The interesting part starts now: turning them into a week that won't break you before race day: 9 questions, 90 seconds, an honest answer - and my personal feedback.</p>
+    <a class="btn" href="/quiz-landing/?lang=en">Take the 90-second check <span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</section>
+</main>
 
-<footer class="footer">
-    <div class="container">
-      <h2 class="title-font" style="font-size:24px;">READY TO BECOME AN IRONMAN?</h2>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://t.me/InnaRH" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="ph ph-telegram-logo"></i> TELEGRAM</a>
-        <a href="https://www.instagram.com/inna.tri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="ph ph-instagram-logo"></i> INSTAGRAM</a>
-        <a href="https://www.youtube.com/@innatri" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="ph ph-youtube-logo"></i> YOUTUBE</a>
-        <a href="mailto:innaryzhykh@gmail.com" class="btn" style="background:transparent;border:1px solid #333;color:white;display:inline-flex;align-items:center;gap:8px;"><i class="ph ph-envelope-simple"></i> EMAIL</a>
-      </div>
-      <p class="tech-font" style="margin-top:40px; color: var(--text-gray);">Kyiv, Ukraine 🇺🇦</p>
-      <p class="tech-font" style="margin-top:12px;">&copy; 2026 INNATRI.</p>
-    </div>
-  </footer>
-
-  <button class="to-top-btn" id="toTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ph ph-arrow-up"></i></button>
+<footer class="foot-main">
+  <div class="fcols" id="footer-nav">
+    <div><p>Tell me about your race, current shape and schedule - I'll answer honestly which format will get you there.</p><p style="margin-top:16px">Kyiv, Ukraine 🇺🇦</p></div>
+    <ul><li class="hd">Sections</li><li><a href="/en/run.html">Running</a></li><li><a href="/en/triathlon.html">Triathlon</a></li><li><a href="/en/blog.html">Blog</a></li><li><a href="/en/#reviews">Reviews</a></li><li><a href="/en/calculator.html">Calculator</a></li><li><a href="/en/#pricing">Pricing</a></li><li><a href="/en/contact.html">Contact</a></li></ul>
+    <ul><li class="hd">Contact</li><li><a href="https://t.me/InnaRH">Telegram</a></li><li><a href="https://www.instagram.com/inna.tri">Instagram</a></li><li><a href="https://www.youtube.com/@innatri">YouTube</a></li><li><a href="mailto:innaryzhykh@gmail.com">Email</a></li></ul>
+    <ul><li class="hd">Language</li><li><a href="/ua/calculator.html">UA</a></li><li><a href="/en/calculator.html">EN</a></li><li><a href="/calculator.html">RU</a></li></ul>
+  </div>
+  <svg class="wordmark" viewBox="0 0 1000 150" role="img" aria-label="INNA TRI"><text x="-6" y="138" textLength="1008" lengthAdjust="spacingAndGlyphs" font-family="Noto Serif Display, Georgia, serif" font-size="184" fill="#fff" letter-spacing="-4">INNA TRI</text></svg>
+  <div class="legal"><span>© 2026 INNATRI.</span><a href="/en/privacy.html">Privacy Policy</a></div>
+</footer>
 
   <script>
-    function toggleMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('active');document.body.style.overflow=m.classList.contains('active')?'hidden':'auto'}
-    function switchCalcMode(mode,e){document.querySelectorAll('.calc-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.calc-tab').forEach(el=>el.classList.remove('active'));document.getElementById('calc-'+mode).classList.add('active');if(e&&e.target)e.target.classList.add('active');if(mode==='tri')calculateTriTime();if(mode==='run')calculateRun();if(mode==='nutrition')calculateNutrition()}
+    function switchCalcMode(mode,e){document.querySelectorAll('.calc-tab').forEach(el=>el.setAttribute('aria-selected','false'));if(e&&e.target)e.target.setAttribute('aria-selected','true');document.querySelectorAll('.calc-mode').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.calc-tab').forEach(el=>el.classList.remove('active'));document.getElementById('calc-'+mode).classList.add('active');if(e&&e.target)e.target.classList.add('active');if(mode==='tri')calculateTriTime();if(mode==='run')calculateRun();if(mode==='nutrition')calculateNutrition()}
 
     const MI=1.60934;
 
@@ -522,7 +498,7 @@
       // Training zones
       if(vdot>0){
         const z=getTrainingZones(vdot);
-        const colors={easy:'#4CAF50',marathon:'#2196F3',threshold:'#FF9800',interval:'#FF3B30',repetition:'#9C27B0'};
+        const colors={easy:'#d9d4cd',marathon:'#a39c94',threshold:'#e0796f',interval:'#c8221a',repetition:'#7c140e'};
         const names={easy:'Easy',marathon:'Marathon',threshold:'Threshold',interval:'Interval',repetition:'Repetition'};
         let zh=`<details class="calc-fold"><summary>Training zones · VDOT ${vdot.toFixed(1)}</summary><div class="calc-fold-body">`;
         zh+=`<div class="zone-row"><span class="zone-dot" style="background:${colors.easy}"></span><span class="zone-name">${names.easy}</span><span class="zone-pace">${formatPace(z.easy.max)} - ${formatPace(z.easy.min)} /km &middot; ${formatPace(z.easy.max*MI)} - ${formatPace(z.easy.min*MI)} /mi</span></div>`;
@@ -545,8 +521,8 @@
 
         let sh=`<details class="calc-fold"><summary>Split table</summary><div class="calc-fold-body">`;
         sh+=`<div class="split-controls">`;
-        sh+=`<div class="toggle-group" id="splitTypeToggle"><span class="toggle-btn${splitType==='even'?' active':''}" onclick="setSplitType('even',this)">EVEN</span><span class="toggle-btn${splitType==='negative'?' active':''}" onclick="setSplitType('negative',this)">NEGATIVE</span></div>`;
-        sh+=`<div class="toggle-group" id="splitUnitToggle"><span class="toggle-btn${splitUnit==='km'?' active':''}" onclick="setSplitUnit('km',this)">KM</span><span class="toggle-btn${splitUnit==='mi'?' active':''}" onclick="setSplitUnit('mi',this)">MILES</span></div>`;
+        sh+=`<div class="toggle-group" id="splitTypeToggle"><span class="toggle-btn${splitType==='even'?' active':''}" onclick="setSplitType('even',this)">Even</span><span class="toggle-btn${splitType==='negative'?' active':''}" onclick="setSplitType('negative',this)">Negative</span></div>`;
+        sh+=`<div class="toggle-group" id="splitUnitToggle"><span class="toggle-btn${splitUnit==='km'?' active':''}" onclick="setSplitUnit('km',this)">km</span><span class="toggle-btn${splitUnit==='mi'?' active':''}" onclick="setSplitUnit('mi',this)">miles</span></div>`;
         sh+=`</div>`;
         sh+=`<div class="split-header"><span>#</span><span>Split</span><span>Elapsed</span></div>`;
         sh+=`<div class="split-table">`;
@@ -595,10 +571,10 @@
       let sph=400;if(temp==='hot')sph=600;else if(temp==='cool')sph=300;if(int==='high')sph+=100;sph=Math.min(700,sph);const ts=Math.round(sph*dur);
       const caf=Math.round(w*3),showCaf=dur>=2;
 
-      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span style="font-size:14px;color:var(--text-gray)"> g/hr</span></div><div class="nut-card-label">Carbs</div><div class="nut-card-sub">${dur<1?'Water is enough':'Total: '+tc+' g'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span style="font-size:14px;color:var(--text-gray)"> ml/hr</span></div><div class="nut-card-label">Fluid</div><div class="nut-card-sub">Total: ${(tf/1000).toFixed(1)} L</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span style="font-size:14px;color:var(--text-gray)"> mg/hr</span></div><div class="nut-card-label">Sodium</div><div class="nut-card-sub">Total: ${(ts/1000).toFixed(1)} g</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span style="font-size:14px;color:var(--text-gray)"> mg</span></div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">30-60 min before finish</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">–</div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">Not needed (&lt;2h)</div></div>`}`;
+      document.getElementById('nutCards').innerHTML=`<div class="nut-card"><div class="nut-card-icon">🍯</div><div class="nut-card-value">${cph}<span class="res-unit"> g/hr</span></div><div class="nut-card-label">Carbs</div><div class="nut-card-sub">${dur<1?'Water is enough':'Total: '+tc+' g'}</div></div><div class="nut-card"><div class="nut-card-icon">💧</div><div class="nut-card-value">${fph}<span class="res-unit"> ml/hr</span></div><div class="nut-card-label">Fluid</div><div class="nut-card-sub">Total: ${(tf/1000).toFixed(1)} L</div></div><div class="nut-card"><div class="nut-card-icon">🧂</div><div class="nut-card-value">${sph}<span class="res-unit"> mg/hr</span></div><div class="nut-card-label">Sodium</div><div class="nut-card-sub">Total: ${(ts/1000).toFixed(1)} g</div></div>${showCaf?`<div class="nut-card"><div class="nut-card-icon">☕</div><div class="nut-card-value">${caf}<span class="res-unit"> mg</span></div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">30-60 min before finish</div></div>`:`<div class="nut-card"><div class="nut-card-icon">⚡</div><div class="nut-card-value">–</div><div class="nut-card-label">Caffeine</div><div class="nut-card-sub">Not needed (&lt;2h)</div></div>`}`;
 
       const gels=Math.max(0,Math.ceil(tc/25)),iso=(tf/1000).toFixed(1),bars=dur>4?Math.floor((dur-2)/1.5):0,ban=dur>3?Math.ceil((dur-3)*0.4):0,salt=Math.ceil(ts/250);
-      let pr='<div class="nut-prod-title">PRODUCT RECOMMENDATIONS</div>';
+      let pr='<div class="nut-prod-title">Product recommendations</div>';
       if(dur<1){pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Water</span><span class="nut-prod-qty">${(tf/1000).toFixed(1)} L</span></div>`;pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-info"></i> No fueling needed</span><span class="nut-prod-qty">–</span></div>`}
       else{pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-drop"></i> Energy gel (~25g carbs)</span><span class="nut-prod-qty">${gels} pcs</span></div>`;
       pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-flask"></i> Sports drink (30-60g/L)</span><span class="nut-prod-qty">${iso} L</span></div>`;
@@ -608,7 +584,7 @@
       if(showCaf)pr+=`<div class="nut-prod-row"><span class="nut-prod-name"><i class="ph ph-coffee"></i> Caffeinated gel</span><span class="nut-prod-qty">1 pc</span></div>`}
       document.getElementById('nutProducts').innerHTML=pr;
 
-      if(dur>=1.5){const tm=Math.round(dur*60);let tl='<div class="nut-tl-title">NUTRITION TIMELINE</div>';
+      if(dur>=1.5){const tm=Math.round(dur*60);let tl='<div class="nut-tl-title">Nutrition timeline</div>';
         tl+=`<div class="nut-tl-item"><span class="nut-tl-time">-60 min</span><span class="nut-tl-desc">Light meal: oatmeal, banana, toast with honey</span></div>`;
         tl+=`<div class="nut-tl-item"><span class="nut-tl-time">Start</span><span class="nut-tl-desc">Drink 150-200ml every 15-20 min (don't wait for thirst)</span></div>`;
         tl+=`<div class="nut-tl-item"><span class="nut-tl-time">30-45 min</span><span class="nut-tl-desc">First gel or serving of sports drink</span></div>`;
@@ -622,9 +598,8 @@
 
     document.addEventListener('input',e=>{if(e.target.matches('.calc-input,.calc-select')){if(document.getElementById('calc-tri').classList.contains('active'))calculateTriTime();if(document.getElementById('calc-run').classList.contains('active'))calculateRun();if(document.getElementById('calc-nutrition').classList.contains('active'))calculateNutrition()}});
     window.addEventListener('DOMContentLoaded',()=>{calculateTriTime();calculateRun();calculateNutrition()});
-    const toTopBtn=document.getElementById('toTopBtn');window.addEventListener('scroll',()=>{if(toTopBtn)toTopBtn.classList.toggle('show',window.scrollY>300)},{passive:true});
   </script>
 <script src="/assets/js/leads.js" defer></script>
-<script src="/assets/js/motion.js?v=20261029b" defer></script>
+<script src="/assets/js/book.js?v=20261029a" defer></script>
 </body>
 </html>

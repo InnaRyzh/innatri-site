@@ -20,31 +20,52 @@
   <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/privacy.html">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/privacy.html">
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
-  <link rel="preload" href="/assets/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="stylesheet" href="/assets/fonts/fonts.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #080808; color: #F2F0EB; font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.7; }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
-    .logo { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px; color: #F2F0EB; text-decoration: none; letter-spacing: 0.02em; }
-    .logo span { color: #FF3B30; }
-    h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(22px, 5vw, 32px); line-height: 1.2; margin: 40px 0 8px; text-transform: uppercase; }
-    .updated { font-family: 'Unbounded', sans-serif; font-size: 12px; letter-spacing: 0.12em; color: #9B9891; text-transform: uppercase; margin-bottom: 36px; }
-    h2 { font-family: 'Unbounded', sans-serif; font-size: 17px; margin: 32px 0 10px; }
-    p, li { color: rgba(242, 240, 235, 0.85); margin-bottom: 12px; }
-    ul { padding-left: 22px; margin-bottom: 12px; }
-    a { color: #FF3B30; }
-    .back { display: inline-block; margin-top: 40px; color: #9B9891; text-decoration: none; font-family: 'Unbounded', sans-serif; font-size: 13px; }
-  </style>
-<link rel="stylesheet" href="/assets/css/standalone.css?v=20260929">
-  <script src="/assets/lang.js"></script>
+ <link rel="preload" href="/assets/fonts/noto-serif-display-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029c">
+ <link rel="stylesheet" href="/assets/css/book.css?v=20261029e">
+ <link rel="stylesheet" href="/assets/css/book-article.css?v=20261029a">
+ <script src="/assets/lang.js"></script>
 </head>
-<body class="sa-privacy">
-  <div class="wrap">
-    <a class="logo" href="/ua/">INNA <span>TRI</span></a>
-    <h1>Політика конфіденційності</h1>
-    <div class="updated">Оновлено: 10 серпня 2026</div>
-    <p>Цей сайт (innatri.com) належить Інні Рижих — тренерці з бігу та триатлону. Тут описано, які дані збирає сайт і що з ними відбувається. Коротко і без юридичного туману.</p>
+<body class="site-page page-article page-privacy">
+<header class="top">
+  <a class="mark" href="/ua/">INNA TRI</a>
+  <nav class="tab" aria-label="Розділи">
+    <a href="/ua/run.html">Біг</a>
+    <a href="/ua/triathlon.html">Триатлон</a>
+    <a href="/ua/blog.html">Блог</a>
+    <a href="/ua/calculator.html">Калькулятор</a>
+    <a href="/ua/#pricing">Тарифи</a>
+  </nav>
+  <div class="top-r">
+    <div class="lang"><a href="/ua/privacy.html" aria-current="page">UA</a><a href="/en/privacy.html">EN</a><a href="/privacy.html">RU</a></div>
+    <a class="btn btn-ink" href="/ua/contact.html">Обговорити мету <span class="arr" aria-hidden="true">→</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-top"><a class="mark" href="/ua/">INNA TRI</a><button class="menu-close" type="button">Закрити</button></div>
+  <nav aria-label="Меню">
+    <a href="/ua/">Головна</a>
+    <a href="/ua/run.html">Біг</a>
+    <a href="/ua/triathlon.html">Триатлон</a>
+    <a href="/ua/blog.html">Блог</a>
+    <a href="/ua/#reviews">Відгуки</a>
+    <a href="/ua/calculator.html">Калькулятор</a>
+    <a href="/ua/#pricing">Тарифи</a>
+    <a href="/ua/contact.html">Контакти</a>
+  </nav>
+  <div class="lang"><a href="/ua/privacy.html" aria-current="page">UA</a><a href="/en/privacy.html">EN</a><a href="/privacy.html">RU</a></div>
+  <a class="btn" href="/quiz-landing/?lang=ua">Пройти діагностику за 90 секунд <span class="arr" aria-hidden="true">→</span></a>
+</div>
+
+<main>
+<article class="article-view">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb" style="padding:0"><a href="/ua/">Головна</a><span>/</span><span aria-current="page">Політика конфіденційності</span></nav>
+    <header class="article-header" style="margin-top:0"><h1>Політика конфіденційності</h1>
+    <div class="article-byline">Оновлено: 10 серпня 2026</div></header>
+    <div class="article-content"><p>Цей сайт (innatri.com) належить Інні Рижих — тренерці з бігу та триатлону. Тут описано, які дані збирає сайт і що з ними відбувається. Коротко і без юридичного туману.</p>
 
     <h2>Які дані я збираю</h2>
     <ul>
@@ -66,8 +87,23 @@
 
     <h2>Cookie та аналітика</h2>
     <p>Вимкнути Google Analytics можна <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">офіційним доповненням Google</a> або налаштуваннями браузера — сайт повністю працює і без cookie.</p>
-    <a class="back" href="/ua/">&larr; На головну</a>
+    </div>
   </div>
+</article>
+</main>
+
+<footer class="foot-main">
+  <div class="fcols" id="footer-nav">
+    <div><p>Розкажи про старт, поточну форму та графік - я чесно відповім, який формат підготовки дасть найкращий результат.</p><p style="margin-top:16px">Київ, Україна 🇺🇦</p></div>
+    <ul><li class="hd">Розділи</li><li><a href="/ua/run.html">Біг</a></li><li><a href="/ua/triathlon.html">Триатлон</a></li><li><a href="/ua/blog.html">Блог</a></li><li><a href="/ua/#reviews">Відгуки</a></li><li><a href="/ua/calculator.html">Калькулятор</a></li><li><a href="/ua/#pricing">Тарифи</a></li><li><a href="/ua/contact.html">Контакти</a></li></ul>
+    <ul><li class="hd">Зв'язок</li><li><a href="https://t.me/InnaRH">Telegram</a></li><li><a href="https://www.instagram.com/inna.tri">Instagram</a></li><li><a href="https://www.youtube.com/@innatri">YouTube</a></li><li><a href="mailto:innaryzhykh@gmail.com">Email</a></li></ul>
+    <ul><li class="hd">Мова</li><li><a href="/ua/privacy.html">UA</a></li><li><a href="/en/privacy.html">EN</a></li><li><a href="/privacy.html">RU</a></li></ul>
+  </div>
+  <svg class="wordmark" viewBox="0 0 1000 150" role="img" aria-label="INNA TRI"><text x="-6" y="138" textLength="1008" lengthAdjust="spacingAndGlyphs" font-family="Noto Serif Display, Georgia, serif" font-size="184" fill="#fff" letter-spacing="-4">INNA TRI</text></svg>
+  <div class="legal"><span>© 2026 INNATRI.</span><a href="/ua/privacy.html">Політика конфіденційності</a></div>
+</footer>
+
 <script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/book.js?v=20261029a" defer></script>
 </body>
 </html>
