@@ -5,7 +5,7 @@ const I18N = {
     hero_label: 'INNA.TRI',
     hero_h1: 'Успеешь ли ты подготовиться к своему марафону?',
     hero_sub: 'Диагностика из 9 вопросов. 90 секунд. Честный ответ - без мотивационных соплей: что у тебя уже есть и чего критически не хватает до старта.',
-    hero_trust: 'Составила Инна - тренер по бегу и триатлону, 20 лет в спорте, 10 лет тренерской практики. Тренирую бегунов в США, Европе и Украине через TrainingPeaks.',
+    hero_trust: 'Составила Инна - тренер по бегу и триатлону, 20 лет в спорте, 8 лет тренерской практики. Тренирую бегунов в США, Европе и Украине через TrainingPeaks.',
     hero_cta: 'Пройти диагностику',
 
     back: 'Назад',
@@ -120,7 +120,7 @@ const I18N = {
     hero_label: 'INNA.TRI',
     hero_h1: 'Чи встигнеш ти підготуватися до свого марафону?',
     hero_sub: 'Діагностика з 9 питань. 90 секунд. Чесна відповідь - без мотиваційних соплів: що в тебе вже є і чого критично бракує до старту.',
-    hero_trust: 'Склала Інна - тренерка з бігу та триатлону, 20 років у спорті, 10 років тренерської практики. Треную бігунів у США, Європі та Україні через TrainingPeaks.',
+    hero_trust: 'Склала Інна - тренерка з бігу та триатлону, 20 років у спорті, 8 років тренерської практики. Треную бігунів у США, Європі та Україні через TrainingPeaks.',
     hero_cta: 'Пройти діагностику',
 
     back: 'Назад',
@@ -235,7 +235,7 @@ const I18N = {
     hero_label: 'INNA.TRI',
     hero_h1: 'Will you be ready for your race?',
     hero_sub: 'A 9-question diagnostic. 90 seconds. An honest answer - no motivational fluff: what you already have, and what is critically missing before your marathon or half.',
-    hero_trust: 'Built by Inna - running and triathlon coach. 20 years in sport, 10 years of coaching. I train runners in the US, Europe and Ukraine through TrainingPeaks.',
+    hero_trust: 'Built by Inna - running and triathlon coach. 20 years in sport, 8 years of coaching. I train runners in the US, Europe and Ukraine through TrainingPeaks.',
     hero_cta: 'Start the diagnostic',
 
     back: 'Back',
