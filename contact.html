@@ -37,19 +37,15 @@
   <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#FF3B30">
+  <meta name="theme-color" content="#151515">
   <link rel="alternate" hreflang="ru" href="https://innatri.com/contact.html">
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/contact.html">
   <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/contact.html">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/contact.html">
-  
-  <!-- FONTS -->
-  <link rel="preload" href="/assets/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="stylesheet" href="/assets/fonts/fonts.css">
-  
-  <!-- ICONS -->
- <link rel="preload" href="/assets/icons/phosphor.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="stylesheet" href="/assets/icons/phosphor.css">
+ <link rel="preload" href="/assets/fonts/noto-serif-display-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029c">
+ <link rel="stylesheet" href="/assets/css/book.css?v=20261029e">
 
   <script type="application/ld+json" id="schema-site">
     {
@@ -93,965 +89,125 @@
       "inLanguage": "ru-RU"
     }
   </script>
-
-  <style>
-    /* --- 1. GLOBAL VARIABLES --- */
-    :root {
-      --primary: #FF3B30; 
-      --primary-glow: rgba(255, 59, 48, 0.5);
-      --bg-main: #080808;
-      --bg-card: rgba(255, 255, 255, 0.03); 
-      --border-color: rgba(255, 255, 255, 0.08);
-      --text-white: #FFFFFF;
-      --text-gray: #9CA3AF;
-      
-      --container-width: 1240px;
-      --radius-card: 24px;
-      --radius-pill: 100px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-white);
-      line-height: 1.75;
-      font-size: 18px;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      background-image:
-        radial-gradient(1200px 600px at 50% -10%, rgba(255, 59, 48, 0.20) 0%, rgba(8,8,8,0) 60%),
-        radial-gradient(900px 500px at 15% 35%, rgba(255, 59, 48, 0.10) 0%, rgba(8,8,8,0) 55%),
-        radial-gradient(1200px 700px at 85% 70%, rgba(255, 59, 48, 0.08) 0%, rgba(8,8,8,0) 60%),
-        linear-gradient(135deg, rgba(255,59,48,0.06) 0%, rgba(8,8,8,0) 45%);
-      background-attachment: fixed;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-
-    /* Typography */
-    .tech-font { font-family: 'Unbounded', sans-serif; letter-spacing: -0.02em; font-size: 12px; opacity: 0.7; text-transform: uppercase; }
-    .title-font { font-family: 'Unbounded', sans-serif; text-transform: uppercase; letter-spacing: -0.02em; }
-    
-    a { text-decoration: none; color: inherit; transition: 0.3s; cursor: pointer; }
-    ul { list-style: none; }
-    button { border: none; outline: none; cursor: pointer; }
-
-    .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
-    .section { padding: 120px 0; }
-
-    /* --- 2. HEADER --- */
-    /* --- UA STRIPE --- */
-
-    .header {
-      position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: center; pointer-events: none;
-    }
-    .header-island {
-      pointer-events: auto;
-      background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-pill);
-      padding: 10px 32px; display: flex; align-items: center; gap: 48px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-    .logo { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; font-family: 'Unbounded'; cursor: pointer; }
-    .logo span { color: var(--primary); }
-    .nav-desk { display: flex; gap: 32px; font-family: 'Unbounded'; }
-    
-    /* Navigation Links */
-    .nav-link { 
-      font-size: 13px; font-weight: 600; color: var(--text-gray); position: relative; cursor: pointer; 
-      font-family: 'Unbounded';
-    }
-    .nav-link:hover { color: white; }
-    .nav-link.active { color: white; }
-    .nav-link.active::after {
-      content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
-      width: 4px; height: 4px; background: var(--primary); border-radius: 50%;
-    }
-    
-    .burger { display: none; font-size: 28px; color: white; pointer-events: auto; cursor: pointer; font-family: 'Unbounded'; }
-
-    /* --- 3. HERO --- */
-    .hero {
-      position: relative; height: 100vh; min-height: 700px;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-image: linear-gradient(120deg, rgba(8,8,8,0.45) 0%, rgba(255,59,48,0.18) 55%, rgba(8,8,8,0.55) 100%), url("assets/hero/Image_202601201654.jpeg");
-      background-size: 115% auto; background-position: 78% center; background-repeat: no-repeat; z-index: -1;
-      filter: saturate(0.9) brightness(0.8) contrast(1.05);
-    }
-    
-    .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(0deg, rgba(8,8,8,0.45) 5%, rgba(8,8,8,0.4) 40%, rgba(8,8,8,0.2) 100%); }
-    .hero-content { position: relative; z-index: 3; max-width: 900px; padding-top: 80px; }
-
-    
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); 
-      border: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; color: var(--primary); font-size: 12px;
-    }
-    .hero-title { font-size: clamp(48px, 9vw, 100px); line-height: 0.95; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.03em; }
-    .hero-title-3d {
-      display: inline-block;
-      color: #f6f6f6;
-      background: linear-gradient(180deg, #ffffff 0%, #dfe3ea 45%, #b8c0cc 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 0;
-      background-repeat: no-repeat;
-      text-shadow:
-        0 1px 0 rgba(255,255,255,0.4),
-        0 8px 22px rgba(0,0,0,0.4),
-        0 16px 32px rgba(0,0,0,0.32);
-      transform: perspective(600px) rotateX(6deg);
-    }
-    .hero-title-3d.accent {
-      background: none;
-      -webkit-background-clip: initial;
-      background-clip: initial;
-      -webkit-text-fill-color: initial;
-      color: #e9edf3;
-      -webkit-text-stroke: 0;
-      text-shadow:
-        0 1px 0 rgba(255,255,255,0.18),
-        0 10px 24px rgba(0,0,0,0.35);
-    }
-    .hero-accent { color: transparent; -webkit-text-stroke: 1px var(--primary); position: relative; z-index: 1; }
-    .hero-subtitle { font-size: clamp(14px, 2.5vw, 16px); color: #BFC6D0; margin: 0 auto 40px; max-width: 640px; line-height: 1.7; }
-    .hero-subline { display: block; margin-top: 8px; color: #C9CFD8; }
-    .hero-subline-accent { color: #FFFFFF; font-weight: 600; letter-spacing: 0.02em; }
-    
-    .btn {
-      display: inline-flex; justify-content: center; align-items: center;
-      background: var(--text-white); color: #000;
-      height: 56px; padding: 0 40px; border-radius: var(--radius-pill);
-      font-size: 14px; font-weight: 700; transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,255,255,0.15); }
-
-    /* --- 4. MARQUEE --- */
-    .marquee-section { padding: 32px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); background: rgba(0,0,0,0.3); overflow: hidden; }
-    .marquee-content { display: flex; gap: 40px; width: max-content; flex-wrap: nowrap; justify-content: flex-start; animation: scroll 22s linear infinite; }
-    .marquee-item { font-family: 'Unbounded'; font-size: 20px; font-weight: 800; color: #444; text-transform: uppercase; display: flex; align-items: center; gap: 12px; transition: 0.3s; }
-    .marquee-item:hover { color: white; }
-    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* --- 5. CARDS & SECTIONS --- */
-    .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: start; }
-    .about-img-wrap { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-color); height: 600px; }
-    .about-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1) grayscale(20%); transition: 0.5s; }
-    .about-img-wrap:hover .about-img { transform: scale(1.03); filter: grayscale(0%); }
-    .about-text { max-width: 680px; }
-    .about-text p { margin-top: 16px; color: #C9CFD8; font-size: 18px; line-height: 1.85; }
-    .about-text p:first-of-type { margin-top: 0; }
-    .about-text .about-lead { font-size: 20px; color: #F3F5F8; letter-spacing: 0.01em; }
-    .about-text .about-em { color: #FFFFFF; font-weight: 700; }
-    .about-text .about-em-soft { color: #E8EBF0; font-weight: 600; }
-    .about-text .about-em-accent { color: var(--primary); font-weight: 700; }
-    .about-text-content { display: block; }
-    .about-block { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .about-block:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
-    .about-callout { background: rgba(255,59,48,0.06); border: 1px solid rgba(255,59,48,0.2); padding: 16px 18px; border-radius: 14px; color: #F1F2F5; }
-    .about-cta { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); padding: 14px 18px; border-radius: 14px; color: #FFFFFF; }
-    @media (min-width: 1025px) {
-      .about-text p { font-size: 17px; line-height: 1.75; margin-top: 12px; }
-      .about-text .about-lead { font-size: 18px; }
-      .about-title { display: none; }
-      .about-text-content { display: block; }
-    }
-
-    .bento-grid, .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    .stats-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
-
-    /* Common Card Style */
-    .bento-card, .price-card, .review-card, .stat-card, .calc-container, .step-card, .faq-item, .blog-card, .featured-article {
-      background: var(--bg-card); 
-      border-radius: var(--radius-card); 
-      border: 1px solid var(--border-color); 
-      position: relative; overflow: hidden;
-      backdrop-filter: blur(10px);
-      transition: border-color 0.3s;
-    }
-    .bento-card { padding: 32px; display: flex; flex-direction: column; gap: 16px; }
-    .price-card { padding: 40px; display: flex; flex-direction: column; gap: 16px; }
-    .price-title { font-family: 'Unbounded'; font-size: 28px; margin-bottom: 8px; }
-    .price-amount { font-family: 'Unbounded'; font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 24px; }
-    .price-badge {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-family: 'Unbounded', sans-serif; font-size: 10px; letter-spacing: 0.12em;
-      text-transform: uppercase; padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,59,48,0.15);
-      border: 1px dashed rgba(255,59,48,0.6);
-      color: var(--primary);
-      transform: rotate(6deg);
-      box-shadow: 0 0 18px rgba(255,59,48,0.25);
-    }
-    .price-card.is-featured {
-      border-color: rgba(255,59,48,0.5);
-      box-shadow: 0 0 40px rgba(255,59,48,0.18);
-    }
-    @media (min-width: 1025px) {
-      .pricing-grid .price-card {
-        text-align: left;
-        align-items: stretch;
-        flex-direction: row;
-        gap: 40px;
-        width: 100%;
-        max-width: 1040px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .pricing-grid { justify-content: center; }
-      .price-main { flex: 0 0 280px; }
-      .price-features { flex: 1; }
-      .pricing-grid .price-card ul {
-        text-align: left;
-        max-width: none;
-        margin-left: 0;
-        margin-right: 0;
-      }
-      .pricing-grid .price-card .btn { width: auto; }
-    }
-
-    /* Blog minimalist styles */
-    .blog-card,
-    .featured-article {
-      background: transparent;
-      border: none;
-      backdrop-filter: none;
-      border-radius: 0;
-      padding: 0 !important;
-      color: var(--text-white);
-      text-align: left;
-      width: 100%;
-    }
-    .blog-card::before,
-    .featured-article::before { display: none; }
-    .blog-card:hover,
-    .featured-article:hover { transform: none; }
-    .blog-card .title-font,
-    .featured-article .title-font { color: var(--text-white); }
-
-    /* Spotlight Effect (Desktop) */
-    @media (hover: hover) {
-      .bento-card::before, .price-card::before, .review-card::before, .stat-card::before, .step-card::before, .featured-article::before {
-        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-        background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 59, 48, 0.08), transparent 40%);
-        opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 0;
-      }
-      .bento-card:hover::before, .price-card:hover::before, .review-card:hover::before, .stat-card:hover::before, .step-card:hover::before, .featured-article:hover::before { opacity: 1; }
-      .bento-card:hover, .price-card:hover, .stat-card:hover, .step-card:hover, .featured-article:hover { border-color: rgba(255, 59, 48, 0.3); }
-    }
-    
-    .bento-card > *, .price-card > *, .stat-card > *, .step-card > * { position: relative; z-index: 1; }
-
-    /* About Stats */
-    .stat-card { padding: 40px; display: flex; flex-direction: column; justify-content: center; height: 160px; }
-    .external-link-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; font-size: 12px; font-weight: 600; color: var(--text-white); border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 4px; }
-
-    /* Timeline / Steps */
-    .step-card { padding: 40px 32px; display: flex; flex-direction: column; gap: 20px; transition: 0.3s; z-index: 1; }
-    .step-header { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
-    .step-num { font-family: 'Unbounded'; font-size: 48px; color: var(--primary); opacity: 0.8; line-height: 1; text-shadow: 0 0 20px rgba(255, 59, 48, 0.3); }
-    .step-icon { font-size: 32px; color: white; opacity: 0.5; transition: 0.3s; }
-    .step-card:hover .step-icon { opacity: 1; color: var(--primary); transform: scale(1.1); }
-    
-    @media (min-width: 1025px) {
-      .steps-grid { position: relative; }
-      .steps-grid::before {
-        content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(255,59,48,0.3), transparent);
-        z-index: 0; pointer-events: none;
-      }
-    }
-
-    /* FAQ */
-    .faq-item { margin-bottom: 16px; border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.02); }
-    .faq-summary { padding: 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Unbounded'; font-size: 16px; list-style: none; transition: 0.3s; }
-    .faq-summary:hover { color: var(--primary); }
-    .faq-content { padding: 0 24px 24px 24px; color: var(--text-gray); font-size: 15px; line-height: 1.6; }
-
-    /* Calculator Styles */
-    .calc-container { padding: 48px; }
-    .calc-wrapper { display: block; }
-    .calc-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .calc-tabs { display: flex; gap: 24px; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; }
-    .calc-tab { background: transparent; color: var(--text-gray); font-family: 'Unbounded'; font-size: 14px; cursor: pointer; padding: 5px 0; transition: 0.3s; position: relative; }
-    .calc-tab.active { color: var(--primary); }
-    .calc-tab.active::after { content: ''; position: absolute; bottom: -17px; left: 0; width: 100%; height: 2px; background: var(--primary); }
-    
-    .calc-mode { display: none; }
-    .calc-mode.active { display: block; animation: fadeIn 0.4s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    .calc-input-group { margin-bottom: 24px; }
-    .calc-label { display: block; font-family: 'Unbounded', sans-serif; font-size: 11px; color: var(--text-gray); margin-bottom: 8px; letter-spacing: 0.05em; }
-    .calc-select, .calc-input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); color: white; padding: 16px; border-radius: 12px; font-family: 'Manrope'; font-size: 16px; outline: none; transition: 0.3s; }
-    .calc-select:focus, .calc-input:focus { border-color: var(--primary); background: rgba(255,59,48,0.02); }
-    .calc-inputs div { display: flex; gap: 16px; }
-    
-    .calc-result-box { background: rgba(0,0,0,0.2); border-radius: 16px; padding: 28px; border: 1px solid var(--border-color); }
-    .calc-res-title { font-family: 'Unbounded'; font-size: 14px; color: var(--text-gray); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
-    .calc-main-res { font-family: 'Unbounded'; font-size: 40px; color: var(--primary); line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .calc-sub-res { font-size: 14px; color: var(--text-gray); margin-bottom: 24px; }
-    .calc-details { border-top: 1px solid var(--border-color); padding-top: 24px; display: grid; gap: 16px; }
-    .calc-detail-row { display: flex; justify-content: space-between; font-size: 14px; }
-    .calc-display-num { font-size: 1.2em; font-weight: 600; color: #fff; margin-right: 2px; }
-    .calc-display-unit { font-size: 0.7em; color: var(--text-gray); margin-right: 6px; text-transform: lowercase; }
-
-    .tri-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    .tri-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .calc-time-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-
-    /* REVIEWS CAROUSEL */
-    .reviews-container { position: relative; margin-top: 40px; }
-    .reviews-wrapper { overflow: hidden; position: relative; width: 100%; }
-    .reviews-slider { display: flex; transition: transform 0.5s ease; width: 100%; flex-wrap: nowrap; }
-    .review-card { padding: 48px; display: flex; flex-direction: column; gap: 24px; background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,0,0,0)); width: 100%; min-width: 100%; flex-shrink: 0; box-sizing: border-box; }
-    .review-header { display: flex; align-items: center; gap: 20px; }
-    .review-avatar { width: 64px; height: 64px; border-radius: 50%; background: #333; object-fit: cover; border: 2px solid var(--primary); flex-shrink: 0; }
-    .review-nav { display: flex; justify-content: center; gap: 12px; margin-top: 32px; }
-    .review-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: 0.3s; border: none; padding: 0; }
-    .review-dot.active { background: var(--primary); width: 30px; border-radius: 5px; }
-    .review-arrows { display: flex; justify-content: space-between; position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); pointer-events: none; z-index: 10; padding: 0 20px; }
-    .review-arrow { width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; pointer-events: auto; font-size: 20px; }
-    .review-arrow:hover { background: var(--primary); border-color: var(--primary); }
-
-    /* BLOG STYLES */
-    .articles-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    .article-card { display: flex; flex-direction: column; cursor: pointer; }
-    
-    .card-img-wrap { height: 220px; overflow: hidden; border-radius: 14px; width: 100%; position: relative; }
-    .card-img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-    .article-card:hover .card-img { transform: scale(1.05); }
-    .card-body { padding: 0; margin-top: 16px; }
-
-    .blog-title { font-size: 18px; line-height: 1.2; letter-spacing: 0.01em; word-spacing: 0.08em; text-transform: none; font-family: 'Unbounded'; }
-    .featured-excerpt { font-size: 16px; color: var(--text-gray); line-height: 1.6; margin-bottom: 0; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-
-    .blog-card {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 20px;
-      align-items: center;
-    }
-    .blog-card .card-img-wrap { height: 140px; border-radius: 12px; }
-    .blog-card .card-body { margin-top: 0; }
-    .blog-card .title-font { font-size: 20px; line-height: 1.2; }
-
-    .blog-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--primary); margin-bottom: 16px; font-family: 'Unbounded', sans-serif; letter-spacing: 0.05em; font-weight: 500; }
-    .blog-meta span { opacity: 0.7; color: var(--text-gray); }
-    .read-more { font-family: 'Unbounded'; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 4px; display: inline-flex; color: white; margin-top: 24px; text-transform: uppercase; }
-
-    /* Article View Typography */
-    .article-view { max-width: 760px; margin: 0 auto; padding-top: 132px; }
-    .article-header { text-align: left; margin-bottom: 24px; }
-    #articleMeta { font-size: 12px; color: var(--text-gray); margin-bottom: 8px; letter-spacing: 0.12em; text-transform: uppercase; }
-    #articleTitle { 
-      font-family: 'Unbounded';
-      font-size: clamp(24px, 3vw, 32px);
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-      margin-bottom: 16px;
-      text-transform: none;
-    }
-    .article-byline { font-size: 13px; color: #9AA3AE; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-    .article-byline span { opacity: 0.9; }
-    .article-divider { height: 1px; background: var(--border-color); margin: 24px 0; }
-    .article-cover { width: 100%; height: auto; max-height: 520px; object-fit: cover; border-radius: 10px; margin-bottom: 32px; }
-    .article-back {
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-bottom: 24px; color: #E6EAF0; font-size: 14px;
-      text-transform: none; opacity: 0.9;
-    }
-    .article-back:hover { opacity: 1; }
-    
-    .article-content { font-size: 18px; color: #D7DCE3; line-height: 1.85; }
-    .article-content .article-lead { font-size: 19px; color: #F4F6F9; }
-    .article-content .article-note { color: #C6CDD8; }
-    .article-content .article-accent { color: var(--primary); font-weight: 600; }
-    .article-content .article-soft { color: #E8EBF0; font-weight: 600; }
-    .article-content .article-highlight { color: #F4F6F9; }
-    .article-content .article-list { margin: 10px 0 16px; padding-left: 20px; color: #D1D5DB; }
-    .article-content p { margin-bottom: 20px; }
-    
-    .article-lead { font-size: 20px; line-height: 1.6; color: #F4F6F9; margin-bottom: 24px; font-weight: 500; }
-    .article-note { background: transparent; padding: 0; border-left: 2px solid var(--border-color); margin: 24px 0; font-size: 18px; color: #C6CDD8; padding-left: 16px; }
-    .article-highlight { font-size: 20px; color: #F4F6F9; line-height: 1.6; margin: 28px 0 16px; text-align: left; letter-spacing: -0.01em; font-weight: 600; }
-    .article-list { list-style: disc; margin: 20px 0; padding-left: 20px; display: grid; gap: 10px; }
-    .article-list li { color: #E8EBF0; font-size: 18px; }
-    .article-list li::before { content: none; }
-    .article-soft { color: #E8EBF0; font-weight: 600; }
-    .article-accent { color: var(--primary); font-weight: 600; }
-
-    .article-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 40px 0; }
-    .article-gallery img { width: 100%; border-radius: 12px; aspect-ratio: 4/5; object-fit: cover; }
-
-    /* Run Page Styles */
-    .run-hero-kicker { font-family: 'Unbounded', sans-serif; color: var(--primary); font-size: 14px; margin-bottom: 16px; display: block; letter-spacing: 1.5px; }
-    .run-hero-title { font-size: 64px; line-height: 1.1; margin-bottom: 24px; font-weight: 800; }
-    .run-hero-subtitle { font-size: 20px; color: var(--text-gray); max-width: 600px; line-height: 1.6; }
-    .run-section { padding: 100px 0; }
-    .run-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-    .run-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; }
-    .run-highlight { padding: 24px; border-left: 3px solid var(--primary); background: rgba(255,59,48,0.08); border-radius: 12px; color: #fff; }
-    .run-list { display: grid; gap: 12px; color: var(--text-gray); }
-    .run-list-item { display: flex; align-items: center; gap: 12px; }
-    .run-list-icon { width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,59,48,0.12); color: var(--primary); font-size: 16px; flex-shrink: 0; }
-    .run-em { color: #fff; font-weight: 700; }
-    .run-em-title { font-family: 'Unbounded'; letter-spacing: -0.01em; }
-    .run-steps { display: grid; gap: 14px; color: var(--text-gray); }
-    .run-steps strong { color: #fff; }
-    .run-cta { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
-    .run-cta .btn { width: auto; }
-    .run-trust { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
-    .run-badge { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02); color: var(--text-gray); font-family: 'Unbounded', sans-serif; font-size: 11px; }
-    .run-quote { padding: 16px; border: 1px dashed rgba(255,255,255,0.12); border-radius: 12px; color: var(--text-gray); font-size: 14px; }
-    .run-divider { height: 1px; background: var(--border-color); margin: 24px 0; }
-
-    .footer { padding: 80px 0 40px; border-top: 1px solid var(--border-color); text-align: center; }
-
-    /* --- MOBILE --- */
-    @media (max-width: 1024px) {
-      .header-island { width: 100%; margin: 0 16px; padding: 12px 24px; justify-content: space-between; }
-      .nav-desk { display: none; }
-      .burger { display: block; }
-      .hero-title { font-size: 48px; }
-      .about-grid, .calc-wrapper, .pricing-grid, .steps-grid, .articles-grid, .featured-article { grid-template-columns: 1fr; gap: 32px; }
-      .about-img-wrap { height: 400px; order: -1; }
-      .bento-grid { grid-template-columns: 1fr; }
-      .stats-wrapper { grid-template-columns: 1fr 1fr; gap: 16px; } 
-      .btn { width: 100%; }
-      .calc-inputs div { flex-direction: column; }
-      .tri-row { grid-template-columns: 1fr; gap: 10px; }
-      .tri-row-2, .calc-time-inputs { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .calc-two-col { grid-template-columns: 1fr; gap: 24px; }
-      .featured-img-wrap { height: 250px; }
-      .featured-content { padding: 0; order: 2; }
-      .featured-article { gap: 24px; margin-bottom: 60px; }
-      .featured-article .title-font { font-size: 32px; margin-bottom: 16px; }
-      .card-img-wrap { height: 220px; }
-      .blog-card { grid-template-columns: 1fr; }
-      .blog-card .card-img-wrap { height: 220px; }
-      .card-img-wrap { height: 220px; }
-      .review-card { padding: 32px; }
-      .review-arrows { padding: 0 10px; }
-      .review-arrow { width: 40px; height: 40px; font-size: 16px; }
-      .run-grid { grid-template-columns: 1fr; }
-      .run-section { padding: 60px 0; }
-      body { font-size: 17px; }
-      p { font-size: 17px; line-height: 1.75; }
-    }
-
-    @media (max-width: 640px) {
-      body { background-attachment: scroll; }
-      .container { padding: 0 16px; }
-      .section { padding: 88px 0; }
-      body { font-size: 18px; }
-      p { font-size: 18px; line-height: 1.8; }
-      .title-font { letter-spacing: -0.01em; }
-      .tech-font { font-size: 12px; }
-      .btn { padding: 16px 22px; font-size: 15px; }
-      .hero { min-height: 100vh; height: 100vh; padding: 8px 0 56px; }
-      .hero-bg { background-size: cover; background-position: 82% 55%; background-repeat: no-repeat; }
-      .hero-overlay { background: linear-gradient(0deg, rgba(8,8,8,0.55) 10%, rgba(8,8,8,0.35) 50%, rgba(8,8,8,0.2) 100%); }
-      .hero-content { padding-top: 6px; text-align: center; }
-      .hero-tag { font-size: 11px; padding: 6px 12px; margin-bottom: 16px; }
-      .hero-title { font-size: clamp(34px, 10vw, 56px); line-height: 0.92; }
-      .hero-subtitle { font-size: 12px; margin-bottom: 20px; }
-      .hero-subline-accent { letter-spacing: 0.14em; }
-      .marquee-content { gap: 60px; flex-wrap: nowrap; justify-content: flex-start; width: max-content; animation: scroll 22s linear infinite; }
-      .marquee-section { overflow: hidden; }
-      .run-hero-title { font-size: 38px; line-height: 1.1; }
-      .run-hero-kicker { letter-spacing: 1.2px; }
-      .run-hero-subtitle { font-size: 18px; }
-      .run-card { padding: 28px; }
-      .run-list, .run-steps { font-size: 16px; line-height: 1.7; }
-      .run-highlight { font-size: 16px; }
-      .run-trust { gap: 8px; }
-      .run-badge { font-size: 11px; padding: 7px 12px; }
-      .run-quote { font-size: 16px; line-height: 1.7; }
-      .review-arrow { width: 36px; height: 36px; font-size: 14px; }
-      /* --- UA STRIPE --- */
-
-    .header { top: 12px; }
-      .about-text p { font-size: 17px; line-height: 1.8; }
-      .about-text .about-lead { font-size: 19px; }
-      .article-view { padding-top: 104px; }
-      .article-content { font-size: 18px; line-height: 1.8; }
-      .article-gallery { grid-template-columns: 1fr; }
-      .articles-grid { grid-template-columns: 1fr; gap: 24px; }
-      .blog-excerpt { font-size: 16px; line-height: 1.75; }
-      .blog-title { font-size: 20px; }
-      .featured-content { padding: 0; }
-      .price-card, .review-card, .calc-container, .step-card, .faq-item { padding: 28px; }
-      .calc-container { padding: 24px; }
-      .calc-two-col { gap: 20px; }
-      .calc-result-box { padding: 20px; }
-      .calc-res-title { font-size: 12px; }
-      .calc-main-res { font-size: 32px; }
-      .calc-details { gap: 12px; }
-    }
-
-    .hidden-view { display: none; }
-    .mobile-menu { position: fixed; inset: 0; background: #080808; z-index: 999; display: flex; flex-direction: column; justify-content: center; padding: 40px; opacity: 0; pointer-events: none; transition: 0.3s; }
-    .mobile-menu.active { opacity: 1; pointer-events: all; }
-    .mobile-link { font-family: 'Unbounded'; font-size: 32px; color: white; margin-bottom: 32px; display: block; font-weight: 700; }
-    .close-menu { position: absolute; top: 32px; right: 32px; font-size: 32px; color: white; padding: 10px; }
-
-    .to-top-btn {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: rgba(10, 10, 10, 0.7);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.25s;
-      z-index: 999;
-      backdrop-filter: blur(8px);
-    }
-    .to-top-btn.show { opacity: 1; pointer-events: auto; }
-  </style>
-  <link rel="stylesheet" href="/typography.css?v=20261029b">
-  <script src="/assets/lang.js"></script>
+ <style>
+.page-contact .phero h1 span { display: block; }
+.page-contact .who { position: absolute; left: 0; bottom: 0; display: grid; gap: 2px; padding: 18px 28px 20px; background: var(--ink) var(--grain-dark); color: #fff; font-size: var(--s-small); }
+.page-contact .who > b { font: 600 var(--s-lead)/1.25 var(--sans); }
+.page-contact .who span { color: rgba(255,255,255,.75); }
+.page-contact .who span b { color: #fff; }
+.channels { display: grid; }
+.ch { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 5fr) auto; align-items: baseline; gap: 24px; padding: 28px 0; border-top: 1px solid #dad5cf; text-decoration: none; transition: color .2s; }
+.ch:last-child { border-bottom: 1px solid #dad5cf; }
+.ch-name { font: 400 var(--s-head)/1 var(--serif); letter-spacing: -0.03em; }
+.ch-handle { font-size: var(--s-lead); color: var(--soft); overflow-wrap: anywhere; }
+.ch-go { font-weight: 600; white-space: nowrap; }
+.ch-go span { display: inline-block; transition: transform .3s var(--ease); }
+.ch:hover { color: var(--red); }
+.ch:hover .ch-go span { transform: translate(3px, -3px); }
+.ch.is-primary .ch-go { color: var(--red); }
+.steps3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.page-contact .close { min-height: 0; }
+.page-contact .close-foot { margin-top: clamp(40px, 5vw, 64px); padding-top: 0; }
+@media (max-width: 860px) {
+  .ch { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; padding: 22px 0; }
+  .ch-handle { grid-column: 1; grid-row: 2; font-size: var(--s-body); }
+  .ch-go { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+  .steps3 { grid-template-columns: minmax(0, 1fr); }
+  .page-contact .who { padding: 14px var(--m) 16px; }
+}
+ </style>
+ <script src="/assets/lang.js"></script>
 </head>
 <body class="site-page page-contact">
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-island">
-      <a href="index.html" class="logo">INNA<span>TRI</span></a>
-      <nav class="nav-desk">
-        <a href="index.html" class="nav-link">ГЛАВНАЯ</a>
-        <a href="run.html" class="nav-link">БЕГ</a>
-        <a href="triathlon.html" class="nav-link">ТРИАТЛОН</a>
-        <a href="blog.html" class="nav-link">БЛОГ</a>
-        <a href="reviews.html" class="nav-link">ОТЗЫВЫ</a>
-        <a href="calculator.html" class="nav-link">КАЛЬКУЛЯТОР</a>
-        <a href="pricing.html" class="nav-link">ТАРИФЫ</a>
-        <a href="contact.html" class="nav-link active">КОНТАКТЫ</a>
-      </nav>
-      <span class="lang-switch" style="display:inline-flex;gap:6px;margin-left:12px;align-items:center;border:none;padding:0;background:none;"><a href="ua/contact.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">UA</a><a href="en/contact.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);">EN</a><a href="contact.html" style="font-family: 'Unbounded', sans-serif;font-size:12px;padding:4px 8px;border-radius:4px;text-decoration:none;letter-spacing:1px;transition:all 0.3s ease;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);">RU</a></span>
-      <div class="burger" onclick="toggleMenu()"><i class="ph ph-list"></i></div>
-    </div>
-  </header>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="close-menu" onclick="toggleMenu()"><i class="ph ph-x"></i></div>
-    <a href="index.html" class="mobile-link" onclick="toggleMenu()">ГЛАВНАЯ</a>
-    <a href="run.html" class="mobile-link" onclick="toggleMenu()">БЕГ</a>
-    <a href="triathlon.html" class="mobile-link" onclick="toggleMenu()">ТРИАТЛОН</a>
-    <a href="blog.html" class="mobile-link" onclick="toggleMenu()">БЛОГ</a>
-    <a href="reviews.html" class="mobile-link" onclick="toggleMenu()">ОТЗЫВЫ</a>
-    <a href="calculator.html" class="mobile-link" onclick="toggleMenu()">КАЛЬКУЛЯТОР</a>
-    <a href="pricing.html" class="mobile-link" onclick="toggleMenu()">ТАРИФЫ</a>
-    <a href="contact.html" class="mobile-link" onclick="toggleMenu()">КОНТАКТЫ</a>
-    <div style="display:flex;gap:10px;margin-top:12px;"><a href="ua/contact.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);;margin-bottom:0;display:inline-block;">UA</a><a href="en/contact.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);;margin-bottom:0;display:inline-block;">EN</a><a href="contact.html" class="mobile-link" onclick="toggleMenu()" style="font-family: 'Unbounded', sans-serif;font-size:15px;padding:6px 12px;border-radius:6px;text-decoration:none;letter-spacing:2px;color:#fff;background:rgba(255,59,48,0.18);border:1px solid rgba(255,59,48,0.45);;margin-bottom:0;display:inline-block;">RU</a></div>
+<header class="top">
+  <a class="mark" href="/">INNA TRI</a>
+  <nav class="tab" aria-label="Разделы">
+    <a href="/run.html">Бег</a>
+    <a href="/triathlon.html">Триатлон</a>
+    <a href="/blog.html">Блог</a>
+    <a href="/calculator.html">Калькулятор</a>
+    <a href="/#pricing">Тарифы</a>
+  </nav>
+  <div class="top-r">
+    <div class="lang"><a href="/ua/contact.html">UA</a><a href="/en/contact.html">EN</a><a href="/contact.html" aria-current="page">RU</a></div>
+    <a class="btn btn-ink" href="/contact.html">Обсудить цель <span class="arr" aria-hidden="true">→</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
   </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-top"><a class="mark" href="/">INNA TRI</a><button class="menu-close" type="button">Закрыть</button></div>
+  <nav aria-label="Меню">
+    <a href="/">Главная</a>
+    <a href="/run.html">Бег</a>
+    <a href="/triathlon.html">Триатлон</a>
+    <a href="/blog.html">Блог</a>
+    <a href="/#reviews">Отзывы</a>
+    <a href="/calculator.html">Калькулятор</a>
+    <a href="/#pricing">Тарифы</a>
+    <a href="/contact.html" aria-current="page">Контакты</a>
+  </nav>
+  <div class="lang"><a href="/ua/contact.html">UA</a><a href="/en/contact.html">EN</a><a href="/contact.html" aria-current="page">RU</a></div>
+  <a class="btn" href="/quiz-landing/?lang=ru">Пройти диагностику за 90 секунд <span class="arr" aria-hidden="true">→</span></a>
+</div>
 
-  
-  
-  <section class="contact-hero">
-    <div class="container contact-grid">
-      <div class="contact-intro">
-        <div class="section-label"><span>01</span><span>Контакты</span></div>
-        <h1 class="title-font">Давай обсудим<br>твою <em>цель</em></h1>
-        <p class="contact-lead">Расскажи, к какой цели готовишься: первый старт, марафон, 70.3 или Ironman.</p>
-        <p>Напиши мне в Telegram, WhatsApp или на почту. Я лично отвечу, посмотрю твою ситуацию и подскажу, какой формат подготовки подойдёт именно тебе.</p>
-      </div>
-      <figure class="contact-portrait">
-        <img src="assets/people/inna-portrait-904.webp" srcset="assets/people/inna-portrait-904-480.webp 480w, assets/people/inna-portrait-904-720.webp 720w, assets/people/inna-portrait-904.webp 904w" sizes="(max-width: 899px) calc(100vw - 48px), 440px" alt="Инна Рыжих, тренер по триатлону и бегу" width="1350" height="2400" decoding="async">
-        <figcaption>
-          <strong>Инна Рыжих</strong>
-          <span>Тренер по триатлону и бегу</span>
-          <span class="contact-facts"><b>20+</b> лет в PRO спорте · <b>10+</b> лет тренерства</span>
-        </figcaption>
-      </figure>
+<main>
+<section class="phero" aria-labelledby="c-h1">
+  <div class="phero-text">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Главная</a><span>/</span><span aria-current="page">Контакты</span></nav>
+    <h1 id="c-h1"><span>Давай обсудим</span><span>твою цель</span></h1>
+    <p class="tagline">Расскажи, к какой цели готовишься: первый старт, марафон, 70.3 или Ironman.</p>
+    <p class="lead">Напиши мне в Telegram, WhatsApp или на почту. Я лично отвечу, посмотрю твою ситуацию и подскажу, какой формат подготовки подойдёт именно тебе.</p>
+    <div class="acts">
+      <a class="btn" href="https://t.me/InnaRH">Telegram <span class="arr" aria-hidden="true">→</span></a>
+      <a class="link" href="#channels">Где мне написать</a>
     </div>
-  </section>
+  </div>
+  <figure class="tall">
+    <img src="/assets/people/inna-portrait-904.webp" srcset="/assets/people/inna-portrait-904-480.webp 480w, /assets/people/inna-portrait-904-720.webp 720w, /assets/people/inna-portrait-904.webp 904w" sizes="(max-width: 860px) 100vw, 42vw" width="904" height="1607" alt="Инна Рыжих, тренер по триатлону и бегу" fetchpriority="high" decoding="async" style="object-position:50% 22%">
+    <figcaption class="who"><b>Инна Рыжих</b><span>Тренер по триатлону и бегу</span><span><b>20+</b> лет в PRO спорте · <b>10+</b> лет тренерства</span></figcaption>
+  </figure>
+</section>
 
-  <section class="contact-body">
-    <div class="container">
-      <h2 class="contact-h2 title-font">Где мне написать</h2>
-      <div class="channel-grid">
-        <a class="channel-card is-primary" href="https://t.me/InnaRH">
-          <i class="ph ph-telegram-logo"></i>
-          <span class="channel-name">Telegram</span>
-          <span class="channel-handle">@InnaRH</span>
-          <span class="channel-cta">Написать <i class="ph ph-arrow-up-right"></i></span>
-        </a>
-        <a class="channel-card " href="https://wa.me/13322016516">
-          <i class="ph ph-whatsapp-logo"></i>
-          <span class="channel-name">WhatsApp</span>
-          <span class="channel-handle">+1 332 201 6516</span>
-          <span class="channel-cta">Написать <i class="ph ph-arrow-up-right"></i></span>
-        </a>
-        <a class="channel-card " href="mailto:innaryzhykh@gmail.com">
-          <i class="ph ph-envelope"></i>
-          <span class="channel-name">Email</span>
-          <span class="channel-handle">innaryzhykh@gmail.com</span>
-          <span class="channel-cta">Написать <i class="ph ph-arrow-up-right"></i></span>
-        </a>
-        <a class="channel-card " href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">
-          <i class="ph ph-instagram-logo"></i>
-          <span class="channel-name">Instagram</span>
-          <span class="channel-handle">@inna.tri</span>
-          <span class="channel-cta">Открыть <i class="ph ph-arrow-up-right"></i></span>
-        </a>
-      </div>
+<section class="sec wrap" id="channels" aria-labelledby="ch-h">
+  <h2 class="serif" id="ch-h">Где мне написать</h2>
+  <div class="channels">
+    <a class="ch is-primary" href="https://t.me/InnaRH"><span class="ch-name">Telegram</span><span class="ch-handle">@InnaRH</span><span class="ch-go">Написать <span aria-hidden="true">↗</span></span></a>
+    <a class="ch" href="https://wa.me/13322016516"><span class="ch-name">WhatsApp</span><span class="ch-handle">+1 332 201 6516</span><span class="ch-go">Написать <span aria-hidden="true">↗</span></span></a>
+    <a class="ch" href="mailto:innaryzhykh@gmail.com"><span class="ch-name">Email</span><span class="ch-handle">innaryzhykh@gmail.com</span><span class="ch-go">Написать <span aria-hidden="true">↗</span></span></a>
+    <a class="ch" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener"><span class="ch-name">Instagram</span><span class="ch-handle">@inna.tri</span><span class="ch-go">Открыть <span aria-hidden="true">↗</span></span></a>
+  </div>
+</section>
 
-      <div class="contact-quiz">
-        <div>
-          <h2 class="title-font">Не знаешь, с чего начать письмо?</h2>
-          <p>Тогда не пиши. Пройди диагностику - 9 вопросов, 90 секунд. Я увижу твою ситуацию до первого сообщения и отвечу уже по делу.</p>
-        </div>
-        <a class="contact-quiz-btn" href="quiz-landing/?lang=ru">Пройти диагностику за 90 секунд <i class="ph ph-arrow-right"></i></a>
-      </div>
+<section class="sec sec-sur wrap" aria-labelledby="next-h">
+  <h2 class="serif" id="next-h">Что будет дальше</h2>
+  <ol class="steps4 steps3">
+    <li class="enter"><b>Диагностика цели</b><p>Обсуждаем ваш спортивный опыт, текущую форму, состояние здоровья, доступное время, график работы и выбранный старт. Я оцениваю реалистичность цели и предлагаю оптимальный формат подготовки.</p></li>
+    <li class="enter"><b>Настройка системы</b><p>Подключаем TrainingPeaks и ваши спортивные часы, определяем тренировочные зоны, анализируем текущие показатели и формируем первый этап программы.</p></li>
+    <li class="enter"><b>Персональная подготовка</b><p>Вы выполняете тренировки, а я анализирую данные, собираю обратную связь и регулярно корректирую план. Перед стартом мы отдельно составляем стратегию темпа, питания и прохождения дистанции.</p></li>
+  </ol>
+</section>
 
-      <h2 class="contact-h2 title-font">Что будет дальше</h2>
-      <ol class="contact-steps">
-        <li class="contact-step">
-          <span class="contact-step-num">01</span>
-          <div>
-            <h3 class="title-font">ДИАГНОСТИКА ЦЕЛИ</h3>
-            <p>Обсуждаем ваш спортивный опыт, текущую форму, состояние здоровья, доступное время, график работы и выбранный старт. Я оцениваю реалистичность цели и предлагаю оптимальный формат подготовки.</p>
-          </div>
-        </li>
-        <li class="contact-step">
-          <span class="contact-step-num">02</span>
-          <div>
-            <h3 class="title-font">НАСТРОЙКА СИСТЕМЫ</h3>
-            <p>Подключаем TrainingPeaks и ваши спортивные часы, определяем тренировочные зоны, анализируем текущие показатели и формируем первый этап программы.</p>
-          </div>
-        </li>
-        <li class="contact-step">
-          <span class="contact-step-num">03</span>
-          <div>
-            <h3 class="title-font">ПЕРСОНАЛЬНАЯ ПОДГОТОВКА</h3>
-            <p>Вы выполняете тренировки, а я анализирую данные, собираю обратную связь и регулярно корректирую план. Перед стартом мы отдельно составляем стратегию темпа, питания и прохождения дистанции.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
+<section class="close" aria-labelledby="quiz-h">
+  <h2 class="serif" id="quiz-h"><span>Не знаешь, с чего</span><br><span>начать письмо?</span></h2>
+  <div class="close-foot enter">
+    <p>Тогда не пиши. Пройди диагностику - 9 вопросов, 90 секунд. Я увижу твою ситуацию до первого сообщения и отвечу уже по делу.</p>
+    <a class="btn" href="/quiz-landing/?lang=ru">Пройти диагностику за 90 секунд <span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</section>
+</main>
 
+<footer class="foot-main">
+  <div class="fcols" id="footer-nav">
+    <div><p>Расскажи о старте, текущей форме и графике - я честно отвечу, какой формат подготовки даст лучший результат.</p><p style="margin-top:16px">Киев, Украина 🇺🇦</p></div>
+    <ul><li class="hd">Разделы</li><li><a href="/run.html">Бег</a></li><li><a href="/triathlon.html">Триатлон</a></li><li><a href="/blog.html">Блог</a></li><li><a href="/#reviews">Отзывы</a></li><li><a href="/calculator.html">Калькулятор</a></li><li><a href="/#pricing">Тарифы</a></li><li><a href="/contact.html">Контакты</a></li></ul>
+    <ul><li class="hd">Связь</li><li><a href="https://t.me/InnaRH">Telegram</a></li><li><a href="https://www.instagram.com/inna.tri">Instagram</a></li><li><a href="https://www.youtube.com/@innatri">YouTube</a></li><li><a href="mailto:innaryzhykh@gmail.com">Email</a></li></ul>
+    <ul><li class="hd">Язык</li><li><a href="/ua/contact.html">UA</a></li><li><a href="/en/contact.html">EN</a></li><li><a href="/contact.html">RU</a></li></ul>
+  </div>
+  <svg class="wordmark" viewBox="0 0 1000 150" role="img" aria-label="INNA TRI"><text x="-6" y="138" textLength="1008" lengthAdjust="spacingAndGlyphs" font-family="Noto Serif Display, Georgia, serif" font-size="184" fill="#fff" letter-spacing="-4">INNA TRI</text></svg>
+  <div class="legal"><span>© 2026 INNATRI.</span><a href="/privacy.html">Политика конфиденциальности</a></div>
+</footer>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="tech-font" style="margin-top: 40px; color: var(--text-gray);">Киев, Украина 🇺🇦</p>
-      <p class="tech-font" style="margin-top: 12px;">© 2026 INNATRI.</p>
-   <p class="tech-font" style="margin-top: 8px;"><a href="/privacy.html" style="color: var(--text-gray); text-decoration: none;">Политика конфиденциальности</a></p>
-    </div>
-  </footer>
-
-
-  <button class="to-top-btn" id="toTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Наверх">
-    <i class="ph ph-arrow-up"></i>
-  </button>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
-    }
-
-    function navigateTo(viewId) {
-      document.querySelectorAll('[id^="view-"]').forEach(el => el.style.display = 'none');
-      document.getElementById('view-' + viewId).style.display = 'block';
-      window.scrollTo(0, 0);
-
-      // Update active link
-      document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
-      const activeLink = document.getElementById('link-' + viewId);
-      if(activeLink) activeLink.classList.add('active');
-
-      if (viewId === 'home' || viewId === 'blog' || viewId === 'run') {
-        document.title = 'InnaTri - Системный триатлон';
-        const metaDescription = document.getElementById('meta-description');
-        const ogTitle = document.getElementById('meta-og-title');
-        const ogDescription = document.getElementById('meta-og-description');
-        const ogImage = document.getElementById('meta-og-image');
-        const ogUrl = document.getElementById('meta-og-url');
-        const twTitle = document.getElementById('meta-twitter-title');
-        const twDescription = document.getElementById('meta-twitter-description');
-        const twImage = document.getElementById('meta-twitter-image');
-        const schemaArticle = document.getElementById('schema-article');
-
-        const baseTitle = 'InnaTri - Системный триатлон';
-        const baseDesc = 'InnaTri - системный подход к триатлону и бегу. Онлайн сопровождение, планы тренировок, аналитика и поддержка.';
-        const baseImg = 'https://innatri.com/assets/hero/Image_202601201654.jpeg';
-        if (metaDescription) metaDescription.setAttribute('content', baseDesc);
-        if (ogTitle) ogTitle.setAttribute('content', baseTitle);
-        if (ogDescription) ogDescription.setAttribute('content', baseDesc);
-        if (ogImage) ogImage.setAttribute('content', baseImg);
-        if (ogUrl) ogUrl.setAttribute('content', window.location.href);
-        if (twTitle) twTitle.setAttribute('content', baseTitle);
-        if (twDescription) twDescription.setAttribute('content', baseDesc);
-        if (twImage) twImage.setAttribute('content', baseImg);
-
-        if (schemaArticle) {
-          schemaArticle.textContent = JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "InnaTri",
-            "url": window.location.href
-          });
-        }
-      }
-    }
-
-    function navigateToSection(sectionId) {
-      navigateTo('home');
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    }
-
-    function switchCalcMode(mode, e) {
-      document.querySelectorAll('.calc-mode').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.calc-tab').forEach(el => el.classList.remove('active'));
-      document.getElementById('calc-' + mode).classList.add('active');
-      if (e && e.target) { e.target.classList.add('active'); }
-    }
-
-    function formatHMS(totalSeconds) {
-      if (!isFinite(totalSeconds)) return '--';
-      const secs = Math.max(0, Math.round(totalSeconds));
-      const h = Math.floor(secs / 3600);
-      const m = Math.floor((secs % 3600) / 60);
-      const s = secs % 60;
-      if (h > 0) return `<span class="calc-display-num">${h}</span><span class="calc-display-unit">ч</span> <span class="calc-display-num">${m}</span><span class="calc-display-unit">мин</span>`;
-      if (m > 0 && s > 0) return `<span class="calc-display-num">${m}</span><span class="calc-display-unit">мин</span> <span class="calc-display-num">${s}</span><span class="calc-display-unit">сек</span>`;
-      if (m > 0) return `<span class="calc-display-num">${m}</span><span class="calc-display-unit">мин</span>`;
-      return `<span class="calc-display-num">${s}</span><span class="calc-display-unit">сек</span>`;
-    }
-
-    function formatPace(secondsPerKm) {
-      if (!isFinite(secondsPerKm) || secondsPerKm <= 0) return '--';
-      const mins = Math.floor(secondsPerKm / 60);
-      const secs = Math.round(secondsPerKm % 60);
-      return `${mins}:${String(secs).padStart(2, '0')}`;
-    }
-
-    // --- CALCULATOR LOGIC ---
-    function calculateTriTime() {
-      const distMap = {
-        sprint: { swim: 0.75, bike: 20, run: 5 },
-        olympic: { swim: 1.5, bike: 40, run: 10 },
-        half: { swim: 1.9, bike: 90, run: 21.1 },
-        full: { swim: 3.8, bike: 180, run: 42.2 }
-      };
-      const distKey = document.getElementById('triDist').value;
-      const dists = distMap[distKey];
-
-      const swimM = parseFloat(document.getElementById('triSwimM').value) || 0;
-      const swimS = parseFloat(document.getElementById('triSwimS').value) || 0;
-      const swimPaceSec = swimM * 60 + swimS; 
-      const swimTimeSec = swimPaceSec * (dists.swim * 10); // pace per 100m -> dist in km * 10
-
-      const bikeSpeed = parseFloat(document.getElementById('triBikeSpeed').value) || 30;
-      const bikeTimeSec = bikeSpeed > 0 ? (dists.bike / bikeSpeed) * 3600 : 0;
-
-      const runM = parseFloat(document.getElementById('triRunM').value) || 0;
-      const runS = parseFloat(document.getElementById('triRunS').value) || 0;
-      const runPaceSec = runM * 60 + runS;
-      const runTimeSec = runPaceSec * dists.run;
-
-      const t1t2Min = parseFloat(document.getElementById('triT1T2').value) || 0;
-      const t1t2Sec = t1t2Min * 60;
-
-      const totalSec = swimTimeSec + bikeTimeSec + runTimeSec + t1t2Sec;
-
-      document.getElementById('triTotalResult').innerHTML = formatHMS(totalSec);
-      
-      document.getElementById('triDetails').innerHTML = `
-        <div class="calc-detail-row"><span>Swim (${dists.swim} км)</span> <span>${formatHMS(swimTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Bike (${dists.bike} км)</span> <span>${formatHMS(bikeTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Run (${dists.run} км)</span> <span>${formatHMS(runTimeSec)}</span></div>
-        <div class="calc-detail-row"><span>Транзитка</span> <span>${formatHMS(t1t2Sec)}</span></div>
-      `;
-    }
-
-    function calculateRunTime() {
-      const dist = parseFloat(document.getElementById('runDistInput').value) || 10;
-      const h = parseFloat(document.getElementById('runH').value) || 0;
-      const m = parseFloat(document.getElementById('runM').value) || 0;
-      const s = parseFloat(document.getElementById('runS').value) || 0;
-      
-      const totalSeconds = h * 3600 + m * 60 + s;
-      if (totalSeconds <= 0) return;
-
-      const paceSec = totalSeconds / dist;
-      document.getElementById('runPaceResult').textContent = formatPace(paceSec) + ' /км';
-
-      const predictions = [
-        { d: 5, label: '5 км' },
-        { d: 10, label: '10 км' },
-        { d: 21.1, label: 'Полумарафон' },
-        { d: 42.2, label: 'Марафон' }
-      ];
-
-      let html = '';
-      predictions.forEach(p => {
-        // Riegel formula: T2 = T1 * (D2 / D1)^1.06
-        const predSec = totalSeconds * Math.pow((p.d / dist), 1.06);
-        html += `<div class="calc-detail-row"><span>${p.label}</span> <span>${formatHMS(predSec)}</span></div>`;
-      });
-      document.getElementById('runPredictions').innerHTML = html;
-    }
-
-    function calculateNutrition() {
-      const h = parseFloat(document.getElementById('nutH').value) || 0;
-      const m = parseFloat(document.getElementById('nutM').value) || 0;
-      const durationHrs = h + m / 60;
-      const intensity = document.getElementById('nutIntense').value;
-
-      // Carbs logic
-      let carbsPerHour = 60;
-      if (durationHrs < 1.5) carbsPerHour = 30;
-      else if (durationHrs > 3) carbsPerHour = 90;
-      
-      if (intensity === 'low') carbsPerHour -= 10;
-      if (intensity === 'high') carbsPerHour += 10;
-
-      // Updated logic for amateurs (realistic values)
-      // < 1h: 0-20g (usually water is enough)
-      // 1-2h: 30-60g
-      // 2h+: 60-80g (90g is pro level gut training)
-      
-      if (durationHrs < 1.0) carbsPerHour = 10; // minimal
-      else if (durationHrs < 2.5) carbsPerHour = 45; 
-      else carbsPerHour = 70; // 60-80g range target
-
-      if (intensity === 'high' && durationHrs > 1.5) carbsPerHour += 10;
-
-      const fluidPerHour = 0.5 + (intensity === 'high' ? 0.3 : 0);
-      
-      document.getElementById('nutCarbs').textContent = carbsPerHour + 'г';
-      
-      const totalCarbs = Math.round(carbsPerHour * durationHrs);
-      const totalFluid = (fluidPerHour * durationHrs).toFixed(1);
-
-      document.getElementById('nutDetails').innerHTML = `
-        <div class="calc-detail-row"><span>Всего углеводов</span> <span>${totalCarbs} г</span></div>
-        <div class="calc-detail-row"><span>Жидкость (всего)</span> <span>~${totalFluid} л</span></div>
-        <div class="calc-detail-row"><span>Соль/Электролиты</span> <span>Обязательно</span></div>
-      `;
-    }
-
-    // Events for calculator
-    document.querySelectorAll('.calc-input, .calc-select').forEach(el => {
-      el.addEventListener('input', () => {
-        if(document.getElementById('calc-tri').classList.contains('active')) calculateTriTime();
-        if(document.getElementById('calc-run').classList.contains('active')) calculateRunTime();
-        if(document.getElementById('calc-nutrition').classList.contains('active')) calculateNutrition();
-      });
-    });
-
-    // Reviews Carousel Logic
-    let currentReview = 0;
-    let totalReviews = 0;
-
-    function initReviewsCarousel() {
-      const reviews = document.querySelectorAll('.review-card');
-      totalReviews = reviews.length;
-      
-      // Create dots
-      const dotsContainer = document.getElementById('reviewDots');
-      dotsContainer.innerHTML = '';
-      for (let i = 0; i < totalReviews; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'review-dot' + (i === 0 ? ' active' : ''); dot.setAttribute('aria-label', 'Отзыв ' + (i + 1));
-        dot.onclick = () => goToReview(i);
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateReviewSlider() {
-      const slider = document.getElementById('reviewsSlider');
-      slider.style.transform = `translateX(-${currentReview * 100}%)`;
-      
-      document.querySelectorAll('.review-dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentReview);
-      });
-    }
-
-    function nextReview() {
-      currentReview = (currentReview + 1) % totalReviews;
-      updateReviewSlider();
-    }
-
-    function prevReview() {
-      currentReview = (currentReview - 1 + totalReviews) % totalReviews;
-      updateReviewSlider();
-    }
-
-    function goToReview(index) {
-      currentReview = index;
-      updateReviewSlider();
-    }
-
-    // Blog Logic
-
-    // Initialize on page load
-    window.addEventListener('DOMContentLoaded', function() {
-      if (document.getElementById('reviewsSlider')) {
-        initReviewsCarousel();
-      }
-      if (document.getElementById('triDist')) {
-        calculateTriTime();
-      }
-    });
-
-    const toTopBtn = document.getElementById('toTopBtn');
-    function updateToTop() {
-      if (!toTopBtn) return;
-      const shouldShow = window.scrollY > 300;
-      toTopBtn.classList.toggle('show', shouldShow);
-    }
-    window.addEventListener('scroll', updateToTop, { passive: true });
-    updateToTop();
-
-    if (window.matchMedia("(hover: hover)").matches) {
-      document.querySelectorAll('.bento-card, .price-card, .stat-card, .review-card, .calc-container, .step-card, .faq-item, .featured-article').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        });
-      });
-    }
-  </script>
 <script src="/assets/js/leads.js" defer></script>
-<script src="/assets/js/motion.js?v=20261029b" defer></script>
+<script src="/assets/js/book.js?v=20261029a" defer></script>
 </body>
 </html>
