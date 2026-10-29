@@ -1597,11 +1597,6 @@ body.page-article .article-content li + li { margin-top: var(--sp-2) !important;
   border: 0 !important; padding: 0 !important; background: none !important;
 }
 #view-home #about .about-block { border: 0 !important; padding: 0 !important; }
-@media (max-width: 640px) {
-  #view-home #about .about-text-content p { font-size: 16px !important; }
-  #view-home #about .about-text-content .about-lead,
-  #view-home #about .about-text-content .about-callout { font-size: 16px !important; }
-}
 
 #view-home .tone-dark .stats-wrapper {
   display: flex !important; gap: 0 !important; margin-top: 16px !important;
@@ -1958,3 +1953,73 @@ body.page-run .tp-why-photo img { object-position: 50% 40%; }
  .hero-tag.tech-font { white-space: normal; }
  .footer .btn { font-size: 11px; }
 }
+
+/* ============================================================
+   ЕДИНАЯ СИСТЕМА ШРИФТОВ (29.10.2026)
+   Unbounded: только логотип, h1, h2, меню-оверлей и крупные цифры (цены, «20+»).
+   Всё остальное: Manrope. Размеры: h1 / h2 / 18 подзаголовки / 17 текст и кнопки / 14 мелкое.
+   Капс только в h1, h2 и логотипе.
+   :not(#\#):not(#\#) (дважды) добавляет вес двух id, чтобы перебить правила внутренних <style> страниц.
+   ============================================================ */
+:root {
+  --font-display: 'Unbounded', sans-serif;
+  --font-text: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+body:not(#\#):not(#\#) { font-family: var(--font-text) !important; }
+
+/* Текстовый шрифт для всего, кроме иконок, кода и крупных акцентов */
+body :not(i, .ph, pre, code, h1, h2, h1 *, h2 *, .logo, .logo *, .mobile-menu a, .mobile-menu a *,
+  .price-amount, .tp-price-amount, .stat-card .title-font, .step-num, .contact-step-num,
+  .marquee-item, .marquee-item *):not(#\#):not(#\#) {
+  font-family: var(--font-text) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+/* Акцентный шрифт */
+:is(h1, h2, .logo, .mobile-menu a, .price-amount, .tp-price-amount, .stat-card .title-font,
+  .step-num, .contact-step-num):not(#\#):not(#\#) { font-family: var(--font-display) !important; }
+.price-amount span:not(#\#):not(#\#), .tp-price-amount span:not(#\#):not(#\#) { font-family: var(--font-text) !important; }
+
+/* h1 и h2: один размер на всех страницах, все части заголовка одинаковые */
+:is(h1, h1 *):not(#\#):not(#\#):not(#\#) { font-size: clamp(32px, 4vw, 52px) !important; line-height: 1.05 !important; }
+:is(h2, h2 *):not(#\#):not(#\#):not(#\#) { font-size: clamp(24px, 2.8vw, 36px) !important; line-height: 1.15 !important; }
+:is(.price-amount, .tp-price-amount, .stat-card .title-font, .step-num, .contact-step-num):not(#\#):not(#\#):not(#\#) {
+  font-size: clamp(32px, 3.6vw, 44px) !important; line-height: 1.1 !important;
+}
+
+/* 18: подзаголовки карточек, вопросы, имена, названия тарифов */
+:is(h3, h4, summary, .faq-summary, .title-font, .channel-name, figcaption strong, .rn-steps b,
+  .blog-title, .price-title, .tp-subtitle):not(h1, h2, .stat-card .title-font, .price-amount, .gentle-more summary):not(#\#):not(#\#) {
+  font-size: 18px !important; line-height: 1.35 !important; font-weight: 700 !important;
+}
+
+/* 17: основной текст и кнопки */
+:is(p, li, blockquote, dd, .faq-content, .featured-excerpt, .hero-subtitle, .rn-lead):not(#\#):not(#\#) {
+  font-size: 17px !important; line-height: 1.55 !important;
+}
+:is(.btn, .rn-btn, .contact-quiz-btn, .calc-promo-btn, .lead-sticky a):not(#\#):not(#\#) {
+  font-size: 17px !important; font-weight: 600 !important; line-height: 1.35 !important;
+}
+
+/* 14: мелкое — навигация, подписи, метки, сноски, таблицы, подвал */
+:is(.nav-link, .lang-switch a, .rn-crumbs, .rn-crumbs *, .section-label, .section-label *, .hero-tag,
+  .tech-font, .tech-font *, .rn-eyebrow, .blog-meta, .blog-meta *, .article-byline, .article-byline *,
+  .article-back, figcaption span, .price-badge, .calc-promo-chip, .calc-promo-badge, .rn-tag, .rn-more,
+  .price-amount span, .tp-price-amount span, th, td, label, small, sup, .contact-facts, .contact-facts *,
+  .channel-handle, .tp-creds, .tp-form-note, .calc-tab, .run-sub-tab, .toggle-btn, .calc-label,
+  .calc-res-title, .calc-sub-res, .calc-detail-row span, .zone-row span, .split-row span,
+  .split-header span, .vdot-badge, .res-unit, .calc-display-unit, .footer .btn, .gentle-more summary):not(#\#):not(#\#) {
+  font-size: 14px !important; line-height: 1.5 !important;
+}
+:is(.nav-link, .lang-switch a, .calc-tab, .run-sub-tab, .toggle-btn, .footer .btn, th, .price-badge):not(#\#):not(#\#) { font-weight: 600 !important; }
+:is(.section-label, .section-label *, .hero-tag, .tech-font, .tech-font *, .rn-eyebrow, td, figcaption span):not(#\#):not(#\#) { font-weight: 400 !important; }
+/* части главного заголовка: одна толщина */
+:is(h1 *, h2 *):not(#\#):not(#\#) { font-weight: inherit !important; }
+/* хвосты: ссылки-кнопки в промо-блоках, призрачные ссылки, цифры фактов */
+:is(.run-calc-promo a, .calc-promo a):not(#\#):not(#\#) { font-size: 17px !important; font-weight: 600 !important; }
+.rn-btn-ghost:not(#\#):not(#\#) { font-size: 14px !important; }
+.rn-facts b:not(#\#):not(#\#) { font-size: 18px !important; }
+/* размеры, прописанные прямо в разметке (style="font-size:…"), приводим к шкале */
+:is([style*="font-size:11px"], [style*="font-size: 11px"], [style*="font-size:12px"], [style*="font-size: 12px"],
+  [style*="font-size:13px"], [style*="font-size: 13px"], [style*="font-size:15px"], [style*="font-size: 15px"]):not(#\#):not(#\#) { font-size: 14px !important; }
+:is([style*="font-size:16px"], [style*="font-size: 16px"]):not(#\#):not(#\#) { font-size: 17px !important; }
