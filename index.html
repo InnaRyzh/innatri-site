@@ -48,7 +48,7 @@
  <link rel="preload" href="/assets/fonts/noto-serif-display-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029c">
- <link rel="stylesheet" href="/assets/css/book.css?v=20261029b">
+ <link rel="stylesheet" href="/assets/css/book.css?v=20261029e">
 
  <script type="application/ld+json" id="schema-site">
   {
@@ -211,25 +211,6 @@
 /* ---------- reviews ---------- */
 .reviews { padding-top: clamp(80px, 9vw, 140px); }
 .reviews > .wrap { padding-bottom: clamp(48px, 5vw, 72px); }
-.rv { display: grid; grid-template-columns: 4fr 8fr; min-height: clamp(320px, 42svh, 440px); }
-.rv-who { position: relative; margin: 0; background: var(--ink); color: #fff; overflow: hidden; }
-.rv-who img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-.rv-who figcaption { position: absolute; left: 0; bottom: 0; padding: 18px 28px 20px; background: var(--ink); }
-.rv-who b { display: block; font: 600 var(--s-lead)/1.25 var(--sans); }
-.rv-who span { display: block; color: rgba(255,255,255,.72); font-size: var(--s-small); }
-.rv-say { padding: clamp(40px, 4vw, 64px) clamp(28px, 4vw, 64px) 40px; display: flex; flex-direction: column; }
-.rv-say blockquote p { font: 400 var(--s-quote)/1.2 var(--serif); letter-spacing: -0.015em; max-width: 30ch; padding-left: .4em; text-indent: -.4em; }
-.rv-say details { margin-top: auto; padding-top: 40px; max-width: 62ch; }
-.rv-say summary { cursor: pointer; font-weight: 600; list-style: none; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-.rv-say summary::-webkit-details-marker { display: none; }
-.rv-say summary::after { content: '+'; font-size: 22px; font-weight: 400; transition: transform .3s var(--ease); }
-.rv-say details[open] summary::after { transform: rotate(45deg); }
-.rv-say details > div { padding-top: 16px; display: grid; gap: 14px; }
-.rv-say details ul { display: grid; gap: 6px; padding-left: 1.1em; list-style: disc; }
-.rv.s-sur .rv-say { background: var(--surface); }
-.rv.s-paper .rv-say { background: var(--paper); }
-.rv.flip { grid-template-columns: 8fr 4fr; }
-.rv.flip .rv-who { order: 2; }
 
 /* ---------- steps: many into one ---------- */
 .steps { padding-block: clamp(80px, 9vw, 140px); }
@@ -244,25 +225,6 @@
 .pricing .intro-t { margin-top: 24px; }
 .pricing .intro .lead { max-width: 30ch; font-family: var(--serif); letter-spacing: -0.01em; }
 .pricing .tp { margin-top: 14px; }
-.plans { display: grid; grid-template-columns: 1fr 1fr; margin-top: clamp(56px, 6vw, 88px); }
-.plan { padding: clamp(36px, 4vw, 64px) var(--m); display: flex; flex-direction: column; }
-.plan.base { background: var(--paper); }
-.plan.pro { background: var(--ink); color: #fff; }
-.plan-name { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-.plan-name b { font: 700 var(--s-lead)/1 var(--sans); letter-spacing: .04em; }
-.plan-name small { font-size: var(--s-small); font-weight: 600; padding: 6px 10px; background: #fff; color: var(--ink); }
-.price { margin-top: 18px; font: 400 var(--s-hero)/.9 var(--serif); letter-spacing: -0.04em; }
-.price span { font: 500 var(--s-body)/1 var(--sans); letter-spacing: 0; margin-left: 10px; }
-.plan .what { margin-top: 28px; font: 400 var(--s-lead)/1.35 var(--serif); }
-.plan ul { margin-top: 28px; }
-.plan li { position: relative; padding: 8px 0 8px 26px; }
-.plan li::before { content: ""; position: absolute; left: 0; top: .95em; width: 8px; height: 8px; background: var(--red); }
-.plan.pro li::before { background: var(--red); }
-.plan .fit { margin-top: 28px; color: var(--soft); }
-.plan.pro .fit { color: rgba(255,255,255,.86); }
-.plan .btn { margin-top: auto; align-self: flex-start; }
-.plan .fit + .btn, .plan .note + .btn { margin-top: 36px; }
-.plan .note { margin-top: 20px; font-weight: 600; }
 .pricing { padding-bottom: 0; }
 
 /* ---------- calculator ---------- */
@@ -290,8 +252,8 @@
 .h1 .line > span { white-space: nowrap; }
 
 /* paper grain on this page's own grounds */
-.t-sur, .approach, .pricing, .plan.base, .callout, .rv.s-sur .rv-say, .rv.s-paper .rv-say, .cl, .plan-name small { background-image: var(--grain) !important; }
-.t-ink, .plan.pro, .cl-out, .rv-who figcaption { background-image: var(--grain-dark) !important; }
+.t-sur, .approach, .pricing, .callout, .cl { background-image: var(--grain) !important; }
+.t-ink, .cl-out { background-image: var(--grain-dark) !important; }
 
 @media (prefers-reduced-motion: no-preference) {
   .js .h1 .line > span { transform: translateY(105%); animation: rise .95s var(--ease) forwards; }
@@ -328,13 +290,7 @@
   .callout { margin-top: 40px; padding: 24px 22px; }
   .approach h2 { margin-bottom: 48px; }
   .approach .blocks { grid-template-columns: minmax(0, 1fr); gap: 56px; }
-  .rv, .rv.flip { grid-template-columns: minmax(0, 1fr); min-height: 0; }
-  .rv .rv-say { order: 1; padding: 32px var(--m) 28px; }
-  .rv .rv-who, .rv.flip .rv-who { order: 0; aspect-ratio: 4 / 3; }
-  .rv-who figcaption { padding: 14px var(--m) 16px; }
   .steps .three { grid-template-columns: minmax(0, 1fr); gap: 36px; margin-top: 32px; }
-  .plans { grid-template-columns: minmax(0, 1fr); }
-  .plan .btn { width: 100%; }
   .calc .btn { width: 100%; }
   .about-grid { display: block; }
   .about-grid h2 { margin-bottom: 0; }
