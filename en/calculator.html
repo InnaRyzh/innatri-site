@@ -46,8 +46,8 @@
   <link rel="preload" href="/assets/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/assets/fonts/noto-serif-display-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029c">
- <link rel="stylesheet" href="/assets/css/book.css?v=20261029e">
+ <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029d">
+ <link rel="stylesheet" href="/assets/css/book.css?v=20261029f">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"InnaTri","url":"https://innatri.com","description":"Online triathlon and running coaching.","inLanguage":"en-US","publisher":{"@type":"Person","name":"Inna Ryzhykh"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"VDOT Calculator & Race Planner","url":"https://innatri.com/en/calculator.html","applicationCategory":"SportsApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":"VDOT Score, Training Pace Zones, Race Time Predictions, Split Tables, Race Nutrition Calculator, Triathlon Calculator","description":"Running pace calculator with VDOT score, 5 Daniels training zones, predictions for 8 distances, split tables and race nutrition planner."}</script>
@@ -56,7 +56,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the triathlon calculator work?","acceptedAnswer":{"@type":"Answer","text":"Select a distance (Sprint, Olympic, Ironman 70.3, or Ironman) and enter your swim pace, bike speed, run pace, and transitions. The calculator shows your predicted total time with a breakdown by discipline."}},{"@type":"Question","name":"How do I predict my marathon time from a 5K result?","acceptedAnswer":{"@type":"Answer","text":"Enter 5 km and your finish time in the RUNNING section. The calculator uses the Riegel formula to predict your marathon (42.2 km) and other race times. For example, a 25-minute 5K predicts roughly a 3:52 marathon."}},{"@type":"Question","name":"What is VDOT and what is a good score?","acceptedAnswer":{"@type":"Answer","text":"VDOT is a running fitness metric from Jack Daniels' Running Formula, calculated from your race performance. VDOT 30-35 is beginner, 40-45 intermediate, 50-55 advanced, and 60+ is elite level."}},{"@type":"Question","name":"What are the Jack Daniels training pace zones?","acceptedAnswer":{"@type":"Answer","text":"Five training zones: Easy (65-79% VO2max for recovery and base building), Marathon pace, Threshold (lactate threshold), Interval (95-100% VO2max), and Repetition (faster than VDOT pace for speed and economy)."}},{"@type":"Question","name":"How many gels should I take during a marathon?","acceptedAnswer":{"@type":"Answer","text":"Aim for 40-60g of carbs per hour, which is 2-3 gels per hour. For a 4-hour marathon, plan for 8-10 gels total. Use the NUTRITION section for a personalized calculation based on your weight and conditions."}},{"@type":"Question","name":"What is a negative split in running?","acceptedAnswer":{"@type":"Answer","text":"A race strategy where the second half is run faster than the first (typically 1-3% faster). Considered optimal for marathons. The split table in the calculator lets you toggle between even and negative split strategies."}},{"@type":"Question","name":"How much water should I drink during a marathon?","acceptedAnswer":{"@type":"Answer","text":"400-800 ml per hour depending on temperature and body weight. In hot conditions (above 25°C/77°F), aim for up to 800 ml/h. Drink 150-200ml every 15-20 minutes rather than waiting for thirst."}},{"@type":"Question","name":"How do I calculate my Ironman finish time?","acceptedAnswer":{"@type":"Answer","text":"In the TRIATHLON section, select Ironman 140.6, enter your swim pace (min/100m), bike speed (km/h), run pace (min/km), and transition times. The calculator shows total time and a breakdown by discipline."}}]}</script>
  <style>
 .c-hero { padding-block: clamp(48px, 6vw, 96px) clamp(32px, 4vw, 56px); }
-.c-hero h1 { font: 400 var(--s-head)/1 var(--serif); letter-spacing: -0.03em; }
+.c-hero h1 { font: var(--sw) var(--s-head)/1 var(--serif); letter-spacing: -0.03em; }
 .c-hero .lead { margin-top: 20px; max-width: 46ch; }
 
 /* the tool: switches, inputs on grey paper, results on ink */
@@ -90,12 +90,12 @@
 .toggle-btn.active { background: var(--ink); color: #fff; }
 
 .calc-res-title, .nut-prod-title, .nut-tl-title { font-size: var(--s-small); font-weight: 600; color: rgba(255,255,255,.7); }
-.calc-main-res { margin-top: 10px; font: 400 var(--s-head)/1 var(--serif); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.calc-main-res { margin-top: 10px; font: var(--sw) var(--s-head)/1 var(--serif); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .res-unit { font: 500 var(--s-body)/1 var(--sans); letter-spacing: 0; color: rgba(255,255,255,.7); margin: 0 6px 0 3px; }
 .calc-sub-res { margin-top: 6px; color: rgba(255,255,255,.7); }
 .vdot-badge { display: inline-flex; align-items: baseline; gap: 10px; margin-top: 20px; font-size: var(--s-small); font-weight: 600; color: rgba(255,255,255,.7); }
 .vdot-badge::before { content: ""; width: 8px; height: 8px; background: var(--red); align-self: center; }
-.vdot-badge span { font: 400 var(--s-sub)/1 var(--serif); color: #fff; }
+.vdot-badge span { font: var(--sw) var(--s-sub)/1 var(--serif); color: #fff; }
 .calc-details { margin-top: 20px; display: grid; }
 .calc-details:empty { display: none; }
 .calc-detail-row { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.14); font-variant-numeric: tabular-nums; }
@@ -125,7 +125,7 @@
 .nut-card { background: var(--ink); padding: 18px 18px 18px 0; }
 .nut-card:nth-child(even) { padding-left: 18px; }
 .nut-card-icon { display: none; }
-.nut-card-value { font: 400 var(--s-sub)/1.1 var(--serif); font-variant-numeric: tabular-nums; }
+.nut-card-value { font: var(--sw) var(--s-sub)/1.1 var(--serif); font-variant-numeric: tabular-nums; }
 .nut-card-value .res-unit { font-size: var(--s-small); }
 .nut-card-label { margin-top: 6px; font-weight: 600; }
 .nut-card-sub { margin-top: 4px; font-size: var(--s-small); color: rgba(255,255,255,.7); }
@@ -152,7 +152,7 @@
 .c-links { padding-block: clamp(80px, 9vw, 140px); }
 .c-links .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
 .go { position: relative; display: grid; gap: 14px; align-content: start; padding: 32px 32px 72px; background: var(--surface); text-decoration: none; transition: background-color .2s, color .2s; }
-.go-t { font: 400 var(--s-sub)/1.15 var(--serif); letter-spacing: -0.015em; }
+.go-t { font: var(--sw) var(--s-sub)/1.15 var(--serif); letter-spacing: -0.015em; }
 .go-p { color: var(--soft); }
 .go .arr { position: absolute; left: 32px; bottom: 28px; font-size: 22px; transition: transform .3s var(--ease); }
 .go:hover { background: var(--ink); color: #fff; }
