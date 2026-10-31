@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
   <url>
     <loc>https://innatri.com/</loc>
@@ -64,7 +65,7 @@
   </url>
   <url>
     <loc>https://innatri.com/blog.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -74,7 +75,7 @@
   </url>
   <url>
     <loc>https://innatri.com/en/blog.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -84,7 +85,7 @@
   </url>
   <url>
     <loc>https://innatri.com/ua/blog.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -340,7 +341,7 @@
   </url>
   <url>
     <loc>https://innatri.com/blog/podgotovka-k-marafonu-s-nulya.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog/podgotovka-k-marafonu-s-nulya.html"/>
@@ -430,7 +431,7 @@
   </url>
   <url>
     <loc>https://innatri.com/blog/beg-po-pulsu.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog/beg-po-pulsu.html"/>
@@ -612,4 +613,34 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/privacy.html"/>
   </url>
 
+  <url>
+    <loc>https://innatri.com/video/kak-nachat-begat-s-nulya.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <video:video>
+      <video:thumbnail_loc>https://innatri.com/assets/video/kak-nachat-begat.jpg</video:thumbnail_loc>
+      <video:title>Как начать бегать с нуля и не бросить через 2 недели</video:title>
+      <video:description>Как начать бегать с нуля и не бросить через месяц: темп, план на 4 недели, какая боль нормальная и как выбрать первые кроссовки.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/Orp50VNQsNk</video:player_loc>
+      <video:duration>557</video:duration>
+      <video:publication_date>2026-10-26T06:00:07-07:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://innatri.com/video/metriki-garmin.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <video:video>
+      <video:thumbnail_loc>https://innatri.com/assets/video/metriki-garmin.jpg</video:thumbnail_loc>
+      <video:title>Метрики Garmin на 100%: разбор реальной тренировки 10 км (пульс, каденс, беговая динамика)</video:title>
+      <video:description>Как читать метрики Garmin на 100%: пульсовой дрейф, тренировочный эффект, выносливость, беговая динамика, вертикальное соотношение, время контакта с землёй и баланс ног.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/3I0GKKkkTTQ</video:player_loc>
+      <video:duration>566</video:duration>
+      <video:publication_date>2026-10-21T05:37:51-07:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
 </urlset>
