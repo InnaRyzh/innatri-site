@@ -65,6 +65,8 @@
 .d-hero .lead { margin-top: 24px; max-width: 42ch; }
 .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
 .acts .note { color: var(--soft); font-size: var(--s-small); }
+.path { margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,.05); line-height: 1.5; }
+.note { margin-top: 12px; font-size: 14px; opacity: .75; }
 .step-shot { margin-top: 24px; }
 .step-shot img { display: block; width: 100%; max-width: 750px; height: auto; border: 1px solid rgba(0,0,0,.12); }
 .step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
@@ -243,12 +245,16 @@
       <li>
         <div class="main">
           <h3>Check your heart rate zones in Garmin</h3>
-          <p>The dashboard takes the easy ceiling from your watch, so everything depends on your zone settings. Zones are set in the Garmin Connect app on your phone, in your watch settings: find the heart rate zones and pick the sport “Running”. For newer watches the Garmin Connect website no longer shows these settings.</p>
+          <p>The dashboard takes the easy ceiling from your watch, so everything depends on your zone settings. On newer watches zones are set only in the Garmin Connect app on your phone. The path is:</p>
+          <p class="path"><b>Your watch → Settings → User Profile → Heart Rate and Power Zones → Heart Rate</b></p>
           <ol>
+            <li>At the top there are three numbers: <b>max heart rate</b>, <b>lactate threshold heart rate</b> and <b>resting heart rate</b>. Tap any of them to correct it.</li>
+            <li>Open <b>Zones</b>, then <b>Based On</b>. The best option is <b>% of lactate threshold heart rate</b>, if your threshold comes from a test or the watch detected it on a run with a chest strap.</li>
             <li>If your maximum is set by the 220 minus age formula and you have never measured it, your zones are almost certainly off. The dashboard will notice and warn you.</li>
-            <li>The best option is zones based on lactate threshold, if you have done a test or your watch detected the threshold while you ran with a chest strap.</li>
+            <li>Separate running zones live under <b>Sport-specific heart rate</b>. If they are set, the watch uses them instead of the general ones.</li>
             <li>Do not change settings at random. You can move the ceiling right on the dashboard and see what changes.</li>
           </ol>
+          <p class="note">Menu names can differ slightly depending on the app language and version.</p>
         </div>
         <aside class="side"><div class="why">Where the ceiling came from is printed at the bottom of the dashboard, under “How it was calculated”: the top of zone 2, the calculation method, and the threshold and maximum from your watch. If the zones are based on your maximum, a warning appears at the top.</div></aside>
       </li>
