@@ -429,7 +429,7 @@ en: {
   int_h3: 'Share of time in zones', int_note: 'Blue zones 1–2, grey zone 3, red zones 4–5. The line: coaching target 80%.', int_aria: 'Share of time by zone per month',
   easy_h3: 'Heart rate on easy runs', easy_note: 'Average heart rate of runs that passed both easy conditions. Dashed: the ceiling.', easy_aria: 'Heart rate on easy runs by month', easy_tip: 'HR on easy runs', near: 'right at the ceiling', ceil_s: 'ceiling',
   form_h2: 'Fitness and recovery',
-  form_lead: 'Aerobic efficiency: how many metres you cover per heartbeat on easy outdoor runs, pace adjusted for hills. Rising means the same speed costs less. Resting heart rate by week against the hard weeks: if it rises after them and does not come back, you are not recovering enough.',
+  form_lead: 'Aerobic efficiency: how many metres you cover per heartbeat on easy outdoor runs, pace adjusted for hills. Rising means the same speed costs less. Resting heart rate by week against the hard weeks: if it rises after them and does not come back, you are not recovering enough. Below: HRV, if your watch recorded it.',
   eff_h3: 'Metres per heartbeat', eff_note0: 'Monthly median, easy outdoor runs of 3 km or more only.', eff_aria: 'Metres per heartbeat by month',
   eff_note: (ch, s) => `Monthly median, easy outdoor runs of 3 km or more only. Trend over the period ${ch}%${s === 0 ? ', within noise' : s > 0 ? ', running got cheaper' : ', running got more expensive'}.`,
   eff_none: 'Too few easy outdoor runs with pace and heart rate to compute efficiency.', eff_tip: 'm per beat',
@@ -510,7 +510,7 @@ uk: {
   int_h3: 'Частка часу в зонах', int_note: 'Синє 1–2 зони, сіре 3-тя, червоне 4–5. Риска: тренерський орієнтир 80%.', int_aria: 'Частка часу за зонами по місяцях',
   easy_h3: 'Пульс на легких', easy_note: 'Середній пульс пробіжок, що пройшли обидві умови легкої. Пунктир: межа.', easy_aria: 'Пульс на легких пробіжках за місяцями', easy_tip: 'пульс на легких', near: 'біля самої межі', ceil_s: 'межа',
   form_h2: 'Форма і відновлення',
-  form_lead: 'Аеробна ефективність: скільки метрів ви пробігаєте за один удар серця на легких вуличних пробіжках, темп з поправкою на рельєф. Зростає: та сама швидкість коштує дешевше. Пульс спокою за тижнями на тлі ударних тижнів: якщо після них він піднімається і не повертається, відновлення бракує.',
+  form_lead: 'Аеробна ефективність: скільки метрів ви пробігаєте за один удар серця на легких вуличних пробіжках, темп з поправкою на рельєф. Зростає: та сама швидкість коштує дешевше. Пульс спокою за тижнями на тлі ударних тижнів: якщо після них він піднімається і не повертається, відновлення бракує. Нижче HRV, якщо годинник його записав.',
   eff_h3: 'Метрів за один удар серця', eff_note0: 'Медіана місяця, лише легкі вуличні пробіжки від 3 км.', eff_aria: 'Метрів на удар серця за місяцями',
   eff_note: (ch, s) => `Медіана місяця, лише легкі вуличні пробіжки від 3 км. Тренд за період ${ch}%${s === 0 ? ', у межах шуму' : s > 0 ? ', біг став дешевшим' : ', біг став дорожчим'}.`,
   eff_none: 'Замало легких вуличних пробіжок із темпом і пульсом, щоб рахувати ефективність.', eff_tip: 'м на удар',
@@ -1084,13 +1084,14 @@ function technique(S){
     let delta;
     if (x.same) delta = T.te_same;
     else if (x.m.k === 'pace') delta = `${Math.round(Math.abs(x.d))} ${T.te_s} ${x.d < 0 ? T.te_faster : T.te_slower}`;
-    else delta = (x.d > 0 ? '+' : '−') + x.m.f(Math.abs(x.d)) + ' ' + unit;
+    else delta = (x.d > 0 ? '+' : '−') + x.m.f(Math.abs(x.d)) + (unit === '%' ? '' : ' ') + unit;
     const cls = x.same || !x.m.good ? '' : (Math.sign(x.d) === x.m.good ? 'good' : 'bad');
     return `<div class="tc"><h3>${name}</h3><div class="v">${x.m.f(x.now)}<small>${unit}</small></div><div class="d">${T.te_was} ${x.m.f(x.was)} · <b class="${cls}">${delta}</b></div><div class="sp" data-i="${i}"></div><p class="why">${why}</p></div>`;
   }).join('');
   box.querySelectorAll('.sp').forEach(el => spark(el, S, xs, res[+el.dataset.i].m));
   const ch = res.filter(x => x.m.k !== 'pace' && !x.same), pc = res.find(x => x.m.k === 'pace');
-  const parts = ch.map(x => `${T.te_m[x.m.k][0].toLowerCase()} ${x.d > 0 ? '+' : '−'}${x.m.f(Math.abs(x.d))} ${T.te_m[x.m.k][1]}`);
+  const sp_ = u => u === '%' ? u : ' ' + u;
+  const parts = ch.map(x => `${T.te_m[x.m.k][0].toLowerCase()} ${x.d > 0 ? '+' : '−'}${x.m.f(Math.abs(x.d))}${sp_(T.te_m[x.m.k][1])}`);
   const worse = ch.filter(x => x.m.good && Math.sign(x.d) !== x.m.good).length, better = ch.filter(x => x.m.good && Math.sign(x.d) === x.m.good).length;
   $('#te-sum').textContent = parts.length ? T.te_sum(parts, pc && pc.same) : '';
   const tr = xs.filter(r => r.t != null), byT = x => { const f = fit(tr.map(r => [r.t, x.m.get(r)]).filter(p => p[1] != null)); return f && f.n >= 12 && Math.abs(f.r) >= .4; };
@@ -1158,7 +1159,7 @@ function patterns(S){
   ];
   src.forEach(([k, get, unit, fv]) => {
     const pts = eco.map(r => [get(r), r.mpb, r]).filter(p => p[0] != null && (k !== 'fatigue' || p[0] > 0));
-    if (pts.length < 12) { short.push(k === 'hrv' || k === 'sleep' ? `${E[k].name} (${pts.length} ${slav(pts.length, T.nights)})` : E[k].name); return; }
+    if (pts.length < 12) { const nn = k === 'hrv' || k === 'sleep' ? Object.keys(D[k] || {}).filter(d => d >= iso(S.start) && d <= iso(S.end)).length : 0; short.push(k === 'hrv' || k === 'sleep' ? `${E[k].name} (${nn} ${LANG === 'en' ? (nn === 1 ? 'night' : 'nights') : slav(nn, T.nights)})` : E[k].name); return; }
     const f = fit(pts);
     if (!f || Math.abs(f.r) < .3) { checked.push(E[k].name); return; }
     const up = f.k > 0, p = f.k * unit / f.my * 100;
@@ -1174,7 +1175,7 @@ function patterns(S){
       if (pts.length < 12) return;
       const f = fit(pts); if (!f || Math.abs(f.r) < .4) return;
       const up = f.k > 0, [name, mu] = T.te_m[m.k], X_ = T.tx[xk], worse = m.good && Math.sign(f.k) !== m.good;
-      const dv = f.k * unit, det = `${dv > 0 ? '+' : '−'}${m.f(Math.abs(dv))} ${mu} ${X_[1]}.`;
+      const dv = f.k * unit, det = `${dv > 0 ? '+' : '−'}${m.f(Math.abs(dv))}${mu === '%' ? '' : ' '}${mu} ${X_[1]}.`;
       tcs.push({ xk, r: f.r, n: f.n, claim: T.tx_claim(X_[0], name, up), det, hyp: xk === 'temp' ? X_[2] : worse ? X_[2] : X_[3], pts, xl: xk === 'temp' ? T.heat.x : xk === 'km' ? T.km : E.fatigue.x, yl: name, tip: q_ => tipRun(q_[2], `${xk === 'temp' ? q_[0] + '°' : Math.round(q_[0])}`, `${name} ${m.f(m.get(q_[2]))} ${mu}`) });
     });
   });
