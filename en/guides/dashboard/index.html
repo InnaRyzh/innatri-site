@@ -66,6 +66,9 @@
 .acts .note { color: var(--soft); font-size: var(--s-small); }
 .path { margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,.05); line-height: 1.5; }
 .note { margin-top: 12px; font-size: 14px; opacity: .75; }
+.demo-video { margin-top: clamp(32px,4vw,56px); }
+.demo-video video { display: block; width: 100%; height: auto; background: #141414; border-radius: 6px; }
+.demo-video figcaption { margin-top: 12px; font-size: 15px; opacity: .8; }
 .step-shot { margin-top: 24px; }
 .step-shot img { display: block; width: 100%; max-width: 750px; height: auto; border: 1px solid rgba(0,0,0,.12); }
 .step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
@@ -206,6 +209,7 @@
       <div class="read"><h3>The week tape</h3><p>Each week a column, each run a block. Hard weeks, recovery weeks and the longest stretch without one are visible at a glance. Click a week to open it day by day.</p></div>
       <div class="read"><h3>Fitness and recovery</h3><p>Metres per heartbeat: the only measure of form that needs no test. And resting heart rate by week against the hard weeks, to see whether you recover enough.</p></div>
     </div>
+    <figure class="demo-video"><video autoplay muted loop playsinline preload="metadata" poster="/assets/guides/dashboard/demo-line-en.jpg" width="1080" height="622" aria-label="Video: the easy heart rate line is dragged down and up, run dots change colour and the numbers update"><source src="/assets/guides/dashboard/demo-line-en.mp4" type="video/mp4"></video><figcaption>This is the easy line at work. The ceiling from the watch is 141, and 98 of 144 runs are easy. Move it six beats down and only 71 stay easy.</figcaption></figure>
     <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="The week tape and the monthly charts: share of time in zones, heart rate on easy runs"><figcaption>The dashboard on my own data for one running season. At the bottom it has two sections no app has: “How it was calculated”, where every threshold is named, and “What this dashboard does not know”.</figcaption></figure>
   </div>
 </section>

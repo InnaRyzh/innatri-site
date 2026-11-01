@@ -67,6 +67,9 @@
 .acts .note { color: var(--soft); font-size: var(--s-small); }
 .path { margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,.05); line-height: 1.5; }
 .note { margin-top: 12px; font-size: 14px; opacity: .75; }
+.demo-video { margin-top: clamp(32px,4vw,56px); }
+.demo-video video { display: block; width: 100%; height: auto; background: #141414; border-radius: 6px; }
+.demo-video figcaption { margin-top: 12px; font-size: 15px; opacity: .8; }
 .step-shot { margin-top: 24px; }
 .step-shot img { display: block; width: 100%; max-width: 750px; height: auto; border: 1px solid rgba(0,0,0,.12); }
 .step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
@@ -224,6 +227,7 @@
       <div class="read"><h3>Лента недель</h3><p>Каждая неделя столбиком, каждая пробежка блоком. Самые тяжёлые недели, лёгкие недели и длинные серии без отдыха видны сразу. Нажмите на неделю, и она раскроется по дням.</p></div>
       <div class="read"><h3>Форма и восстановление</h3><p>Метров на удар сердца: растёт ли форма, без всяких тестов. И пульс покоя по неделям: успеваете ли вы восстанавливаться после тяжёлых.</p></div>
     </div>
+    <figure class="demo-video"><video autoplay muted loop playsinline preload="metadata" poster="/assets/guides/dashboard/demo-line-ru.jpg" width="1080" height="622" aria-label="Видео: линию лёгкого пульса тянут вниз и вверх, точки пробежек перекрашиваются, цифры пересчитываются"><source src="/assets/guides/dashboard/demo-line-ru.mp4" type="video/mp4"></video><figcaption>Так работает линия лёгкого. Граница из часов 141, лёгких 98 пробежек из 144. Сдвиньте её на шесть ударов вниз, и лёгких остаётся 71.</figcaption></figure>
     <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="Лента недель и графики по месяцам: доля времени в зонах, пульс на лёгких пробежках"><figcaption>Дашборд на моих данных за один беговой сезон. Внизу два раздела: «Как считали», где подписан каждый порог, и «Чего этот дашборд не знает».</figcaption></figure>
   </div>
 </section>

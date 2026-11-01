@@ -66,6 +66,9 @@
 .acts .note { color: var(--soft); font-size: var(--s-small); }
 .path { margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,.05); line-height: 1.5; }
 .note { margin-top: 12px; font-size: 14px; opacity: .75; }
+.demo-video { margin-top: clamp(32px,4vw,56px); }
+.demo-video video { display: block; width: 100%; height: auto; background: #141414; border-radius: 6px; }
+.demo-video figcaption { margin-top: 12px; font-size: 15px; opacity: .8; }
 .step-shot { margin-top: 24px; }
 .step-shot img { display: block; width: 100%; max-width: 750px; height: auto; border: 1px solid rgba(0,0,0,.12); }
 .step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
@@ -206,6 +209,7 @@
       <div class="read"><h3>Стрічка тижнів</h3><p>Кожен тиждень стовпчиком, кожна пробіжка блоком. Ударні тижні, розвантаження і найдовша серія без нього видно одразу. Клік по тижню розкриває його по днях.</p></div>
       <div class="read"><h3>Форма і відновлення</h3><p>Метрів за удар серця: єдиний показник форми без тестів. І пульс спокою за тижнями на тлі важких, щоб бачити, чи вистачає відновлення.</p></div>
     </div>
+    <figure class="demo-video"><video autoplay muted loop playsinline preload="metadata" poster="/assets/guides/dashboard/demo-line-uk.jpg" width="1080" height="622" aria-label="Відео: лінію легкого пульсу тягнуть униз і вгору, точки пробіжок перефарбовуються, цифри перераховуються"><source src="/assets/guides/dashboard/demo-line-uk.mp4" type="video/mp4"></video><figcaption>Так працює лінія легкого. Межа з годинника 141, легких 98 пробіжок зі 144. Зсуньте її на шість ударів униз, і легких лишається 71.</figcaption></figure>
     <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="Стрічка тижнів і графіки за місяцями: частка часу в зонах, пульс на легких пробіжках"><figcaption>Дашборд на моїх даних за один біговий сезон. Унизу в нього два розділи, яких немає в жодному застосунку: «Як рахували», де підписано кожен поріг, і «Чого цей дашборд не знає».</figcaption></figure>
   </div>
 </section>
