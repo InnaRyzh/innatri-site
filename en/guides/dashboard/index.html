@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Running dashboard from your Garmin key: your running through a coach's eyes | InnaTri</title>
+  <title>Running dashboard from your Garmin key: a year of your running on one page | InnaTri</title>
   <meta name="description" content="One key in Garmin Connect, one prompt in Claude Code, and you get a page that answers the main question: is your base in order? Easy runs, recovery weeks, aerobic efficiency. Free, and your data stays on your computer.">
   <meta name="author" content="Inna Ryzhykh">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/">
   <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/guides/dashboard/">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/">
-  <meta property="og:title" content="Running dashboard from your Garmin key: your running through a coach's eyes">
+  <meta property="og:title" content="Running dashboard from your Garmin key: a year of your running on one page">
   <meta property="og:description" content="A guide: Garmin key, Claude Code and a prompt that builds a dashboard with a coach's verdict. Free, no sign-up, your data stays with you.">
   <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
   <meta property="og:url" content="https://innatri.com/en/guides/dashboard/">
@@ -65,6 +65,9 @@
 .d-hero .lead { margin-top: 24px; max-width: 42ch; }
 .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
 .acts .note { color: var(--soft); font-size: var(--s-small); }
+.step-shot { margin-top: 24px; }
+.step-shot img { display: block; width: 100%; max-width: 750px; height: auto; border: 1px solid rgba(0,0,0,.12); }
+.step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
 .d-shot { position: relative; background: #141414 var(--grain-dark); overflow: hidden; display: flex; align-items: flex-start; justify-content: center; padding: clamp(20px, 3vw, 48px) clamp(20px, 3vw, 48px) 0; }
 .d-shot img { width: 100%; max-width: 760px; height: auto; align-self: flex-end; }
 .reads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
@@ -181,7 +184,7 @@
   <div class="phero-text">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span>/</span><a href="/en/blog.html">Blog</a><span>/</span><span aria-current="page">Dashboard</span></nav>
     <p class="kicker" style="margin-top:48px">A free tool by Inna Ryzhykh</p>
-    <h1 id="guide-title">Your running through a coach's eyes</h1>
+    <h1 id="guide-title">A year of your running on one page</h1>
     <p class="lead">One key in Garmin Connect, one prompt in Claude Code, and twenty minutes later you have a page that answers the main question: is your base in order?</p>
     <div class="acts">
       <a href="#steps" class="btn">To the steps <span class="arr" aria-hidden="true">↓</span></a>
@@ -233,13 +236,14 @@
             <li>Choose <b>1 year</b> as the expiration, otherwise you will repeat all this in a month.</li>
             <li>Copy the key right away. Garmin shows it once. If you lose it, delete the old key on the same page and create a new one.</li>
           </ol>
+          <figure class="step-shot"><img src="/assets/guides/dashboard/garmin-key.jpg" width="750" height="483" loading="lazy" decoding="async" alt="The Personal API Key page in Garmin Connect settings: the key is active and its expiry date is shown"><figcaption>This is how the page looks once the key exists: Garmin shows when it expires and never shows the key itself again.</figcaption></figure>
         </div>
         <aside class="side"><div class="why">The key is a password to your health data. <b>Never</b> paste it into a chat or a comment, and never leave it on a screenshot. The prompt below is written so that Claude Code never sees or prints it either. You can revoke the key at any time on the same Garmin page.</div></aside>
       </li>
       <li>
         <div class="main">
           <h3>Check your heart rate zones in Garmin</h3>
-          <p>The dashboard takes the easy ceiling from your watch, so everything depends on your zone settings. In Garmin Connect open your profile → User Settings → Heart Rate Zones and pick the sport “Running”.</p>
+          <p>The dashboard takes the easy ceiling from your watch, so everything depends on your zone settings. Zones are set in the Garmin Connect app on your phone, in your watch settings: find the heart rate zones and pick the sport “Running”. For newer watches the Garmin Connect website no longer shows these settings.</p>
           <ol>
             <li>If your maximum is set by the 220 minus age formula and you have never measured it, your zones are almost certainly off. The dashboard will notice and warn you.</li>
             <li>The best option is zones based on lactate threshold, if you have done a test or your watch detected the threshold while you ran with a chest strap.</li>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Біговий дашборд за ключем Garmin: твій біг очима тренера | InnaTri</title>
+  <title>Біговий дашборд за ключем Garmin: рік твого бігу на одній сторінці | InnaTri</title>
   <meta name="description" content="Один ключ у Garmin Connect, один промпт у Claude Code, і у вас сторінка, яка відповідає: чи в порядку база. Легкі пробіжки, розвантаження, аеробна ефективність. Безкоштовно, дані лишаються на комп’ютері.">
   <meta name="author" content="Інна Рижих">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/">
   <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/guides/dashboard/">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/">
-  <meta property="og:title" content="Біговий дашборд за ключем Garmin: твій біг очима тренера">
+  <meta property="og:title" content="Біговий дашборд за ключем Garmin: рік твого бігу на одній сторінці">
   <meta property="og:description" content="Інструкція: ключ Garmin, Claude Code і промпт, який збирає дашборд із вердиктом тренера. Безкоштовно, без реєстрації, дані лишаються у вас.">
   <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
   <meta property="og:url" content="https://innatri.com/ua/guides/dashboard/">
@@ -65,6 +65,9 @@
 .d-hero .lead { margin-top: 24px; max-width: 42ch; }
 .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
 .acts .note { color: var(--soft); font-size: var(--s-small); }
+.step-shot { margin-top: 24px; }
+.step-shot img { display: block; width: 100%; max-width: 750px; height: auto; border: 1px solid rgba(0,0,0,.12); }
+.step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
 .d-shot { position: relative; background: #141414 var(--grain-dark); overflow: hidden; display: flex; align-items: flex-start; justify-content: center; padding: clamp(20px, 3vw, 48px) clamp(20px, 3vw, 48px) 0; }
 .d-shot img { width: 100%; max-width: 760px; height: auto; align-self: flex-end; }
 .reads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
@@ -181,7 +184,7 @@
   <div class="phero-text">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/ua/">Головна</a><span>/</span><a href="/ua/blog.html">Блог</a><span>/</span><span aria-current="page">Дашборд</span></nav>
     <p class="kicker" style="margin-top:48px">Безкоштовний інструмент від Інни Рижих</p>
-    <h1 id="guide-title">Твій біг очима тренера</h1>
+    <h1 id="guide-title">Рік твого бігу на одній сторінці</h1>
     <p class="lead">Один ключ у Garmin Connect, один промпт у Claude Code, і за двадцять хвилин у вас сторінка, яка відповідає на головне запитання: чи в порядку база.</p>
     <div class="acts">
       <a href="#steps" class="btn">До інструкції <span class="arr" aria-hidden="true">↓</span></a>
@@ -233,13 +236,14 @@
             <li>Термін дії оберіть <b>1 рік</b>, інакше за місяць усе доведеться повторювати.</li>
             <li>Скопіюйте ключ одразу. Garmin показує його один раз. Якщо загубили, видаліть старий на тій самій сторінці і створіть новий.</li>
           </ol>
+          <figure class="step-shot"><img src="/assets/guides/dashboard/garmin-key.jpg" width="750" height="483" loading="lazy" decoding="async" alt="Сторінка «Особистий API-ключ» у налаштуваннях Garmin Connect: ключ активний, указано термін дії"><figcaption>Так сторінка виглядає, коли ключ уже створено: Garmin пише термін дії, а сам ключ більше не показує.</figcaption></figure>
         </div>
         <aside class="side"><div class="why">Ключ це пароль до ваших даних про здоров’я. <b>Ніколи</b> не вставляйте його в чат, у коментарі й не лишайте на скриншотах. Промпт нижче складено так, що Claude Code його теж не побачить і не надрукує. Відкликати ключ можна будь-коли на тій самій сторінці Garmin.</div></aside>
       </li>
       <li>
         <div class="main">
           <h3>Перевірте зони пульсу в Garmin</h3>
-          <p>Дашборд бере межу легкого бігу з вашого годинника, тому від налаштувань зон залежить усе. У Garmin Connect відкрийте профіль → Налаштування користувача → Зони частоти пульсу і виберіть вид спорту «Біг».</p>
+          <p>Дашборд бере межу легкого бігу з вашого годинника, тому від налаштувань зон залежить усе. Зони налаштовуються в застосунку Garmin Connect на телефоні, у налаштуваннях вашого годинника: знайдіть зони частоти пульсу й виберіть вид спорту «Біг». У нових годинників вебверсія Garmin Connect цих налаштувань уже не показує.</p>
           <ol>
             <li>Якщо максимум стоїть за формулою 220 мінус вік і ви його ніколи не вимірювали, зони майже напевно зсунуті. Дашборд це помітить і попередить.</li>
             <li>Найкращий варіант: зони «від лактатного порогу», якщо ви робили тест або годинник сам визначив поріг під час бігу з нагрудним ременем.</li>

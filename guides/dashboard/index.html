@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Беговой дашборд по ключу Garmin: твой бег глазами тренера | InnaTri</title>
+  <title>Беговой дашборд по ключу Garmin: год твоего бега на одной странице | InnaTri</title>
   <meta name="description" content="Один ключ в Garmin Connect, один промпт в Claude Code, и у вас страница, которая отвечает: в порядке ли база. Лёгкие пробежки, разгрузки, аэробная эффективность. Бесплатно, данные остаются на компьютере.">
   <meta name="author" content="Инна Рыжих">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/">
   <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/guides/dashboard/">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/">
-  <meta property="og:title" content="Беговой дашборд по ключу Garmin: твой бег глазами тренера">
+  <meta property="og:title" content="Беговой дашборд по ключу Garmin: год твоего бега на одной странице">
   <meta property="og:description" content="Инструкция: ключ Garmin, Claude Code и промпт, который собирает дашборд с вердиктом тренера. Бесплатно, без регистрации, данные остаются у вас.">
   <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
   <meta property="og:url" content="https://innatri.com/guides/dashboard/">
@@ -66,6 +66,9 @@
 .d-hero .lead { margin-top: 24px; max-width: 42ch; }
 .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
 .acts .note { color: var(--soft); font-size: var(--s-small); }
+.step-shot { margin-top: 24px; }
+.step-shot img { display: block; width: 100%; max-width: 750px; height: auto; border: 1px solid rgba(0,0,0,.12); }
+.step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
 .d-shot { position: relative; background: #141414 var(--grain-dark); overflow: hidden; display: flex; align-items: flex-start; justify-content: center; padding: clamp(20px, 3vw, 48px) clamp(20px, 3vw, 48px) 0; }
 .d-shot img { width: 100%; max-width: 760px; height: auto; align-self: flex-end; }
 
@@ -199,7 +202,7 @@
   <div class="phero-text">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog.html">Блог</a><span>/</span><span aria-current="page">Дашборд</span></nav>
     <p class="kicker" style="margin-top:48px">Бесплатный инструмент от Инны Рыжих</p>
-    <h1 id="guide-title">Твой бег глазами тренера</h1>
+    <h1 id="guide-title">Год твоего бега на одной странице</h1>
     <p class="lead">Один ключ в Garmin Connect, один промпт в Claude Code, и через двадцать минут у вас страница, которая отвечает на главный вопрос: в порядке ли база.</p>
     <div class="acts">
       <a href="#steps" class="btn">К инструкции <span class="arr" aria-hidden="true">↓</span></a>
@@ -246,18 +249,19 @@
           <h3>Создайте личный ключ Garmin</h3>
           <p>С октября 2026 года Garmin выдаёт каждому пользователю личный ключ к его данным. Это официальный способ: пароль никому не передаётся, сторонние библиотеки не нужны, ключ умеет только читать.</p>
           <ol>
-            <li>Откройте <a class="link" href="https://connect.garmin.com/app/settings/personalApiToken" target="_blank" rel="noopener">connect.garmin.com → Settings → Personal API Key</a> и войдите, если попросит.</li>
+            <li>Откройте <a class="link" href="https://connect.garmin.com/app/settings/personalApiToken" target="_blank" rel="noopener">connect.garmin.com → Настройки → Личный API-ключ</a> и войдите, если попросит.</li>
             <li>Нажмите <b>Create Key</b>, прочитайте и примите условия.</li>
             <li>Срок действия выберите <b>1 год</b>, иначе через месяц всё придётся повторять.</li>
             <li>Скопируйте ключ сразу. Garmin показывает его один раз. Если потеряли, удалите старый на той же странице и создайте новый.</li>
           </ol>
+          <figure class="step-shot"><img src="/assets/guides/dashboard/garmin-key.jpg" width="750" height="483" loading="lazy" decoding="async" alt="Страница «Личный API-ключ» в настройках Garmin Connect: ключ активен, указан срок действия"><figcaption>Так страница выглядит, когда ключ уже создан: Garmin пишет срок действия, а сам ключ больше не показывает.</figcaption></figure>
         </div>
         <aside class="side"><div class="why">Ключ это пароль к вашим данным о здоровье. <b>Никогда</b> не вставляйте его в чат, в комментарии и не оставляйте на скриншотах. Промпт ниже составлен так, что Claude Code его тоже не увидит и не напечатает. Отозвать ключ можно в любой момент на той же странице Garmin.</div></aside>
       </li>
       <li>
         <div class="main">
           <h3>Проверьте зоны пульса в Garmin</h3>
-          <p>Дашборд берёт границу лёгкого бега из ваших часов, поэтому от настроек зон зависит всё. В Garmin Connect откройте профиль → Настройки пользователя → Зоны частоты пульса и выберите вид спорта «Бег».</p>
+          <p>Дашборд берёт границу лёгкого бега из ваших часов, поэтому от настроек зон зависит всё. Зоны настраиваются в приложении Garmin Connect на телефоне, в настройках ваших часов: найдите зоны частоты пульса и выберите вид спорта «Бег». У новых часов веб-версия Garmin Connect эти настройки уже не показывает.</p>
           <ol>
             <li>Если максимум стоит по формуле 220 минус возраст и вы его никогда не измеряли, зоны почти наверняка сдвинуты. Дашборд это заметит и предупредит.</li>
             <li>Лучший вариант: зоны «от лактатного порога», если вы делали тест или часы сами определили порог во время бега с нагрудным ремнём.</li>
