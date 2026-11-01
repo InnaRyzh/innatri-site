@@ -185,7 +185,6 @@
     <p class="lead">Один ключ у Garmin Connect, один промпт у Claude Code, і за двадцять хвилин у вас сторінка, яка відповідає на головне запитання: чи в порядку база.</p>
     <div class="acts">
       <a href="#steps" class="btn">До інструкції <span class="arr" aria-hidden="true">↓</span></a>
-      <a href="/guides/dashboard/demo-uk.html" class="btn btn-ink" target="_blank" rel="noopener">Відкрити приклад <span class="arr" aria-hidden="true">→</span></a>
       <p class="note">Без реєстрації · дані лишаються на вашому комп’ютері</p>
     </div>
   </div>
@@ -203,7 +202,7 @@
       <div class="read"><h3>Стрічка тижнів</h3><p>Кожен тиждень стовпчиком, кожна пробіжка блоком. Ударні тижні, розвантаження і найдовша серія без нього видно одразу. Клік по тижню розкриває його по днях.</p></div>
       <div class="read"><h3>Форма і відновлення</h3><p>Метрів за удар серця: єдиний показник форми без тестів. І пульс спокою за тижнями на тлі важких, щоб бачити, чи вистачає відновлення.</p></div>
     </div>
-    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="Стрічка тижнів і графіки за місяцями: частка часу в зонах, пульс на легких пробіжках"><figcaption>Дашборд на моїх даних за один біговий сезон. Унизу в нього два розділи, яких немає в жодному застосунку: «Як рахували», де підписано кожен поріг, і «Чого цей дашборд не знає». <a class="link" style="color:#fff" href="/guides/dashboard/demo-uk.html" target="_blank" rel="noopener">Відкрити цей приклад і поклікати ↗</a></figcaption></figure>
+    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="Стрічка тижнів і графіки за місяцями: частка часу в зонах, пульс на легких пробіжках"><figcaption>Дашборд на моїх даних за один біговий сезон. Унизу в нього два розділи, яких немає в жодному застосунку: «Як рахували», де підписано кожен поріг, і «Чого цей дашборд не знає».</figcaption></figure>
   </div>
 </section>
 
@@ -282,39 +281,40 @@
       <div class="prompt-side">
         <h2 class="serif" id="prompt-title">Промпт</h2>
         <p class="lead" style="margin-top:20px">Вставляється в Claude Code повністю. Читати не обов’язково, але можна: там немає нічого, крім кроків і правил безпеки.</p>
+        <p class="soft">Промпт написано англійською: так Claude Code виконує інструкції точніше. З вами він говоритиме українською, це сказано в першому рядку.</p>
         <p class="soft">Якщо щось пішло не так, не редагуйте промпт. Просто скажіть Claude Code, що сталося, своїми словами. Він розбереться або спитає вас.</p>
       </div>
       <div class="prompt">
         <div class="bar"><p>Текст промпта</p><button class="copy" type="button" id="copy-prompt">Скопіювати</button></div>
-<pre id="prompt-text">Збери мені біговий дашборд InnaTri за моїми даними з Garmin Connect. Веди мене по кроках простою мовою, усе технічне роби сам: папки, файли, встановлення. Зупиняйся і чекай мене лише там, де потрібна моя дія.
+<pre id="prompt-text">Build me the InnaTri running dashboard from my Garmin Connect data. Walk me through it step by step in plain language and do everything technical yourself: folders, files, installs. Stop and wait for me only where I have to act. Talk to me in Ukrainian.
 
-Правила
-- Мій ключ Garmin ніколи не друкуй у чат, не вставляй у команди і не записуй нікуди, крім файлу garmin.env. Коли перевіряєш його, кажи лише «ключ на місці» або «ключа немає».
-- Ключ і дані лишаються на моєму комп’ютері. Папку data і файл garmin.env додай у .gitignore.
-- Ключ Garmin лише читає дані, змінити в моєму акаунті він нічого не може.
+Rules
+- Never print my Garmin key in the chat, never put it in a command, never write it anywhere except the file garmin.env. When you check it, say only “the key is in place” or “no key”.
+- The key and the data stay on my computer. Add the data folder and garmin.env to .gitignore.
+- The Garmin key is read-only; it cannot change anything in my account.
 
-Крок 1. Папка і файли
-Створи папку innatri-dashboard у моїй домашній папці і працюй у ній. Завантаж туди три файли:
+Step 1. Folder and files
+Create a folder called innatri-dashboard in my home folder and work inside it. Download these three files into it:
 - https://innatri.com/guides/dashboard/fetch_garmin.py
 - https://innatri.com/guides/dashboard/build_dashboard.py
 - https://innatri.com/guides/dashboard/template.html
-Перевір, що в мене є Python 3.10 або новіший, якщо ні, допоможи поставити. Створи віртуальне оточення і встанови в нього пакет garmin-connect-personal-api-python.
+Check that I have Python 3.10 or newer; if not, help me install it. Create a virtual environment and install the package garmin-connect-personal-api-python into it.
 
-Крок 2. Ключ (це роблю я, ти скеровуєш)
-Створи папку ~/.config/innatri і в ній файл garmin.env з одним рядком:
+Step 2. The key (I do this part, you guide me)
+Create the folder ~/.config/innatri and inside it the file garmin.env with one line:
 GARMIN_API_KEY=
-Постав на файл права 600. Відкрий його в моєму текстовому редакторі і скажи повний шлях. Я вставлю ключ одразу після знака = без пробілів і лапок і збережу. Якщо в мене ще немає ключа, скажи: він створюється на сторінці https://connect.garmin.com/app/settings/personalApiToken кнопкою Create Key, термін краще обрати 1 рік, ключ показується один раз. Потім перевір, що значення заповнене, не друкуючи його.
+Set the file permissions to 600. Open it in my text editor and tell me the full path. I will paste the key right after the = sign with no spaces or quotes and save. If I do not have a key yet, tell me: it is created at https://connect.garmin.com/app/settings/personalApiToken with the Create Key button, 1 year is the best expiration, and it is shown only once. Then check that the value is filled in, without printing it.
 
-Крок 3. Дані
-Запусти fetch_garmin.py --months 12. Якщо Garmin повернув 401, ключ скопійовано не повністю або він протермінувався: попроси мене перевірити файл. Якщо 500, скрипт сам зменшить порції, просто дай йому допрацювати. Наприкінці скажи, скільки тренувань і днів прийшло.
+Step 3. Data
+Run fetch_garmin.py --months 12. If Garmin returns 401, the key was copied incompletely or has expired: ask me to check the file. If it returns 500, the script shrinks the batches on its own, just let it finish. At the end tell me how many activities and days came back.
 
-Крок 4. Дашборд
-Запусти build_dashboard.py --lang uk. Якщо він попередив, що зони в годиннику рахуються від максимуму, передай це попередження мені дослівно. Відкрий dashboard.html у браузері. Зроби скриншот усієї сторінки завширшки 1240 пікселів у dashboard.png, для скриншота відкривай адресу з хвостом #static.
+Step 4. Dashboard
+Run build_dashboard.py --lang uk. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser. Take a full-page screenshot 1240 pixels wide and save it as dashboard.png; for the screenshot open the address with #static at the end.
 
-Крок 5. Підсумок
-Напиши мені чотири речі з дашборду: вердикт, частку часу в 1–2 зонах, скільки пробіжок зі скількох легкі і найдовшу серію тижнів без розвантаження. Нічого не радь понад це, розбір робить тренер.
+Step 5. Summary
+Tell me four things from the dashboard: the verdict, the share of time in zones 1 and 2, how many runs out of how many were easy, and the longest streak of weeks without a recovery week. Do not advise anything beyond that; the coach does the reading.
 
-Коли я скажу «онови дашборд», повтори кроки 3 і 4.</pre>
+When I say “update the dashboard” or «онови дашборд», repeat steps 3 and 4.</pre>
       </div>
     </div>
   </div>
