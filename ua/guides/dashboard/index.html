@@ -74,9 +74,10 @@
 .step-shot figcaption { margin-top: 10px; font-size: 14px; opacity: .75; }
 .d-shot { position: relative; background: #141414 var(--grain-dark); overflow: hidden; display: flex; align-items: flex-start; justify-content: center; padding: clamp(20px, 3vw, 48px) clamp(20px, 3vw, 48px) 0; }
 .d-shot img { width: 100%; max-width: 760px; height: auto; align-self: flex-end; }
-.reads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.reads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
 .read { padding: 24px 22px 0 0; }
 .read + .read { padding-left: 22px; border-left: 1px solid #d6d1cb; }
+.read:nth-child(3n+1) { padding-left: 0; border-left: 0; }
 .read h3 { font: var(--sw) var(--s-sub)/1.1 var(--serif); letter-spacing: -0.02em; }
 .read p { margin-top: 12px; color: var(--soft); font-size: 15px; }
 .tape { margin-top: clamp(40px, 5vw, 72px); background: #141414 var(--grain-dark); padding: clamp(16px, 2.6vw, 40px); }
@@ -131,7 +132,8 @@
 .btn-line:hover { background: #fff !important; color: var(--ink); }
 .coaching { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); }
 @media (min-height: 2000px) { .d-hero { min-height: 0; } }
-@media (max-width: 1100px) { .reads, .needs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .read:nth-child(3), .needs li:nth-child(3) { padding-left: 0; border-left: 0; } .read, .needs li { padding-bottom: 22px; } }
+@media (max-width: 1100px) { .reads, .needs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .read:nth-child(odd), .needs li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .read:nth-child(even) { padding-left: 22px; border-left: 1px solid #d6d1cb; } .read, .needs li { padding-bottom: 22px; } }
 @media (max-width: 860px) {
   .d-hero { grid-template-columns: minmax(0, 1fr); min-height: 0; max-height: none; }
   .d-shot { order: -1; padding: 20px 20px 0; max-height: 62svh; }
@@ -207,6 +209,8 @@
       <div class="read"><h3>Вердикт</h3><p>Одна фраза нагорі: що у ваших тренуваннях впадає в око першим. Наприклад, «Легкі пробіжки не легкі» або «11 тижнів поспіль без розвантаження». Поруч цифри, на яких вона тримається.</p></div>
       <div class="read"><h3>Лінія легкого</h3><p>Усі пробіжки року точками відносно межі легкого пульсу з вашого годинника. Лінію можна тягнути й дивитися, як вердикт залежить від одного налаштування в Garmin.</p></div>
       <div class="read"><h3>Стрічка тижнів</h3><p>Кожен тиждень стовпчиком, кожна пробіжка блоком. Ударні тижні, розвантаження і найдовша серія без нього видно одразу. Клік по тижню розкриває його по днях.</p></div>
+      <div class="read"><h3>Техніка</h3><p>Каденс, довжина кроку, контакт із землею й підстрибування по місяцях: що було на початку року і що зараз. Якщо крок став важчим, дашборд перевірить, чи не в спеці справа.</p></div>
+      <div class="read"><h3>Що з чим пов’язано</h3><p>Дашборд порівнює пробіжки між собою: спека, сон, навантаження напередодні, пульс спокою, HRV. Показує лише помітні зв’язки, і до кожного гіпотезу, яку можна перевірити на собі.</p></div>
       <div class="read"><h3>Форма і відновлення</h3><p>Метрів за удар серця: єдиний показник форми без тестів. І пульс спокою за тижнями на тлі важких, щоб бачити, чи вистачає відновлення.</p></div>
     </div>
     <figure class="demo-video"><video autoplay muted loop playsinline preload="metadata" poster="/assets/guides/dashboard/demo-line-uk.jpg" width="1080" height="622" aria-label="Відео: лінію легкого пульсу тягнуть униз і вгору, точки пробіжок перефарбовуються, цифри перераховуються"><source src="/assets/guides/dashboard/demo-line-uk.mp4" type="video/mp4"></video><figcaption>Так працює лінія легкого. Межа з годинника 141, легких 98 пробіжок зі 144. Зсуньте її на шість ударів униз, і легких лишається 71.</figcaption></figure>

@@ -24,6 +24,16 @@ def load(name):
     return json.loads(p.read_text()) if p.exists() else None
 
 
+def num(v, nd=1):
+    return round(v, nd) if isinstance(v, (int, float)) and v > 0 else None
+
+
+def temp(a):
+    lo, hi = a.get("minTemperature"), a.get("maxTemperature")
+    vals = [v for v in (lo, hi) if isinstance(v, (int, float))]
+    return round(sum(vals) / len(vals), 1) if vals else None
+
+
 def main() -> None:
     global DATA, OUT
     ap = argparse.ArgumentParser()
@@ -126,6 +136,11 @@ def main() -> None:
             cad=a.get("averageRunningCadenceInStepsPerMinute"),
             elev=a.get("elevationGain"),
             indoor=indoor,
+            # техника и условия: что часы отдали, то и берём
+            spd=round(gap, 3) if gap else None,
+            stride=num(a.get("avgStrideLength")), gct=num(a.get("avgGroundContactTime")),
+            vo=num(a.get("avgVerticalOscillation")), vr=num(a.get("avgVerticalRatio")),
+            pw=num(a.get("avgPower")), t=temp(a),
         ))
     runs.sort(key=lambda r: r["date"])
 
@@ -139,6 +154,19 @@ def main() -> None:
             if v and row.get("calendarDate"):
                 rhr[row["calendarDate"]] = v
 
+    stress = {}
+    for chunk in load("daily.json") or []:
+        for row in chunk.get("data", []):
+            v = (row.get("stress") or {}).get("avgLevel")
+            if v and v > 0 and row.get("calendarDate"):
+                stress[row["calendarDate"]] = v
+
+    sleep = {}
+    for row in load("sleep.json") or []:
+        d, sec = (row or {}).get("calendarDate"), (row or {}).get("sleepTimeSeconds")
+        if d and sec:
+            sleep[d] = round(sec / 3600, 2)
+
     hrv = {}
     for chunk in load("hrv.json") or []:
         for s in (chunk or {}).get("hrvSummaries", []):
@@ -150,7 +178,7 @@ def main() -> None:
         name=args.name if args.name is not None else (profile.get("displayName") or ""),
         built=dt.date.today().isoformat(),
         ceiling=ceiling, ceiling_src=src, ceiling_kind=kind, lang=args.lang, lthr=lthr, maxhr=maxhr, zone_method=method,
-        deload=args.deload, warnings=warnings, hide_year=args.hide_year, zmiss_n=zmiss, load_est_n=load_est, runs=runs, loads=loads, rhr=rhr, hrv=hrv,
+        deload=args.deload, warnings=warnings, hide_year=args.hide_year, zmiss_n=zmiss, load_est_n=load_est, runs=runs, loads=loads, rhr=rhr, hrv=hrv, stress=stress, sleep=sleep,
     )
 
     tpl = (ROOT / "template.html").read_text()

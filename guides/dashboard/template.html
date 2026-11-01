@@ -124,6 +124,28 @@ td{padding:9px 10px 9px 0;border-bottom:1px solid var(--bg3);white-space:nowrap}
 th.n,td.n{text-align:right}
 td.fast{color:var(--hard)} td.name{white-space:normal;color:var(--soft);max-width:28ch}
 
+/* ---------- technique & links ---------- */
+.tsum{margin:-8px 0 30px;max-width:70ch}
+.tsum p{font-size:17px;line-height:1.5}
+.tsum p+p{margin-top:8px;color:var(--soft);font-size:15px}
+.tcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.tc{background:var(--bg2);border-radius:16px;padding:20px 22px 18px}
+.tc h3{font-family:var(--text);font-weight:500;font-size:15px;color:var(--soft)}
+.tc .v{font-family:var(--display);font-weight:500;font-size:34px;line-height:1.1;margin-top:8px;font-variant-numeric:tabular-nums}
+.tc .v small{font-family:var(--text);font-size:14px;color:var(--soft);margin-left:6px;font-weight:400}
+.tc .d{font-size:14px;color:var(--soft);margin:6px 0 10px}
+.tc .d b{font-weight:600;color:var(--ink)} .tc .d .good{color:var(--easy)} .tc .d .bad{color:var(--hard)}
+.tc .why{font-size:13px;color:var(--mute);margin-top:8px;line-height:1.45}
+.pcs{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.pc{background:var(--bg2);border-radius:16px;padding:22px 24px 20px}
+.pc .st{font-size:13px;color:var(--soft)}
+.pc .claim{font-family:var(--display);font-weight:500;font-size:20px;line-height:1.25;margin:10px 0 6px}
+.pc .det{font-size:15px;color:var(--ink);margin-bottom:12px}
+.pc .sc{margin:10px 0 8px}
+.pc .hyp{font-size:14px;color:var(--soft);line-height:1.5}
+.rest{margin-top:22px;color:var(--soft);font-size:14px;max-width:80ch}
+.hrvp{margin-top:56px}
+
 /* ---------- method ---------- */
 .method{display:grid;grid-template-columns:1fr 1fr;gap:40px var(--gap)}
 .method h3{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:18px}
@@ -150,7 +172,11 @@ footer .fine{margin-top:40px;color:var(--mute);font-size:13px;display:flex;justi
 @media (max-width:860px){
   :root{--gap:16px}
   .figs{grid-template-columns:1fr 1fr;gap:28px 16px;margin-top:48px}
-  .head,.two,.method,footer .cta,.ctl{grid-template-columns:1fr}
+  .head,.two,.method,footer .cta,.ctl,.pcs{grid-template-columns:1fr}
+  .tcs{grid-template-columns:1fr 1fr;gap:12px}
+  .tc{padding:16px 14px}
+  .tc .v{font-size:26px}
+  .tc .why{display:none}
   section{padding-top:88px}
   .hero{padding-top:56px}
   .days{grid-template-columns:repeat(2,1fr)}
@@ -178,6 +204,24 @@ footer .fine{margin-top:40px;color:var(--mute);font-size:13px;display:flex;justi
   <p class="lead" id="v-text"></p>
   <div id="warns"></div>
   <div class="figs" id="figs"></div>
+</section>
+
+<section class="tech">
+  <div class="head">
+    <h2 data-t="te_h2"></h2>
+    <p class="lead" data-t="te_lead"></p>
+  </div>
+  <div class="tsum"><p id="te-sum"></p><p id="te-hyp"></p></div>
+  <div class="tcs" id="te-cards"></div>
+</section>
+
+<section class="links">
+  <div class="head">
+    <h2 data-t="pa_h2"></h2>
+    <p class="lead" data-t="pa_lead"></p>
+  </div>
+  <div class="pcs" id="pa-cards"></div>
+  <p class="rest" id="pa-rest"></p>
 </section>
 
 <section class="horizon">
@@ -225,6 +269,7 @@ footer .fine{margin-top:40px;color:var(--mute);font-size:13px;display:flex;justi
     <div class="panel"><h3 data-t="eff_h3"></h3><p class="note" id="eff-note"></p><div id="c-eff"></div></div>
     <div class="panel"><h3 data-t="rhr_h3"></h3><p class="note" data-t="rhr_note"></p><div id="c-rhr"></div></div>
   </div>
+  <div class="panel hrvp"><h3 data-t="hrv_h3"></h3><p class="note" id="hrv-note"></p><div id="c-hrv"></div></div>
 </section>
 
 <section class="method-s">
@@ -286,24 +331,24 @@ ru: {
     last3: 'за последние 3 месяца', delta: (c, s, d) => `последние 3 мес. <b>${c}</b>, к предыдущим 3 <b class="${s}">${d}</b>`, wk: 'нед.', m: 'м',
   },
   hz_h2: 'Каждая пробежка относительно границы лёгкого',
-  hz_lead: (src, v) => `Белая линия: ${src}, ${v}. Каждая точка это пробежка: чем выше, тем выше средний пульс, чем крупнее, тем длиннее. Всё, что выше линии, красное. Потяните линию и посмотрите, как меняется картина от одной настройки в часах.`,
+  hz_lead: (src, v) => `Точка: пробежка. Выше значит выше пульс, крупнее значит длиннее. Белая линия: ${src}, ${v}. Всё выше неё красное. Линию можно потянуть.`,
   hz_src_zone: 'верх 2-й зоны из ваших часов', hz_src_other: 'граница лёгкого',
   hz_read: (e, n, p, hr, f) => `<div><b>${e} из ${n}</b><span>пробежек лёгкие, ${p}%</span></div><div><b>${hr}</b><span>средний пульс на лёгких</span></div><div><b>${f}</b><span>быстрее лёгкого</span></div>`,
   hz_same: 'Граница как в часах. Если зоны у вас посчитаны от максимума по формуле, а не от измеренного порога, сдвиньте линию на 5 ударов вверх и вниз и посмотрите, что изменится.',
   hz_shift: (d, dn, P) => `Граница сдвинута на <b>${d > 0 ? '+' : ''}${d}</b>: ${dn === 0 ? 'ни одна пробежка не поменяла сторону' : dn > 0 ? `ещё <b>${P(dn, L.ru.runsBecame)}</b> лёгкими` : `<b>${P(-dn, L.ru.runsStopped)}</b> быть лёгкими`}. Это меняет только дашборд, ваши зоны в Garmin остаются как были.`,
   ceil_label: 'граница', ceil_aria: 'Граница лёгкого пульса', reset: 'как в часах', thr: 'порог', hz_aria: 'Пробежки по среднему пульсу и границе лёгкого',
   tape_h2: 'Все недели периода одной лентой',
-  tape_lead: 'Каждый столбик это неделя, каждый блок в нём пробежка: чем выше блок, тем она дольше. Красная черта над неделей: одна из самых тяжёлых недель. Метка «разгрузка» под неделей: лёгкая неделя. Нажмите на неделю, чтобы увидеть её по дням.',
+  tape_lead: 'Столбик: неделя, блок в нём: пробежка, чем выше, тем дольше. Красная черта: одна из самых тяжёлых недель, «разгрузка»: лёгкая. Нажмите на неделю, чтобы открыть её по дням.',
   lg_easy: 'лёгкая', lg_fast: 'быстрее лёгкого', lg_nohr: 'без пульса', lg_hard: 'ударная неделя', lg_deload: 'разгрузка',
   tape_aria: 'Пробежки по неделям', h: 'ч', min: 'мин', km: 'км', perkm: '/км', hr: 'пульс', max: 'макс', load: 'нагрузка', hardwk: 'ударная', deloadwk: 'разгрузка', rhr: 'пульс покоя',
   week_from: 'неделя с', Week_from: 'Неделя с', streak_lbl: n => `${n} недель без разгрузки`, min_run: 'мин бега', close: 'закрыть', other: 'другая тренировка · нагрузка', rest: 'покой', treadmill: 'дорожка',
   z45: 'в 4–5 зонах', thin: 'мало данных', z12: '1–2 зоны', z3: '3-я', z45s: '4–5',
   mo_h2: 'Лёгкое и быстрое по месяцам',
-  mo_lead: 'Слева: сколько времени вы бегали в каждой зоне пульса, по данным Garmin. Линия выше на это не влияет. Справа: средний пульс на лёгких пробежках. Если он подбирается к границе, лёгкие перестают быть лёгкими. Месяцы, где пробежек мало, бледнее. Нажмите на месяц, чтобы открыть его пробежки.',
+  mo_lead: 'Слева: время в каждой зоне пульса. Справа: средний пульс на лёгких. Если он подползает к границе, лёгкие перестают быть лёгкими. Бледные месяцы: мало пробежек. Нажмите на месяц, чтобы открыть его.',
   int_h3: 'Доля времени в зонах', int_note: 'Синее 1–2 зоны, серое 3-я, красное 4–5. Черта: 80%, ориентир тренеров.', int_aria: 'Доля времени по зонам по месяцам',
   easy_h3: 'Пульс на лёгких', easy_note: 'Средний пульс лёгких пробежек. Пунктир: граница.', easy_aria: 'Пульс на лёгких пробежках по месяцам', easy_tip: 'пульс на лёгких', near: 'у самой границы', ceil_s: 'граница',
   form_h2: 'Форма и восстановление',
-  form_lead: 'Слева: сколько метров вы пробегаете за один удар сердца на лёгких пробежках по улице, с поправкой на горки. Если число растёт, тот же темп даётся легче. Справа: пульс покоя по неделям. Если после тяжёлых недель он поднимается и не опускается обратно, вы не успеваете восстановиться.',
+  form_lead: 'Слева: сколько метров вы пробегаете за удар сердца на лёгких. Растёт, значит тот же темп даётся легче. Справа: пульс покоя по неделям. Если после тяжёлых недель он не опускается обратно, вы не успеваете восстановиться. Ниже HRV, если часы его записали.',
   eff_h3: 'Метров за один удар сердца', eff_note0: 'Медиана месяца, только лёгкие уличные пробежки от 3 км.', eff_aria: 'Метров на удар сердца по месяцам',
   eff_note: (ch, s) => `Медиана месяца, только лёгкие уличные пробежки от 3 км. Тренд за период ${ch}%${s === 0 ? ', в пределах шума' : s > 0 ? ', бег стал дешевле' : ', бег стал дороже'}.`,
   eff_none: 'Мало лёгких уличных пробежек с темпом и пульсом, чтобы считать эффективность.', eff_tip: 'м на удар',
@@ -500,7 +545,206 @@ uk: {
   fine: 'Дані забрано за вашим особистим ключем Garmin і вони нікуди з комп’ютера не йшли.',
 },
 };
+// ---------- словарь: техника, связи, HRV ----------
+const X = {
+ru: {
+  te_h2: 'Как менялся ваш бег',
+  te_lead: 'Темп и пять показателей техники с часов, по уличным пробежкам. Сравниваем первую треть пробежек периода с последней: «было» и «сейчас». Точки: отдельные пробежки, линия: медиана месяца.',
+  te_none: 'Часы не записали динамику бега. Каденс, длину шага и контакт с землёй пишут не все модели: нужны часы с этой функцией или нагрудный датчик вроде HRM-Pro.',
+  te_m: { pace: ['Темп', '/км', 'Средний темп уличных пробежек.'],
+          cad: ['Каденс', 'шаг/мин', 'Шагов в минуту. Обычно растёт вместе со скоростью.'],
+          stride: ['Длина шага', 'см', 'Сколько вы пролетаете за один шаг.'],
+          gct: ['Контакт с землёй', 'мс', 'Сколько стопа стоит на земле за шаг. Растёт от усталости и на медленном беге.'],
+          vo: ['Подпрыгивание', 'см', 'Насколько корпус уходит вверх на каждом шаге.'],
+          vr: ['Вертикальное соотношение', '%', 'Подпрыгивание, делённое на длину шага. Чем ниже, тем меньше сил уходит вверх вместо движения вперёд.'] },
+  te_season: (a, b, nb) => `${a} в тепло у вас выше, поэтому часть сдвига может быть летом, а не техникой.${b ? ` ${b} от погоды не ${nb > 1 ? 'зависят' : 'зависит'}: тут изменение настоящее.` : ''}`,
+  te_and: ' и ', te_why: 'Так бывает от накопленной усталости, новой обуви или когда мало быстрой работы. Сравните с тем, что происходило в эти месяцы.',
+  tx: { temp: ['В тепло', 'на каждые 10°', 'В жару шаг меняется сам: тело тратит силы на охлаждение. Сравнивайте технику с пробежками в похожую погоду.'],
+        load7: ['После тяжёлых недель', 'на каждые +100 нагрузки за неделю', 'Усталость меняет шаг раньше, чем вы её чувствуете.', 'Нагрузка на шаг не давит, техника держится.'],
+        km: ['На длинных пробежках', 'на каждые 10 км', 'На длинных шаг тяжелее: похоже, к концу не хватает сил держать технику. Тут помогают силовые.', 'На длинных шаг даже лучше: техника держится до конца.'] },
+  tx_claim: (pre, name, up) => `${pre} ${name.toLowerCase()} ${up ? 'больше' : 'меньше'}`,
+  te_was: 'было', te_same: 'без изменений', te_faster: 'быстрее', te_slower: 'медленнее', te_s: 'с',
+  te_sum: (parts, paceSame) => `За период: ${parts.join(', ')}.${paceSame ? ' Темп почти тот же, значит, дело не в скорости.' : ''}`,
+  te_hyp: { worse: 'Шаг стал тяжелее: дольше на опоре и больше вверх.',
+            better: 'Шаг стал экономнее: меньше времени на опоре и меньше лишнего движения вверх. Похоже, техника и сила растут.',
+            mixed: 'Часть показателей стала лучше, часть хуже. Посмотрите на графики: в какой месяц пошёл перелом.',
+            none: 'Техника за период почти не менялась.' },
+  pa_h2: 'Что с чем связано',
+  pa_lead: 'Дашборд сравнил ваши пробежки между собой и поискал, от чего зависят пульс и экономичность бега. Это совпадения в ваших данных, а не доказанные причины. Проверяйте их на себе.',
+  pa_str: r => Math.abs(r) >= .5 ? 'сильная связь' : 'заметная связь',
+  pa_n: n => `${n} ${slav(n, ['пробежка','пробежки','пробежек'])}`,
+  pa_checked: s => `Проверили, связи не нашли: ${s}.`,
+  pa_short: s => `Не хватило данных: ${s}.`,
+  pa_empty: 'Сильных связей в ваших данных не нашлось: пульс и экономичность у вас почти не зависят от погоды, сна и нагрузки накануне.',
+  nights: ['ночь','ночи','ночей'],
+  pa_eco_y: 'метров на удар сердца',
+  pa_det: (unit, p) => `${unit}: ${p > 0 ? '+' : '−'}${Math.abs(p).toFixed(1)}% метров на удар.`,
+  heat: { name: 'температура и пульс', x: 'температура на часах, °', y: 'пульс при одинаковом темпе',
+          claim: k => `В тепло пульс выше: +${k} уд. на каждые 5° при том же темпе`,
+          hyp: 'Летом лёгкий темп по пульсу уже не лёгкий. В жару ориентируйтесь на пульс, а не на темп. Часы меряют температуру на руке, она выше воздуха, поэтому важна разница между пробежками.' },
+  speed: { name: 'чем вы ускоряетесь', x: 'темп, мин/км', y: 'каденс',
+           claim: s => s < .4 ? 'Быстрее вы бежите за счёт длины шага' : s > .6 ? 'Быстрее вы бежите за счёт частоты шагов' : 'Быстрее вы бежите и чаще, и шире, примерно поровну',
+           det: (c, l) => `Темп быстрее на 30 с/км: каденс ${c >= 0 ? '+' : '−'}${Math.abs(c)} шаг/мин, шаг ${l >= 0 ? '+' : '−'}${Math.abs(l)} см.`,
+           hyp: s => s < .4 ? 'Длинный шаг на скорости сильнее нагружает ноги. Можно проверить, получится ли ускоряться частотой.' : s > .6 ? 'Шаг почти не удлиняется. Возможно, не хватает отталкивания: тут помогают горки и прыжковые упражнения.' : 'Ускорение распределено ровно, перекоса нет.' },
+  eco: {
+    fatigue: { name: 'нагрузка за неделю до пробежки', x: 'нагрузка за 7 дней до пробежки', unit: '+100 нагрузки за неделю',
+               up: 'После объёмных недель бег даже экономнее', down: 'После тяжёлых недель бег дороже',
+               hyp_up: 'Нагрузка пока по силам: усталость не копится.', hyp_down: 'Усталость видна в цифрах раньше, чем в ощущениях. Если после ударной недели лёгкий бег идёт тяжело, пора на лёгкую неделю.' },
+    rhr: { name: 'пульс покоя утром', x: 'пульс покоя утром', unit: '+5 ударов утром',
+           up: 'Когда пульс покоя выше, бег почему-то экономнее', down: 'Когда пульс покоя утром выше, бег дороже',
+           hyp_up: 'Необычная связь, скорее совпадение. Посмотрите, не связана ли она с сезоном.', hyp_down: 'Пульс покоя можно использовать как светофор: на 5 ударов выше обычного, и день лучше сделать лёгким.' },
+    stress: { name: 'стресс накануне', x: 'стресс накануне по часам', unit: '+10 к стрессу',
+              up: 'После напряжённых дней бег экономнее', down: 'После напряжённых дней бег дороже',
+              hyp_up: 'Скорее совпадение: возможно, в напряжённые дни вы бегаете в другое время или другие тренировки.', hyp_down: 'Стресс на работе и дома тело считает той же нагрузкой. В тяжёлые дни лёгкий бег лучше держать лёгким.' },
+    sleep: { name: 'сон', x: 'сон ночью, ч', unit: '+1 час сна',
+             up: 'После долгого сна бег экономнее', down: 'После долгого сна бег дороже',
+             hyp_up: 'Сон работает как тренировка: его тоже видно в цифрах.', hyp_down: 'Необычная связь, скорее совпадение. Возможно, долго вы спите после тяжёлых дней.' },
+    hrv: { name: 'HRV', x: 'HRV ночью, мс', unit: '+10 мс HRV',
+           up: 'После ночей с высоким HRV бег экономнее', down: 'После ночей с высоким HRV бег дороже',
+           hyp_up: 'HRV утром показывает, готово ли тело к нагрузке. Низкий HRV: повод сделать день лёгким.', hyp_down: 'Необычная связь, скорее совпадение. Подождите, пока ночей станет больше.' },
+  },
+  hrv_h3: 'HRV ночью',
+  hrv_none: n => `HRV часы меряют во сне. За период записано ${n} ${slav(n, ['ночь','ночи','ночей'])}, для графика нужно хотя бы 14. Поспите в часах пару недель, и здесь появится линия.`,
+  hrv_note: (a, b, s) => `Среднее за последние 7 ночей ${a} мс, ваша норма за период ${b} мс: ${s}. Точки: отдельные ночи, линия: среднее за 7 ночей, серая полоса: ваш обычный диапазон.`,
+  hrv_st: { low: 'ниже обычного. Так бывает после тяжёлых недель, болезни, алкоголя или недосыпа', high: 'выше обычного, тело хорошо восстановилось', ok: 'в обычных пределах' },
+  how_x: [
+    '<b>Техника</b>: медианы уличных пробежек от 2 км. «Было» это первая треть пробежек периода, «сейчас» последняя треть. Разница меньше 5 с/км, 2 шагов, 3 см, 8 мс, 0.4 см или 0.4% считается шумом. Связи техники с погодой, нагрузкой и длиной пробежки считаем при одинаковом темпе, порог строже: |r| от 0.4.',
+    '<b>Связи</b>: корреляция Пирсона по уличным пробежкам от 3 км. Показываем связь от |r| 0.3 и минимум по 12 пробежкам. Экономичность тут: метров за удар сердца. Жару считаем при одинаковом темпе.',
+  ],
+},
+en: {
+  te_h2: 'How your running changed',
+  te_lead: 'Pace and five technique metrics from your watch, outdoor runs only. We compare the first third of the period\'s runs with the last third: "was" and "now". Dots are single runs, the line is the monthly median.',
+  te_none: 'Your watch did not record running dynamics. Not every model logs cadence, stride length and ground contact: you need a watch with this feature or a chest strap like the HRM-Pro.',
+  te_m: { pace: ['Pace', '/km', 'Average pace of outdoor runs.'],
+          cad: ['Cadence', 'spm', 'Steps per minute. It usually rises with speed.'],
+          stride: ['Stride length', 'cm', 'How far you travel with each step.'],
+          gct: ['Ground contact', 'ms', 'How long the foot stays on the ground each step. It grows with fatigue and at slow paces.'],
+          vo: ['Bounce', 'cm', 'How far your body moves up with each step.'],
+          vr: ['Vertical ratio', '%', 'Bounce divided by stride length. Lower means less energy goes up instead of forward.'] },
+  te_season: (a, b, nb) => `${a} ${a.includes(' and ') ? 'are' : 'is'} higher for you when it is warm, so part of the shift may be summer, not technique.${b ? ` ${b} ${nb > 1 ? 'do' : 'does'} not depend on the weather: that change is real.` : ''}`,
+  te_and: ' and ', te_why: 'This happens with built-up fatigue, new shoes or too little fast work. Compare it with what was going on in those months.',
+  tx: { temp: ['When it is warm', 'per 10°', 'Heat changes your step on its own: the body spends energy on cooling. Compare technique with runs in similar weather.'],
+        load7: ['After hard weeks', 'per +100 load in a week', 'Fatigue changes your step before you feel it.', 'Load does not weigh on your step, technique holds.'],
+        km: ['On long runs', 'per 10 km', 'Your step gets heavier on long runs: it looks like strength runs out to hold technique. Strength work helps here.', 'Your step is even better on long runs: technique holds to the end.'] },
+  tx_claim: (pre, name, up) => `${pre}, ${name.toLowerCase()} is ${up ? 'higher' : 'lower'}`,
+  te_was: 'was', te_same: 'no change', te_faster: 'faster', te_slower: 'slower', te_s: 's',
+  te_sum: (parts, paceSame) => `Over the period: ${parts.join(', ')}.${paceSame ? ' Pace is about the same, so speed is not the reason.' : ''}`,
+  te_hyp: { worse: 'Your step got heavier: longer on the ground and more bounce.',
+            better: 'Your step got more economical: less time on the ground and less wasted bounce. Looks like technique and strength are improving.',
+            mixed: 'Some metrics got better, some worse. Check the charts to see which month the change started.',
+            none: 'Your technique barely changed over the period.' },
+  pa_h2: 'What goes with what',
+  pa_lead: 'The dashboard compared your runs with each other and looked for what your heart rate and running economy depend on. These are patterns in your data, not proven causes. Test them on yourself.',
+  pa_str: r => Math.abs(r) >= .5 ? 'strong link' : 'clear link',
+  pa_n: n => `${n} ${n === 1 ? 'run' : 'runs'}`,
+  pa_checked: s => `Checked, no link found: ${s}.`,
+  pa_short: s => `Not enough data: ${s}.`,
+  pa_empty: 'No strong links in your data: your heart rate and economy barely depend on weather, sleep or the load before.',
+  nights: ['night','nights','nights'],
+  pa_eco_y: 'metres per heartbeat',
+  pa_det: (unit, p) => `${unit}: ${p > 0 ? '+' : '−'}${Math.abs(p).toFixed(1)}% metres per beat.`,
+  heat: { name: 'temperature and heart rate', x: 'temperature on the watch, °', y: 'heart rate at the same pace',
+          claim: k => `Warmth raises your heart rate: +${k} bpm per 5° at the same pace`,
+          hyp: 'In summer an easy pace is no longer easy by heart rate. In the heat go by heart rate, not pace. The watch measures temperature on your wrist, which is warmer than the air, so the difference between runs is what counts.' },
+  speed: { name: 'how you speed up', x: 'pace, min/km', y: 'cadence',
+           claim: s => s < .4 ? 'You run faster mainly by lengthening your stride' : s > .6 ? 'You run faster mainly by taking quicker steps' : 'You run faster with both quicker and longer steps, about equally',
+           det: (c, l) => `Pace 30 s/km faster: cadence ${c >= 0 ? '+' : '−'}${Math.abs(c)} spm, stride ${l >= 0 ? '+' : '−'}${Math.abs(l)} cm.`,
+           hyp: s => s < .4 ? 'A long stride at speed loads the legs more. You could test whether you can speed up with cadence instead.' : s > .6 ? 'Your stride barely gets longer. Maybe push-off is lacking: hills and plyometrics help here.' : 'The speed-up is evenly split, no imbalance.' },
+  eco: {
+    fatigue: { name: 'load in the week before', x: 'load in the 7 days before the run', unit: '+100 load in a week',
+               up: 'After big weeks your running is even more economical', down: 'After hard weeks running costs more',
+               hyp_up: 'You are handling the load: fatigue is not building up.', hyp_down: 'Fatigue shows up in numbers before you feel it. If easy runs feel hard after a big week, it is time for an easy week.' },
+    rhr: { name: 'morning resting heart rate', x: 'resting heart rate that morning', unit: '+5 bpm in the morning',
+           up: 'Higher resting heart rate oddly goes with better economy', down: 'Higher morning resting heart rate means costlier running',
+           hyp_up: 'An odd link, likely a coincidence. Check whether it follows the season.', hyp_down: 'Use resting heart rate as a traffic light: 5 beats above normal and the day is better kept easy.' },
+    stress: { name: 'stress the day before', x: 'stress the day before, by the watch', unit: '+10 stress',
+              up: 'After stressful days running is more economical', down: 'After stressful days running costs more',
+              hyp_up: 'Likely a coincidence: maybe on stressful days you run at another time or do other sessions.', hyp_down: 'Your body counts stress at work and home as load too. On hard days keep easy runs easy.' },
+    sleep: { name: 'sleep', x: 'sleep that night, h', unit: '+1 hour of sleep',
+             up: 'After long sleep running is more economical', down: 'After long sleep running costs more',
+             hyp_up: 'Sleep works like training: it shows in the numbers too.', hyp_down: 'An odd link, likely a coincidence. Maybe you sleep long after hard days.' },
+    hrv: { name: 'HRV', x: 'overnight HRV, ms', unit: '+10 ms HRV',
+           up: 'After nights with high HRV running is more economical', down: 'After nights with high HRV running costs more',
+           hyp_up: 'Morning HRV shows whether your body is ready for load. Low HRV is a reason to keep the day easy.', hyp_down: 'An odd link, likely a coincidence. Wait for more nights.' },
+  },
+  hrv_h3: 'Overnight HRV',
+  hrv_none: n => `The watch measures HRV while you sleep. ${n} ${n === 1 ? 'night was' : 'nights were'} recorded in this period, the chart needs at least 14. Sleep with the watch for a couple of weeks and the line will appear here.`,
+  hrv_note: (a, b, s) => `Last 7 nights average ${a} ms, your normal for the period ${b} ms: ${s}. Dots are single nights, the line is the 7-night average, the grey band is your usual range.`,
+  hrv_st: { low: 'below normal. This happens after hard weeks, illness, alcohol or short sleep', high: 'above normal, your body has recovered well', ok: 'within your usual range' },
+  how_x: [
+    '<b>Technique</b>: medians of outdoor runs of 2 km or more. "Was" is the first third of the period\'s runs, "now" the last third. Differences under 5 s/km, 2 steps, 3 cm, 8 ms, 0.4 cm or 0.4% count as noise. Links between technique and weather, load or run length are measured at the same pace, with a stricter cut-off of |r| 0.4.',
+    '<b>Links</b>: Pearson correlation over outdoor runs of 3 km or more. We show a link from |r| 0.3 and at least 12 runs. Economy here means metres per heartbeat. Heat is measured at the same pace.',
+  ],
+},
+uk: {
+  te_h2: 'Як змінювався ваш біг',
+  te_lead: 'Темп і п’ять показників техніки з годинника, лише пробіжки надворі. Порівнюємо першу третину пробіжок періоду з останньою: «було» і «зараз». Точки: окремі пробіжки, лінія: медіана місяця.',
+  te_none: 'Годинник не записав динаміку бігу. Каденс, довжину кроку й контакт із землею пишуть не всі моделі: потрібен годинник із цією функцією або нагрудний датчик на кшталт HRM-Pro.',
+  te_m: { pace: ['Темп', '/км', 'Середній темп пробіжок надворі.'],
+          cad: ['Каденс', 'крок/хв', 'Кроків за хвилину. Зазвичай зростає разом зі швидкістю.'],
+          stride: ['Довжина кроку', 'см', 'Скільки ви пролітаєте за один крок.'],
+          gct: ['Контакт із землею', 'мс', 'Скільки стопа стоїть на землі за крок. Зростає від утоми й на повільному бігу.'],
+          vo: ['Підстрибування', 'см', 'Наскільки корпус іде вгору на кожному кроці.'],
+          vr: ['Вертикальне співвідношення', '%', 'Підстрибування, поділене на довжину кроку. Що нижче, то менше сил іде вгору замість руху вперед.'] },
+  te_season: (a, b, nb) => `${a} у тепло у вас вищі, тож частина зсуву може бути літом, а не технікою.${b ? ` ${b} від погоди не ${nb > 1 ? 'залежать' : 'залежить'}: тут зміна справжня.` : ''}`,
+  te_and: ' і ', te_why: 'Так буває від накопиченої втоми, нового взуття або коли мало швидкої роботи. Порівняйте з тим, що відбувалося в ці місяці.',
+  tx: { temp: ['У тепло', 'на кожні 10°', 'У спеку крок змінюється сам: тіло витрачає сили на охолодження. Порівнюйте техніку з пробіжками в схожу погоду.'],
+        load7: ['Після важких тижнів', 'на кожні +100 навантаження за тиждень', 'Втома змінює крок раніше, ніж ви її відчуваєте.', 'Навантаження на крок не тисне, техніка тримається.'],
+        km: ['На довгих пробіжках', 'на кожні 10 км', 'На довгих крок важчий: схоже, наприкінці бракує сил тримати техніку. Тут допомагають силові.', 'На довгих крок навіть кращий: техніка тримається до кінця.'] },
+  tx_claim: (pre, name, up) => `${pre} ${name.toLowerCase()} ${up ? 'більше' : 'менше'}`,
+  te_was: 'було', te_same: 'без змін', te_faster: 'швидше', te_slower: 'повільніше', te_s: 'с',
+  te_sum: (parts, paceSame) => `За період: ${parts.join(', ')}.${paceSame ? ' Темп майже той самий, отже, справа не у швидкості.' : ''}`,
+  te_hyp: { worse: 'Крок став важчим: довше на опорі й більше вгору.',
+            better: 'Крок став економнішим: менше часу на опорі й менше зайвого руху вгору. Схоже, техніка і сила ростуть.',
+            mixed: 'Частина показників покращилась, частина погіршилась. Подивіться на графіки: у якому місяці пішов перелом.',
+            none: 'Техніка за період майже не змінювалась.' },
+  pa_h2: 'Що з чим пов’язано',
+  pa_lead: 'Дашборд порівняв ваші пробіжки між собою й пошукав, від чого залежать пульс і економність бігу. Це збіги у ваших даних, а не доведені причини. Перевіряйте їх на собі.',
+  pa_str: r => Math.abs(r) >= .5 ? 'сильний зв’язок' : 'помітний зв’язок',
+  pa_n: n => `${n} ${slav(n, ['пробіжка','пробіжки','пробіжок'])}`,
+  pa_checked: s => `Перевірили, зв’язку не знайшли: ${s}.`,
+  pa_short: s => `Забракло даних: ${s}.`,
+  pa_empty: 'Сильних зв’язків у ваших даних не знайшлося: пульс і економність у вас майже не залежать від погоди, сну й навантаження напередодні.',
+  nights: ['ніч','ночі','ночей'],
+  pa_eco_y: 'метрів на удар серця',
+  pa_det: (unit, p) => `${unit}: ${p > 0 ? '+' : '−'}${Math.abs(p).toFixed(1)}% метрів на удар.`,
+  heat: { name: 'температура і пульс', x: 'температура на годиннику, °', y: 'пульс за однакового темпу',
+          claim: k => `У тепло пульс вищий: +${k} уд. на кожні 5° за того самого темпу`,
+          hyp: 'Влітку легкий темп за пульсом уже не легкий. У спеку орієнтуйтесь на пульс, а не на темп. Годинник міряє температуру на руці, вона вища за повітря, тож важить різниця між пробіжками.' },
+  speed: { name: 'чим ви прискорюєтесь', x: 'темп, хв/км', y: 'каденс',
+           claim: s => s < .4 ? 'Швидше ви біжите за рахунок довжини кроку' : s > .6 ? 'Швидше ви біжите за рахунок частоти кроків' : 'Швидше ви біжите і частіше, і ширше, приблизно порівну',
+           det: (c, l) => `Темп швидший на 30 с/км: каденс ${c >= 0 ? '+' : '−'}${Math.abs(c)} крок/хв, крок ${l >= 0 ? '+' : '−'}${Math.abs(l)} см.`,
+           hyp: s => s < .4 ? 'Довгий крок на швидкості сильніше навантажує ноги. Можна перевірити, чи вийде прискорюватися частотою.' : s > .6 ? 'Крок майже не подовжується. Можливо, бракує відштовхування: тут допомагають гірки й стрибкові вправи.' : 'Прискорення розподілене рівно, перекосу немає.' },
+  eco: {
+    fatigue: { name: 'навантаження за тиждень до пробіжки', x: 'навантаження за 7 днів до пробіжки', unit: '+100 навантаження за тиждень',
+               up: 'Після об’ємних тижнів біг навіть економніший', down: 'Після важких тижнів біг дорожчий',
+               hyp_up: 'Навантаження поки під силу: втома не накопичується.', hyp_down: 'Втому видно в цифрах раніше, ніж у відчуттях. Якщо після ударного тижня легкий біг іде важко, час на легкий тиждень.' },
+    rhr: { name: 'пульс спокою зранку', x: 'пульс спокою зранку', unit: '+5 ударів зранку',
+           up: 'Коли пульс спокою вищий, біг чомусь економніший', down: 'Коли пульс спокою зранку вищий, біг дорожчий',
+           hyp_up: 'Незвичний зв’язок, найімовірніше збіг. Подивіться, чи не пов’язаний він із сезоном.', hyp_down: 'Пульс спокою можна використовувати як світлофор: на 5 ударів вище звичного, і день краще зробити легким.' },
+    stress: { name: 'стрес напередодні', x: 'стрес напередодні за годинником', unit: '+10 до стресу',
+              up: 'Після напружених днів біг економніший', down: 'Після напружених днів біг дорожчий',
+              hyp_up: 'Найімовірніше збіг: можливо, у напружені дні ви бігаєте в інший час або інші тренування.', hyp_down: 'Стрес на роботі й удома тіло рахує тим самим навантаженням. У важкі дні легкий біг краще тримати легким.' },
+    sleep: { name: 'сон', x: 'сон уночі, год', unit: '+1 година сну',
+             up: 'Після довгого сну біг економніший', down: 'Після довгого сну біг дорожчий',
+             hyp_up: 'Сон працює як тренування: його теж видно в цифрах.', hyp_down: 'Незвичний зв’язок, найімовірніше збіг. Можливо, довго ви спите після важких днів.' },
+    hrv: { name: 'HRV', x: 'HRV уночі, мс', unit: '+10 мс HRV',
+           up: 'Після ночей із високим HRV біг економніший', down: 'Після ночей із високим HRV біг дорожчий',
+           hyp_up: 'HRV зранку показує, чи готове тіло до навантаження. Низький HRV: привід зробити день легким.', hyp_down: 'Незвичний зв’язок, найімовірніше збіг. Зачекайте, поки ночей стане більше.' },
+  },
+  hrv_h3: 'HRV уночі',
+  hrv_none: n => `HRV годинник міряє уві сні. За період записано ${n} ${slav(n, ['ніч','ночі','ночей'])}, для графіка потрібно щонайменше 14. Поспіть у годиннику кілька тижнів, і тут з’явиться лінія.`,
+  hrv_note: (a, b, s) => `Середнє за останні 7 ночей ${a} мс, ваша норма за період ${b} мс: ${s}. Точки: окремі ночі, лінія: середнє за 7 ночей, сіра смуга: ваш звичний діапазон.`,
+  hrv_st: { low: 'нижче звичного. Так буває після важких тижнів, хвороби, алкоголю чи недосипу', high: 'вище звичного, тіло добре відновилося', ok: 'у звичних межах' },
+  how_x: [
+    '<b>Техніка</b>: медіани пробіжок надворі від 2 км. «Було» це перша третина пробіжок періоду, «зараз» остання третина. Різниця менше 5 с/км, 2 кроків, 3 см, 8 мс, 0.4 см або 0.4% вважається шумом. Зв’язки техніки з погодою, навантаженням і довжиною пробіжки рахуємо за однакового темпу, поріг суворіший: |r| від 0.4.',
+    '<b>Зв’язки</b>: кореляція Пірсона по пробіжках надворі від 3 км. Показуємо зв’язок від |r| 0.3 і щонайменше по 12 пробіжках. Економність тут: метрів за удар серця. Спеку рахуємо за однакового темпу.',
+  ],
+},
+};
 const T = L[LANG] || L.ru;
+Object.assign(T, X[LANG] || X.ru);
 const P = (n, f) => T.plural(n, f);
 document.title = T.title;
 document.querySelectorAll('[data-t]').forEach(el => { el.textContent = T[el.dataset.t]; });
@@ -704,7 +948,7 @@ function chartInt(m){
     const tip = `<b>${x.label}</b> · ${P(x.n, T.runs)}, ${Math.round(x.minutes)} ${T.min}${x.thin ? ' · ' + T.thin : ''}<br>${T.z12} ${pct(x.low)} · ${T.z3} ${pct(x.mid)} · ${T.z45s} ${pct(x.high)}`;
     o.push(`<g class="mo" data-m="${x.ym}" data-tip="${esc(tip)}" style="cursor:pointer;opacity:${op}">`);
     if (x.n) {
-      o.push(`<rect x="${x0}" y="${y(x.low)}" width="${cw}" height="${y(0)-y(x.low)-1}" fill="${C.easy}" rx="2"/>`);
+      o.push(`<rect x="${x0}" y="${y(x.low)}" width="${cw}" height="${Math.max(0,y(0)-y(x.low)-1)}" fill="${C.easy}" rx="2"/>`);
       o.push(`<rect x="${x0}" y="${y(x.low+x.mid)}" width="${cw}" height="${Math.max(0,y(x.low)-y(x.low+x.mid)-1)}" fill="${C.mute}" rx="2"/>`);
       o.push(`<rect x="${x0}" y="${y(1)}" width="${cw}" height="${Math.max(0,y(x.low+x.mid)-y(1)-1)}" fill="${C.hard}" rx="2"/>`);
       o.push(`<text x="${x0+cw/2}" y="${y(1)-7}" text-anchor="middle" fill="${x.low < .7 ? C.hard : C.ink}" font-size="12" font-weight="600">${Math.round(x.low*100)}</text>`);
@@ -785,6 +1029,188 @@ function chartRhr(weeks){
   el.innerHTML = o.join(''); attachTips(el);
 }
 
+// ---------- техника, связи, HRV ----------
+function fit(pts){
+  const n = pts.length; if (n < 3) return null;
+  const mx = mean(pts.map(p=>p[0])), my = mean(pts.map(p=>p[1]));
+  let sxx = 0, syy = 0, sxy = 0; pts.forEach(([x,y]) => { sxx += (x-mx)**2; syy += (y-my)**2; sxy += (x-mx)*(y-my); });
+  if (!sxx || !syy) return null;
+  return { n, mx, my, k: sxy/sxx, r: sxy/Math.sqrt(sxx*syy) };
+}
+const outdoor = S => S.runs.filter(r => !r.indoor && r.spd && r.km >= 2);
+const dayShift = (s, k) => { const d = d2(s); d.setDate(d.getDate() + k); return iso(d); };
+const q = (a, p) => { const b = [...a].sort((x,y)=>x-y); return b[Math.min(b.length-1, Math.max(0, Math.round(p*(b.length-1))))]; };
+const TM = [
+  { k: 'pace',   get: r => r.pace,   f: v => pace(v),             thr: 5,  good: -1 },
+  { k: 'cad',    get: r => r.cad,    f: v => String(Math.round(v)), thr: 2,  good: 1 },
+  { k: 'stride', get: r => r.stride, f: v => String(Math.round(v)), thr: 3,  good: 0 },
+  { k: 'gct',    get: r => r.gct,    f: v => String(Math.round(v)), thr: 8,  good: -1 },
+  { k: 'vo',     get: r => r.vo,     f: v => v.toFixed(1),          thr: .4, good: -1 },
+  { k: 'vr',     get: r => r.vr,     f: v => v.toFixed(1),          thr: .4, good: -1 },
+];
+
+function spark(el, S, xs, m){
+  const w = Math.max(220, el.clientWidth), h = 96, Tt = 8, B = 20;
+  const t0 = +S.start, t1 = +S.end, x = d => (+d2(d) - t0) / Math.max(1, t1 - t0) * (w - 8) + 4;
+  const pts = xs.map(r => [r, m.get(r)]).filter(p => p[1] != null);
+  const vals = pts.map(p => p[1]); let lo = q(vals, .05), hi = q(vals, .95); const pad = (hi - lo) * .15 || 1; lo -= pad; hi += pad;
+  const inv = m.k === 'pace';
+  const y = v => { const c = Math.max(lo, Math.min(hi, v)); const f = (c - lo) / (hi - lo); return Tt + (inv ? f : 1 - f) * (h - Tt - B); };
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="${esc(T.te_m[m.k][0])}">`];
+  pts.forEach(([r, v]) => o.push(`<circle cx="${x(r.date)}" cy="${y(v)}" r="3" fill="${C.soft}" opacity=".35" data-tip="${esc(`<b>${fmtD(r.date)}</b> · ${r.km.toFixed(1)} ${T.km}<br>${T.te_m[m.k][0]} ${m.f(v)} ${T.te_m[m.k][1]}`)}"/>`));
+  const mo = {}; pts.forEach(([r, v]) => (mo[r.date.slice(0,7)] ||= []).push(v));
+  const line = Object.keys(mo).sort().filter(k => mo[k].length >= 2).map(k => [x(k + '-15'), y(median(mo[k]))]);
+  if (line.length >= 2) o.push(`<path d="${line.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join('')}" fill="none" stroke="${C.ink}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`);
+  line.forEach(p => o.push(`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="${C.ink}"/>`));
+  let lastM = '', lastX = -99;
+  for (let d = new Date(S.start); d <= S.end; d.setMonth(d.getMonth() + 1, 1)) { const k = iso(d).slice(0,7); if (k !== lastM) { lastM = k; const xi = Math.max(0, x(k + '-01')); if (xi < w - 18 && xi - lastX >= 30) { lastX = xi; o.push(`<text x="${xi}" y="${h-4}" fill="${C.mute}" font-size="11">${MR[+k.slice(5)-1]}</text>`); } } }
+  o.push('</svg>');
+  el.innerHTML = o.join(''); attachTips(el);
+}
+
+function technique(S){
+  const xs = outdoor(S), box = $('#te-cards');
+  const has = xs.filter(r => r.cad || r.gct).length;
+  if (has < 6) { box.innerHTML = ''; $('#te-sum').textContent = T.te_none; $('#te-hyp').textContent = ''; return; }
+  const third = Math.max(3, Math.floor(xs.length / 3)), A0 = xs.slice(0, third), A1 = xs.slice(-third);
+  const res = TM.map(m => {
+    const a = A0.map(m.get).filter(v => v != null), b = A1.map(m.get).filter(v => v != null);
+    if (a.length < 3 || b.length < 3) return null;
+    const was = median(a), now = median(b), d = now - was;
+    return { m, was, now, d, same: Math.abs(d) < m.thr };
+  }).filter(Boolean);
+  box.innerHTML = res.map((x, i) => {
+    const [name, unit, why] = T.te_m[x.m.k];
+    let delta;
+    if (x.same) delta = T.te_same;
+    else if (x.m.k === 'pace') delta = `${Math.round(Math.abs(x.d))} ${T.te_s} ${x.d < 0 ? T.te_faster : T.te_slower}`;
+    else delta = (x.d > 0 ? '+' : '−') + x.m.f(Math.abs(x.d)) + ' ' + unit;
+    const cls = x.same || !x.m.good ? '' : (Math.sign(x.d) === x.m.good ? 'good' : 'bad');
+    return `<div class="tc"><h3>${name}</h3><div class="v">${x.m.f(x.now)}<small>${unit}</small></div><div class="d">${T.te_was} ${x.m.f(x.was)} · <b class="${cls}">${delta}</b></div><div class="sp" data-i="${i}"></div><p class="why">${why}</p></div>`;
+  }).join('');
+  box.querySelectorAll('.sp').forEach(el => spark(el, S, xs, res[+el.dataset.i].m));
+  const ch = res.filter(x => x.m.k !== 'pace' && !x.same), pc = res.find(x => x.m.k === 'pace');
+  const parts = ch.map(x => `${T.te_m[x.m.k][0].toLowerCase()} ${x.d > 0 ? '+' : '−'}${x.m.f(Math.abs(x.d))} ${T.te_m[x.m.k][1]}`);
+  const worse = ch.filter(x => x.m.good && Math.sign(x.d) !== x.m.good).length, better = ch.filter(x => x.m.good && Math.sign(x.d) === x.m.good).length;
+  $('#te-sum').textContent = parts.length ? T.te_sum(parts, pc && pc.same) : '';
+  const tr = xs.filter(r => r.t != null), byT = x => { const f = fit(tr.map(r => [r.t, x.m.get(r)]).filter(p => p[1] != null)); return f && f.n >= 12 && Math.abs(f.r) >= .4; };
+  const seas = ch.filter(byT), real = ch.filter(x => !byT(x));
+  const nm = a => { const w = a.map((x, i) => i ? T.te_m[x.m.k][0].toLowerCase() : T.te_m[x.m.k][0]); return w.length > 1 ? w.slice(0, -1).join(', ') + T.te_and + w[w.length-1] : w[0]; };
+  const realWorse = real.some(x => x.m.good && Math.sign(x.d) !== x.m.good);
+  $('#te-hyp').textContent = [T.te_hyp[!worse && !better ? 'none' : worse && better ? 'mixed' : worse ? 'worse' : 'better'],
+    seas.length ? T.te_season(nm(seas), real.length ? nm(real) : '', real.length) : '', realWorse ? T.te_why : ''].filter(Boolean).join(' ');
+}
+
+function scatter(el, pts, xl, yl, invX, tipF){
+  const w = Math.max(260, el.clientWidth), h = 224, L_ = 34, Tt = 22, B = 34;
+  const xv = pts.map(p => p[0]), yv = pts.map(p => p[1]);
+  let x0 = Math.min(...xv), x1 = Math.max(...xv), y0 = q(yv, .03), y1 = q(yv, .97);
+  const px = (x1 - x0) * .06 || 1, py = (y1 - y0) * .12 || 1; x0 -= px; x1 += px; y0 -= py; y1 += py;
+  const X = v => { const f = (v - x0) / (x1 - x0); return L_ + (invX ? 1 - f : f) * (w - L_ - 6); };
+  const Y = v => Tt + (y1 - Math.max(y0, Math.min(y1, v))) / (y1 - y0) * (h - Tt - B);
+  const fx = invX ? v => pace(v) : v => (Math.abs(x1 - x0) < 10 ? v.toFixed(1) : Math.round(v));
+  const fy = v => (Math.abs(y1 - y0) < 5 ? v.toFixed(2) : Math.round(v));
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="${esc(xl + ' / ' + yl)}">`];
+  [y0 + py, y1 - py].forEach(v => o.push(`<text x="0" y="${Y(v)+4}" fill="${C.mute}" font-size="11">${fy(v)}</text><line x1="${L_}" x2="${w}" y1="${Y(v)}" y2="${Y(v)}" stroke="${C.bg3}"/>`));
+  [x0 + px, x1 - px].forEach((v, i) => o.push(`<text x="${X(v)}" y="${h-18}" text-anchor="${(i === 0) !== !!invX ? 'start' : 'end'}" fill="${C.mute}" font-size="11">${fx(v)}</text>`));
+  o.push(`<text x="${w}" y="${h-3}" text-anchor="end" fill="${C.soft}" font-size="11">${esc(xl)} →</text>`);
+  o.push(`<text x="${L_}" y="${Tt-2}" fill="${C.soft}" font-size="11">↑ ${esc(yl)}</text>`);
+  const f = fit(pts);
+  if (f) { const a = x0 + px, b = x1 - px; o.push(`<line x1="${X(a)}" y1="${Y(f.my + f.k*(a - f.mx))}" x2="${X(b)}" y2="${Y(f.my + f.k*(b - f.mx))}" stroke="${C.ink}" stroke-width="2" stroke-dasharray="5 5"/>`); }
+  pts.forEach(p => o.push(`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="4.5" fill="${C.easy}" opacity=".85" data-tip="${esc(tipF(p))}"/>`));
+  o.push('</svg>');
+  el.innerHTML = o.join(''); attachTips(el);
+}
+
+function patterns(S){
+  const xs = outdoor(S).filter(r => r.km >= 3), eco = xs.filter(okMpb);
+  const loadBy = {}; D.loads.forEach(l => loadBy[l.date] = (loadBy[l.date] || 0) + l.load);
+  const load7 = d => { let s = 0; for (let i = 1; i <= 7; i++) s += loadBy[dayShift(d, -i)] || 0; return s; };
+  const cards = [], checked = [], short = [];
+  const tipRun = (r, a, b) => `<b>${fmtD(r.date)}</b> · ${r.km.toFixed(1)} ${T.km}, ${pace(r.pace)}${T.perkm}<br>${a} · ${b}`;
+  // жара: пульс при одинаковом темпе
+  const hx = xs.filter(r => r.hr && r.t != null);
+  if (hx.length >= 12) {
+    const fs = fit(hx.map(r => [r.spd, r.hr]));
+    const pts = hx.map(r => [r.t, r.hr - (fs ? fs.k*(r.spd - fs.mx) : 0), r]);
+    const f = fit(pts);
+    if (f && f.r >= .3 && f.k > 0) cards.push({ r: f.r, n: f.n, claim: T.heat.claim(Math.round(f.k*5)), det: '', hyp: T.heat.hyp, pts, xl: T.heat.x, yl: T.heat.y, tip: p => tipRun(p[2], `${p[0]}°`, `${T.hr} ${p[2].hr}`) });
+    else checked.push(T.heat.name);
+  } else short.push(T.heat.name);
+  // чем ускоряетесь
+  const sx = xs.filter(r => r.cad && r.stride && r.pace && r.pace < 600);
+  if (sx.length >= 12 && Math.sqrt(mean(sx.map(r => (r.pace - mean(sx.map(z=>z.pace)))**2))) >= 15) {
+    const fc = fit(sx.map(r => [Math.log(r.spd), Math.log(r.cad)])), fl = fit(sx.map(r => [Math.log(r.spd), Math.log(r.stride)]));
+    if (fc && fl && Math.max(Math.abs(fc.r), Math.abs(fl.r)) >= .3) {
+      const sh = Math.max(0, Math.min(1, fc.k / ((fc.k + fl.k) || 1)));
+      const p0 = median(sx.map(r => r.pace)), dl = Math.log(p0 / (p0 - 30));
+      const c = Math.round(mean(sx.map(r=>r.cad)) * (Math.exp(fc.k*dl) - 1)), l = Math.round(mean(sx.map(r=>r.stride)) * (Math.exp(fl.k*dl) - 1));
+      cards.push({ r: Math.max(Math.abs(fc.r), Math.abs(fl.r)), n: sx.length, claim: T.speed.claim(sh), det: T.speed.det(c, l), hyp: T.speed.hyp(sh), pts: sx.map(r => [r.pace, sh < .5 ? r.stride : r.cad, r]), xl: T.speed.x, yl: T.te_m[sh < .5 ? 'stride' : 'cad'][0], invX: true, tip: p => tipRun(p[2], `${T.te_m.cad[0]} ${Math.round(p[2].cad)} ${T.te_m.cad[1]}`, `${T.te_m.stride[0]} ${Math.round(p[2].stride)} ${T.te_m.stride[1]}`) });
+    } else checked.push(T.speed.name);
+  } else short.push(T.speed.name);
+  // экономичность против состояния
+  const E = T.eco, src = [
+    ['fatigue', r => load7(r.date), 100, v => Math.round(v)],
+    ['rhr', r => D.rhr[r.date], 5, v => v],
+    ['stress', r => (D.stress || {})[dayShift(r.date, -1)], 10, v => v],
+    ['sleep', r => (D.sleep || {})[r.date], 1, v => v.toFixed(1)],
+    ['hrv', r => (D.hrv || {})[r.date], 10, v => v],
+  ];
+  src.forEach(([k, get, unit, fv]) => {
+    const pts = eco.map(r => [get(r), r.mpb, r]).filter(p => p[0] != null && (k !== 'fatigue' || p[0] > 0));
+    if (pts.length < 12) { short.push(k === 'hrv' || k === 'sleep' ? `${E[k].name} (${pts.length} ${slav(pts.length, T.nights)})` : E[k].name); return; }
+    const f = fit(pts);
+    if (!f || Math.abs(f.r) < .3) { checked.push(E[k].name); return; }
+    const up = f.k > 0, p = f.k * unit / f.my * 100;
+    cards.push({ r: f.r, n: f.n, claim: up ? E[k].up : E[k].down, det: T.pa_det(E[k].unit, p), hyp: up ? E[k].hyp_up : E[k].hyp_down, pts, xl: E[k].x, yl: T.pa_eco_y, tip: q_ => tipRun(q_[2], `${E[k].x} ${fv(q_[0])}`, `${q_[1].toFixed(2)} ${T.eff_tip}`) });
+  });
+  // техника против погоды, усталости и длины: тестов много, поэтому порог строже
+  const tcs = [];
+  [['temp', r => r.t, 10], ['load7', r => load7(r.date), 100], ['km', r => r.km, 10]].forEach(([xk, get, unit]) => {
+    TM.filter(m => m.k !== 'pace').forEach(m => {
+      // технику сравниваем при одинаковом темпе, иначе длинные или летние пробежки просто медленнее
+      const fs = fit(xs.map(r => [r.spd, m.get(r)]).filter(p => p[1] != null)), adj = r => m.get(r) - (fs ? fs.k*(r.spd - fs.mx) : 0);
+      const pts = xs.filter(r => m.get(r) != null).map(r => [get(r), adj(r), r]).filter(p => p[0] != null && (xk !== 'load7' || p[0] > 0));
+      if (pts.length < 12) return;
+      const f = fit(pts); if (!f || Math.abs(f.r) < .4) return;
+      const up = f.k > 0, [name, mu] = T.te_m[m.k], X_ = T.tx[xk], worse = m.good && Math.sign(f.k) !== m.good;
+      const dv = f.k * unit, det = `${dv > 0 ? '+' : '−'}${m.f(Math.abs(dv))} ${mu} ${X_[1]}.`;
+      tcs.push({ xk, r: f.r, n: f.n, claim: T.tx_claim(X_[0], name, up), det, hyp: xk === 'temp' ? X_[2] : worse ? X_[2] : X_[3], pts, xl: xk === 'temp' ? T.heat.x : xk === 'km' ? T.km : E.fatigue.x, yl: name, tip: q_ => tipRun(q_[2], `${xk === 'temp' ? q_[0] + '°' : Math.round(q_[0])}`, `${name} ${m.f(m.get(q_[2]))} ${mu}`) });
+    });
+  });
+  tcs.sort((a, b) => Math.abs(b.r) - Math.abs(a.r));
+  const per = {}; cards.push(...tcs.filter(c => (per[c.xk] = (per[c.xk] || 0) + 1) <= 2).slice(0, 4));
+  cards.sort((a, b) => Math.abs(b.r) - Math.abs(a.r));
+  const box = $('#pa-cards');
+  box.innerHTML = cards.map((c, i) => `<div class="pc"><div class="st">${T.pa_str(c.r)} · r ${c.r.toFixed(2)} · ${T.pa_n(c.n)}</div><p class="claim">${esc(c.claim)}</p>${c.det ? `<p class="det">${esc(c.det)}</p>` : ''}<div class="sc" data-i="${i}"></div><p class="hyp">${esc(c.hyp)}</p></div>`).join('');
+  box.querySelectorAll('.sc').forEach(el => { const c = cards[+el.dataset.i]; scatter(el, c.pts, c.xl, c.yl, c.invX, c.tip); });
+  $('#pa-rest').innerHTML = [cards.length ? '' : T.pa_empty, checked.length ? T.pa_checked(checked.join(', ')) : '', short.length ? T.pa_short(short.join(', ')) : ''].filter(Boolean).map(s => `<span>${esc(s)}</span>`).join(' ');
+}
+
+function chartHrv(S){
+  const s = iso(S.start), e = iso(S.end), el = $('#c-hrv');
+  const nights = Object.entries(D.hrv || {}).filter(([d]) => d >= s && d <= e).sort();
+  if (nights.length < 14) { el.innerHTML = ''; $('#hrv-note').textContent = T.hrv_none(nights.length); return; }
+  const vals = nights.map(n => n[1]), base = mean(vals), sd = Math.sqrt(mean(vals.map(v => (v - base)**2)));
+  const roll = nights.map((n, i) => { const w_ = nights.slice(Math.max(0, i-6), i+1).filter(m => (d2(n[0]) - d2(m[0])) / 864e5 < 7); return [n[0], mean(w_.map(m => m[1]))]; });
+  const a7 = roll[roll.length-1][1], st = a7 < base - sd*.75 ? 'low' : a7 > base + sd*.75 ? 'high' : 'ok';
+  $('#hrv-note').textContent = T.hrv_note(Math.round(a7), Math.round(base), T.hrv_st[st]);
+  const w = Math.max(320, el.clientWidth), h = 220, L_ = 30, Tt = 10, B = 26;
+  const lo = Math.floor((Math.min(...vals) - 4)/5)*5, hi = Math.ceil((Math.max(...vals) + 4)/5)*5;
+  const t0 = +S.start, t1 = +S.end, x = d => L_ + (+d2(d) - t0) / Math.max(1, t1 - t0) * (w - L_ - 6), y = v => Tt + (hi - v) / (hi - lo) * (h - Tt - B);
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="${esc(T.hrv_h3)}">`];
+  o.push(`<rect x="${L_}" y="${y(base + sd*.75)}" width="${w - L_ - 6}" height="${y(base - sd*.75) - y(base + sd*.75)}" fill="${C.bg3}" opacity=".7"/>`);
+  for (let v = lo; v <= hi; v += 10) o.push(`<text x="0" y="${y(v)+4}" fill="${C.mute}" font-size="12">${v}</text>`);
+  nights.forEach(([d, v]) => o.push(`<circle cx="${x(d)}" cy="${y(v)}" r="3.5" fill="${C.easy}" opacity=".55" data-tip="${esc(`<b>${fmtD(d)}</b> · HRV ${v}`)}"/>`));
+  let path = '', prev = null;
+  roll.forEach(([d, v]) => { path += (prev && (d2(d) - d2(prev)) / 864e5 <= 3 ? 'L' : 'M') + x(d).toFixed(1) + ' ' + y(v).toFixed(1); prev = d; });
+  o.push(`<path d="${path}" fill="none" stroke="${C.ink}" stroke-width="2" stroke-linejoin="round"/>`);
+  let lastM = '';
+  for (let d = new Date(S.start); d <= S.end; d.setMonth(d.getMonth() + 1, 1)) { const k = iso(d).slice(0,7); if (k !== lastM) { lastM = k; o.push(`<text x="${x(k + '-01')}" y="${h-6}" fill="${C.mute}" font-size="12">${MR[+k.slice(5)-1]}</text>`); } }
+  o.push('</svg>');
+  el.innerHTML = o.join(''); attachTips(el);
+}
+
 function drillMonth(m){
   const box = $('#drill'); if (!m) return;
   const rows = m.runs.map(r => `<tr><td>${fmtD(r.date)}</td><td class="name">${esc(r.name)}${r.indoor ? ' · ' + T.treadmill : ''}</td><td class="n">${r.km.toFixed(1)}</td><td class="n">${pace(r.pace)}</td><td class="n ${r.fast?'fast':''}">${r.hr || '–'}</td><td class="n">${r.hrmax || '–'}</td><td class="n ${r.hiShare>=.05?'fast':''}">${pct(r.hiShare)}</td><td class="n">${r.load}</td><td>${r.easy ? T.o_easy : r.hr ? T.o_fast : T.o_nohr}</td></tr>`).join('');
@@ -855,8 +1281,9 @@ function render(entrance){
   const d = CEIL - D.ceiling, dn = A.easyN - baseEasy;
   $('#hz-shift').innerHTML = d === 0 ? T.hz_same : T.hz_shift(d, dn, P);
   chartTape(A);
-  chartInt(A.monthly); chartEasy(A.monthly); chartEff(A.monthly); chartRhr(A.weeks);
-  $('#how').innerHTML = T.how(A, CEIL, srcText()).filter(Boolean).map(s => `<li>${s}</li>`).join('');
+  chartInt(A.monthly); chartEasy(A.monthly); chartEff(A.monthly); chartRhr(A.weeks); chartHrv(S);
+  technique(S); patterns(S);
+  $('#how').innerHTML = [...T.how(A, CEIL, srcText()), ...T.how_x].filter(Boolean).map(s => `<li>${s}</li>`).join('');
   $('#drill').classList.remove('on'); $('#drill-run').classList.remove('on');
   if (entrance && !reduced) { document.body.classList.add('pre'); requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('pre'))); }
 }

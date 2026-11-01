@@ -77,9 +77,10 @@
 .d-shot img { width: 100%; max-width: 760px; height: auto; align-self: flex-end; }
 
 /* ---------- what it answers ---------- */
-.reads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.reads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
 .read { padding: 24px 22px 0 0; }
 .read + .read { padding-left: 22px; border-left: 1px solid #d6d1cb; }
+.read:nth-child(3n+1) { padding-left: 0; border-left: 0; }
 .read h3 { font: var(--sw) var(--s-sub)/1.1 var(--serif); letter-spacing: -0.02em; }
 .read p { margin-top: 12px; color: var(--soft); font-size: 15px; }
 .tape { margin-top: clamp(40px, 5vw, 72px); background: #141414 var(--grain-dark); padding: clamp(16px, 2.6vw, 40px); }
@@ -149,7 +150,8 @@
 .coaching { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); }
 
 @media (min-height: 2000px) { .d-hero { min-height: 0; } }
-@media (max-width: 1100px) { .reads, .needs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .read:nth-child(3), .needs li:nth-child(3) { padding-left: 0; border-left: 0; } .read, .needs li { padding-bottom: 22px; } }
+@media (max-width: 1100px) { .reads, .needs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .read:nth-child(odd), .needs li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .read:nth-child(even) { padding-left: 22px; border-left: 1px solid #d6d1cb; } .read, .needs li { padding-bottom: 22px; } }
 @media (max-width: 860px) {
   .d-hero { grid-template-columns: minmax(0, 1fr); min-height: 0; max-height: none; }
   .d-shot { order: -1; padding: 20px 20px 0; max-height: 62svh; }
@@ -225,6 +227,8 @@
       <div class="read"><h3>Вердикт</h3><p>Одна фраза наверху: что в ваших тренировках бросается в глаза первым. Например, «Лёгкие пробежки не лёгкие» или «11 недель подряд без разгрузки». Рядом цифры, на которых она держится.</p></div>
       <div class="read"><h3>Линия лёгкого</h3><p>Все пробежки года точками вокруг границы лёгкого пульса из ваших часов. Линию можно тянуть и смотреть, что изменится, если граница в часах стоит неточно.</p></div>
       <div class="read"><h3>Лента недель</h3><p>Каждая неделя столбиком, каждая пробежка блоком. Самые тяжёлые недели, лёгкие недели и длинные серии без отдыха видны сразу. Нажмите на неделю, и она раскроется по дням.</p></div>
+      <div class="read"><h3>Техника</h3><p>Каденс, длина шага, контакт с землёй и подпрыгивание по месяцам: что было в начале года и что сейчас. Если шаг стал тяжелее, дашборд проверит, не в жаре ли дело.</p></div>
+      <div class="read"><h3>Что с чем связано</h3><p>Дашборд сравнивает пробежки между собой: жара, сон, нагрузка накануне, пульс покоя, HRV. Показывает только заметные связи, и к каждой гипотезу, которую можно проверить на себе.</p></div>
       <div class="read"><h3>Форма и восстановление</h3><p>Метров на удар сердца: растёт ли форма, без всяких тестов. И пульс покоя по неделям: успеваете ли вы восстанавливаться после тяжёлых.</p></div>
     </div>
     <figure class="demo-video"><video autoplay muted loop playsinline preload="metadata" poster="/assets/guides/dashboard/demo-line-ru.jpg" width="1080" height="622" aria-label="Видео: линию лёгкого пульса тянут вниз и вверх, точки пробежек перекрашиваются, цифры пересчитываются"><source src="/assets/guides/dashboard/demo-line-ru.mp4" type="video/mp4"></video><figcaption>Так работает линия лёгкого. Граница из часов 141, лёгких 98 пробежек из 144. Сдвиньте её на шесть ударов вниз, и лёгких остаётся 71.</figcaption></figure>
