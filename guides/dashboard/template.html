@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Беговой дашборд InnaTri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#141414; --bg2:#1c1c1b; --bg3:#262624; --ink:#f2eee6; --soft:#a8a29a; --mute:#6f6a63;
+  --easy:#4F93F5; --hard:#F0523E; --easy-soft:rgba(79,147,245,.28); --hard-soft:rgba(240,82,62,.22);
+  --display:'Unbounded',system-ui,sans-serif; --text:'Onest',system-ui,sans-serif;
+  --w:1160px; --gap:24px;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);color:var(--ink);font-family:var(--text);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{margin:0;position:relative}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{position:relative;z-index:1;max-width:var(--w);margin:0 auto;padding:0 var(--gap)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(30px,4.6vw,58px);line-height:1.02;max-width:16ch}
+h2{font-size:clamp(22px,2.4vw,30px);line-height:1.15;max-width:22ch}
+p{margin:0}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.45;max-width:62ch;color:var(--ink)}
+.note{color:var(--soft);font-size:15px;line-height:1.5;max-width:66ch}
+svg text{font-family:var(--text)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* ---------- top bar ---------- */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0 0;flex-wrap:wrap}
+.mark{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.02em}
+.mark span{font-weight:400;color:var(--soft);margin-left:10px;font-family:var(--text);letter-spacing:0}
+.meta{color:var(--soft);font-size:14px}
+.seg{display:inline-flex;background:var(--bg2);border-radius:999px;padding:3px}
+.seg button{padding:8px 16px;border-radius:999px;color:var(--soft);font-size:14px;font-weight:500;transition:color .2s,background .2s}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.seg button:hover:not([aria-pressed=true]){color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{padding:88px 0 0}
+.hero .kick{color:var(--soft);font-size:15px;margin-bottom:18px}
+.hero h1{margin-bottom:26px}
+.warn{margin-top:28px;padding:14px 18px;border-left:3px solid var(--hard);background:var(--bg2);color:var(--ink);max-width:70ch;font-size:15px}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-top:64px}
+.fig{padding-top:18px;border-top:2px solid var(--bg3)}
+.fig .v{font-family:var(--display);font-size:clamp(34px,3.6vw,46px);line-height:1;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.fig .v small{font-size:.5em;font-weight:400;color:var(--soft);margin-left:4px}
+.fig .l{margin-top:12px;font-size:15px;color:var(--ink)}
+.fig .d{margin-top:6px;font-size:14px;color:var(--soft)}
+.fig .d b{font-weight:600;color:var(--ink)}
+.fig .d .good{color:var(--easy)} .fig .d .bad{color:var(--hard)}
+
+/* ---------- sections ---------- */
+section{padding-top:128px}
+.head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px var(--gap);align-items:start;margin-bottom:34px}
+.head .lead{color:var(--soft);font-size:16px}
+.chart{display:block;width:100%;height:auto;overflow:visible}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px var(--gap)}
+.panel h3{font-family:var(--text);font-weight:600;font-size:17px;margin-bottom:6px}
+.panel .note{margin-bottom:18px;font-size:14px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--soft);font-size:14px;margin-top:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:8px}
+.legend .dot i{border-radius:50%;width:9px;height:9px;border:2px solid var(--ink);background:none}
+.legend .tick i{width:12px;height:3px;background:var(--hard);vertical-align:3px}
+
+/* ---------- horizon ---------- */
+.ctl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--gap);align-items:center;margin-top:22px;padding:20px 24px;background:var(--bg2);border-radius:16px}
+.ctl .read{display:flex;flex-wrap:wrap;gap:8px 34px;align-items:baseline}
+.ctl .read b{font-family:var(--display);font-weight:500;font-size:28px;font-variant-numeric:tabular-nums}
+.ctl .read span{color:var(--soft);font-size:14px;display:block}
+.ctl .slide{display:flex;align-items:center;gap:14px;color:var(--soft);font-size:14px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:220px;height:28px;background:transparent;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--bg3);border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ink);margin-top:-9.5px;cursor:grab;transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+input[type=range]::-moz-range-track{height:3px;background:var(--bg3)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:var(--ink)}
+.reset{color:var(--soft);text-decoration:underline;text-underline-offset:3px;padding:6px 0}
+.reset:hover{color:var(--ink)}
+.shift{margin-top:12px;color:var(--soft);font-size:14px;min-height:21px}
+.shift b{color:var(--ink);font-weight:600}
+.run{transition:fill .25s, transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s;transform-box:fill-box;transform-origin:center;cursor:pointer}
+.run:hover{stroke:var(--ink);stroke-width:2}
+.pre .run{transform:scale(0);opacity:0}
+.ceil{cursor:ns-resize}
+.ceil .h{transition:transform .15s;transform-box:fill-box;transform-origin:center}
+.ceil:hover .h{transform:scale(1.15)}
+
+/* ---------- tape ---------- */
+.wk{cursor:pointer}
+.wk rect.blk{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-box:fill-box;transform-origin:bottom}
+.pre .wk rect.blk{transform:scaleY(0)}
+.wk:hover .hit, .wk.on .hit{fill:rgba(242,238,230,.06)}
+.week{margin-top:28px;background:var(--bg2);border-radius:16px;padding:24px 28px 28px;display:none}
+.week.on{display:block;animation:up .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.week .hd{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.week .hd h3{font-family:var(--display);font-weight:500;font-size:20px}
+.week .sum{color:var(--soft);font-size:14px;display:flex;gap:22px;flex-wrap:wrap;align-items:baseline}
+.week .sum b{color:var(--ink);font-weight:600}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.day{min-height:120px;background:var(--bg);border-radius:10px;padding:10px 10px 8px}
+.day .dn{font-size:13px;color:var(--mute);margin-bottom:8px}
+.day .dn b{color:var(--soft);font-weight:500}
+.chip{border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px;line-height:1.35;background:var(--easy-soft);border-left:3px solid var(--easy);cursor:pointer}
+.chip.hard{background:var(--hard-soft);border-left-color:var(--hard)}
+.chip.nohr{background:var(--bg3);border-left-color:var(--mute)}
+.chip.other{background:transparent;border-left-color:var(--bg3);color:var(--soft);cursor:default}
+.chip b{display:block;font-weight:600;font-size:14px}
+.cl{color:var(--soft);text-decoration:underline;text-underline-offset:3px}
+.cl:hover{color:var(--ink)}
+
+/* ---------- drill ---------- */
+.drill{margin-top:28px;background:var(--bg2);border-radius:16px;padding:22px 28px;display:none}
+.drill.on{display:block;animation:up .35s cubic-bezier(.2,.8,.2,1)}
+.drill .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;gap:16px}
+.drill .hd h3{font-family:var(--display);font-weight:500;font-size:18px}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th{text-align:left;color:var(--soft);font-weight:500;padding:8px 10px 10px 0;border-bottom:1px solid var(--bg3)}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--bg3);white-space:nowrap}
+th.n,td.n{text-align:right}
+td.fast{color:var(--hard)} td.name{white-space:normal;color:var(--soft);max-width:28ch}
+
+/* ---------- method ---------- */
+.method{display:grid;grid-template-columns:1fr 1fr;gap:40px var(--gap)}
+.method h3{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:18px}
+.method ul{margin:0;padding:0;list-style:none}
+.method li{padding:12px 0;border-top:1px solid var(--bg3);color:var(--soft);font-size:15px;line-height:1.5}
+.method li b{color:var(--ink);font-weight:600}
+.method li:last-child{border-bottom:1px solid var(--bg3)}
+
+/* ---------- footer ---------- */
+footer{margin-top:140px;padding:72px 0 56px;background:var(--bg2);position:relative;z-index:1}
+footer .cta{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px var(--gap);align-items:center}
+footer h2{max-width:24ch}
+footer .btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;padding:16px 26px;border-radius:999px;transition:transform .15s}
+footer .btn:hover{transform:translateY(-1px)}
+footer .btn:active{transform:translateY(1px)}
+footer .fine{margin-top:40px;color:var(--mute);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- tooltip ---------- */
+#tip{position:fixed;z-index:9;pointer-events:none;background:var(--ink);color:var(--bg);font-size:13px;line-height:1.4;padding:9px 12px;border-radius:8px;max-width:280px;opacity:0;transition:opacity .12s;transform:translate(-50%,calc(-100% - 14px))}
+#tip b{font-weight:600}
+
+/* ---------- motion & phone ---------- */
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}.pre .run,.pre .wk rect.blk{transform:none;opacity:1}}
+@media (max-width:860px){
+  :root{--gap:16px}
+  .figs{grid-template-columns:1fr 1fr;gap:28px 16px;margin-top:48px}
+  .head,.two,.method,footer .cta,.ctl{grid-template-columns:1fr}
+  section{padding-top:88px}
+  .hero{padding-top:56px}
+  .days{grid-template-columns:repeat(2,1fr)}
+  .week,.drill,.ctl{padding:18px 16px;border-radius:12px}
+  input[type=range]{width:100%}
+  .ctl .slide{flex-wrap:wrap}
+  .top{padding-top:16px}
+}
+</style>
+</head>
+<body class="pre">
+<div class="wrap">
+
+<header class="top">
+  <div class="mark">INNA TRI<span>беговой дашборд</span></div>
+  <div class="meta" id="meta"></div>
+  <div class="seg" role="group" aria-label="Период">
+    <button data-p="3" aria-pressed="false">3 мес</button><button data-p="6" aria-pressed="false">6 мес</button><button data-p="12" aria-pressed="true">12 мес</button>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="kick" id="kick"></p>
+  <h1 id="v-title"></h1>
+  <p class="lead" id="v-text"></p>
+  <div id="warns"></div>
+  <div class="figs" id="figs"></div>
+</section>
+
+<section class="horizon">
+  <div class="head">
+    <h2>Каждая пробежка относительно границы лёгкого</h2>
+    <p class="lead" id="hz-lead"></p>
+  </div>
+  <div id="c-hz"></div>
+  <div class="ctl">
+    <div class="read" id="hz-read"></div>
+    <div class="slide"><span>граница</span><input type="range" id="ceil" min="115" max="175" step="1" aria-label="Граница лёгкого пульса"><button class="reset" id="ceil-reset">как в часах</button></div>
+  </div>
+  <p class="shift" id="hz-shift"></p>
+  <div class="drill" id="drill-run"></div>
+</section>
+
+<section class="tape">
+  <div class="head">
+    <h2>Все недели периода одной лентой</h2>
+    <p class="lead">Каждый столбик неделя, каждый блок в нём пробежка, высота блока её длительность. Красная черта над неделей: одна из самых тяжёлых недель периода по нагрузке Garmin, включая силовые. Кольцо под неделей: разгрузка. Нажмите на неделю, чтобы увидеть её по дням.</p>
+  </div>
+  <div id="c-tape"></div>
+  <div class="legend"><span><i style="background:var(--easy)"></i>лёгкая</span><span><i style="background:var(--hard)"></i>быстрее лёгкого</span><span><i style="background:var(--bg3)"></i>без пульса</span><span class="tick"><i></i>ударная неделя</span><span class="dot"><i></i>разгрузка</span></div>
+  <div class="week" id="week"></div>
+</section>
+
+<section class="months">
+  <div class="head">
+    <h2>Лёгкое и быстрое по месяцам</h2>
+    <p class="lead">Слева доля времени бега по зонам пульса из Garmin, она не зависит от линии выше. Справа средний пульс лёгких пробежек: если он ползёт к границе, лёгкие перестают быть лёгкими. Месяцы с малым числом пробежек приглушены. Клик по месяцу открывает его пробежки.</p>
+  </div>
+  <div class="two">
+    <div class="panel"><h3>Доля времени в зонах</h3><p class="note">Синее 1–2 зоны, серое 3-я, красное 4–5. Черта: тренерский ориентир 80%.</p><div id="c-int"></div></div>
+    <div class="panel"><h3>Пульс на лёгких</h3><p class="note">Средний пульс пробежек, прошедших оба условия лёгкой. Пунктир: граница.</p><div id="c-easy"></div></div>
+  </div>
+  <div class="drill" id="drill"></div>
+</section>
+
+<section class="form">
+  <div class="head">
+    <h2>Форма и восстановление</h2>
+    <p class="lead">Аэробная эффективность: сколько метров вы пробегаете на один удар сердца на лёгких уличных пробежках, темп с поправкой на рельеф. Растёт: та же скорость стоит дешевле. Пульс покоя по неделям на фоне ударных недель: если после них он поднимается и не возвращается, восстановления не хватает.</p>
+  </div>
+  <div class="two">
+    <div class="panel"><h3>Метров на удар сердца</h3><p class="note" id="eff-note">Медиана месяца, только лёгкие уличные пробежки от 3 км.</p><div id="c-eff"></div></div>
+    <div class="panel"><h3>Пульс покоя</h3><p class="note">Среднее за неделю по часам. Красные полосы: ударные недели. Болезнь, алкоголь, жара и недосып двигают линию так же, как тренировки.</p><div id="c-rhr"></div></div>
+  </div>
+</section>
+
+<section class="method-s">
+  <div class="method">
+    <div><h3>Как считали</h3><ul id="how"></ul></div>
+    <div><h3>Чего этот дашборд не знает</h3><ul>
+      <li><b>Чем измерен пульс.</b> Garmin не сообщает, ремень это или оптика на запястье. Оптика на интервалах и в холод ошибается на 5–10 ударов, поэтому месячные средние надёжнее отдельных пробежек.</li>
+      <li><b>Откуда взялся максимум.</b> Если максимальный пульс в часах стоит по формуле 220 минус возраст, все зоны сдвинуты. Проверьте его: граница лёгкого это первое, что меняет вердикт.</li>
+      <li><b>Жару, болезнь, недосып.</b> Длинная пробежка в жару уходит вверх по пульсу к концу, и средний её не прощает. Это ограничение метода, а не ваша ошибка.</li>
+      <li><b>Как Garmin считает нагрузку.</b> Training Load это закрытая модель Firstbeat по пульсу. Здесь она используется только для сравнения недель между собой.</li>
+      <li><b>VO2max, статус тренированности, прогнозы.</b> Личный ключ Garmin их не отдаёт. Дашборд построен на том, что измерено, а не оценено.</li>
+      <li><b>Ваш контекст.</b> Это картина тренировок, а не медицинская рекомендация. Пороги здесь тренерские и настраиваемые, смотреть на них стоит трендом за 6–8 недель.</li>
+    </ul></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Пришлите скриншот этого дашборда в директ, скажу, что вижу</h2>
+      <div><a class="btn" href="https://www.instagram.com/inna.tri/" target="_blank" rel="noopener">Написать @inna.tri</a></div>
+    </div>
+    <div class="fine"><span>Данные забраны по вашему личному ключу Garmin и никуда с компьютера не уходили.</span><span id="built"></span></div>
+  </div>
+</footer>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+const D = /*__DATA__*/null;
+const C = {easy:'#4F93F5', hard:'#F0523E', ink:'#f2eee6', soft:'#a8a29a', mute:'#6f6a63', bg2:'#1c1c1b', bg3:'#262624'};
+const MR = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+const MF = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+const DN = ['пн','вт','ср','чт','пт','сб','вс'];
+const $ = s => document.querySelector(s);
+const pace = s => s ? `${Math.floor(s/60)}:${String(Math.round(s%60)).padStart(2,'0')}` : '–';
+const pct = f => `${Math.round(f*100)}%`;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const d2 = s => new Date(s + 'T00:00:00');
+const monday = d => { const x = new Date(d); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return x; };
+const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const mean = a => a.length ? a.reduce((s,v)=>s+v,0)/a.length : null;
+const median = a => { if (!a.length) return null; const b = [...a].sort((x,y)=>x-y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m-1]+b[m])/2; };
+const okMpb = r => r.mpb && r.mpb > 0.6 && r.mpb < 2.6 && r.km >= 3;
+const fmtD = s => { const d = d2(s); return `${d.getDate()} ${MF[d.getMonth()]}`; };
+const plural = (n, a, b, c) => { const m = n % 100, k = n % 10; return n + ' ' + (m > 10 && m < 20 ? c : k === 1 ? a : k > 1 && k < 5 ? b : c); };
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || location.hash.includes('static');
+
+// ---------- состояние ----------
+let period = 12, CEIL = D.ceiling, openWeek = null;
+const LAST = d2(D.runs[D.runs.length-1].date);
+D.runs.forEach(r => { const tot = r.z.reduce((a,b)=>a+b,0); r.hiShare = tot ? (r.z[3]+r.z[4])/tot : 0; });
+function classify(){ D.runs.forEach(r => { r.easy = !!r.hr && r.hr < CEIL && r.hiShare < .05; r.fast = !!r.hr && !r.easy; }); }
+
+function range(months, end){
+  const start = new Date(end); start.setMonth(start.getMonth() - months); start.setDate(1);
+  const first = d2(D.runs[0].date); first.setDate(1); if (start < first) start.setTime(first.getTime());
+  return start;
+}
+function slice(start, end){
+  const s = iso(start), e = iso(end);
+  return { start, end, runs: D.runs.filter(r => r.date >= s && r.date <= e), loads: D.loads.filter(l => l.date >= s && l.date <= e), rhr: Object.entries(D.rhr).filter(([d]) => d >= s && d <= e) };
+}
+
+function aggregate(S){
+  const months = []; const m0 = new Date(S.start); m0.setDate(1);
+  while (m0 <= S.end) { months.push(iso(m0).slice(0,7)); m0.setMonth(m0.getMonth()+1); }
+  const monthly = months.map(ym => {
+    const xs = S.runs.filter(r => r.date.startsWith(ym)), easy = xs.filter(r => r.easy);
+    const z = [0,1,2,3,4].map(i => xs.reduce((s,r)=>s+r.z[i],0)); const tot = z.reduce((a,b)=>a+b,0) || 1;
+    return { ym, label: MR[+ym.slice(5)-1], n: xs.length, km: xs.reduce((s,r)=>s+r.km,0), runs: xs,
+      easyHr: easy.length ? Math.round(mean(easy.map(r=>r.hr))) : null, eff: median(easy.filter(okMpb).map(r=>r.mpb)),
+      low: (z[0]+z[1])/tot, mid: z[2]/tot, high: (z[3]+z[4])/tot, minutes: tot/60, thin: xs.length < 4 || easy.length < 2 };
+  });
+  const w0 = monday(S.start), w1 = monday(S.end); const weeks = [];
+  for (let w = new Date(w0); w <= w1; w.setDate(w.getDate()+7)) weeks.push({ start: new Date(w), key: iso(w), load: 0, runs: [], km: 0, rhr: [] });
+  const byKey = Object.fromEntries(weeks.map(w => [w.key, w]));
+  S.loads.forEach(l => { const w = byKey[iso(monday(d2(l.date)))]; if (w) w.load += l.load; });
+  S.runs.forEach(r => { const w = byKey[iso(monday(d2(r.date)))]; if (w) { w.runs.push(r); w.km += r.km; } });
+  S.rhr.forEach(([d,v]) => { const w = byKey[iso(monday(d2(d)))]; if (w) w.rhr.push(v); });
+  let streak = 0, best = 0, bestEnd = -1;
+  weeks.forEach((w, i) => {
+    const prev = weeks.slice(Math.max(0,i-3), i).map(x=>x.load).filter(v=>v>0); const base = mean(prev) || 0;
+    w.deload = (base > 0 && w.load < D.deload*base) || w.load < 30;
+    if (w.deload) streak = 0; else { streak++; if (streak > best) { best = streak; bestEnd = i; } }
+    w.rhrAvg = w.rhr.length ? mean(w.rhr) : null;
+    w.dur = w.runs.reduce((s,r)=>s+r.dur,0);
+  });
+  const sorted = weeks.map(w=>w.load).filter(v=>v>0).sort((a,b)=>a-b);
+  const cut = sorted.length ? sorted[Math.floor(sorted.length*.8)] : Infinity;
+  weeks.forEach(w => w.hard = w.load > 0 && w.load >= cut);
+  const z = [0,1,2,3,4].map(i => S.runs.reduce((s,r)=>s+r.z[i],0)); const tot = z.reduce((a,b)=>a+b,0) || 1;
+  const hrRuns = S.runs.filter(r=>r.hr), easyRuns = S.runs.filter(r=>r.easy);
+  const emptyWeeks = weeks.filter(w => !w.runs.length).length;
+  return { monthly, weeks, best, bestEnd, low: (z[0]+z[1])/tot, high: (z[3]+z[4])/tot,
+    n: S.runs.length, km: S.runs.reduce((s,r)=>s+r.km,0), hours: S.runs.reduce((s,r)=>s+r.dur,0)/3600, hrRuns: hrRuns.length, fast: S.runs.filter(r=>r.fast).length,
+    easyHr: easyRuns.length ? Math.round(mean(easyRuns.map(r=>r.hr))) : null, eff: median(easyRuns.filter(okMpb).map(r=>r.mpb)),
+    emptyWeeks, perWeek: S.runs.length / Math.max(1, weeks.length), noHr: S.runs.length - hrRuns.length, easyN: easyRuns.length,
+    hardWeeks: weeks.filter(w=>w.hard).length, deloads: weeks.filter(w=>w.deload && w.load>0).length };
+}
+
+function verdict(A, months){
+  if (A.n < 6) return ['Мало данных', `За ${months} мес. всего ${plural(A.n,'пробежка','пробежки','пробежек')} с часами. Вердикт по такому объёму был бы гаданием. Переключите период на больший или вернитесь через месяц.`];
+  if (A.hrRuns < A.n * .6) return ['Пульс записан не везде', `Только ${A.hrRuns} из ${A.n} пробежек с пульсом. Без пульса дашборд видит километры, но не нагрузку. Проверьте датчик или ремень.`];
+  if (A.low < .7) return ['Лёгкие пробежки не лёгкие', `${pct(A.low)} времени бега прошло в 1–2 зонах при тренерском ориентире 75–80%. ${A.fast} из ${A.hrRuns} пробежек по пульсу были быстрее лёгкого. Лишняя скорость на лёгких съедает качество ключевых тренировок и восстановление.`];
+  if (A.best >= 4) return [`${A.best} недель подряд без разгрузки`, 'Нагрузка росла без лёгкой недели. Рабочая схема: три недели работы, одна разгрузочная. Без неё форма не закрепляется, а усталость копится незаметно.'];
+  if (A.emptyWeeks > A.weeks.length * .25) return ['Рваный график', `${A.emptyWeeks} пустых недель из ${A.weeks.length}. Пропуски стоят дороже, чем любая отдельная тренировка. Три коротких пробежки в неделю дадут больше, чем две длинных через неделю.`];
+  return ['База в порядке', `${pct(A.low)} бега в 1–2 зонах, разгрузка не реже чем раз в четыре недели, ${A.perWeek.toFixed(1)} пробежки в неделю. Следующий шаг: вторая ключевая тренировка в неделю и контроль аэробной эффективности.`];
+}
+
+// ---------- svg ----------
+const tipEl = $('#tip');
+function attachTips(root){
+  root.querySelectorAll('[data-tip]').forEach(el => {
+    el.addEventListener('mousemove', e => { tipEl.innerHTML = el.dataset.tip; tipEl.style.opacity = 1; tipEl.style.left = e.clientX + 'px'; tipEl.style.top = e.clientY + 'px'; });
+    el.addEventListener('mouseleave', () => tipEl.style.opacity = 0);
+  });
+}
+const W = () => Math.max(320, $('#c-hz').clientWidth);
+function runTip(r){ return `<b>${fmtD(r.date)}</b> · ${esc(r.name)}${r.indoor ? ' · дорожка' : ''}<br>${r.km.toFixed(1)} км · ${pace(r.pace)}/км · пульс ${r.hr || '–'}${r.hrmax ? ' (макс ' + r.hrmax + ')' : ''}<br>в 4–5 зонах ${pct(r.hiShare)} · нагрузка ${r.load}`; }
+
+function chartHorizon(S, A){
+  const w = W(), h = Math.min(460, Math.max(300, w * .38)), L = 40, R = 76, T = 18, B = 34;
+  const hrs = S.runs.filter(r=>r.hr).map(r=>r.hr);
+  const yMin = Math.min(118, ...hrs) - 6, yMax = Math.max(165, ...hrs) + 6;
+  const x = d => L + (d2(d) - S.start) / (S.end - S.start) * (w - L - R);
+  const y = v => T + (yMax - v) / (yMax - yMin) * (h - T - B);
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="Пробежки по среднему пульсу и границе лёгкого" id="hz-svg">`];
+  for (let v = Math.ceil(yMin/10)*10; v <= yMax; v += 10) o.push(`<text x="0" y="${y(v)+4}" fill="${C.mute}" font-size="12">${v}</text><line x1="${L}" x2="${w-R}" y1="${y(v)}" y2="${y(v)}" stroke="${C.bg3}" stroke-width="1"/>`);
+  A.monthly.forEach(m => { const d = d2(m.ym + '-01'); if (d >= S.start) o.push(`<text x="${x(m.ym+'-01')}" y="${h-10}" fill="${C.mute}" font-size="12">${m.label}</text>`); });
+  o.push(`<rect x="${L}" y="${y(CEIL)}" width="${w-L-R}" height="${Math.max(0,h-B-y(CEIL))}" fill="rgba(79,147,245,.05)"/>`);
+  if (D.lthr) o.push(`<line x1="${L}" x2="${w-R}" y1="${y(D.lthr)}" y2="${y(D.lthr)}" stroke="${C.mute}" stroke-dasharray="2 5"/><text x="${w-R+8}" y="${y(D.lthr)+4}" fill="${C.mute}" font-size="12">порог ${D.lthr}</text>`);
+  S.runs.forEach((r, i) => {
+    if (!r.hr) return;
+    const rad = 3.5 + Math.min(9, r.km) * .75;
+    o.push(`<circle class="run" data-id="${r.id}" cx="${x(r.date)}" cy="${y(r.hr)}" r="${rad}" fill="${r.easy ? C.easy : C.hard}" style="transition-delay:${reduced ? 0 : Math.min(900, i*14)}ms" data-tip="${esc(runTip(r))}"/>`);
+  });
+  o.push(`<g class="ceil" id="hz-line"><line x1="${L}" x2="${w-R}" y1="${y(CEIL)}" y2="${y(CEIL)}" stroke="${C.ink}" stroke-width="2"/><rect x="${L}" y="${y(CEIL)-14}" width="${w-L-R}" height="28" fill="transparent"/><g class="h"><circle cx="${w-R}" cy="${y(CEIL)}" r="11" fill="${C.ink}"/></g><text x="${w-R+18}" y="${y(CEIL)+5}" fill="${C.ink}" font-size="14" font-weight="600">${CEIL}</text></g>`);
+  o.push('</svg>');
+  const el = $('#c-hz'); el.innerHTML = o.join('');
+  attachTips(el);
+  el.querySelectorAll('.run').forEach(c => c.addEventListener('click', () => showRun(+c.dataset.id)));
+  const svg = $('#hz-svg'), line = $('#hz-line');
+  const toHr = ev => { const b = svg.getBoundingClientRect(); const py = (ev.clientY - b.top) / b.height * h; return Math.round(yMax - (py - T) / (h - T - B) * (yMax - yMin)); };
+  line.addEventListener('pointerdown', ev => { ev.preventDefault(); line.setPointerCapture(ev.pointerId); line.dataset.drag = 1; });
+  line.addEventListener('pointermove', ev => { if (!line.dataset.drag) return; setCeil(toHr(ev)); });
+  line.addEventListener('pointerup', () => delete line.dataset.drag);
+  line.addEventListener('pointercancel', () => delete line.dataset.drag);
+}
+
+function showRun(id){
+  const r = D.runs.find(r => r.id === id); if (!r) return;
+  const box = $('#drill-run');
+  const tot = r.z.reduce((a,b)=>a+b,0) || 1;
+  box.innerHTML = `<div class="hd"><h3>${fmtD(r.date)} · ${esc(r.name)}${r.indoor ? ' · дорожка' : ''}</h3><button class="cl" onclick="this.closest('.drill').classList.remove('on')">закрыть</button></div>
+  <div style="overflow:auto"><table><thead><tr><th class="n">км</th><th class="n">время</th><th class="n">темп</th><th class="n">пульс</th><th class="n">макс</th><th class="n">1–2 зоны</th><th class="n">3-я</th><th class="n">4–5</th><th class="n">каденс</th><th class="n">набор</th><th class="n">нагрузка</th><th>итог</th></tr></thead>
+  <tbody><tr><td class="n">${r.km.toFixed(2)}</td><td class="n">${Math.floor(r.dur/60)} мин</td><td class="n">${pace(r.pace)}</td><td class="n ${r.fast?'fast':''}">${r.hr || '–'}</td><td class="n">${r.hrmax || '–'}</td><td class="n">${pct((r.z[0]+r.z[1])/tot)}</td><td class="n">${pct(r.z[2]/tot)}</td><td class="n ${r.hiShare>=.05?'fast':''}">${pct(r.hiShare)}</td><td class="n">${r.cad ? Math.round(r.cad) : '–'}</td><td class="n">${r.elev != null ? Math.round(r.elev) + ' м' : '–'}</td><td class="n">${r.load}</td><td>${r.easy ? 'лёгкая' : r.hr ? (r.hr >= CEIL ? `средний пульс не ниже границы ${CEIL}` : `больше 5% времени в 4–5 зонах`) : 'без пульса'}</td></tr></tbody></table></div>`;
+  box.classList.add('on'); box.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function chartTape(A){
+  const w = W(), n = A.weeks.length, h = 320, L = 34, T = 26, B = 70;
+  const gap = n > 30 ? 4 : 8, cw = (w - L - (n-1)*gap) / n;
+  const maxDur = Math.max(3600*2.5, ...A.weeks.map(x=>x.dur));
+  const y = s => T + (h - T - B) - s / maxDur * (h - T - B);
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="Пробежки по неделям">`];
+  for (let hh = 1; hh*3600 <= maxDur; hh++) o.push(`<text x="0" y="${y(hh*3600)+4}" fill="${C.mute}" font-size="12">${hh} ч</text><line x1="${L}" x2="${w}" y1="${y(hh*3600)}" y2="${y(hh*3600)}" stroke="${C.bg3}"/>`);
+  const base = y(0);
+  let lastM = '';
+  A.weeks.forEach((wk, i) => {
+    const x0 = L + i*(cw+gap);
+    const m = wk.key.slice(0,7); if (m !== lastM && wk.start.getDate() <= 7) { o.push(`<text x="${x0}" y="${h-6}" fill="${C.mute}" font-size="12">${MR[+m.slice(5)-1]}</text>`); lastM = m; }
+    const parts = [`<rect class="hit" x="${x0-gap/2}" y="${T-14}" width="${cw+gap}" height="${base-T+14+18}" fill="transparent" rx="4"/>`];
+    let acc = 0;
+    [...wk.runs].sort((a,b)=>a.date<b.date?-1:1).forEach((r, j) => {
+      const y1 = y(acc + r.dur), y0 = y(acc); acc += r.dur;
+      parts.push(`<rect class="blk" x="${x0}" y="${y1}" width="${cw}" height="${Math.max(2, y0 - y1 - 2)}" fill="${r.easy ? C.easy : r.hr ? C.hard : C.bg3}" rx="2" style="transition-delay:${reduced ? 0 : Math.min(800, i*12 + j*40)}ms"/>`);
+    });
+    if (!wk.runs.length) parts.push(`<rect x="${x0}" y="${base-2}" width="${cw}" height="2" fill="${C.bg3}"/>`);
+    if (wk.hard) parts.push(`<rect x="${x0}" y="${T-10}" width="${cw}" height="3" fill="${C.hard}" rx="1"/>`);
+    if (wk.deload && wk.load > 0) parts.push(`<circle cx="${x0+cw/2}" cy="${base+12}" r="${Math.min(4, cw*.45)}" fill="none" stroke="${C.ink}" stroke-width="${cw < 8 ? 1.5 : 2}"/>`);
+    const tip = `<b>неделя с ${fmtD(wk.key)}</b><br>${plural(wk.runs.length,'пробежка','пробежки','пробежек')} · ${wk.km.toFixed(1)} км · ${Math.round(wk.dur/60)} мин<br>нагрузка ${Math.round(wk.load)}${wk.hard ? ' · ударная' : ''}${wk.deload && wk.load>0 ? ' · разгрузка' : ''}${wk.rhrAvg ? '<br>пульс покоя ' + wk.rhrAvg.toFixed(0) : ''}`;
+    o.push(`<g class="wk ${openWeek === wk.key ? 'on' : ''}" data-w="${wk.key}" data-tip="${esc(tip)}">${parts.join('')}</g>`);
+  });
+  if (A.best >= 3 && A.bestEnd >= 0) {
+    const i0 = A.bestEnd - A.best + 1, xa = L + i0*(cw+gap), xb = L + A.bestEnd*(cw+gap) + cw;
+    o.push(`<line x1="${xa}" x2="${xb}" y1="${base+26}" y2="${base+26}" stroke="${C.hard}" stroke-width="2"/><text x="${Math.min(w-150, Math.max(xa, (xa+xb)/2-70))}" y="${base+44}" fill="${C.hard}" font-size="13" font-weight="600">${A.best} недель без разгрузки</text>`);
+  }
+  o.push('</svg>');
+  const el = $('#c-tape'); el.innerHTML = o.join('');
+  attachTips(el);
+  el.querySelectorAll('.wk').forEach(g => g.addEventListener('click', () => { openWeek = openWeek === g.dataset.w ? null : g.dataset.w; el.querySelectorAll('.wk').forEach(x => x.classList.toggle('on', x.dataset.w === openWeek)); showWeek(A); }));
+  showWeek(A);
+}
+
+function showWeek(A){
+  const box = $('#week'); const wk = A.weeks.find(w => w.key === openWeek);
+  if (!wk) { box.classList.remove('on'); return; }
+  const end = new Date(wk.start); end.setDate(end.getDate()+6);
+  const others = D.loads.filter(l => l.date >= wk.key && l.date <= iso(end) && !D.runs.some(r => r.date === l.date && r.load === l.load));
+  const days = DN.map((dn, i) => {
+    const d = new Date(wk.start); d.setDate(d.getDate()+i); const k = iso(d);
+    const runs = wk.runs.filter(r => r.date === k), oth = others.filter(l => l.date === k);
+    return `<div class="day"><div class="dn"><b>${dn}</b> ${d.getDate()}</div>${runs.map(r => `<div class="chip ${r.easy?'':r.hr?'hard':'nohr'}" data-id="${r.id}"><b>${r.km.toFixed(1)} км${r.indoor ? ' · дорожка' : ''}</b>${pace(r.pace)}/км · пульс ${r.hr || '–'}</div>`).join('')}${oth.map(l => `<div class="chip other">другая тренировка · нагрузка ${l.load}</div>`).join('')}${D.rhr[k] ? `<div class="dn" style="margin-top:6px">покой ${D.rhr[k]}</div>` : ''}</div>`;
+  }).join('');
+  box.innerHTML = `<div class="hd"><h3>Неделя с ${fmtD(wk.key)}</h3><div class="sum"><span><b>${plural(wk.runs.length,'пробежка','пробежки','пробежек')}</b></span><span><b>${wk.km.toFixed(1)}</b> км</span><span><b>${Math.round(wk.dur/60)}</b> мин бега</span><span>нагрузка <b>${Math.round(wk.load)}</b>${wk.hard ? ', ударная' : wk.deload && wk.load>0 ? ', разгрузка' : ''}</span>${wk.rhrAvg ? `<span>пульс покоя <b>${wk.rhrAvg.toFixed(0)}</b></span>` : ''}<button class="cl" id="wk-close">закрыть</button></div></div><div class="days">${days}</div>`;
+  box.classList.add('on');
+  $('#wk-close').onclick = () => { openWeek = null; document.querySelectorAll('.wk').forEach(x => x.classList.remove('on')); box.classList.remove('on'); };
+  box.querySelectorAll('.chip[data-id]').forEach(c => c.addEventListener('click', () => showRun(+c.dataset.id)));
+}
+
+function panelW(){ const p = document.querySelector('.two .panel'); return Math.max(280, p ? p.clientWidth : 500); }
+
+function chartInt(m){
+  const w = panelW(), h = 240, T = 24, B = 28, gap = 6, cw = (w - (m.length-1)*gap) / m.length;
+  const y = f => T + (1-f) * (h - T - B);
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="Доля времени по зонам по месяцам">`];
+  m.forEach((x, i) => {
+    const x0 = i*(cw+gap); const op = x.thin ? .35 : 1;
+    const tip = `<b>${x.label}</b> · ${plural(x.n,'пробежка','пробежки','пробежек')}, ${Math.round(x.minutes)} мин${x.thin ? ' · мало данных' : ''}<br>1–2 зоны ${pct(x.low)} · 3-я ${pct(x.mid)} · 4–5 ${pct(x.high)}`;
+    o.push(`<g class="mo" data-m="${x.ym}" data-tip="${esc(tip)}" style="cursor:pointer;opacity:${op}">`);
+    if (x.n) {
+      o.push(`<rect x="${x0}" y="${y(x.low)}" width="${cw}" height="${y(0)-y(x.low)-1}" fill="${C.easy}" rx="2"/>`);
+      o.push(`<rect x="${x0}" y="${y(x.low+x.mid)}" width="${cw}" height="${Math.max(0,y(x.low)-y(x.low+x.mid)-1)}" fill="${C.mute}" rx="2"/>`);
+      o.push(`<rect x="${x0}" y="${y(1)}" width="${cw}" height="${Math.max(0,y(x.low+x.mid)-y(1)-1)}" fill="${C.hard}" rx="2"/>`);
+      o.push(`<text x="${x0+cw/2}" y="${y(1)-7}" text-anchor="middle" fill="${x.low < .7 ? C.hard : C.ink}" font-size="12" font-weight="600">${Math.round(x.low*100)}</text>`);
+    } else o.push(`<rect x="${x0}" y="${y(0)-2}" width="${cw}" height="2" fill="${C.bg3}"/>`);
+    o.push(`<text x="${x0+cw/2}" y="${h-8}" text-anchor="middle" fill="${C.mute}" font-size="12">${x.label}</text></g>`);
+  });
+  o.push(`<line x1="0" x2="${w}" y1="${y(.8)}" y2="${y(.8)}" stroke="${C.ink}" stroke-dasharray="3 5"/>`);
+  o.push('</svg>');
+  const el = $('#c-int'); el.innerHTML = o.join(''); attachTips(el);
+  el.querySelectorAll('.mo').forEach(g => g.addEventListener('click', () => drillMonth(m.find(x => x.ym === g.dataset.m))));
+}
+
+function chartEasy(m){
+  const w = panelW(), h = 240, L = 30, T = 18, B = 28;
+  const vals = m.map(x=>x.easyHr).filter(Boolean);
+  const yMin = Math.min(CEIL - 18, ...vals) - 4, yMax = Math.max(CEIL + 4, ...vals) + 4;
+  const y = v => T + (yMax - v) / (yMax - yMin) * (h - T - B);
+  const x = i => L + (i + .5) * (w - L) / m.length;
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="Пульс на лёгких пробежках по месяцам">`];
+  for (let v = Math.ceil(yMin/10)*10; v <= yMax; v += 10) o.push(`<text x="0" y="${y(v)+4}" fill="${C.mute}" font-size="12">${v}</text><line x1="${L}" x2="${w}" y1="${y(v)}" y2="${y(v)}" stroke="${C.bg3}"/>`);
+  o.push(`<line x1="${L}" x2="${w}" y1="${y(CEIL)}" y2="${y(CEIL)}" stroke="${C.ink}" stroke-dasharray="3 5"/><text x="${w}" y="${y(CEIL)-6}" text-anchor="end" fill="${C.soft}" font-size="12">граница ${CEIL}</text>`);
+  let path = '', pen = false;
+  m.forEach((x_, i) => { if (!x_.easyHr) { pen = false; return; } path += (pen ? 'L' : 'M') + x(i) + ' ' + y(x_.easyHr); pen = true; });
+  o.push(`<path d="${path}" fill="none" stroke="${C.easy}" stroke-width="2" stroke-linejoin="round"/>`);
+  m.forEach((x_, i) => {
+    o.push(`<text x="${x(i)}" y="${h-8}" text-anchor="middle" fill="${C.mute}" font-size="12">${x_.label}</text>`);
+    if (!x_.easyHr) return;
+    const near = x_.easyHr >= CEIL - 4;
+    o.push(`<circle cx="${x(i)}" cy="${y(x_.easyHr)}" r="${x_.thin ? 4 : 6}" fill="${near ? C.hard : C.easy}" opacity="${x_.thin ? .5 : 1}" data-tip="${esc(`<b>${x_.label}</b> · пульс на лёгких ${x_.easyHr}${x_.thin ? ' · мало данных' : ''}${near ? ' · у самой границы' : ''}`)}"/>`);
+    o.push(`<text x="${x(i)}" y="${y(x_.easyHr)-12}" text-anchor="middle" fill="${C.ink}" font-size="12" font-weight="600">${x_.easyHr}</text>`);
+  });
+  o.push('</svg>');
+  const el = $('#c-easy'); el.innerHTML = o.join(''); attachTips(el);
+}
+
+function chartEff(m){
+  const w = panelW(), h = 240, L = 36, T = 18, B = 28;
+  const pts = m.map((x_, i) => x_.eff ? [i, x_.eff] : null).filter(Boolean);
+  const el = $('#c-eff');
+  if (pts.length < 2) { el.innerHTML = `<p class="note">Мало лёгких уличных пробежек с темпом и пульсом, чтобы считать эффективность.</p>`; $('#eff-note').textContent = 'Медиана месяца, только лёгкие уличные пробежки от 3 км.'; return; }
+  const vals = pts.map(p=>p[1]); const yMin = Math.min(...vals) - .08, yMax = Math.max(...vals) + .08;
+  const y = v => T + (yMax - v) / (yMax - yMin) * (h - T - B);
+  const x = i => L + (i + .5) * (w - L) / m.length;
+  const n = pts.length, sx = pts.reduce((s,p)=>s+p[0],0), sy = pts.reduce((s,p)=>s+p[1],0), sxx = pts.reduce((s,p)=>s+p[0]*p[0],0), sxy = pts.reduce((s,p)=>s+p[0]*p[1],0);
+  const k = (n*sxy - sx*sy) / (n*sxx - sx*sx || 1), b = (sy - k*sx) / n;
+  const f0 = k*pts[0][0] + b, f1 = k*pts[n-1][0] + b, ch = (f1 - f0) / f0;
+  $('#eff-note').textContent = `Медиана месяца, только лёгкие уличные пробежки от 3 км. Тренд за период ${ch >= 0 ? '+' : ''}${Math.round(ch*100)}%${Math.abs(ch) < .03 ? ', в пределах шума' : ch > 0 ? ', бег стал дешевле' : ', бег стал дороже'}.`;
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="Метров на удар сердца по месяцам">`];
+  for (let v = Math.ceil(yMin*10)/10; v <= yMax; v += .1) o.push(`<text x="0" y="${y(v)+4}" fill="${C.mute}" font-size="12">${v.toFixed(1)}</text><line x1="${L}" x2="${w}" y1="${y(v)}" y2="${y(v)}" stroke="${C.bg3}"/>`);
+  o.push(`<line x1="${x(pts[0][0])}" x2="${x(pts[n-1][0])}" y1="${y(f0)}" y2="${y(f1)}" stroke="${C.ink}" stroke-width="2" stroke-dasharray="4 5"/>`);
+  o.push(`<path d="${pts.map((p,i)=>(i?'L':'M')+x(p[0])+' '+y(p[1])).join('')}" fill="none" stroke="${C.easy}" stroke-width="2" stroke-linejoin="round"/>`);
+  m.forEach((x_, i) => {
+    o.push(`<text x="${x(i)}" y="${h-8}" text-anchor="middle" fill="${C.mute}" font-size="12">${x_.label}</text>`);
+    if (x_.eff) o.push(`<circle cx="${x(i)}" cy="${y(x_.eff)}" r="${x_.thin ? 4 : 6}" fill="${C.easy}" opacity="${x_.thin ? .5 : 1}" data-tip="${esc(`<b>${x_.label}</b> · ${x_.eff.toFixed(2)} м на удар${x_.thin ? ' · мало данных' : ''}`)}"/>`);
+  });
+  o.push('</svg>');
+  el.innerHTML = o.join(''); attachTips(el);
+}
+
+function chartRhr(weeks){
+  const w = panelW(), h = 240, L = 30, T = 18, B = 28;
+  const el = $('#c-rhr');
+  const vals = weeks.map(x=>x.rhrAvg).filter(Boolean);
+  if (vals.length < 3) { el.innerHTML = `<p class="note">Часы почти не записывали пульс покоя за этот период: нужна хотя бы пара недель ночных данных.</p>`; return; }
+  const yMin = Math.floor((Math.min(...vals) - 3)/5)*5, yMax = Math.ceil((Math.max(...vals) + 3)/5)*5;
+  const y = v => T + (yMax - v) / (yMax - yMin) * (h - T - B);
+  const cw = (w - L) / weeks.length, x = i => L + (i + .5) * cw;
+  const o = [`<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="Пульс покоя по неделям">`];
+  weeks.forEach((wk, i) => { if (wk.hard) o.push(`<rect x="${L + i*cw}" y="${T}" width="${cw}" height="${h-T-B}" fill="${C.hard}" opacity=".16"/>`); });
+  for (let v = yMin; v <= yMax; v += 5) o.push(`<text x="0" y="${y(v)+4}" fill="${C.mute}" font-size="12">${v}</text><line x1="${L}" x2="${w}" y1="${y(v)}" y2="${y(v)}" stroke="${C.bg3}"/>`);
+  let path = '', pen = false;
+  weeks.forEach((wk, i) => { if (!wk.rhrAvg) { pen = false; return; } path += (pen ? 'L' : 'M') + x(i) + ' ' + y(wk.rhrAvg); pen = true; });
+  o.push(`<path d="${path}" fill="none" stroke="${C.ink}" stroke-width="2" stroke-linejoin="round"/>`);
+  weeks.forEach((wk, i) => { if (wk.rhrAvg) o.push(`<circle cx="${x(i)}" cy="${y(wk.rhrAvg)}" r="7" fill="transparent" data-tip="${esc(`<b>неделя с ${fmtD(wk.key)}</b><br>пульс покоя ${wk.rhrAvg.toFixed(1)} · ${wk.rhr.length} дн.${wk.hard ? '<br>ударная неделя' : ''}`)}"/>`); });
+  let lastM = '';
+  weeks.forEach((wk, i) => { const m = wk.key.slice(0,7); if (m !== lastM && wk.start.getDate() <= 7) { o.push(`<text x="${L + i*cw}" y="${h-8}" fill="${C.mute}" font-size="12">${MR[+m.slice(5)-1]}</text>`); lastM = m; } });
+  o.push('</svg>');
+  el.innerHTML = o.join(''); attachTips(el);
+}
+
+function drillMonth(m){
+  const box = $('#drill'); if (!m) return;
+  const rows = m.runs.map(r => `<tr><td>${fmtD(r.date)}</td><td class="name">${esc(r.name)}${r.indoor ? ' · дорожка' : ''}</td><td class="n">${r.km.toFixed(1)}</td><td class="n">${pace(r.pace)}</td><td class="n ${r.fast?'fast':''}">${r.hr || '–'}</td><td class="n">${r.hrmax || '–'}</td><td class="n ${r.hiShare>=.05?'fast':''}">${pct(r.hiShare)}</td><td class="n">${r.load}</td><td>${r.easy ? 'лёгкая' : r.hr ? 'быстрее лёгкого' : 'без пульса'}</td></tr>`).join('');
+  box.innerHTML = `<div class="hd"><h3>${m.label}: ${plural(m.n,'пробежка','пробежки','пробежек')}, ${m.km.toFixed(0)} км</h3><button class="cl" onclick="this.closest('.drill').classList.remove('on')">закрыть</button></div>
+  <div style="overflow:auto"><table><thead><tr><th>дата</th><th>название</th><th class="n">км</th><th class="n">темп</th><th class="n">пульс</th><th class="n">макс</th><th class="n">в 4–5</th><th class="n">нагрузка</th><th>итог</th></tr></thead><tbody>${rows || '<tr><td colspan="9">пробежек нет</td></tr>'}</tbody></table></div>`;
+  box.classList.add('on'); box.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// ---------- плитки с анимацией счёта ----------
+function countTo(el, to, fmt){
+  if (reduced || to == null || !isFinite(to)) { el.textContent = fmt(to); return; }
+  const t0 = performance.now(), dur = 700;
+  const step = t => { const k = Math.min(1, (t - t0)/dur), e = 1 - Math.pow(1-k, 3); el.textContent = fmt(to*e); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+function figures(A, P, animate){
+  const dl = (cur, prev, fmt, goodUp, unit) => {
+    if (prev == null || cur == null) return `<div class="d">за последние 3 месяца</div>`;
+    const d = cur - prev; const sign = d > 0 ? '+' : d < 0 ? '−' : '';
+    const cls = d === 0 ? '' : (d > 0) === goodUp ? 'good' : 'bad';
+    return `<div class="d">последние 3 мес. <b>${fmt(cur)}</b>, к предыдущим 3 <b class="${cls}">${sign}${fmt(Math.abs(d))}${unit||''}</b></div>`;
+  };
+  const items = [
+    { v: A.hrRuns ? A.low*100 : null, f: v => v == null ? '–' : Math.round(v) + '%', l: 'времени бега в 1–2 зонах, ориентир 75–80', d: P ? dl(Math.round(P.cur.low*100), Math.round(P.prev.low*100), v => v + '%', true) : '' },
+    { v: A.easyN, f: v => Math.round(v), suf: ` из ${A.hrRuns}`, l: `пробежек лёгкие при границе ${CEIL}`, d: P ? dl(Math.round(P.cur.easyN/Math.max(1,P.cur.hrRuns)*100), Math.round(P.prev.easyN/Math.max(1,P.prev.hrRuns)*100), v => v + '%', true) : '' },
+    { v: A.best, f: v => Math.round(v), suf: ' нед.', l: 'самая долгая серия без разгрузки', d: `<div class="d">разгрузок за период <b>${A.deloads}</b>, ударных недель <b>${A.hardWeeks}</b></div>` },
+    { v: A.eff, f: v => v ? v.toFixed(2) : '–', suf: ' м', l: 'на один удар сердца на лёгких', d: P && P.cur.eff && P.prev.eff ? dl(+P.cur.eff.toFixed(2), +P.prev.eff.toFixed(2), v => v.toFixed(2), true) : `<div class="d">аэробная эффективность</div>` },
+  ];
+  $('#figs').innerHTML = items.map(i => `<div class="fig"><div class="v"><span class="count"></span><small>${i.suf || ''}</small></div><div class="l">${i.l}</div>${i.d}</div>`).join('');
+  document.querySelectorAll('#figs .count').forEach((el, i) => animate ? countTo(el, items[i].v, items[i].f) : (el.textContent = items[i].f(items[i].v)));
+}
+
+function howList(A){
+  return [
+    `<b>Граница лёгкого ${CEIL}.</b> ${CEIL === D.ceiling ? D.ceiling_src.charAt(0).toUpperCase() + D.ceiling_src.slice(1) : `Сдвинута вами с ${D.ceiling} (${D.ceiling_src})`}. Это единственный порог, который делит пробежки на лёгкие и быстрые.`,
+    `<b>Лёгкая пробежка</b> проходит два условия сразу: средний пульс ниже границы и меньше 5% времени в 4–5 зонах. Так интервалы с низким средним не прячутся среди лёгких.`,
+    `<b>Доля времени в зонах</b> берётся из Garmin как есть и от границы не зависит. Ориентир 75–80% лёгкого Сейлер считал по сессиям, а не по минутам, поэтому рядом показана и доля лёгких пробежек по количеству.`,
+    `<b>Разгрузочная неделя</b>: нагрузка ниже ${Math.round(D.deload*100)}% от средней за три предыдущие недели или меньше 30. Это тренерская эвристика, порог настраивается ключом --deload.`,
+    `<b>Ударная неделя</b>: входит в пятую часть самых тяжёлых недель периода по Training Load всех тренировок.`,
+    `<b>Метров на удар</b>: скорость с поправкой на рельеф, делённая на пульс, на лёгких уличных пробежках от 3 км, медиана за месяц, значения вне 0.6–2.6 отброшены как сбой датчика.`,
+    `<b>Месяц «мало данных»</b>: меньше 4 пробежек или меньше 2 лёгких. Вердикт не выносится при менее чем 6 пробежках за период.`,
+    `<b>Дни без часов</b> не считаются нулями: линия пульса покоя рвётся, недели без тренировок показаны пустыми. Пробежек без пульса за период: ${A.noHr}.`,
+  ].map(s => `<li>${s}</li>`).join('');
+}
+
+// ---------- управление ----------
+function setCeil(v){
+  v = Math.max(115, Math.min(175, v)); if (v === CEIL) return;
+  CEIL = v; $('#ceil').value = v; render(false);
+}
+$('#ceil').addEventListener('input', e => setCeil(+e.target.value));
+$('#ceil-reset').addEventListener('click', () => setCeil(D.ceiling));
+document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => { period = +b.dataset.p; openWeek = null; document.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed', x === b)); render(true); }));
+
+let baseEasy = null;
+function render(entrance){
+  classify();
+  const start = range(period, LAST), S = slice(start, LAST), A = aggregate(S);
+  const months = Math.max(1, Math.round((LAST - start) / 2629800000));
+  let P = null;
+  if (months >= 6) {
+    const c0 = range(3, LAST), p0 = range(6, LAST), p1 = new Date(c0); p1.setDate(0);
+    P = { cur: aggregate(slice(c0, LAST)), prev: aggregate(slice(p0, p1)) };
+  }
+  const [vt, vx] = verdict(A, months);
+  $('#kick').textContent = `${D.name ? D.name + ' · ' : ''}${fmtD(iso(start))} ${start.getFullYear()} по ${fmtD(iso(LAST))} ${LAST.getFullYear()} · ${plural(A.n,'пробежка','пробежки','пробежек')} · ${A.km.toFixed(0)} км · ${A.hours.toFixed(0)} ч`;
+  $('#v-title').textContent = vt; $('#v-text').textContent = vx;
+  $('#meta').textContent = `собрано ${fmtD(D.built)} по ключу Garmin`;
+  $('#built').textContent = `Собрано ${fmtD(D.built)} ${d2(D.built).getFullYear()} · InnaTri`;
+  $('#warns').innerHTML = (D.warnings || []).map(w => `<p class="warn">${esc(w)}</p>`).join('');
+  figures(A, P, entrance);
+  $('#hz-lead').textContent = `Белая линия: ${D.ceiling_src.startsWith('верх') ? 'верх 2-й зоны из ваших часов' : 'граница лёгкого'}, ${D.ceiling}. Каждая точка пробежка: высота её средний пульс, размер длина. Над линией красные. Потяните линию и посмотрите, как вердикт зависит от одной настройки в часах.`;
+  chartHorizon(S, A);
+  const easyPct = A.hrRuns ? Math.round(A.easyN / A.hrRuns * 100) : 0;
+  if (baseEasy === null || CEIL === D.ceiling) baseEasy = A.easyN;
+  $('#hz-read').innerHTML = `<div><b>${A.easyN} из ${A.hrRuns}</b><span>пробежек лёгкие, ${easyPct}%</span></div><div><b>${A.easyHr || '–'}</b><span>средний пульс на лёгких</span></div><div><b>${A.fast}</b><span>быстрее лёгкого</span></div>`;
+  const d = CEIL - D.ceiling, dn = A.easyN - baseEasy;
+  $('#hz-shift').innerHTML = d === 0 ? `Граница как в часах. Если ваши зоны считаются от максимума по формуле, а не от измеренного порога, попробуйте сдвинуть её на 5 ударов в обе стороны.` :
+    `Граница сдвинута на <b>${d > 0 ? '+' : ''}${d}</b>: ${dn === 0 ? 'ни одна пробежка не поменяла сторону' : dn > 0 ? `ещё <b>${plural(dn,'пробежка стала','пробежки стали','пробежек стали')}</b> лёгкими` : `<b>${plural(-dn,'пробежка перестала','пробежки перестали','пробежек перестали')}</b> быть лёгкими`}. Это меняет взгляд дашборда, а не ваши зоны в Garmin.`;
+  chartTape(A);
+  chartInt(A.monthly); chartEasy(A.monthly); chartEff(A.monthly); chartRhr(A.weeks);
+  $('#how').innerHTML = howList(A);
+  $('#drill').classList.remove('on'); $('#drill-run').classList.remove('on');
+  if (entrance && !reduced) { document.body.classList.add('pre'); requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('pre'))); }
+}
+$('#ceil').value = CEIL;
+if (reduced) document.body.classList.remove('pre');
+render(true);
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => render(false), 150); });
+</script>
+</body>
+</html>

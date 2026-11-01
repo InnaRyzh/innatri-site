@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Беговой дашборд по ключу Garmin: твой бег глазами тренера | InnaTri</title>
+  <meta name="description" content="Один ключ в Garmin Connect, один промпт в Claude Code, и у вас страница, которая отвечает: в порядке ли база. Лёгкие пробежки, разгрузки, аэробная эффективность. Бесплатно, данные остаются на компьютере.">
+  <meta name="author" content="Инна Рыжих">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#151515">
+  <link rel="canonical" href="https://innatri.com/guides/dashboard/">
+  <meta property="og:title" content="Беговой дашборд по ключу Garmin: твой бег глазами тренера">
+  <meta property="og:description" content="Инструкция: ключ Garmin, Claude Code и промпт, который собирает дашборд с вердиктом тренера. Бесплатно, без регистрации, данные остаются у вас.">
+  <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
+  <meta property="og:url" content="https://innatri.com/guides/dashboard/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="InnaTri">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Беговой дашборд по ключу Garmin">
+  <meta name="twitter:description" content="Ключ Garmin, Claude Code и промпт, который собирает дашборд с вердиктом тренера.">
+  <meta name="twitter:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
+  <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/noto-serif-display-vf-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029f">
+  <link rel="stylesheet" href="/assets/css/book.css?v=20261029g">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JMDGV643K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2JMDGV643K');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"Беговой дашборд по ключу Garmin",
+    "description":"Как собрать дашборд своих пробежек с вердиктом тренера: ключ Garmin Connect, Claude Code и готовый промпт.",
+    "totalTime":"PT20M",
+    "author":{"@type":"Person","name":"Инна Рыжих","url":"https://innatri.com"},
+    "step":[
+      {"@type":"HowToStep","name":"Создать личный ключ Garmin","url":"https://innatri.com/guides/dashboard/#steps"},
+      {"@type":"HowToStep","name":"Проверить зоны пульса в Garmin","url":"https://innatri.com/guides/dashboard/#steps"},
+      {"@type":"HowToStep","name":"Поставить Claude Code","url":"https://innatri.com/guides/dashboard/#steps"},
+      {"@type":"HowToStep","name":"Вставить промпт","url":"https://innatri.com/guides/dashboard/#prompt"},
+      {"@type":"HowToStep","name":"Прислать скриншот тренеру","url":"https://innatri.com/guides/dashboard/#send"}
+    ]
+  }
+  </script>
+
+  <style>
+/* ---------- hero: words left, the dashboard itself right on an ink field ---------- */
+.d-hero { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); min-height: calc(100svh - 60px); max-height: 980px; }
+.d-hero .phero-text { justify-content: flex-end; }
+.kicker { font-size: var(--s-small); font-weight: 600; letter-spacing: .04em; color: var(--red); }
+.d-hero h1 { margin-top: 14px; font: var(--sw) clamp(40px, 5.4vw, 88px)/.98 var(--serif); letter-spacing: -0.035em; text-wrap: balance; max-width: 12ch; }
+.d-hero .lead { margin-top: 24px; max-width: 42ch; }
+.acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
+.acts .note { color: var(--soft); font-size: var(--s-small); }
+.d-shot { position: relative; background: #141414 var(--grain-dark); overflow: hidden; display: flex; align-items: flex-start; justify-content: center; padding: clamp(20px, 3vw, 48px) clamp(20px, 3vw, 48px) 0; }
+.d-shot img { width: 100%; max-width: 760px; height: auto; align-self: flex-end; }
+
+/* ---------- what it answers ---------- */
+.reads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.read { padding: 24px 22px 0 0; }
+.read + .read { padding-left: 22px; border-left: 1px solid #d6d1cb; }
+.read h3 { font: var(--sw) var(--s-sub)/1.1 var(--serif); letter-spacing: -0.02em; }
+.read p { margin-top: 12px; color: var(--soft); font-size: 15px; }
+.tape { margin-top: clamp(40px, 5vw, 72px); background: #141414 var(--grain-dark); padding: clamp(16px, 2.6vw, 40px); }
+.tape img { width: 100%; height: auto; }
+.tape figcaption { margin-top: 14px; color: rgba(255,255,255,.7); font-size: var(--s-small); }
+
+/* ---------- needs ---------- */
+.needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.needs li { padding: 22px 22px 26px 0; }
+.needs li + li { padding-left: 22px; border-left: 1px solid #d6d1cb; }
+.needs b { display: block; font-size: 18px; }
+.needs span { display: block; margin-top: 6px; color: var(--soft); font-size: 15px; }
+.needs a { color: inherit; }
+
+/* ---------- steps ---------- */
+.steps { counter-reset: s; display: grid; gap: clamp(40px, 5vw, 72px); }
+.steps > li { counter-increment: s; display: grid; grid-template-columns: 88px minmax(0, 7fr) minmax(0, 5fr); gap: 0 clamp(24px, 4vw, 64px); align-items: start; }
+.steps > li::before { content: counter(s); font: var(--sw) clamp(40px, 4.6vw, 72px)/1 var(--serif); color: var(--red); letter-spacing: -0.03em; }
+.steps h3 { font: var(--sw) var(--s-sub)/1.15 var(--serif); letter-spacing: -0.02em; }
+.steps .main p { margin-top: 12px; max-width: 62ch; }
+.steps .main ol { margin-top: 14px; padding-left: 20px; display: grid; gap: 8px; max-width: 62ch; }
+.steps .main ol li::marker { color: var(--soft); }
+.steps .side { padding-top: 8px; }
+.steps .why { padding: 18px 20px; background: var(--paper) var(--grain); font-size: 15px; line-height: 1.5; }
+.steps .why b { color: var(--red); }
+.steps .cmds { display: grid; gap: 6px; }
+.steps .cmds p { font-size: var(--s-small); color: var(--soft); margin-top: 10px; }
+.steps .cmds p:first-child { margin-top: 0; }
+.cmd { display: block; padding: 12px 14px; background: var(--ink); color: #fff; font: 500 14px/1.5 'JetBrains Mono', ui-monospace, Menlo, monospace; white-space: pre; overflow-x: auto; }
+
+/* ---------- prompt ---------- */
+.prompt-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.prompt-side p + p { margin-top: 14px; }
+.prompt { position: relative; background: var(--surface) var(--grain); padding: 22px 24px 24px; }
+.prompt pre { margin: 0; max-height: 560px; overflow: auto; white-space: pre-wrap; font: 400 15px/1.55 var(--sans); color: var(--ink); }
+.prompt .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+.prompt .bar p { font-weight: 600; }
+.copy { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border: 0; background: var(--ink); color: #fff; font: 600 15px/1 var(--sans); cursor: pointer; }
+.copy:hover { background: var(--red); }
+.copy[data-done="1"] { background: var(--red); }
+
+/* ---------- honesty ---------- */
+.limits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 64px; }
+.limits li { padding: 22px 0; border-top: 1px solid rgba(255,255,255,.22); }
+.limits b { display: block; font-size: 18px; }
+.limits p { margin-top: 8px; color: rgba(255,255,255,.72); font-size: 15px; }
+.disclaimer { margin-top: clamp(40px, 4vw, 64px); max-width: 64ch; color: rgba(255,255,255,.72); font-size: 15px; }
+
+/* ---------- faq ---------- */
+.faq-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.faq { max-width: 860px; }
+.faq details { border-bottom: 1px solid #d6d1cb; padding: 18px 0; }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-weight: 400; font-size: 24px; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq p { margin-top: 10px; color: var(--soft); max-width: 62ch; }
+.faq p + p { margin-top: 8px; }
+
+/* ---------- send ---------- */
+.send { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px; align-items: end; }
+.send h2 { font-size: var(--s-head); line-height: 1; }
+.send p { margin-top: 18px; color: #d8d1c9; max-width: 46ch; }
+.send .acts { justify-content: flex-end; margin-top: 0; }
+.btn-line { color: #fff; box-shadow: inset 0 0 0 1px #fff; background: transparent !important; }
+.btn-line:hover { background: #fff !important; color: var(--ink); }
+.coaching { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); }
+
+@media (min-height: 2000px) { .d-hero { min-height: 0; } }
+@media (max-width: 1100px) { .reads, .needs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .read:nth-child(3), .needs li:nth-child(3) { padding-left: 0; border-left: 0; } .read, .needs li { padding-bottom: 22px; } }
+@media (max-width: 860px) {
+  .d-hero { grid-template-columns: minmax(0, 1fr); min-height: 0; max-height: none; }
+  .d-shot { order: -1; padding: 20px 20px 0; max-height: 62svh; }
+  .d-hero .phero-text { padding: 28px var(--m) 56px; }
+  .d-hero h1 { font-size: clamp(34px, 9.5vw, 54px); max-width: none; }
+  .acts .btn { width: 100%; }
+  .reads, .needs, .limits, .prompt-wrap, .send, .faq-wrap { grid-template-columns: minmax(0, 1fr); }
+  .read + .read, .needs li + li { padding-left: 0; border-left: 0; border-top: 1px solid #d6d1cb; }
+  .steps > li { grid-template-columns: 44px minmax(0, 1fr); gap: 0 12px; }
+  .steps > li::before { font-size: 34px; }
+  .steps .side { grid-column: 2; margin-top: 18px; padding-top: 0; }
+  .prompt pre { max-height: none; }
+  .send .acts { justify-content: flex-start; }
+}
+  </style>
+  <script src="/assets/lang.js"></script>
+</head>
+<body class="site-page page-guide">
+<header class="top">
+  <a class="mark" href="/">INNA TRI</a>
+  <nav class="tab" aria-label="Разделы">
+    <a href="/run.html">Бег</a>
+    <a href="/triathlon.html">Триатлон</a>
+    <a href="/blog.html">Блог</a>
+    <a href="/calculator.html">Калькулятор</a>
+    <a href="/#pricing">Тарифы</a>
+  </nav>
+  <div class="top-r">
+    <div class="lang"><a href="/ua/">UA</a><a href="/en/">EN</a><a href="/guides/dashboard/" aria-current="page">RU</a></div>
+    <a class="btn btn-ink" href="/contact.html">Обсудить цель <span class="arr" aria-hidden="true">→</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-top"><a class="mark" href="/">INNA TRI</a><button class="menu-close" type="button">Закрыть</button></div>
+  <nav aria-label="Меню">
+    <a href="/">Главная</a>
+    <a href="/run.html">Бег</a>
+    <a href="/triathlon.html">Триатлон</a>
+    <a href="/blog.html">Блог</a>
+    <a href="/#reviews">Отзывы</a>
+    <a href="/calculator.html">Калькулятор</a>
+    <a href="/#pricing">Тарифы</a>
+    <a href="/contact.html">Контакты</a>
+  </nav>
+  <div class="lang"><a href="/ua/">UA</a><a href="/en/">EN</a><a href="/guides/dashboard/" aria-current="page">RU</a></div>
+  <a class="btn" href="/quiz-landing/?lang=ru">Пройти диагностику за 90 секунд <span class="arr" aria-hidden="true">→</span></a>
+</div>
+
+<main id="main">
+<section class="d-hero" aria-labelledby="guide-title">
+  <div class="phero-text">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog.html">Блог</a><span>/</span><span aria-current="page">Дашборд</span></nav>
+    <p class="kicker" style="margin-top:48px">Бесплатный инструмент от Инны Рыжих</p>
+    <h1 id="guide-title">Твой бег глазами тренера</h1>
+    <p class="lead">Один ключ в Garmin Connect, один промпт в Claude Code, и через двадцать минут у вас страница, которая отвечает на главный вопрос: в порядке ли база.</p>
+    <div class="acts">
+      <a href="#steps" class="btn">К инструкции <span class="arr" aria-hidden="true">↓</span></a>
+      <p class="note">Без регистрации · данные остаются на вашем компьютере</p>
+    </div>
+  </div>
+  <figure class="d-shot"><img src="/assets/guides/dashboard/dash-hero.jpg" width="1240" height="1500" alt="Верх дашборда: вердикт «Лёгкие пробежки не лёгкие», четыре числа и график всех пробежек года относительно границы лёгкого пульса" fetchpriority="high" decoding="async"></figure>
+</section>
+
+<section class="sec sec-sur" aria-labelledby="answers-title">
+  <div class="wrap">
+    <p class="kicker">Что внутри</p>
+    <h2 class="serif" id="answers-title" style="margin-top:14px">Не восемь дашбордов на вкус, а один ответ</h2>
+    <p class="lead sub-lead">Garmin показывает сотню чисел и ни одного вывода. Эта страница собирает год ваших пробежек по правилам, по которым я читаю дневники своих спортсменов.</p>
+    <div class="reads">
+      <div class="read"><h3>Вердикт</h3><p>Одна фраза наверху: что в тренировках не так в первую очередь. Лёгкие не лёгкие, долго без разгрузки, рваный график или база в порядке. И три числа рядом, которые его доказывают.</p></div>
+      <div class="read"><h3>Линия лёгкого</h3><p>Все пробежки года точками относительно границы лёгкого пульса из ваших часов. Линию можно тянуть и смотреть, как вердикт зависит от одной настройки в Garmin.</p></div>
+      <div class="read"><h3>Лента недель</h3><p>Каждая неделя столбиком, каждая пробежка блоком. Ударные недели, разгрузки и самая долгая серия без неё видны сразу. Клик по неделе раскрывает её по дням.</p></div>
+      <div class="read"><h3>Форма и восстановление</h3><p>Метров на удар сердца: единственный показатель формы без тестов. И пульс покоя по неделям на фоне тяжёлых, чтобы видеть, хватает ли восстановления.</p></div>
+    </div>
+    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="Лента недель и графики по месяцам: доля времени в зонах, пульс на лёгких пробежках"><figcaption>Дашборд на моих данных за год. Внизу страницы у него два раздела, которых нет ни у одного приложения: «Как считали» с каждым порогом и «Чего этот дашборд не знает».</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="needs-title">
+  <div class="wrap">
+    <h2 class="serif" id="needs-title">Что нужно</h2>
+    <ul class="needs" style="margin-top:clamp(32px,4vw,56px)">
+      <li><b>Часы Garmin</b><span>Любые, которые пишут пульс и синхронизируются с Garmin Connect. Год пробежек лучше, чем месяц, но хватит и трёх месяцев.</span></li>
+      <li><b>Компьютер</b><span>Mac или Windows. Ключ Garmin и все данные остаются на нём, в облако ничего не уходит.</span></li>
+      <li><b>Claude Code</b><span>Бесплатная программа от Anthropic для терминала. Нужна подписка Claude Pro или Max. Ставится одной командой, ниже покажу.</span></li>
+      <li><b>Двадцать минут</b><span>Пять из них ваши: создать ключ и проверить зоны. Остальное делает Claude Code сам.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-sur" id="steps" aria-labelledby="steps-title">
+  <div class="wrap">
+    <p class="kicker">Инструкция</p>
+    <h2 class="serif" id="steps-title" style="margin-top:14px">Пять шагов</h2>
+    <ol class="steps" style="margin-top:clamp(40px,4vw,64px)">
+      <li>
+        <div class="main">
+          <h3>Создайте личный ключ Garmin</h3>
+          <p>Garmin с октября 2026 даёт каждому пользователю личный ключ к своим данным. Это официальный путь: без пароля, без сторонних библиотек, только чтение.</p>
+          <ol>
+            <li>Откройте <a class="link" href="https://connect.garmin.com/app/settings/personalApiToken" target="_blank" rel="noopener">connect.garmin.com → Settings → Personal API Key</a> и войдите, если попросит.</li>
+            <li>Нажмите <b>Create Key</b>, прочитайте и примите условия.</li>
+            <li>Срок действия выберите <b>1 год</b>, иначе через месяц всё придётся повторять.</li>
+            <li>Скопируйте ключ сразу. Garmin показывает его один раз. Если потеряли, удалите старый на той же странице и создайте новый.</li>
+          </ol>
+        </div>
+        <aside class="side"><div class="why">Ключ это пароль к вашим данным о здоровье. <b>Никогда</b> не вставляйте его в чат, в комментарий или на скриншот. Промпт ниже устроен так, что Claude Code его тоже не увидит и не напечатает. Отозвать ключ можно в любой момент на той же странице.</div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Проверьте зоны пульса в Garmin</h3>
+          <p>Дашборд берёт границу лёгкого из ваших часов, поэтому от настроек зон зависит всё. В Garmin Connect откройте профиль → Настройки пользователя → Зоны частоты пульса, выберите спорт «Бег».</p>
+          <ol>
+            <li>Если максимум стоит по формуле 220 минус возраст и вы его никогда не измеряли, зоны почти наверняка сдвинуты. Дашборд это заметит и предупредит.</li>
+            <li>Лучший вариант: зоны «от порога лактата», если вы делали тест или часы определили порог на нагрудном ремне.</li>
+            <li>Ничего не меняйте вслепую. Границу можно подвинуть прямо на дашборде и посмотреть, что изменится.</li>
+          </ol>
+        </div>
+        <aside class="side"><div class="why">Откуда дашборд взял границу, написано у него внизу в разделе «Как считали»: верх 2-й зоны, метод расчёта, порог и максимум из ваших часов. Если метод «от максимума», наверху появится предупреждение.</div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Поставьте Claude Code</h3>
+          <p>Это программа, которая выполняет шаги на вашем компьютере: создаёт папки, скачивает файлы, запускает скрипты. Обычный чат Claude этого не умеет. Откройте Терминал на Mac или PowerShell на Windows и выполните одну строку. Потом наберите <b>claude</b>, войдите в свой аккаунт, и можно вставлять промпт.</p>
+          <p>Подробная инструкция с картинками есть у Anthropic: <a class="link" href="https://code.claude.com/docs/ru/quickstart" target="_blank" rel="noopener">code.claude.com/docs</a>. Нужна подписка Claude Pro или Max.</p>
+        </div>
+        <aside class="side"><div class="cmds"><p>Mac, в Терминале</p><span class="cmd">curl -fsSL https://claude.ai/install.sh | bash</span><p>Windows, в PowerShell</p><span class="cmd">irm https://claude.ai/install.ps1 | iex</span></div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Вставьте промпт</h3>
+          <p>Скопируйте текст из блока ниже целиком и вставьте в Claude Code. Он скачает три файла с этого сайта, поставит нужное, попросит вас вставить ключ в файл, заберёт данные и откроет дашборд в браузере. Единственное, что вам надо сделать руками: вставить ключ в открывшийся файл и сохранить.</p>
+        </div>
+        <aside class="side"><div class="why">Почему три файла с сайта, а не «напиши мне дашборд». Чтобы у всех получалась одна и та же страница с одними и теми же правилами, иначе сравнивать будет нечего. Файлы открытые, их можно прочитать перед запуском: <a class="link" href="/guides/dashboard/fetch_garmin.py">fetch_garmin.py</a>, <a class="link" href="/guides/dashboard/build_dashboard.py">build_dashboard.py</a>, <a class="link" href="/guides/dashboard/template.html">template.html</a>.</div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Пришлите скриншот</h3>
+          <p>Claude Code сохранит картинку dashboard.png. Отправьте её мне в директ <a class="link" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">@inna.tri</a>, и я скажу, что вижу в ваших данных. Через неделю или месяц скажите Claude Code «обнови дашборд», и он заберёт новые тренировки.</p>
+        </div>
+        <aside class="side"><div class="why">Дашборд живой: период 3, 6 и 12 месяцев, подсказки на каждой точке, клик по неделе и по месяцу, линия лёгкого, которую можно тянуть. Для скриншота без анимаций откройте его с хвостом <b>#static</b> в адресе.</div></aside>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="prompt" aria-labelledby="prompt-title">
+  <div class="wrap">
+    <div class="prompt-wrap">
+      <div class="prompt-side">
+        <h2 class="serif" id="prompt-title">Промпт</h2>
+        <p class="lead" style="margin-top:20px">Вставляется в Claude Code целиком. Читать не обязательно, но можно: там нет ничего, кроме шагов и правил безопасности.</p>
+        <p class="soft">Если что-то пошло не так, не редактируйте промпт. Просто скажите Claude Code, что случилось, своими словами. Он разберётся или спросит вас.</p>
+      </div>
+      <div class="prompt">
+        <div class="bar"><p>Текст промпта</p><button class="copy" type="button" id="copy-prompt">Скопировать</button></div>
+<pre id="prompt-text">Собери мне беговой дашборд InnaTri по моим данным из Garmin Connect. Веди меня по шагам простым языком, всё техническое делай сам: папки, файлы, установки. Останавливайся и жди меня только там, где нужно моё действие.
+
+Правила
+- Мой ключ Garmin никогда не печатай в чат, не вставляй в команды и не записывай никуда, кроме файла garmin.env. Когда проверяешь его, говори только «ключ на месте» или «ключа нет».
+- Ключ и данные остаются на моём компьютере. Папку data и файл garmin.env добавь в .gitignore.
+- Ключ Garmin только читает данные, изменить в моём аккаунте он ничего не может.
+
+Шаг 1. Папка и файлы
+Создай папку innatri-dashboard в моей домашней папке и работай в ней. Скачай туда три файла:
+- https://innatri.com/guides/dashboard/fetch_garmin.py
+- https://innatri.com/guides/dashboard/build_dashboard.py
+- https://innatri.com/guides/dashboard/template.html
+Проверь, что у меня есть Python 3.10 или новее, если нет, помоги поставить. Создай виртуальное окружение и установи в него пакет garmin-connect-personal-api-python.
+
+Шаг 2. Ключ (это делаю я, ты направляешь)
+Создай папку ~/.config/innatri и в ней файл garmin.env с одной строкой:
+GARMIN_API_KEY=
+Поставь на файл права 600. Открой его в моём текстовом редакторе и скажи полный путь. Я вставлю ключ сразу после знака = без пробелов и кавычек и сохраню. Если у меня ещё нет ключа, скажи: он создаётся на странице https://connect.garmin.com/app/settings/personalApiToken кнопкой Create Key, срок лучше выбрать 1 год, ключ показывается один раз. Потом проверь, что значение заполнено, не печатая его.
+
+Шаг 3. Данные
+Запусти fetch_garmin.py --months 12. Если Garmin вернул 401, ключ скопирован не полностью или истёк: попроси меня проверить файл. Если 500, скрипт сам уменьшит порции, просто дай ему доработать. В конце скажи, сколько тренировок и дней пришло.
+
+Шаг 4. Дашборд
+Запусти build_dashboard.py. Если он предупредил, что зоны в часах считаются от максимума, передай это предупреждение мне дословно. Открой dashboard.html в браузере. Сделай скриншот всей страницы шириной 1240 пикселей в dashboard.png, для скриншота открывай адрес с хвостом #static.
+
+Шаг 5. Итог
+Напиши мне четыре вещи с дашборда: вердикт, долю времени в 1–2 зонах, сколько пробежек из скольких лёгкие и самую долгую серию недель без разгрузки. Ничего не советуй сверх этого, разбор делает тренер.
+
+Когда я скажу «обнови дашборд», повтори шаги 3 и 4.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-ink" aria-labelledby="limits-title">
+  <div class="wrap">
+    <p class="kicker" style="color:#ff8a80">Честно</p>
+    <h2 class="serif" id="limits-title" style="margin-top:14px">Чего этот дашборд не знает</h2>
+    <p class="lead sub-lead" style="color:rgba(255,255,255,.8)">Каждый порог в нём тренерский и подписан. Но есть вещи, которых по данным Garmin не узнать, и я о них говорю заранее, а не когда вы спросите в комментариях.</p>
+    <ul class="limits">
+      <li><b>Чем измерен пульс</b><p>Garmin не сообщает, ремень это или оптика на запястье. Оптика на интервалах и в холод ошибается на 5–10 ударов. Месячные средние надёжнее отдельных пробежек, а нагрудный ремень решает спор.</p></li>
+      <li><b>Откуда взялся ваш максимум</b><p>Если он стоит по формуле, все зоны сдвинуты вместе с ним. Дашборд печатает, откуда взята граница, и предупреждает, но измерить максимум за вас не может.</p></li>
+      <li><b>Жару, болезнь, недосып</b><p>Длинная в жару уходит вверх по пульсу к концу, и средний её не прощает. Пульс покоя после бокала вина выше на три удара. Это ограничения метода, а не ваши ошибки.</p></li>
+      <li><b>Как Garmin считает нагрузку</b><p>Training Load это закрытая модель Firstbeat. Здесь она нужна только чтобы сравнивать недели между собой: найти ударные и разгрузочные.</p></li>
+      <li><b>VO2max, статус тренированности, прогнозы</b><p>Личный ключ Garmin их не отдаёт. Дашборд намеренно построен на том, что измерено, а не оценено, и ничего не дорисовывает.</p></li>
+      <li><b>Вас</b><p>Дашборд видит пробежки, но не видит работу, сон, стресс и цели. Поэтому вердикт это повод для разговора с тренером, а не диагноз.</p></li>
+    </ul>
+    <p class="disclaimer">Это инструмент для чтения тренировочных данных, а не медицинская рекомендация. Пороги в нём настраиваемые, выводы зависят от настроек зон в ваших часах, смотреть на них стоит трендом за 6–8 недель, а не по одной неделе. Скрипты открытые, работают только на вашем компьютере, данные никуда не отправляют. Ключ Garmin можно отозвать в любой момент на той же странице, где он создан.</p>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="faq-wrap">
+    <h2 class="serif" id="faq-title">Вопросы</h2>
+    <div class="faq">
+      <details><summary>Я не программист. Точно справлюсь?</summary><p>Да. Вы делаете две вещи руками: создаёте ключ в Garmin и вставляете его в файл, который Claude Code сам откроет. Всё остальное он делает и объясняет по ходу. Если застряли, напишите ему, что видите на экране, своими словами.</p></details>
+      <details><summary>Это безопасно? Куда уходят мои данные?</summary><p>Никуда. Скрипты скачивают данные с серверов Garmin на ваш компьютер и собирают из них один HTML-файл. Ключ лежит в файле с правами только для вас, в чат он не попадает. Claude Code видит только то, что печатают скрипты: количество тренировок и предупреждения.</p><p>Единственное, что уходит от вас: скриншот, который вы сами решите мне прислать.</p></details>
+      <details><summary>Garmin вернул ошибку 401</summary><p>Ключ скопирован не полностью, с пробелом, или истёк. Откройте файл garmin.env, проверьте строку. Если ключ был на 30 дней, создайте новый на той же странице Garmin.</p></details>
+      <details><summary>Дашборд говорит, что зоны считаются от максимума</summary><p>Значит, в Garmin у вас зоны по проценту от максимального пульса. Это не ошибка, но если максимум не измерен, а стоит по формуле, граница лёгкого может быть сдвинута на 5–10 ударов. Потяните линию на дашборде на пять ударов в обе стороны и посмотрите, устойчив ли вердикт. Если нет, стоит измерить порог или максимум.</p></details>
+      <details><summary>У меня много бега на дорожке</summary><p>Пульс на дорожке настоящий, поэтому дорожка участвует во всех пульсовых метриках. Темп без футпода неточный, поэтому из «метров на удар» она исключена. В таблицах дорожка подписана.</p></details>
+      <details><summary>Бегаю без пульса или с перерывами</summary><p>Пробежки без пульса считаются в километрах, но не в зонах, и дашборд скажет, сколько их. Если с пульсом меньше 60% пробежек, вердикта не будет, только честное «пульс записан не везде». Дни без часов не считаются нулями.</p></details>
+      <details><summary>Можно поменять правила под себя?</summary><p>Да. Граница лёгкого двигается прямо на странице. Порог разгрузки задаётся ключом --deload при сборке, границу можно зафиксировать ключом --easy-ceiling. Все пороги перечислены внизу дашборда в разделе «Как считали».</p></details>
+      <details><summary>Почему не Strava и не приложение?</summary><p>Strava не отдаёт зоны и пульс покоя по открытому ключу так просто, а приложение означало бы, что ваши данные лежат у меня. Здесь они лежат у вас, а у меня только скриншот, если вы его пришлёте.</p></details>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-ink" id="send" aria-labelledby="send-title">
+  <div class="wrap">
+    <div class="send">
+      <div><h2 class="serif" id="send-title">Пришлите мне скриншот</h2><p>Я посмотрю на ваш дашборд глазами тренера и напишу, что вижу: где база держится, где нет и с чего бы я начала. Это бесплатно и ни к чему не обязывает.</p></div>
+      <div class="acts"><a class="btn" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">Написать @inna.tri <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Или в Telegram</a></div>
+    </div>
+    <div class="coaching"><p>Хотите, чтобы следующий дашборд выглядел иначе?</p><a class="link" href="/pricing.html">Онлайн-ведение ↗</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot-main">
+  <div class="fcols" id="footer-nav">
+    <div><p>Расскажи о старте, текущей форме и графике - я честно отвечу, какой формат подготовки даст лучший результат.</p><p style="margin-top:16px">Киев, Украина 🇺🇦</p></div>
+    <ul><li class="hd">Разделы</li><li><a href="/run.html">Бег</a></li><li><a href="/triathlon.html">Триатлон</a></li><li><a href="/blog.html">Блог</a></li><li><a href="/#reviews">Отзывы</a></li><li><a href="/calculator.html">Калькулятор</a></li><li><a href="/#pricing">Тарифы</a></li><li><a href="/contact.html">Контакты</a></li></ul>
+    <ul><li class="hd">Связь</li><li><a href="https://t.me/InnaRH">Telegram</a></li><li><a href="https://www.instagram.com/inna.tri">Instagram</a></li><li><a href="https://www.youtube.com/@innatri">YouTube</a></li><li><a href="mailto:innaryzhykh@gmail.com">Email</a></li></ul>
+    <ul><li class="hd">Язык</li><li><a href="/ua/">UA</a></li><li><a href="/en/">EN</a></li><li><a href="/guides/dashboard/">RU</a></li></ul>
+  </div>
+  <svg class="wordmark" viewBox="0 0 1000 150" role="img" aria-label="INNA TRI"><text x="-6" y="138" textLength="1008" lengthAdjust="spacingAndGlyphs" font-family="Noto Serif Display, Georgia, serif" font-size="184" fill="#fff" letter-spacing="-4">INNA TRI</text></svg>
+  <div class="legal"><span>© 2026 INNATRI.</span><a href="/privacy.html">Политика конфиденциальности</a></div>
+</footer>
+
+<script>
+(function(){
+  var b = document.getElementById('copy-prompt'), t = document.getElementById('prompt-text');
+  if (!b || !t) return;
+  b.addEventListener('click', function(){
+    var text = t.textContent;
+    var done = function(){ b.textContent = 'Скопировано'; b.dataset.done = '1'; setTimeout(function(){ b.textContent = 'Скопировать'; delete b.dataset.done; }, 2200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done);
+    else { var r = document.createRange(); r.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges(); done(); }
+    if (window.gtag) gtag('event', 'copy_prompt', { page: 'guides/dashboard' });
+  });
+})();
+</script>
+<script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/book.js?v=20261029a" defer></script>
+</body>
+</html>
