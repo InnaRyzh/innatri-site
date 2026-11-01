@@ -99,7 +99,7 @@ def main() -> None:
 
     DATA = Path(args.data)
     end = date.fromisoformat(args.date_to) if args.date_to else date.today()
-    start = date.fromisoformat(args.date_from) if args.date_from else end - timedelta(days=30 * args.months)
+    start = date.fromisoformat(args.date_from) if args.date_from else end - timedelta(days=round(30.44 * args.months))
     key = read_key()
 
     with PersonalApiAuthenticator() as auth:
