@@ -9,6 +9,9 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#151515">
   <link rel="canonical" href="https://innatri.com/guides/dashboard/">
+  <link rel="alternate" hreflang="ru" href="https://innatri.com/guides/dashboard/">
+  <link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/">
+  <link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/">
   <meta property="og:title" content="Беговой дашборд по ключу Garmin: твой бег глазами тренера">
   <meta property="og:description" content="Инструкция: ключ Garmin, Claude Code и промпт, который собирает дашборд с вердиктом тренера. Бесплатно, без регистрации, данные остаются у вас.">
   <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
@@ -164,10 +167,11 @@
     <a href="/triathlon.html">Триатлон</a>
     <a href="/blog.html">Блог</a>
     <a href="/calculator.html">Калькулятор</a>
+    <a href="/guides/dashboard/">Дашборд</a>
     <a href="/#pricing">Тарифы</a>
   </nav>
   <div class="top-r">
-    <div class="lang"><a href="/ua/">UA</a><a href="/en/">EN</a><a href="/guides/dashboard/" aria-current="page">RU</a></div>
+    <div class="lang"><a href="/ua/">UA</a><a href="/en/guides/dashboard/">EN</a><a href="/guides/dashboard/" aria-current="page">RU</a></div>
     <a class="btn btn-ink" href="/contact.html">Обсудить цель <span class="arr" aria-hidden="true">→</span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
   </div>
@@ -181,6 +185,7 @@
     <a href="/blog.html">Блог</a>
     <a href="/#reviews">Отзывы</a>
     <a href="/calculator.html">Калькулятор</a>
+    <a href="/guides/dashboard/">Дашборд</a>
     <a href="/#pricing">Тарифы</a>
     <a href="/contact.html">Контакты</a>
   </nav>
@@ -197,6 +202,7 @@
     <p class="lead">Один ключ в Garmin Connect, один промпт в Claude Code, и через двадцать минут у вас страница, которая отвечает на главный вопрос: в порядке ли база.</p>
     <div class="acts">
       <a href="#steps" class="btn">К инструкции <span class="arr" aria-hidden="true">↓</span></a>
+      <a href="/guides/dashboard/demo.html" class="btn btn-ink" target="_blank" rel="noopener">Открыть пример <span class="arr" aria-hidden="true">→</span></a>
       <p class="note">Без регистрации · данные остаются на вашем компьютере</p>
     </div>
   </div>
@@ -207,14 +213,14 @@
   <div class="wrap">
     <p class="kicker">Что внутри</p>
     <h2 class="serif" id="answers-title" style="margin-top:14px">Не восемь дашбордов на вкус, а один ответ</h2>
-    <p class="lead sub-lead">Garmin показывает сотню чисел и ни одного вывода. Эта страница собирает год ваших пробежек по правилам, по которым я читаю дневники своих спортсменов.</p>
+    <p class="lead sub-lead">Garmin показывает сотню чисел и ни одного вывода. Этот дашборд собирает ваши пробежки за год по тем же правилам, по которым я читаю дневники своих спортсменов.</p>
     <div class="reads">
       <div class="read"><h3>Вердикт</h3><p>Одна фраза наверху: что в тренировках не так в первую очередь. Лёгкие не лёгкие, долго без разгрузки, рваный график или база в порядке. И три числа рядом, которые его доказывают.</p></div>
       <div class="read"><h3>Линия лёгкого</h3><p>Все пробежки года точками относительно границы лёгкого пульса из ваших часов. Линию можно тянуть и смотреть, как вердикт зависит от одной настройки в Garmin.</p></div>
       <div class="read"><h3>Лента недель</h3><p>Каждая неделя столбиком, каждая пробежка блоком. Ударные недели, разгрузки и самая долгая серия без неё видны сразу. Клик по неделе раскрывает её по дням.</p></div>
       <div class="read"><h3>Форма и восстановление</h3><p>Метров на удар сердца: единственный показатель формы без тестов. И пульс покоя по неделям на фоне тяжёлых, чтобы видеть, хватает ли восстановления.</p></div>
     </div>
-    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="Лента недель и графики по месяцам: доля времени в зонах, пульс на лёгких пробежках"><figcaption>Дашборд на моих данных за год. Внизу страницы у него два раздела, которых нет ни у одного приложения: «Как считали» с каждым порогом и «Чего этот дашборд не знает».</figcaption></figure>
+    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="Лента недель и графики по месяцам: доля времени в зонах, пульс на лёгких пробежках"><figcaption>Дашборд на моих данных за один беговой сезон. Внизу у него два раздела, которых нет ни в одном приложении: «Как считали», где подписан каждый порог, и «Чего этот дашборд не знает». <a class="link" style="color:#fff" href="/guides/dashboard/demo.html" target="_blank" rel="noopener">Открыть этот пример и покликать ↗</a></figcaption></figure>
   </div>
 </section>
 
@@ -222,10 +228,10 @@
   <div class="wrap">
     <h2 class="serif" id="needs-title">Что нужно</h2>
     <ul class="needs" style="margin-top:clamp(32px,4vw,56px)">
-      <li><b>Часы Garmin</b><span>Любые, которые пишут пульс и синхронизируются с Garmin Connect. Год пробежек лучше, чем месяц, но хватит и трёх месяцев.</span></li>
+      <li><b>Часы Garmin</b><span>Любые, которые пишут пульс и синхронизируются с Garmin Connect. Чем длиннее история, тем честнее картина, но и трёх месяцев уже хватит. Старые часы без зон и Training Load тоже подойдут: дашборд досчитает их сам.</span></li>
       <li><b>Компьютер</b><span>Mac или Windows. Ключ Garmin и все данные остаются на нём, в облако ничего не уходит.</span></li>
-      <li><b>Claude Code</b><span>Бесплатная программа от Anthropic для терминала. Нужна подписка Claude Pro или Max. Ставится одной командой, ниже покажу.</span></li>
-      <li><b>Двадцать минут</b><span>Пять из них ваши: создать ключ и проверить зоны. Остальное делает Claude Code сам.</span></li>
+      <li><b>Claude</b><span>Приложение Claude для компьютера с вкладкой Code или Claude Code в терминале. Нужна подписка Pro или Max. Как поставить, показано в третьем шаге.</span></li>
+      <li><b>Двадцать минут</b><span>Из них ваших минут пять: создать ключ и проверить зоны. Остальное Claude Code делает сам.</span></li>
     </ul>
   </div>
 </section>
@@ -238,7 +244,7 @@
       <li>
         <div class="main">
           <h3>Создайте личный ключ Garmin</h3>
-          <p>Garmin с октября 2026 даёт каждому пользователю личный ключ к своим данным. Это официальный путь: без пароля, без сторонних библиотек, только чтение.</p>
+          <p>С октября 2026 года Garmin выдаёт каждому пользователю личный ключ к его данным. Это официальный способ: пароль никому не передаётся, сторонние библиотеки не нужны, ключ умеет только читать.</p>
           <ol>
             <li>Откройте <a class="link" href="https://connect.garmin.com/app/settings/personalApiToken" target="_blank" rel="noopener">connect.garmin.com → Settings → Personal API Key</a> и войдите, если попросит.</li>
             <li>Нажмите <b>Create Key</b>, прочитайте и примите условия.</li>
@@ -246,25 +252,26 @@
             <li>Скопируйте ключ сразу. Garmin показывает его один раз. Если потеряли, удалите старый на той же странице и создайте новый.</li>
           </ol>
         </div>
-        <aside class="side"><div class="why">Ключ это пароль к вашим данным о здоровье. <b>Никогда</b> не вставляйте его в чат, в комментарий или на скриншот. Промпт ниже устроен так, что Claude Code его тоже не увидит и не напечатает. Отозвать ключ можно в любой момент на той же странице.</div></aside>
+        <aside class="side"><div class="why">Ключ это пароль к вашим данным о здоровье. <b>Никогда</b> не вставляйте его в чат, в комментарии и не оставляйте на скриншотах. Промпт ниже составлен так, что Claude Code его тоже не увидит и не напечатает. Отозвать ключ можно в любой момент на той же странице Garmin.</div></aside>
       </li>
       <li>
         <div class="main">
           <h3>Проверьте зоны пульса в Garmin</h3>
-          <p>Дашборд берёт границу лёгкого из ваших часов, поэтому от настроек зон зависит всё. В Garmin Connect откройте профиль → Настройки пользователя → Зоны частоты пульса, выберите спорт «Бег».</p>
+          <p>Дашборд берёт границу лёгкого бега из ваших часов, поэтому от настроек зон зависит всё. В Garmin Connect откройте профиль → Настройки пользователя → Зоны частоты пульса и выберите вид спорта «Бег».</p>
           <ol>
             <li>Если максимум стоит по формуле 220 минус возраст и вы его никогда не измеряли, зоны почти наверняка сдвинуты. Дашборд это заметит и предупредит.</li>
-            <li>Лучший вариант: зоны «от порога лактата», если вы делали тест или часы определили порог на нагрудном ремне.</li>
-            <li>Ничего не меняйте вслепую. Границу можно подвинуть прямо на дашборде и посмотреть, что изменится.</li>
+            <li>Лучший вариант: зоны «от лактатного порога», если вы делали тест или часы сами определили порог во время бега с нагрудным ремнём.</li>
+            <li>Не меняйте настройки наугад. Границу можно подвинуть прямо на дашборде и посмотреть, что от этого изменится.</li>
           </ol>
         </div>
-        <aside class="side"><div class="why">Откуда дашборд взял границу, написано у него внизу в разделе «Как считали»: верх 2-й зоны, метод расчёта, порог и максимум из ваших часов. Если метод «от максимума», наверху появится предупреждение.</div></aside>
+        <aside class="side"><div class="why">Откуда взята граница, дашборд пишет внизу, в разделе «Как считали»: верх 2-й зоны, способ расчёта, порог и максимум из ваших часов. Если зоны считаются от максимума, наверху появится предупреждение.</div></aside>
       </li>
       <li>
         <div class="main">
           <h3>Поставьте Claude Code</h3>
-          <p>Это программа, которая выполняет шаги на вашем компьютере: создаёт папки, скачивает файлы, запускает скрипты. Обычный чат Claude этого не умеет. Откройте Терминал на Mac или PowerShell на Windows и выполните одну строку. Потом наберите <b>claude</b>, войдите в свой аккаунт, и можно вставлять промпт.</p>
-          <p>Подробная инструкция с картинками есть у Anthropic: <a class="link" href="https://code.claude.com/docs/ru/quickstart" target="_blank" rel="noopener">code.claude.com/docs</a>. Нужна подписка Claude Pro или Max.</p>
+          <p>Это помощник, который работает прямо на вашем компьютере: создаёт папки, скачивает файлы, запускает скрипты. Обычный чат Claude в браузере или в телефоне этого не умеет, поэтому с телефона дашборд не собрать. Нужна подписка Claude Pro или Max.</p>
+          <p><b>Проще всего через приложение.</b> Скачайте <a class="link" href="https://claude.ai/download" target="_blank" rel="noopener">Claude для Mac или Windows</a>, войдите в аккаунт и откройте вкладку <b>Code</b> вверху окна. Это тот же Claude Code, только с обычным окном вместо чёрного экрана: выберите любую папку, вставьте промпт в поле сообщения и нажмите Enter. Он будет спрашивать разрешение на каждое действие, отвечайте «да».</p>
+          <p><b>Если привычнее терминал.</b> Откройте Терминал на Mac или PowerShell на Windows, выполните команду справа, затем наберите <b>claude</b>, войдите и вставьте промпт. Подробная инструкция с картинками есть у Anthropic: <a class="link" href="https://code.claude.com/docs/ru/quickstart" target="_blank" rel="noopener">code.claude.com/docs</a>.</p>
         </div>
         <aside class="side"><div class="cmds"><p>Mac, в Терминале</p><span class="cmd">curl -fsSL https://claude.ai/install.sh | bash</span><p>Windows, в PowerShell</p><span class="cmd">irm https://claude.ai/install.ps1 | iex</span></div></aside>
       </li>
@@ -332,16 +339,16 @@ GARMIN_API_KEY=
 
 <section class="sec sec-ink" aria-labelledby="limits-title">
   <div class="wrap">
-    <p class="kicker" style="color:#ff8a80">Честно</p>
+    <p class="kicker" style="color:#ff8a80">Без прикрас</p>
     <h2 class="serif" id="limits-title" style="margin-top:14px">Чего этот дашборд не знает</h2>
-    <p class="lead sub-lead" style="color:rgba(255,255,255,.8)">Каждый порог в нём тренерский и подписан. Но есть вещи, которых по данным Garmin не узнать, и я о них говорю заранее, а не когда вы спросите в комментариях.</p>
+    <p class="lead sub-lead" style="color:rgba(255,255,255,.8)">Каждый порог в нём тренерский, и каждый подписан. Но есть вещи, которых по данным Garmin не узнать. Лучше сказать о них сразу, чем отвечать на это в комментариях.</p>
     <ul class="limits">
       <li><b>Чем измерен пульс</b><p>Garmin не сообщает, ремень это или оптика на запястье. Оптика на интервалах и в холод ошибается на 5–10 ударов. Месячные средние надёжнее отдельных пробежек, а нагрудный ремень решает спор.</p></li>
       <li><b>Откуда взялся ваш максимум</b><p>Если он стоит по формуле, все зоны сдвинуты вместе с ним. Дашборд печатает, откуда взята граница, и предупреждает, но измерить максимум за вас не может.</p></li>
       <li><b>Жару, болезнь, недосып</b><p>Длинная в жару уходит вверх по пульсу к концу, и средний её не прощает. Пульс покоя после бокала вина выше на три удара. Это ограничения метода, а не ваши ошибки.</p></li>
       <li><b>Как Garmin считает нагрузку</b><p>Training Load это закрытая модель Firstbeat. Здесь она нужна только чтобы сравнивать недели между собой: найти ударные и разгрузочные.</p></li>
       <li><b>VO2max, статус тренированности, прогнозы</b><p>Личный ключ Garmin их не отдаёт. Дашборд намеренно построен на том, что измерено, а не оценено, и ничего не дорисовывает.</p></li>
-      <li><b>Вас</b><p>Дашборд видит пробежки, но не видит работу, сон, стресс и цели. Поэтому вердикт это повод для разговора с тренером, а не диагноз.</p></li>
+      <li><b>Вашу жизнь вокруг бега</b><p>Дашборд видит пробежки, но не видит работу, сон, стресс и цели. Поэтому его вердикт это повод для разговора с тренером, а не диагноз.</p></li>
     </ul>
     <p class="disclaimer">Это инструмент для чтения тренировочных данных, а не медицинская рекомендация. Пороги в нём настраиваемые, выводы зависят от настроек зон в ваших часах, смотреть на них стоит трендом за 6–8 недель, а не по одной неделе. Скрипты открытые, работают только на вашем компьютере, данные никуда не отправляют. Ключ Garmin можно отозвать в любой момент на той же странице, где он создан.</p>
   </div>
@@ -371,7 +378,7 @@ GARMIN_API_KEY=
       <div><h2 class="serif" id="send-title">Пришлите мне скриншот</h2><p>Я посмотрю на ваш дашборд глазами тренера и напишу, что вижу: где база держится, где нет и с чего бы я начала. Это бесплатно и ни к чему не обязывает.</p></div>
       <div class="acts"><a class="btn" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">Написать @inna.tri <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Или в Telegram</a></div>
     </div>
-    <div class="coaching"><p>Хотите, чтобы следующий дашборд выглядел иначе?</p><a class="link" href="/pricing.html">Онлайн-ведение ↗</a></div>
+    <div class="coaching"><p>Хотите, чтобы через полгода этот дашборд выглядел иначе?</p><a class="link" href="/pricing.html">Онлайн-ведение ↗</a></div>
   </div>
 </section>
 </main>
@@ -379,7 +386,7 @@ GARMIN_API_KEY=
 <footer class="foot-main">
   <div class="fcols" id="footer-nav">
     <div><p>Расскажи о старте, текущей форме и графике - я честно отвечу, какой формат подготовки даст лучший результат.</p><p style="margin-top:16px">Киев, Украина 🇺🇦</p></div>
-    <ul><li class="hd">Разделы</li><li><a href="/run.html">Бег</a></li><li><a href="/triathlon.html">Триатлон</a></li><li><a href="/blog.html">Блог</a></li><li><a href="/#reviews">Отзывы</a></li><li><a href="/calculator.html">Калькулятор</a></li><li><a href="/#pricing">Тарифы</a></li><li><a href="/contact.html">Контакты</a></li></ul>
+    <ul><li class="hd">Разделы</li><li><a href="/run.html">Бег</a></li><li><a href="/triathlon.html">Триатлон</a></li><li><a href="/blog.html">Блог</a></li><li><a href="/#reviews">Отзывы</a></li><li><a href="/calculator.html">Калькулятор</a></li><li><a href="/guides/dashboard/">Дашборд</a></li><li><a href="/#pricing">Тарифы</a></li><li><a href="/contact.html">Контакты</a></li></ul>
     <ul><li class="hd">Связь</li><li><a href="https://t.me/InnaRH">Telegram</a></li><li><a href="https://www.instagram.com/inna.tri">Instagram</a></li><li><a href="https://www.youtube.com/@innatri">YouTube</a></li><li><a href="mailto:innaryzhykh@gmail.com">Email</a></li></ul>
     <ul><li class="hd">Язык</li><li><a href="/ua/">UA</a></li><li><a href="/en/">EN</a></li><li><a href="/guides/dashboard/">RU</a></li></ul>
   </div>

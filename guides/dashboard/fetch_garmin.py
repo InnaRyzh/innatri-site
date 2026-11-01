@@ -89,12 +89,17 @@ def fetch_by_month(fn, start: date, end: date, label: str, days: int = 27) -> li
 
 
 def main() -> None:
+    global DATA
     ap = argparse.ArgumentParser()
     ap.add_argument("--months", type=int, default=12)
+    ap.add_argument("--from", dest="date_from", help="начало периода, ГГГГ-ММ-ДД (вместо --months)")
+    ap.add_argument("--to", dest="date_to", help="конец периода, ГГГГ-ММ-ДД")
+    ap.add_argument("--data", default=str(DATA), help="куда складывать json")
     args = ap.parse_args()
 
-    end = date.today()
-    start = end - timedelta(days=30 * args.months)
+    DATA = Path(args.data)
+    end = date.fromisoformat(args.date_to) if args.date_to else date.today()
+    start = date.fromisoformat(args.date_from) if args.date_from else end - timedelta(days=30 * args.months)
     key = read_key()
 
     with PersonalApiAuthenticator() as auth:
@@ -123,7 +128,7 @@ def main() -> None:
         daily = fetch_by_month(client.get_daily_summaries, start, end, "дни")
         save("daily.json", daily)
 
-    print(f"Готово: {len(acts)} тренировок за {args.months} мес.")
+    print(f"Готово: {len(acts)} тренировок с {start} по {end}.")
 
 
 if __name__ == "__main__":

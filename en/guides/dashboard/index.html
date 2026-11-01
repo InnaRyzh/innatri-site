@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Running dashboard from your Garmin key: your running through a coach's eyes | InnaTri</title>
+  <meta name="description" content="One key in Garmin Connect, one prompt in Claude Code, and you get a page that answers the main question: is your base in order? Easy runs, recovery weeks, aerobic efficiency. Free, and your data stays on your computer.">
+  <meta name="author" content="Inna Ryzhykh">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#151515">
+  <link rel="canonical" href="https://innatri.com/en/guides/dashboard/">
+  <link rel="alternate" hreflang="ru" href="https://innatri.com/guides/dashboard/">
+  <link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/">
+  <link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/">
+  <meta property="og:title" content="Running dashboard from your Garmin key: your running through a coach's eyes">
+  <meta property="og:description" content="A guide: Garmin key, Claude Code and a prompt that builds a dashboard with a coach's verdict. Free, no sign-up, your data stays with you.">
+  <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
+  <meta property="og:url" content="https://innatri.com/en/guides/dashboard/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="InnaTri">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Running dashboard from your Garmin key">
+  <meta name="twitter:description" content="Garmin key, Claude Code and a prompt that builds a dashboard with a coach's verdict.">
+  <meta name="twitter:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
+  <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/noto-serif-display-vf-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261029f">
+  <link rel="stylesheet" href="/assets/css/book.css?v=20261029g">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JMDGV643K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2JMDGV643K');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"Running dashboard from your Garmin personal key",
+    "description":"How to build a dashboard of your runs with a coach's verdict: a Garmin Connect key, Claude Code and a ready-made prompt.",
+    "totalTime":"PT20M",
+    "author":{"@type":"Person","name":"Inna Ryzhykh","url":"https://innatri.com/en/"},
+    "step":[
+      {"@type":"HowToStep","name":"Create a Garmin personal key","url":"https://innatri.com/en/guides/dashboard/#steps"},
+      {"@type":"HowToStep","name":"Check your heart rate zones in Garmin","url":"https://innatri.com/en/guides/dashboard/#steps"},
+      {"@type":"HowToStep","name":"Install Claude Code","url":"https://innatri.com/en/guides/dashboard/#steps"},
+      {"@type":"HowToStep","name":"Paste the prompt","url":"https://innatri.com/en/guides/dashboard/#prompt"},
+      {"@type":"HowToStep","name":"Send the screenshot to the coach","url":"https://innatri.com/en/guides/dashboard/#send"}
+    ]
+  }
+  </script>
+
+  <style>
+.d-hero { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); min-height: calc(100svh - 60px); max-height: 980px; }
+.d-hero .phero-text { justify-content: flex-end; }
+.kicker { font-size: var(--s-small); font-weight: 600; letter-spacing: .04em; color: var(--red); }
+.d-hero h1 { margin-top: 14px; font: var(--sw) clamp(40px, 5.4vw, 88px)/.98 var(--serif); letter-spacing: -0.035em; text-wrap: balance; max-width: 13ch; }
+.d-hero .lead { margin-top: 24px; max-width: 42ch; }
+.acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
+.acts .note { color: var(--soft); font-size: var(--s-small); }
+.d-shot { position: relative; background: #141414 var(--grain-dark); overflow: hidden; display: flex; align-items: flex-start; justify-content: center; padding: clamp(20px, 3vw, 48px) clamp(20px, 3vw, 48px) 0; }
+.d-shot img { width: 100%; max-width: 760px; height: auto; align-self: flex-end; }
+.reads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.read { padding: 24px 22px 0 0; }
+.read + .read { padding-left: 22px; border-left: 1px solid #d6d1cb; }
+.read h3 { font: var(--sw) var(--s-sub)/1.1 var(--serif); letter-spacing: -0.02em; }
+.read p { margin-top: 12px; color: var(--soft); font-size: 15px; }
+.tape { margin-top: clamp(40px, 5vw, 72px); background: #141414 var(--grain-dark); padding: clamp(16px, 2.6vw, 40px); }
+.tape img { width: 100%; height: auto; }
+.tape figcaption { margin-top: 14px; color: rgba(255,255,255,.7); font-size: var(--s-small); }
+.needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.needs li { padding: 22px 22px 26px 0; }
+.needs li + li { padding-left: 22px; border-left: 1px solid #d6d1cb; }
+.needs b { display: block; font-size: 18px; }
+.needs span { display: block; margin-top: 6px; color: var(--soft); font-size: 15px; }
+.steps { counter-reset: s; display: grid; gap: clamp(40px, 5vw, 72px); }
+.steps > li { counter-increment: s; display: grid; grid-template-columns: 88px minmax(0, 7fr) minmax(0, 5fr); gap: 0 clamp(24px, 4vw, 64px); align-items: start; }
+.steps > li::before { content: counter(s); font: var(--sw) clamp(40px, 4.6vw, 72px)/1 var(--serif); color: var(--red); letter-spacing: -0.03em; }
+.steps h3 { font: var(--sw) var(--s-sub)/1.15 var(--serif); letter-spacing: -0.02em; }
+.steps .main p { margin-top: 12px; max-width: 62ch; }
+.steps .main ol { margin-top: 14px; padding-left: 20px; display: grid; gap: 8px; max-width: 62ch; }
+.steps .main ol li::marker { color: var(--soft); }
+.steps .side { padding-top: 8px; }
+.steps .why { padding: 18px 20px; background: var(--paper) var(--grain); font-size: 15px; line-height: 1.5; }
+.steps .why b { color: var(--red); }
+.steps .cmds { display: grid; gap: 6px; }
+.steps .cmds p { font-size: var(--s-small); color: var(--soft); margin-top: 10px; }
+.steps .cmds p:first-child { margin-top: 0; }
+.cmd { display: block; padding: 12px 14px; background: var(--ink); color: #fff; font: 500 14px/1.5 'JetBrains Mono', ui-monospace, Menlo, monospace; white-space: pre; overflow-x: auto; }
+.prompt-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.prompt-side p + p { margin-top: 14px; }
+.prompt { position: relative; background: var(--surface) var(--grain); padding: 22px 24px 24px; }
+.prompt pre { margin: 0; max-height: 560px; overflow: auto; white-space: pre-wrap; font: 400 15px/1.55 var(--sans); color: var(--ink); }
+.prompt .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+.prompt .bar p { font-weight: 600; }
+.copy { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border: 0; background: var(--ink); color: #fff; font: 600 15px/1 var(--sans); cursor: pointer; }
+.copy:hover, .copy[data-done="1"] { background: var(--red); }
+.limits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 64px; }
+.limits li { padding: 22px 0; border-top: 1px solid rgba(255,255,255,.22); }
+.limits b { display: block; font-size: 18px; }
+.limits p { margin-top: 8px; color: rgba(255,255,255,.72); font-size: 15px; }
+.disclaimer { margin-top: clamp(40px, 4vw, 64px); max-width: 64ch; color: rgba(255,255,255,.72); font-size: 15px; }
+.faq-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.faq { max-width: 860px; }
+.faq details { border-bottom: 1px solid #d6d1cb; padding: 18px 0; }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-weight: 400; font-size: 24px; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq p { margin-top: 10px; color: var(--soft); max-width: 62ch; }
+.faq p + p { margin-top: 8px; }
+.send { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px; align-items: end; }
+.send h2 { font-size: var(--s-head); line-height: 1; }
+.send p { margin-top: 18px; color: #d8d1c9; max-width: 46ch; }
+.send .acts { justify-content: flex-end; margin-top: 0; }
+.btn-line { color: #fff; box-shadow: inset 0 0 0 1px #fff; background: transparent !important; }
+.btn-line:hover { background: #fff !important; color: var(--ink); }
+.coaching { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); }
+@media (min-height: 2000px) { .d-hero { min-height: 0; } }
+@media (max-width: 1100px) { .reads, .needs { grid-template-columns: repeat(2, minmax(0, 1fr)); } .read:nth-child(3), .needs li:nth-child(3) { padding-left: 0; border-left: 0; } .read, .needs li { padding-bottom: 22px; } }
+@media (max-width: 860px) {
+  .d-hero { grid-template-columns: minmax(0, 1fr); min-height: 0; max-height: none; }
+  .d-shot { order: -1; padding: 20px 20px 0; max-height: 62svh; }
+  .d-hero .phero-text { padding: 28px var(--m) 56px; }
+  .d-hero h1 { font-size: clamp(34px, 9.5vw, 54px); max-width: none; }
+  .acts .btn { width: 100%; }
+  .reads, .needs, .limits, .prompt-wrap, .send, .faq-wrap { grid-template-columns: minmax(0, 1fr); }
+  .read + .read, .needs li + li { padding-left: 0; border-left: 0; border-top: 1px solid #d6d1cb; }
+  .steps > li { grid-template-columns: 44px minmax(0, 1fr); gap: 0 12px; }
+  .steps > li::before { font-size: 34px; }
+  .steps .side { grid-column: 2; margin-top: 18px; padding-top: 0; }
+  .prompt pre { max-height: none; }
+  .send .acts { justify-content: flex-start; }
+}
+  </style>
+  <script src="/assets/lang.js"></script>
+</head>
+<body class="site-page page-guide">
+<header class="top">
+  <a class="mark" href="/en/">INNA TRI</a>
+  <nav class="tab" aria-label="Sections">
+    <a href="/en/run.html">Running</a>
+    <a href="/en/triathlon.html">Triathlon</a>
+    <a href="/en/blog.html">Blog</a>
+    <a href="/en/calculator.html">Calculator</a>
+    <a href="/en/guides/dashboard/" aria-current="page">Dashboard</a>
+    <a href="/en/#pricing">Pricing</a>
+  </nav>
+  <div class="top-r">
+    <div class="lang"><a href="/ua/">UA</a><a href="/en/guides/dashboard/" aria-current="page">EN</a><a href="/guides/dashboard/">RU</a></div>
+    <a class="btn btn-ink" href="/en/contact.html">Discuss your goal <span class="arr" aria-hidden="true">→</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <div class="menu-top"><a class="mark" href="/en/">INNA TRI</a><button class="menu-close" type="button">Close</button></div>
+  <nav aria-label="Menu">
+    <a href="/en/">Home</a>
+    <a href="/en/run.html">Running</a>
+    <a href="/en/triathlon.html">Triathlon</a>
+    <a href="/en/blog.html">Blog</a>
+    <a href="/en/#reviews">Reviews</a>
+    <a href="/en/calculator.html">Calculator</a>
+    <a href="/en/guides/dashboard/" aria-current="page">Dashboard</a>
+    <a href="/en/#pricing">Pricing</a>
+    <a href="/en/contact.html">Contact</a>
+  </nav>
+  <div class="lang"><a href="/ua/">UA</a><a href="/en/guides/dashboard/" aria-current="page">EN</a><a href="/guides/dashboard/">RU</a></div>
+  <a class="btn" href="/quiz-landing/?lang=en">Take the 90-second check <span class="arr" aria-hidden="true">→</span></a>
+</div>
+
+<main id="main">
+<section class="d-hero" aria-labelledby="guide-title">
+  <div class="phero-text">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span>/</span><a href="/en/blog.html">Blog</a><span>/</span><span aria-current="page">Dashboard</span></nav>
+    <p class="kicker" style="margin-top:48px">A free tool by Inna Ryzhykh</p>
+    <h1 id="guide-title">Your running through a coach's eyes</h1>
+    <p class="lead">One key in Garmin Connect, one prompt in Claude Code, and twenty minutes later you have a page that answers the main question: is your base in order?</p>
+    <div class="acts">
+      <a href="#steps" class="btn">To the steps <span class="arr" aria-hidden="true">↓</span></a>
+      <a href="/guides/dashboard/demo.html" class="btn btn-ink" target="_blank" rel="noopener">Open the example <span class="arr" aria-hidden="true">→</span></a>
+      <p class="note">No sign-up · your data stays on your computer</p>
+    </div>
+  </div>
+  <figure class="d-shot"><img src="/assets/guides/dashboard/dash-hero.jpg" width="1240" height="1500" alt="Top of the dashboard: the verdict, four key numbers and a chart of every run of the year against the easy heart rate ceiling" fetchpriority="high" decoding="async"></figure>
+</section>
+
+<section class="sec sec-sur" aria-labelledby="answers-title">
+  <div class="wrap">
+    <p class="kicker">What is inside</p>
+    <h2 class="serif" id="answers-title" style="margin-top:14px">Not eight dashboards to choose from, one answer</h2>
+    <p class="lead sub-lead">Garmin shows a hundred numbers and not a single conclusion. This dashboard reads a year of your runs by the same rules I use to read my athletes' training logs. The dashboard itself is in Russian for now; the labels are short and the charts speak for themselves, and an English build is on the way.</p>
+    <div class="reads">
+      <div class="read"><h3>The verdict</h3><p>One line at the top: what is wrong with your training first. Easy runs that are not easy, too long without a recovery week, a ragged schedule, or a base in good order. Three numbers next to it prove it.</p></div>
+      <div class="read"><h3>The easy line</h3><p>Every run of the year as a dot against the easy heart rate ceiling from your own watch. Drag the line and see how much the verdict depends on one setting in Garmin.</p></div>
+      <div class="read"><h3>The week tape</h3><p>Each week a column, each run a block. Hard weeks, recovery weeks and the longest stretch without one are visible at a glance. Click a week to open it day by day.</p></div>
+      <div class="read"><h3>Fitness and recovery</h3><p>Metres per heartbeat: the only measure of form that needs no test. And resting heart rate by week against the hard weeks, to see whether you recover enough.</p></div>
+    </div>
+    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="The week tape and the monthly charts: share of time in zones, heart rate on easy runs"><figcaption>The dashboard on my own data for one running season. At the bottom it has two sections no app has: “How it was calculated”, where every threshold is named, and “What this dashboard does not know”. <a class="link" style="color:#fff" href="/guides/dashboard/demo.html" target="_blank" rel="noopener">Open this example and click around ↗</a></figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="needs-title">
+  <div class="wrap">
+    <h2 class="serif" id="needs-title">What you need</h2>
+    <ul class="needs" style="margin-top:clamp(32px,4vw,56px)">
+      <li><b>A Garmin watch</b><span>Any model that records heart rate and syncs with Garmin Connect. The longer the history, the more honest the picture, but three months is already enough. Older watches without zones or Training Load work too: the dashboard fills those in itself.</span></li>
+      <li><b>A computer</b><span>Mac or Windows. The Garmin key and all your data stay on it; nothing goes to the cloud.</span></li>
+      <li><b>Claude</b><span>The Claude desktop app with its Code tab, or Claude Code in the terminal. A Pro or Max subscription is required. Step three shows how to set it up.</span></li>
+      <li><b>Twenty minutes</b><span>About five of them are yours: create the key and check your zones. Claude Code does the rest on its own.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-sur" id="steps" aria-labelledby="steps-title">
+  <div class="wrap">
+    <p class="kicker">The guide</p>
+    <h2 class="serif" id="steps-title" style="margin-top:14px">Five steps</h2>
+    <ol class="steps" style="margin-top:clamp(40px,4vw,64px)">
+      <li>
+        <div class="main">
+          <h3>Create a Garmin personal key</h3>
+          <p>Since October 2026 Garmin gives every user a personal key to their own data. This is the official way in: no password is shared, no third-party libraries are needed, and the key can only read.</p>
+          <ol>
+            <li>Open <a class="link" href="https://connect.garmin.com/app/settings/personalApiToken" target="_blank" rel="noopener">connect.garmin.com → Settings → Personal API Key</a> and log in if asked.</li>
+            <li>Click <b>Create Key</b>, read and accept the terms.</li>
+            <li>Choose <b>1 year</b> as the expiration, otherwise you will repeat all this in a month.</li>
+            <li>Copy the key right away. Garmin shows it once. If you lose it, delete the old key on the same page and create a new one.</li>
+          </ol>
+        </div>
+        <aside class="side"><div class="why">The key is a password to your health data. <b>Never</b> paste it into a chat or a comment, and never leave it on a screenshot. The prompt below is written so that Claude Code never sees or prints it either. You can revoke the key at any time on the same Garmin page.</div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Check your heart rate zones in Garmin</h3>
+          <p>The dashboard takes the easy ceiling from your watch, so everything depends on your zone settings. In Garmin Connect open your profile → User Settings → Heart Rate Zones and pick the sport “Running”.</p>
+          <ol>
+            <li>If your maximum is set by the 220 minus age formula and you have never measured it, your zones are almost certainly off. The dashboard will notice and warn you.</li>
+            <li>The best option is zones based on lactate threshold, if you have done a test or your watch detected the threshold while you ran with a chest strap.</li>
+            <li>Do not change settings at random. You can move the ceiling right on the dashboard and see what changes.</li>
+          </ol>
+        </div>
+        <aside class="side"><div class="why">Where the ceiling came from is printed at the bottom of the dashboard, under “How it was calculated”: the top of zone 2, the calculation method, and the threshold and maximum from your watch. If the zones are based on your maximum, a warning appears at the top.</div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Install Claude Code</h3>
+          <p>This is an assistant that works right on your computer: it creates folders, downloads files and runs scripts. The regular Claude chat in a browser or on a phone cannot do that, so the dashboard cannot be built from a phone. A Claude Pro or Max subscription is required.</p>
+          <p><b>The easiest way is the app.</b> Download <a class="link" href="https://claude.ai/download" target="_blank" rel="noopener">Claude for Mac or Windows</a>, sign in and open the <b>Code</b> tab at the top of the window. It is the same Claude Code with a normal window instead of a black screen: pick any folder, paste the prompt into the message box and press Enter. It asks permission before each action; answer yes.</p>
+          <p><b>If you prefer the terminal.</b> Open Terminal on Mac or PowerShell on Windows, run the command on the right, then type <b>claude</b>, sign in and paste the prompt. Anthropic has a detailed walkthrough with pictures: <a class="link" href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noopener">code.claude.com/docs</a>.</p>
+        </div>
+        <aside class="side"><div class="cmds"><p>Mac, in Terminal</p><span class="cmd">curl -fsSL https://claude.ai/install.sh | bash</span><p>Windows, in PowerShell</p><span class="cmd">irm https://claude.ai/install.ps1 | iex</span></div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Paste the prompt</h3>
+          <p>Copy the whole text from the block below and paste it into Claude Code. It downloads three files from this site, installs what is needed, asks you to paste the key into a file, pulls your data and opens the dashboard in your browser. The only thing you do by hand is paste the key into the file it opens and save.</p>
+        </div>
+        <aside class="side"><div class="why">Why three files from this site rather than “build me a dashboard”. So that everyone gets the same page with the same rules; otherwise there would be nothing to compare. The files are open, read them before you run anything: <a class="link" href="/guides/dashboard/fetch_garmin.py">fetch_garmin.py</a>, <a class="link" href="/guides/dashboard/build_dashboard.py">build_dashboard.py</a>, <a class="link" href="/guides/dashboard/template.html">template.html</a>.</div></aside>
+      </li>
+      <li>
+        <div class="main">
+          <h3>Send me the screenshot</h3>
+          <p>Claude Code saves a picture called dashboard.png. Send it to me in a direct message on <a class="link" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">@inna.tri</a> and I will tell you what I see in your data. A week or a month later, tell Claude Code “update the dashboard” and it pulls in the new runs.</p>
+        </div>
+        <aside class="side"><div class="why">The dashboard is live: 3, 6 and 12 month periods, a tooltip on every dot, click on any week or month, and an easy line you can drag. For a screenshot without animations open it with <b>#static</b> at the end of the address.</div></aside>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="prompt" aria-labelledby="prompt-title">
+  <div class="wrap">
+    <div class="prompt-wrap">
+      <div class="prompt-side">
+        <h2 class="serif" id="prompt-title">The prompt</h2>
+        <p class="lead" style="margin-top:20px">Paste it into Claude Code as a whole. You do not have to read it, but you can: it contains nothing but the steps and the safety rules.</p>
+        <p class="soft">If something goes wrong, do not edit the prompt. Just tell Claude Code what happened in your own words. It will sort it out or ask you.</p>
+      </div>
+      <div class="prompt">
+        <div class="bar"><p>Prompt text</p><button class="copy" type="button" id="copy-prompt">Copy</button></div>
+<pre id="prompt-text">Build me the InnaTri running dashboard from my Garmin Connect data. Walk me through it step by step in plain language and do everything technical yourself: folders, files, installs. Stop and wait for me only where I have to act.
+
+Rules
+- Never print my Garmin key in the chat, never put it in a command, never write it anywhere except the file garmin.env. When you check it, say only “the key is in place” or “no key”.
+- The key and the data stay on my computer. Add the data folder and garmin.env to .gitignore.
+- The Garmin key is read-only; it cannot change anything in my account.
+
+Step 1. Folder and files
+Create a folder called innatri-dashboard in my home folder and work inside it. Download these three files into it:
+- https://innatri.com/guides/dashboard/fetch_garmin.py
+- https://innatri.com/guides/dashboard/build_dashboard.py
+- https://innatri.com/guides/dashboard/template.html
+Check that I have Python 3.10 or newer; if not, help me install it. Create a virtual environment and install the package garmin-connect-personal-api-python into it.
+
+Step 2. The key (I do this part, you guide me)
+Create the folder ~/.config/innatri and inside it the file garmin.env with one line:
+GARMIN_API_KEY=
+Set the file permissions to 600. Open it in my text editor and tell me the full path. I will paste the key right after the = sign with no spaces or quotes and save. If I do not have a key yet, tell me: it is created at https://connect.garmin.com/app/settings/personalApiToken with the Create Key button, 1 year is the best expiration, and it is shown only once. Then check that the value is filled in, without printing it.
+
+Step 3. Data
+Run fetch_garmin.py --months 12. If Garmin returns 401, the key was copied incompletely or has expired: ask me to check the file. If it returns 500, the script shrinks the batches on its own, just let it finish. At the end tell me how many activities and days came back.
+
+Step 4. Dashboard
+Run build_dashboard.py. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser. Take a full-page screenshot 1240 pixels wide and save it as dashboard.png; for the screenshot open the address with #static at the end.
+
+Step 5. Summary
+Tell me four things from the dashboard: the verdict, the share of time in zones 1 and 2, how many runs out of how many were easy, and the longest streak of weeks without a recovery week. Do not advise anything beyond that; the coach does the reading.
+
+When I say “update the dashboard”, repeat steps 3 and 4.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-ink" aria-labelledby="limits-title">
+  <div class="wrap">
+    <p class="kicker" style="color:#ff8a80">No varnish</p>
+    <h2 class="serif" id="limits-title" style="margin-top:14px">What this dashboard does not know</h2>
+    <p class="lead sub-lead" style="color:rgba(255,255,255,.8)">Every threshold in it is a coach's threshold, and every one is named. But there are things Garmin data cannot tell. Better to say so up front than to answer it in the comments.</p>
+    <ul class="limits">
+      <li><b>How your heart rate was measured</b><p>Garmin does not say whether it was a chest strap or the optical sensor on the wrist. Optical sensors are off by 5–10 beats on intervals and in the cold. Monthly averages are more reliable than single runs, and a chest strap settles the argument.</p></li>
+      <li><b>Where your maximum came from</b><p>If it is set by a formula, all the zones are shifted with it. The dashboard prints where the ceiling came from and warns you, but it cannot measure your maximum for you.</p></li>
+      <li><b>Heat, illness, lack of sleep</b><p>A long run in the heat drifts upwards in heart rate towards the end, and the average does not forgive it. Resting heart rate after a glass of wine is three beats higher. These are limits of the method, not your mistakes.</p></li>
+      <li><b>How Garmin computes load</b><p>Training Load is a closed Firstbeat model. Here it is used only to compare weeks with each other: to find the hard ones and the recovery ones.</p></li>
+      <li><b>VO2max, training status, predictions</b><p>The Garmin personal key does not provide them. The dashboard is deliberately built on what was measured, not estimated, and draws nothing extra.</p></li>
+      <li><b>Your life around running</b><p>The dashboard sees your runs but not your work, sleep, stress or goals. So its verdict is a reason to talk to a coach, not a diagnosis.</p></li>
+    </ul>
+    <p class="disclaimer">This is a tool for reading training data, not medical advice. Its thresholds are adjustable, its conclusions depend on the zone settings in your watch, and it is best read as a 6–8 week trend rather than week by week. The scripts are open, run only on your computer and send data nowhere. The Garmin key can be revoked at any time on the page where it was created.</p>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="faq-wrap">
+    <h2 class="serif" id="faq-title">Questions</h2>
+    <div class="faq">
+      <details><summary>I am not a programmer. Will I manage?</summary><p>Yes. You do two things by hand: create the key in Garmin and paste it into a file that Claude Code opens for you. It does and explains everything else as it goes. If you get stuck, tell it what you see on the screen in your own words.</p></details>
+      <details><summary>Is it safe? Where does my data go?</summary><p>Nowhere. The scripts download your data from Garmin's servers to your computer and build one HTML file from it. The key sits in a file only you can read; it never enters the chat. Claude Code only sees what the scripts print: activity counts and warnings.</p><p>The only thing that leaves you is the screenshot you choose to send me.</p></details>
+      <details><summary>Garmin returned error 401</summary><p>The key was copied incompletely, with a space, or has expired. Open garmin.env and check the line. If the key was a 30-day one, create a new one on the same Garmin page.</p></details>
+      <details><summary>The dashboard says my zones are based on maximum heart rate</summary><p>That means Garmin computes your zones as a percentage of maximum heart rate. It is not an error, but if the maximum was never measured and comes from a formula, the easy ceiling may be off by 5–10 beats. Drag the line on the dashboard five beats either way and see whether the verdict holds. If it does not, measure your threshold or maximum.</p></details>
+      <details><summary>I run a lot on the treadmill</summary><p>Treadmill heart rate is real, so treadmill runs count in every heart rate metric. Pace without a footpod is unreliable, so they are excluded from “metres per heartbeat”. Treadmill runs are labelled in the tables.</p></details>
+      <details><summary>I run without heart rate or with gaps</summary><p>Runs without heart rate count in kilometres but not in zones, and the dashboard tells you how many there are. If fewer than 60% of runs have heart rate, there is no verdict, only an honest “heart rate not recorded everywhere”. Days without the watch are not counted as zeros.</p></details>
+      <details><summary>Can I change the rules for myself?</summary><p>Yes. The easy ceiling moves right on the page. The recovery week threshold is set with the --deload flag at build time, and the ceiling can be fixed with --easy-ceiling. Every threshold is listed at the bottom of the dashboard under “How it was calculated”.</p></details>
+      <details><summary>Why not Strava and why not an app?</summary><p>Strava does not hand out zones and resting heart rate so simply through an open key, and an app would mean your data lives with me. Here it lives with you, and I only get a screenshot if you send one.</p></details>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-ink" id="send" aria-labelledby="send-title">
+  <div class="wrap">
+    <div class="send">
+      <div><h2 class="serif" id="send-title">Send me the screenshot</h2><p>I will look at your dashboard through a coach's eyes and write back what I see: where the base holds, where it does not, and where I would start. It is free and comes with no strings attached.</p></div>
+      <div class="acts"><a class="btn" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">Message @inna.tri <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Or on Telegram</a></div>
+    </div>
+    <div class="coaching"><p>Want this dashboard to look different six months from now?</p><a class="link" href="/en/pricing.html">Online coaching ↗</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot-main">
+  <div class="fcols" id="footer-nav">
+    <div><p>Tell me about your race, current shape and schedule - I'll answer honestly which format will get you there.</p><p style="margin-top:16px">Kyiv, Ukraine 🇺🇦</p></div>
+    <ul><li class="hd">Sections</li><li><a href="/en/run.html">Running</a></li><li><a href="/en/triathlon.html">Triathlon</a></li><li><a href="/en/blog.html">Blog</a></li><li><a href="/en/#reviews">Reviews</a></li><li><a href="/en/calculator.html">Calculator</a></li><li><a href="/en/guides/dashboard/">Dashboard</a></li><li><a href="/en/#pricing">Pricing</a></li><li><a href="/en/contact.html">Contact</a></li></ul>
+    <ul><li class="hd">Contact</li><li><a href="https://t.me/InnaRH">Telegram</a></li><li><a href="https://www.instagram.com/inna.tri">Instagram</a></li><li><a href="https://www.youtube.com/@innatri">YouTube</a></li><li><a href="mailto:innaryzhykh@gmail.com">Email</a></li></ul>
+    <ul><li class="hd">Language</li><li><a href="/ua/">UA</a></li><li><a href="/en/guides/dashboard/">EN</a></li><li><a href="/guides/dashboard/">RU</a></li></ul>
+  </div>
+  <svg class="wordmark" viewBox="0 0 1000 150" role="img" aria-label="INNA TRI"><text x="-6" y="138" textLength="1008" lengthAdjust="spacingAndGlyphs" font-family="Noto Serif Display, Georgia, serif" font-size="184" fill="#fff" letter-spacing="-4">INNA TRI</text></svg>
+  <div class="legal"><span>© 2026 INNATRI.</span><a href="/en/privacy.html">Privacy Policy</a></div>
+</footer>
+
+<script>
+(function(){
+  var b = document.getElementById('copy-prompt'), t = document.getElementById('prompt-text');
+  if (!b || !t) return;
+  b.addEventListener('click', function(){
+    var text = t.textContent;
+    var done = function(){ b.textContent = 'Copied'; b.dataset.done = '1'; setTimeout(function(){ b.textContent = 'Copy'; delete b.dataset.done; }, 2200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done);
+    else { var r = document.createRange(); r.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges(); done(); }
+    if (window.gtag) gtag('event', 'copy_prompt', { page: 'en/guides/dashboard' });
+  });
+})();
+</script>
+<script src="/assets/js/leads.js" defer></script>
+<script src="/assets/js/book.js?v=20261029a" defer></script>
+</body>
+</html>

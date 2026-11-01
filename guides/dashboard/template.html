@@ -279,7 +279,7 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || locati
 let period = 12, CEIL = D.ceiling, openWeek = null;
 const LAST = d2(D.runs[D.runs.length-1].date);
 D.runs.forEach(r => { const tot = r.z.reduce((a,b)=>a+b,0); r.hiShare = tot ? (r.z[3]+r.z[4])/tot : 0; });
-function classify(){ D.runs.forEach(r => { r.easy = !!r.hr && r.hr < CEIL && r.hiShare < .05; r.fast = !!r.hr && !r.easy; }); }
+function classify(){ D.runs.forEach(r => { r.easy = !!r.hr && r.hr < CEIL && r.hiShare < .05; r.fast = !!r.hr && !r.easy; if (r.zmiss && r.hr) r.z = r.easy ? [0, r.dur, 0, 0, 0] : [0, 0, r.dur, 0, 0]; }); }
 
 function range(months, end){
   const start = new Date(end); start.setMonth(start.getMonth() - months); start.setDate(1);
@@ -572,8 +572,10 @@ function howList(A){
     `<b>Ударная неделя</b>: входит в пятую часть самых тяжёлых недель периода по Training Load всех тренировок.`,
     `<b>Метров на удар</b>: скорость с поправкой на рельеф, делённая на пульс, на лёгких уличных пробежках от 3 км, медиана за месяц, значения вне 0.6–2.6 отброшены как сбой датчика.`,
     `<b>Месяц «мало данных»</b>: меньше 4 пробежек или меньше 2 лёгких. Вердикт не выносится при менее чем 6 пробежках за период.`,
+    D.zmiss_n ? `<b>Время по зонам</b> Garmin не отдал у ${plural(D.zmiss_n,'пробежки','пробежек','пробежек')}: их время целиком отнесено к 1–2 зонам, если пробежка лёгкая по среднему пульсу, иначе к 3-й. Второе условие лёгкой (меньше 5% в 4–5 зонах) к ним не применить.` : null,
+    D.load_est_n ? `<b>Нагрузка</b> у ${plural(D.load_est_n,'тренировки','тренировок','тренировок')} оценена по времени и пульсу (минуты × (пульс / порог)²), потому что Garmin не отдал Training Load. Для сравнения недель между собой этого достаточно.` : null,
     `<b>Дни без часов</b> не считаются нулями: линия пульса покоя рвётся, недели без тренировок показаны пустыми. Пробежек без пульса за период: ${A.noHr}.`,
-  ].map(s => `<li>${s}</li>`).join('');
+  ].filter(Boolean).map(s => `<li>${s}</li>`).join('');
 }
 
 // ---------- управление ----------
@@ -596,10 +598,11 @@ function render(entrance){
     P = { cur: aggregate(slice(c0, LAST)), prev: aggregate(slice(p0, p1)) };
   }
   const [vt, vx] = verdict(A, months);
-  $('#kick').textContent = `${D.name ? D.name + ' · ' : ''}${fmtD(iso(start))} ${start.getFullYear()} по ${fmtD(iso(LAST))} ${LAST.getFullYear()} · ${plural(A.n,'пробежка','пробежки','пробежек')} · ${A.km.toFixed(0)} км · ${A.hours.toFixed(0)} ч`;
+  const yr = d => D.hide_year ? '' : ' ' + d.getFullYear();
+  $('#kick').textContent = `${D.name ? D.name + ' · ' : ''}${fmtD(iso(start))}${yr(start)} по ${fmtD(iso(LAST))}${yr(LAST)} · ${plural(A.n,'пробежка','пробежки','пробежек')} · ${A.km.toFixed(0)} км · ${A.hours.toFixed(0)} ч`;
   $('#v-title').textContent = vt; $('#v-text').textContent = vx;
-  $('#meta').textContent = `собрано ${fmtD(D.built)} по ключу Garmin`;
-  $('#built').textContent = `Собрано ${fmtD(D.built)} ${d2(D.built).getFullYear()} · InnaTri`;
+  $('#meta').textContent = D.hide_year ? 'пример на реальных данных по ключу Garmin' : `собрано ${fmtD(D.built)} по ключу Garmin`;
+  $('#built').textContent = D.hide_year ? 'Пример дашборда · InnaTri' : `Собрано ${fmtD(D.built)} ${d2(D.built).getFullYear()} · InnaTri`;
   $('#warns').innerHTML = (D.warnings || []).map(w => `<p class="warn">${esc(w)}</p>`).join('');
   figures(A, P, entrance);
   $('#hz-lead').textContent = `Белая линия: ${D.ceiling_src.startsWith('верх') ? 'верх 2-й зоны из ваших часов' : 'граница лёгкого'}, ${D.ceiling}. Каждая точка пробежка: высота её средний пульс, размер длина. Над линией красные. Потяните линию и посмотрите, как вердикт зависит от одной настройки в часах.`;
