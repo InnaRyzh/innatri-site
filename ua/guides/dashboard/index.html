@@ -51,8 +51,7 @@
       {"@type":"HowToStep","name":"Створити особистий ключ Garmin","url":"https://innatri.com/ua/guides/dashboard/#steps"},
       {"@type":"HowToStep","name":"Перевірити зони пульсу в Garmin","url":"https://innatri.com/ua/guides/dashboard/#steps"},
       {"@type":"HowToStep","name":"Поставити Claude Code","url":"https://innatri.com/ua/guides/dashboard/#steps"},
-      {"@type":"HowToStep","name":"Вставити промпт","url":"https://innatri.com/ua/guides/dashboard/#prompt"},
-      {"@type":"HowToStep","name":"Надіслати скриншот тренеру","url":"https://innatri.com/ua/guides/dashboard/#send"}
+      {"@type":"HowToStep","name":"Вставити промпт","url":"https://innatri.com/ua/guides/dashboard/#prompt"}
     ]
   }
   </script>
@@ -226,7 +225,7 @@
 <section class="sec sec-sur" id="steps" aria-labelledby="steps-title">
   <div class="wrap">
     <p class="kicker">Інструкція</p>
-    <h2 class="serif" id="steps-title" style="margin-top:14px">П’ять кроків</h2>
+    <h2 class="serif" id="steps-title" style="margin-top:14px">Чотири кроки</h2>
     <ol class="steps" style="margin-top:clamp(40px,4vw,64px)">
       <li>
         <div class="main">
@@ -270,16 +269,9 @@
       <li>
         <div class="main">
           <h3>Вставте промпт</h3>
-          <p>Скопіюйте текст із блоку нижче повністю і вставте в Claude Code. Він завантажить три файли з цього сайту, поставить потрібне, попросить вас вставити ключ у файл, забере дані й відкриє дашборд у браузері. Єдине, що вам треба зробити руками: вставити ключ у відкритий файл і зберегти.</p>
+          <p>Скопіюйте текст із блоку нижче повністю і вставте в Claude Code. Він завантажить три файли з цього сайту, поставить потрібне, попросить вас вставити ключ у файл, забере дані й відкриє дашборд у браузері. Єдине, що вам треба зробити руками: вставити ключ у відкритий файл і зберегти. За тиждень чи місяць скажіть Claude Code «онови дашборд», і він забере нові тренування.</p>
         </div>
         <aside class="side"><div class="why">Чому три файли з сайту, а не «напиши мені дашборд». Щоб у всіх виходила та сама сторінка з тими самими правилами, інакше порівнювати буде нічого. Файли відкриті, їх можна прочитати перед запуском: <a class="link" href="/guides/dashboard/fetch_garmin.py">fetch_garmin.py</a>, <a class="link" href="/guides/dashboard/build_dashboard.py">build_dashboard.py</a>, <a class="link" href="/guides/dashboard/template.html">template.html</a>.</div></aside>
-      </li>
-      <li>
-        <div class="main">
-          <h3>Надішліть скриншот</h3>
-          <p>Claude Code збереже картинку dashboard.png. Надішліть її мені в дірект <a class="link" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">@inna.tri</a>, і я скажу, що бачу у ваших даних. За тиждень чи місяць скажіть Claude Code «онови дашборд», і він забере нові тренування.</p>
-        </div>
-        <aside class="side"><div class="why">Дашборд живий: період 3, 6 і 12 місяців, підказки на кожній точці, клік по тижню і по місяцю, лінія легкого, яку можна тягнути. Для скриншота без анімацій відкрийте його з хвостом <b>#static</b> в адресі.</div></aside>
       </li>
     </ol>
   </div>
@@ -319,7 +311,7 @@ Step 3. Data
 Run fetch_garmin.py --months 12. If Garmin returns 401, the key was copied incompletely or has expired: ask me to check the file. If it returns 500, the script shrinks the batches on its own, just let it finish. At the end tell me how many activities and days came back.
 
 Step 4. Dashboard
-Run build_dashboard.py --lang uk. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser. Take a full-page screenshot 1240 pixels wide and save it as dashboard.png; for the screenshot open the address with #static at the end.
+Run build_dashboard.py --lang uk. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser.
 
 Step 5. Summary
 Tell me four things from the dashboard: the verdict, the share of time in zones 1 and 2, how many runs out of how many were easy, and the longest streak of weeks without a recovery week. Do not advise anything beyond that; the coach does the reading.
@@ -353,13 +345,13 @@ When I say “update the dashboard” or «онови дашборд», repeat s
     <h2 class="serif" id="faq-title">Запитання</h2>
     <div class="faq">
       <details><summary>Я не програміст. Точно впораюся?</summary><p>Так. Ви робите дві речі руками: створюєте ключ у Garmin і вставляєте його у файл, який Claude Code сам відкриє. Усе інше він робить і пояснює по ходу. Якщо застрягли, напишіть йому, що бачите на екрані, своїми словами.</p></details>
-      <details><summary>Це безпечно? Куди йдуть мої дані?</summary><p>Нікуди. Скрипти завантажують дані з серверів Garmin на ваш комп’ютер і збирають із них один HTML-файл. Ключ лежить у файлі з правами лише для вас, у чат він не потрапляє. Claude Code бачить лише те, що друкують скрипти: кількість тренувань і попередження.</p><p>Єдине, що йде від вас: скриншот, який ви самі вирішите мені надіслати.</p></details>
+      <details><summary>Це безпечно? Куди йдуть мої дані?</summary><p>Нікуди. Скрипти завантажують дані з серверів Garmin на ваш комп’ютер і збирають із них один HTML-файл. Ключ лежить у файлі з правами лише для вас, у чат він не потрапляє. Claude Code бачить лише те, що друкують скрипти: кількість тренувань і попередження.</p></details>
       <details><summary>Garmin повернув помилку 401</summary><p>Ключ скопійовано не повністю, з пробілом, або він протермінувався. Відкрийте файл garmin.env, перевірте рядок. Якщо ключ був на 30 днів, створіть новий на тій самій сторінці Garmin.</p></details>
       <details><summary>Дашборд каже, що зони рахуються від максимуму</summary><p>Отже, у Garmin у вас зони за відсотком від максимального пульсу. Це не помилка, але якщо максимум не виміряний, а стоїть за формулою, межа легкого може бути зсунута на 5–10 ударів. Потягніть лінію на дашборді на п’ять ударів в обидва боки і подивіться, чи стійкий вердикт. Якщо ні, варто виміряти поріг або максимум.</p></details>
       <details><summary>У мене багато бігу на доріжці</summary><p>Пульс на доріжці справжній, тому доріжка бере участь в усіх пульсових метриках. Темп без футпода неточний, тому з «метрів за удар» вона виключена. У таблицях доріжка підписана.</p></details>
       <details><summary>Бігаю без пульсу або з перервами</summary><p>Пробіжки без пульсу рахуються в кілометрах, але не в зонах, і дашборд скаже, скільки їх. Якщо з пульсом менше ніж 60% пробіжок, вердикту не буде, лише чесне «пульс записано не скрізь». Дні без годинника не рахуються нулями.</p></details>
       <details><summary>Можна змінити правила під себе?</summary><p>Так. Межа легкого рухається прямо на сторінці. Поріг розвантаження задається ключем --deload під час збирання, межу можна зафіксувати ключем --easy-ceiling. Усі пороги перелічено внизу дашборду в розділі «Як рахували».</p></details>
-      <details><summary>Чому не Strava і не застосунок?</summary><p>Strava не віддає зони і пульс спокою за відкритим ключем так просто, а застосунок означав би, що ваші дані лежать у мене. Тут вони лежать у вас, а в мене лише скриншот, якщо ви його надішлете.</p></details>
+      <details><summary>Чому не Strava і не застосунок?</summary><p>Strava не віддає зони і пульс спокою за відкритим ключем так просто, а застосунок означав би, що ваші дані лежать у мене. Тут вони лежать у вас.</p></details>
     </div>
     </div>
   </div>
@@ -368,10 +360,9 @@ When I say “update the dashboard” or «онови дашборд», repeat s
 <section class="sec sec-ink" id="send" aria-labelledby="send-title">
   <div class="wrap">
     <div class="send">
-      <div><h2 class="serif" id="send-title">Надішліть мені скриншот</h2><p>Я подивлюся на ваш дашборд очима тренера і напишу, що бачу: де база тримається, де ні і з чого б я почала. Це безкоштовно і ні до чого не зобов’язує.</p></div>
-      <div class="acts"><a class="btn" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">Написати @inna.tri <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Або в Telegram</a></div>
+      <div><h2 class="serif" id="send-title">Що робити з цими цифрами</h2><p>Дашборд показує факти. Що з ними робити далі, вирішує тренер. Якщо хочете, щоб за пів року картина була іншою, я веду бігунів і триатлетів онлайн.</p></div>
+      <div class="acts"><a class="btn" href="/ua/pricing.html">Онлайн-супровід <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Написати в Telegram</a></div>
     </div>
-    <div class="coaching"><p>Хочете, щоб за пів року цей дашборд виглядав інакше?</p><a class="link" href="/ua/pricing.html">Онлайн-супровід ↗</a></div>
   </div>
 </section>
 </main>

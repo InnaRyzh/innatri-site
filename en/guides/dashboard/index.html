@@ -51,8 +51,7 @@
       {"@type":"HowToStep","name":"Create a Garmin personal key","url":"https://innatri.com/en/guides/dashboard/#steps"},
       {"@type":"HowToStep","name":"Check your heart rate zones in Garmin","url":"https://innatri.com/en/guides/dashboard/#steps"},
       {"@type":"HowToStep","name":"Install Claude Code","url":"https://innatri.com/en/guides/dashboard/#steps"},
-      {"@type":"HowToStep","name":"Paste the prompt","url":"https://innatri.com/en/guides/dashboard/#prompt"},
-      {"@type":"HowToStep","name":"Send the screenshot to the coach","url":"https://innatri.com/en/guides/dashboard/#send"}
+      {"@type":"HowToStep","name":"Paste the prompt","url":"https://innatri.com/en/guides/dashboard/#prompt"}
     ]
   }
   </script>
@@ -226,7 +225,7 @@
 <section class="sec sec-sur" id="steps" aria-labelledby="steps-title">
   <div class="wrap">
     <p class="kicker">The guide</p>
-    <h2 class="serif" id="steps-title" style="margin-top:14px">Five steps</h2>
+    <h2 class="serif" id="steps-title" style="margin-top:14px">Four steps</h2>
     <ol class="steps" style="margin-top:clamp(40px,4vw,64px)">
       <li>
         <div class="main">
@@ -270,16 +269,9 @@
       <li>
         <div class="main">
           <h3>Paste the prompt</h3>
-          <p>Copy the whole text from the block below and paste it into Claude Code. It downloads three files from this site, installs what is needed, asks you to paste the key into a file, pulls your data and opens the dashboard in your browser. The only thing you do by hand is paste the key into the file it opens and save.</p>
+          <p>Copy the whole text from the block below and paste it into Claude Code. It downloads three files from this site, installs what is needed, asks you to paste the key into a file, pulls your data and opens the dashboard in your browser. The only thing you do by hand is paste the key into the file it opens and save. A week or a month later, tell Claude Code “update the dashboard” and it pulls in the new runs.</p>
         </div>
         <aside class="side"><div class="why">Why three files from this site rather than “build me a dashboard”. So that everyone gets the same page with the same rules; otherwise there would be nothing to compare. The files are open, read them before you run anything: <a class="link" href="/guides/dashboard/fetch_garmin.py">fetch_garmin.py</a>, <a class="link" href="/guides/dashboard/build_dashboard.py">build_dashboard.py</a>, <a class="link" href="/guides/dashboard/template.html">template.html</a>.</div></aside>
-      </li>
-      <li>
-        <div class="main">
-          <h3>Send me the screenshot</h3>
-          <p>Claude Code saves a picture called dashboard.png. Send it to me in a direct message on <a class="link" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">@inna.tri</a> and I will tell you what I see in your data. A week or a month later, tell Claude Code “update the dashboard” and it pulls in the new runs.</p>
-        </div>
-        <aside class="side"><div class="why">The dashboard is live: 3, 6 and 12 month periods, a tooltip on every dot, click on any week or month, and an easy line you can drag. For a screenshot without animations open it with <b>#static</b> at the end of the address.</div></aside>
       </li>
     </ol>
   </div>
@@ -318,7 +310,7 @@ Step 3. Data
 Run fetch_garmin.py --months 12. If Garmin returns 401, the key was copied incompletely or has expired: ask me to check the file. If it returns 500, the script shrinks the batches on its own, just let it finish. At the end tell me how many activities and days came back.
 
 Step 4. Dashboard
-Run build_dashboard.py --lang en. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser. Take a full-page screenshot 1240 pixels wide and save it as dashboard.png; for the screenshot open the address with #static at the end.
+Run build_dashboard.py --lang en. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser.
 
 Step 5. Summary
 Tell me four things from the dashboard: the verdict, the share of time in zones 1 and 2, how many runs out of how many were easy, and the longest streak of weeks without a recovery week. Do not advise anything beyond that; the coach does the reading.
@@ -352,13 +344,13 @@ When I say “update the dashboard”, repeat steps 3 and 4.</pre>
     <h2 class="serif" id="faq-title">Questions</h2>
     <div class="faq">
       <details><summary>I am not a programmer. Will I manage?</summary><p>Yes. You do two things by hand: create the key in Garmin and paste it into a file that Claude Code opens for you. It does and explains everything else as it goes. If you get stuck, tell it what you see on the screen in your own words.</p></details>
-      <details><summary>Is it safe? Where does my data go?</summary><p>Nowhere. The scripts download your data from Garmin's servers to your computer and build one HTML file from it. The key sits in a file only you can read; it never enters the chat. Claude Code only sees what the scripts print: activity counts and warnings.</p><p>The only thing that leaves you is the screenshot you choose to send me.</p></details>
+      <details><summary>Is it safe? Where does my data go?</summary><p>Nowhere. The scripts download your data from Garmin's servers to your computer and build one HTML file from it. The key sits in a file only you can read; it never enters the chat. Claude Code only sees what the scripts print: activity counts and warnings.</p></details>
       <details><summary>Garmin returned error 401</summary><p>The key was copied incompletely, with a space, or has expired. Open garmin.env and check the line. If the key was a 30-day one, create a new one on the same Garmin page.</p></details>
       <details><summary>The dashboard says my zones are based on maximum heart rate</summary><p>That means Garmin computes your zones as a percentage of maximum heart rate. It is not an error, but if the maximum was never measured and comes from a formula, the easy ceiling may be off by 5–10 beats. Drag the line on the dashboard five beats either way and see whether the verdict holds. If it does not, measure your threshold or maximum.</p></details>
       <details><summary>I run a lot on the treadmill</summary><p>Treadmill heart rate is real, so treadmill runs count in every heart rate metric. Pace without a footpod is unreliable, so they are excluded from “metres per heartbeat”. Treadmill runs are labelled in the tables.</p></details>
       <details><summary>I run without heart rate or with gaps</summary><p>Runs without heart rate count in kilometres but not in zones, and the dashboard tells you how many there are. If fewer than 60% of runs have heart rate, there is no verdict, only an honest “heart rate not recorded everywhere”. Days without the watch are not counted as zeros.</p></details>
       <details><summary>Can I change the rules for myself?</summary><p>Yes. The easy ceiling moves right on the page. The recovery week threshold is set with the --deload flag at build time, and the ceiling can be fixed with --easy-ceiling. Every threshold is listed at the bottom of the dashboard under “How it was calculated”.</p></details>
-      <details><summary>Why not Strava and why not an app?</summary><p>Strava does not hand out zones and resting heart rate so simply through an open key, and an app would mean your data lives with me. Here it lives with you, and I only get a screenshot if you send one.</p></details>
+      <details><summary>Why not Strava and why not an app?</summary><p>Strava does not hand out zones and resting heart rate so simply through an open key, and an app would mean your data lives with me. Here it lives with you.</p></details>
     </div>
     </div>
   </div>
@@ -367,10 +359,9 @@ When I say “update the dashboard”, repeat steps 3 and 4.</pre>
 <section class="sec sec-ink" id="send" aria-labelledby="send-title">
   <div class="wrap">
     <div class="send">
-      <div><h2 class="serif" id="send-title">Send me the screenshot</h2><p>I will look at your dashboard through a coach's eyes and write back what I see: where the base holds, where it does not, and where I would start. It is free and comes with no strings attached.</p></div>
-      <div class="acts"><a class="btn" href="https://www.instagram.com/inna.tri" target="_blank" rel="noopener">Message @inna.tri <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Or on Telegram</a></div>
+      <div><h2 class="serif" id="send-title">What to do with these numbers</h2><p>The dashboard shows facts. What to do next is a coach’s call. If you want the picture to look different six months from now, I coach runners and triathletes online.</p></div>
+      <div class="acts"><a class="btn" href="/en/pricing.html">Online coaching <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Message me on Telegram</a></div>
     </div>
-    <div class="coaching"><p>Want this dashboard to look different six months from now?</p><a class="link" href="/en/pricing.html">Online coaching ↗</a></div>
   </div>
 </section>
 </main>
