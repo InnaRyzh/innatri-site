@@ -650,6 +650,7 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/guides/dashboard/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/guides/dashboard/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/"/>
   </url>
   <url>
@@ -659,6 +660,17 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/guides/dashboard/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/guides/dashboard/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/"/>
+  </url>
+  <url>
+    <loc>https://innatri.com/ua/guides/dashboard/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/guides/dashboard/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://innatri.com/ua/guides/dashboard/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/"/>
   </url>
   <url>

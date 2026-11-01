@@ -35,6 +35,7 @@ def main() -> None:
     ap.add_argument("--data", default=str(DATA), help="папка с json")
     ap.add_argument("--out", default=str(OUT), help="куда писать html")
     ap.add_argument("--hide-year", action="store_true", help="не печатать год в датах (для демо)")
+    ap.add_argument("--lang", choices=["ru", "en", "uk"], default=os.environ.get("INNATRI_LANG", "ru"), help="язык дашборда")
     args = ap.parse_args()
     DATA, OUT = Path(args.data), Path(args.out)
 
@@ -49,26 +50,27 @@ def main() -> None:
     warnings = []
     formula_warn = ("Зоны в часах считаются от максимального пульса. Если максимум не измерен, а взят по формуле "
                     "220 минус возраст, граница лёгкого может быть сдвинута на 5–10 ударов. Проверьте его в настройках Garmin.")
+    # коды: текст на нужном языке подставляет сам дашборд
     if args.easy_ceiling:
-        ceiling, src = args.easy_ceiling, "задана вручную"
+        ceiling, kind, src = args.easy_ceiling, "manual", "задана вручную"
     elif zr.get("zone3Floor"):
         ceiling = zr["zone3Floor"]
         if method == "LACTATE_THRESHOLD":
-            src = f"верх 2-й зоны в ваших часах, зоны от порога {lthr}"
+            kind, src = "zone_lt", f"верх 2-й зоны в ваших часах, зоны от порога {lthr}"
         elif method == "HR_RESERVE":
-            src = f"верх 2-й зоны в ваших часах, зоны от резерва пульса, максимум {maxhr}"
-            warnings.append(formula_warn)
+            kind, src = "zone_hrr", f"верх 2-й зоны в ваших часах, зоны от резерва пульса, максимум {maxhr}"
+            warnings.append("formula")
         else:
-            src = f"верх 2-й зоны в ваших часах, зоны от максимума {maxhr}"
-            warnings.append(formula_warn)
+            kind, src = "zone_max", f"верх 2-й зоны в ваших часах, зоны от максимума {maxhr}"
+            warnings.append("formula")
     elif lthr:
-        ceiling, src = round(lthr * 0.86), f"86% от порога {lthr}"
+        ceiling, kind, src = round(lthr * 0.86), "lthr", f"86% от порога {lthr}"
     elif maxhr:
-        ceiling, src = round(maxhr * 0.79), f"79% от максимума {maxhr}"
-        warnings.append("Зоны в Garmin не настроены, граница лёгкого прикинута от максимального пульса.")
+        ceiling, kind, src = round(maxhr * 0.79), "maxhr", f"79% от максимума {maxhr}"
+        warnings.append("no_zones")
     else:
-        ceiling, src = 145, "по умолчанию, зоны не найдены"
-        warnings.append("Garmin не отдал ни зон, ни порога. Граница лёгкого взята по умолчанию, цифрам по зонам верить нельзя.")
+        ceiling, kind, src = 145, "default", "по умолчанию, зоны не найдены"
+        warnings.append("no_data")
 
     # --- нагрузка: если Garmin её не отдал (старые часы, до 2020), оцениваем по времени и пульсу ------
     ref_hr = lthr or (round(maxhr * 0.9) if maxhr else 160)
@@ -147,20 +149,20 @@ def main() -> None:
     model = dict(
         name=args.name if args.name is not None else (profile.get("displayName") or ""),
         built=dt.date.today().isoformat(),
-        ceiling=ceiling, ceiling_src=src, lthr=lthr, maxhr=maxhr, zone_method=method,
+        ceiling=ceiling, ceiling_src=src, ceiling_kind=kind, lang=args.lang, lthr=lthr, maxhr=maxhr, zone_method=method,
         deload=args.deload, warnings=warnings, hide_year=args.hide_year, zmiss_n=zmiss, load_est_n=load_est, runs=runs, loads=loads, rhr=rhr, hrv=hrv,
     )
 
     tpl = (ROOT / "template.html").read_text()
     html = tpl.replace("/*__DATA__*/null", json.dumps(model, ensure_ascii=False))
     OUT.write_text(html)
-    print(f"dashboard.html: {OUT.stat().st_size/1024:.0f} КБ, пробежек {len(runs)}, граница лёгкого {ceiling} ({src})")
+    print(f"{OUT.name}: {OUT.stat().st_size/1024:.0f} КБ, пробежек {len(runs)}, граница лёгкого {ceiling} ({src})")
     if zmiss:
         print(f"  зоны не записаны у {zmiss} пробежек, их время разнесено по среднему пульсу")
     if load_est:
         print(f"  нагрузка оценена по времени и пульсу у {load_est} тренировок")
     for w in warnings:
-        print("  !", w)
+        print("  !", formula_warn if w == "formula" else w)
 
 
 if __name__ == "__main__":
