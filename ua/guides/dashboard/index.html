@@ -128,9 +128,14 @@
 .send h2 { font-size: var(--s-head); line-height: 1; }
 .send p { margin-top: 18px; color: #d8d1c9; max-width: 46ch; }
 .send .acts { justify-content: flex-end; margin-top: 0; }
-.thx { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; color: rgba(255,255,255,.88); font-size: 17px; }
-.thx button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; font: 600 15px/1 var(--sans); color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; cursor: pointer; }
-.thx button:hover { background: #fff; color: #151515; }
+.donate { margin-top: clamp(40px, 5vw, 64px); padding: clamp(22px, 3vw, 32px); background: #fff7df; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: center; }
+.donate h3 { font: var(--sw) var(--s-sub)/1.2 var(--serif); letter-spacing: -0.02em; }
+.donate p { margin-top: 8px; color: var(--soft); font-size: 15px; }
+.dn-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #ffc439; color: #111; font: 600 17px/1 var(--sans); text-decoration: none; white-space: nowrap; transition: filter .15s; }
+.dn-btn:hover { filter: brightness(.95); }
+.dn-btn b { font-style: italic; font-weight: 800; color: #003087; }
+.dn-btn b span { color: #0070e0; }
+@media (max-width: 760px) { .donate { grid-template-columns: 1fr; } .dn-btn { justify-content: center; } }
 .btn-line { color: #fff; box-shadow: inset 0 0 0 1px #fff; background: transparent !important; }
 .btn-line:hover { background: #fff !important; color: var(--ink); }
 .coaching { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); }
@@ -330,6 +335,10 @@ Tell me four things from the dashboard: the verdict, the share of time in zones 
 When I say “update the dashboard” or «онови дашборд», repeat steps 3 and 4.</pre>
       </div>
     </div>
+    <div class="donate">
+      <div><h3>Гайд і дашборд безкоштовні. Якщо стали в пригоді, можна підтримати.</h3><p id="dn-note">Пошта innaryzhykh@gmail.com скопіюється, а PayPal відкриється в новій вкладці: вставте її в поле отримувача.</p></div>
+      <a class="dn-btn" id="dn-btn" href="https://www.paypal.com/myaccount/transfer/homepage/pay" target="_blank" rel="noopener">Підтримати через <b>Pay<span>Pal</span></b></a>
+    </div>
   </div>
 </section>
 
@@ -374,7 +383,6 @@ When I say “update the dashboard” or «онови дашборд», repeat s
       <div><h2 class="serif" id="send-title">Що робити з цими цифрами</h2><p>Дашборд показує факти. Що з ними робити далі, вирішує тренер. Якщо хочете, щоб за пів року картина була іншою, я веду бігунів і триатлетів онлайн.</p></div>
       <div class="acts"><a class="btn" href="/ua/pricing.html">Онлайн-супровід <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Написати в Telegram</a></div>
     </div>
-    <p class="thx">Якщо гайд став у пригоді, можна сказати дякую через PayPal. Пошта для переказу: <button type="button" data-copy="innaryzhykh@gmail.com" data-done="Скопійовано">innaryzhykh@gmail.com</button></p>
   </div>
 </section>
 </main>
@@ -405,6 +413,6 @@ When I say “update the dashboard” or «онови дашборд», repeat s
 </script>
 <script src="/assets/js/leads.js" defer></script>
 <script src="/assets/js/book.js?v=20261029a" defer></script>
-<script>document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard.writeText(b.dataset.copy).then(()=>{const o=b.textContent;b.textContent=b.dataset.done;setTimeout(()=>b.textContent=o,1600)})}))</script>
+<script>document.getElementById('dn-btn').addEventListener('click',()=>{try{navigator.clipboard.writeText('innaryzhykh@gmail.com').then(()=>{document.getElementById('dn-note').textContent='Пошту скопійовано, вставте її в PayPal.'})}catch(e){}})</script>
 </body>
 </html>
