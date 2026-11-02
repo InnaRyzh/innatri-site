@@ -348,8 +348,8 @@ Run fetch_garmin.py --months 12. If Garmin returns 401, the key was copied incom
 Step 4. Dashboard
 Run build_dashboard.py --lang ru. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser.
 
-Step 5. Summary
-Tell me four things from the dashboard: the verdict, the share of time in zones 1 and 2, how many runs out of how many were easy, and the longest streak of weeks without a recovery week. Do not advise anything beyond that; the coach does the reading.
+Step 5. Done
+Tell me the dashboard is ready and give me the full path to dashboard.html. Do not open dashboard.html or the data folder yourself and do not retell my numbers: I read the dashboard in my browser, and my data stays on my computer. Do not advise anything about my training; the coach does the reading.
 
 When I say “update the dashboard” or «обнови дашборд», repeat steps 3 and 4.</pre><button class="more" type="button" id="prompt-more" aria-expanded="false" data-open="Показать промпт целиком" data-close="Свернуть">Показать промпт целиком</button>
       </div>
@@ -384,7 +384,7 @@ When I say “update the dashboard” or «обнови дашборд», repeat
     <h2 class="serif" id="faq-title">Вопросы</h2>
     <div class="faq">
       <details><summary>Я не программист. Точно справлюсь?</summary><p>Да. Вы делаете две вещи руками: создаёте ключ в Garmin и вставляете его в файл, который Claude Code сам откроет. Всё остальное он делает и объясняет по ходу. Если застряли, напишите ему, что видите на экране, своими словами.</p></details>
-      <details><summary>Это безопасно? Куда уходят мои данные?</summary><p>Никуда. Скрипты скачивают данные с серверов Garmin на ваш компьютер и собирают из них один HTML-файл. Ключ лежит в файле с правами только для вас, в чат он не попадает. Claude Code видит только то, что печатают скрипты: количество тренировок и предупреждения.</p></details>
+      <details><summary>Это безопасно? Куда уходят мои данные?</summary><p>Никуда. Скрипты скачивают данные с серверов Garmin на ваш компьютер и собирают из них один HTML-файл. Ключ лежит в файле с правами только для вас, в чат он не попадает. Claude Code работает через интернет, но видит только то, что печатают скрипты: число тренировок, границу лёгкого и предупреждения. Сам дашборд и пробежки он не открывает, так написано в промпте.</p></details>
       <details><summary>Garmin вернул ошибку 401</summary><p>Ключ скопирован не полностью, с пробелом, или истёк. Откройте файл garmin.env, проверьте строку. Если ключ был на 30 дней, создайте новый на той же странице Garmin.</p></details>
       <details><summary>Дашборд говорит, что зоны считаются от максимума</summary><p>Значит, в Garmin у вас зоны по проценту от максимального пульса. Это не ошибка, но если максимум не измерен, а стоит по формуле, граница лёгкого может быть сдвинута на 5–10 ударов. Потяните линию на дашборде на пять ударов вверх и вниз и посмотрите, меняется ли вывод. Если нет, стоит измерить порог или максимум.</p></details>
       <details><summary>У меня много бега на дорожке</summary><p>Пульс на дорожке настоящий, поэтому дорожка участвует во всех пульсовых метриках. Темп без футпода неточный, поэтому из «метров на удар» она исключена. В таблицах дорожка подписана.</p></details>

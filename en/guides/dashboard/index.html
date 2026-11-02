@@ -335,8 +335,8 @@ Run fetch_garmin.py --months 12. If Garmin returns 401, the key was copied incom
 Step 4. Dashboard
 Run build_dashboard.py --lang en. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser.
 
-Step 5. Summary
-Tell me four things from the dashboard: the verdict, the share of time in zones 1 and 2, how many runs out of how many were easy, and the longest streak of weeks without a recovery week. Do not advise anything beyond that; the coach does the reading.
+Step 5. Done
+Tell me the dashboard is ready and give me the full path to dashboard.html. Do not open dashboard.html or the data folder yourself and do not retell my numbers: I read the dashboard in my browser, and my data stays on my computer. Do not advise anything about my training; the coach does the reading.
 
 When I say “update the dashboard”, repeat steps 3 and 4.</pre><button class="more" type="button" id="prompt-more" aria-expanded="false" data-open="Show the whole prompt" data-close="Collapse">Show the whole prompt</button>
       </div>
@@ -371,7 +371,7 @@ When I say “update the dashboard”, repeat steps 3 and 4.</pre><button class=
     <h2 class="serif" id="faq-title">Questions</h2>
     <div class="faq">
       <details><summary>I am not a programmer. Will I manage?</summary><p>Yes. You do two things by hand: create the key in Garmin and paste it into a file that Claude Code opens for you. It does and explains everything else as it goes. If you get stuck, tell it what you see on the screen in your own words.</p></details>
-      <details><summary>Is it safe? Where does my data go?</summary><p>Nowhere. The scripts download your data from Garmin's servers to your computer and build one HTML file from it. The key sits in a file only you can read; it never enters the chat. Claude Code only sees what the scripts print: activity counts and warnings.</p></details>
+      <details><summary>Is it safe? Where does my data go?</summary><p>Nowhere. The scripts download your data from Garmin's servers to your computer and build one HTML file from it. The key sits in a file only you can read; it never enters the chat. Claude Code works over the internet, but it only sees what the scripts print: activity counts, the easy ceiling and warnings. The prompt tells it not to open the dashboard or your runs.</p></details>
       <details><summary>Garmin returned error 401</summary><p>The key was copied incompletely, with a space, or has expired. Open garmin.env and check the line. If the key was a 30-day one, create a new one on the same Garmin page.</p></details>
       <details><summary>The dashboard says my zones are based on maximum heart rate</summary><p>That means Garmin computes your zones as a percentage of maximum heart rate. It is not an error, but if the maximum was never measured and comes from a formula, the easy ceiling may be off by 5–10 beats. Drag the line on the dashboard five beats either way and see whether the verdict holds. If it does not, measure your threshold or maximum.</p></details>
       <details><summary>I run a lot on the treadmill</summary><p>Treadmill heart rate is real, so treadmill runs count in every heart rate metric. Pace without a footpod is unreliable, so they are excluded from “metres per heartbeat”. Treadmill runs are labelled in the tables.</p></details>
