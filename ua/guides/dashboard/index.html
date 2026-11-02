@@ -105,7 +105,10 @@
 .prompt-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 64px); align-items: start; }
 .prompt-side p + p { margin-top: 14px; }
 .prompt { position: relative; background: var(--surface) var(--grain); padding: 22px 24px 24px; }
-.prompt pre { margin: 0; max-height: 560px; overflow: auto; white-space: pre-wrap; font: 400 15px/1.55 var(--sans); color: var(--ink); }
+.prompt pre { margin: 0; max-height: 220px; overflow: hidden; white-space: pre-wrap; font: 400 15px/1.55 var(--sans); color: var(--ink); }
+.prompt.open pre { max-height: none; }
+.prompt:not(.open) pre { -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
+.prompt .more { margin-top: 14px; min-height: 44px; padding: 0; border: 0; background: none; font: 600 15px/1 var(--sans); color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 .prompt .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
 .prompt .bar p { font-weight: 600; }
 .copy { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border: 0; background: var(--ink); color: #fff; font: 600 15px/1 var(--sans); cursor: pointer; }
@@ -150,10 +153,9 @@
   .acts .btn { width: 100%; }
   .reads, .needs, .limits, .prompt-wrap, .send, .faq-wrap { grid-template-columns: minmax(0, 1fr); }
   .read + .read, .needs li + li { padding-left: 0; border-left: 0; border-top: 1px solid #d6d1cb; }
-  .steps > li { grid-template-columns: 44px minmax(0, 1fr); gap: 0 12px; }
-  .steps > li::before { font-size: 34px; }
-  .steps .side { grid-column: 2; margin-top: 18px; padding-top: 0; }
-  .prompt pre { max-height: none; }
+  .steps > li { grid-template-columns: minmax(0, 1fr); gap: 10px 0; }
+  .steps > li::before { font-size: 40px; }
+  .steps .side { grid-column: auto; margin-top: 8px; padding-top: 0; }
   .send .acts { justify-content: flex-start; }
 }
   </style>
@@ -332,7 +334,7 @@ Run build_dashboard.py --lang uk. If it warns that the zones in my watch are bas
 Step 5. Summary
 Tell me four things from the dashboard: the verdict, the share of time in zones 1 and 2, how many runs out of how many were easy, and the longest streak of weeks without a recovery week. Do not advise anything beyond that; the coach does the reading.
 
-When I say “update the dashboard” or «онови дашборд», repeat steps 3 and 4.</pre>
+When I say “update the dashboard” or «онови дашборд», repeat steps 3 and 4.</pre><button class="more" type="button" id="prompt-more" aria-expanded="false" data-open="Показати промпт повністю" data-close="Згорнути">Показати промпт повністю</button>
       </div>
     </div>
     <div class="donate">
@@ -414,5 +416,6 @@ When I say “update the dashboard” or «онови дашборд», repeat s
 <script src="/assets/js/leads.js" defer></script>
 <script src="/assets/js/book.js?v=20261029a" defer></script>
 <script>document.getElementById('dn-btn').addEventListener('click',()=>{try{navigator.clipboard.writeText('innaryzhykh@gmail.com').then(()=>{document.getElementById('dn-note').textContent='Пошту скопійовано, вставте її в PayPal.'})}catch(e){}})</script>
+<script>(function(){var b=document.getElementById('prompt-more'),p=b.closest('.prompt');b.addEventListener('click',function(){var o=p.classList.toggle('open');b.textContent=o?b.dataset.close:b.dataset.open;b.setAttribute('aria-expanded',o);if(!o)p.scrollIntoView({block:'start'});});})();</script>
 </body>
 </html>
