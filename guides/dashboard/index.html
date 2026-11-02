@@ -145,8 +145,9 @@
 .send h2 { font-size: var(--s-head); line-height: 1; }
 .send p { margin-top: 18px; color: #d8d1c9; max-width: 46ch; }
 .send .acts { justify-content: flex-end; margin-top: 0; }
-.thx { margin-top: 40px; color: rgba(255,255,255,.72); font-size: var(--s-small); }
-.thx button { font: inherit; color: #fff; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.thx { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; color: rgba(255,255,255,.88); font-size: 17px; }
+.thx button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; font: 600 15px/1 var(--sans); color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; cursor: pointer; }
+.thx button:hover { background: #fff; color: #151515; }
 .btn-line { color: #fff; box-shadow: inset 0 0 0 1px #fff; background: transparent !important; }
 .btn-line:hover { background: #fff !important; color: var(--ink); }
 .coaching { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); }

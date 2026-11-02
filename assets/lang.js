@@ -75,5 +75,5 @@
   }
 
   if (!target) return;
-  location.replace('/' + target + '/' + page);
+  location.replace('/' + target + '/' + page + location.search + location.hash);
 })();
