@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Running dashboard from your Garmin key: a year of your running on one page | InnaTri</title>
-  <meta name="description" content="Why isn’t your pace improving, where do the fatigue and injuries come from? A dashboard built from your personal Garmin key shows how much of your running is really easy, whether you take recovery weeks and whether your fitness is growing. Guide and prompt for Claude Code, free.">
+  <title>Garmin running dashboard from your Personal API Key, built with Claude Code | InnaTri</title>
+  <meta name="description" content="Turn your Garmin Connect Personal API Key into a free running dashboard with Claude Code: easy vs hard runs, recovery weeks, technique and fitness trends. Your data stays on your computer.">
   <meta name="author" content="Inna Ryzhykh">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#151515">
@@ -13,17 +13,20 @@
   <link rel="alternate" hreflang="en" href="https://innatri.com/en/guides/dashboard/">
   <link rel="alternate" hreflang="uk" href="https://innatri.com/ua/guides/dashboard/">
   <link rel="alternate" hreflang="x-default" href="https://innatri.com/guides/dashboard/">
-  <meta property="og:title" content="Running dashboard from your Garmin key: a year of your running on one page">
+  <meta property="og:title" content="Garmin running dashboard from your Personal API Key">
   <meta property="og:description" content="A guide: Garmin key, Claude Code and a prompt that puts a year of your running on one page. Free, no sign-up, your data stays with you.">
-  <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
+  <meta property="og:image" content="https://innatri.com/assets/guides/dashboard/og-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Garmin running dashboard: the verdict “Easy runs are not easy” and four key numbers">
   <meta property="og:url" content="https://innatri.com/en/guides/dashboard/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="InnaTri">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Running dashboard from your Garmin key">
+  <meta name="twitter:title" content="Garmin running dashboard from your Personal API Key">
   <meta name="twitter:description" content="Garmin key, Claude Code and a prompt that builds a dashboard with a coach's verdict.">
-  <meta name="twitter:image" content="https://innatri.com/assets/guides/dashboard/dash-hero.jpg">
+  <meta name="twitter:image" content="https://innatri.com/assets/guides/dashboard/og-en.jpg">
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="96x96">
   <link rel="icon" href="/assets/favicon.png?v=4" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -43,12 +46,14 @@
   {
     "@context":"https://schema.org",
     "@type":"HowTo",
-    "name":"Running dashboard from your Garmin personal key",
+    "name":"Build a Garmin running dashboard from your Personal API Key with Claude Code",
+    "image":"https://innatri.com/assets/guides/dashboard/dash-hero-en.jpg",
+    "tool":[{"@type":"HowToTool","name":"Garmin watch"},{"@type":"HowToTool","name":"Claude Code"}],
     "description":"How to build a dashboard of your runs with a coach's verdict: a Garmin Connect key, Claude Code and a ready-made prompt.",
     "totalTime":"PT20M",
     "author":{"@type":"Person","name":"Inna Ryzhykh","url":"https://innatri.com/en/"},
     "step":[
-      {"@type":"HowToStep","name":"Create a Garmin personal key","url":"https://innatri.com/en/guides/dashboard/#steps"},
+      {"@type":"HowToStep","name":"Create your Garmin Personal API Key","url":"https://innatri.com/en/guides/dashboard/#steps"},
       {"@type":"HowToStep","name":"Check your heart rate zones in Garmin","url":"https://innatri.com/en/guides/dashboard/#steps"},
       {"@type":"HowToStep","name":"Install Claude Code","url":"https://innatri.com/en/guides/dashboard/#steps"},
       {"@type":"HowToStep","name":"Paste the prompt","url":"https://innatri.com/en/guides/dashboard/#prompt"}
@@ -191,15 +196,15 @@
 <section class="d-hero" aria-labelledby="guide-title">
   <div class="phero-text">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span>/</span><a href="/en/blog.html">Blog</a><span>/</span><span aria-current="page">Dashboard</span></nav>
-    <p class="kicker" style="margin-top:48px">A free tool by Inna Ryzhykh</p>
-    <h1 id="guide-title">A year of your running on one page</h1>
+    <p class="kicker" style="margin-top:48px">Free Garmin running dashboard by coach Inna Ryzhykh</p>
+    <h1 id="guide-title">A year of your Garmin running on one page</h1>
     <p class="lead">Why isn’t your result improving? Why are you always tired? Why another injury? The dashboard does not diagnose. In twenty minutes it pulls from your watch what a coach looks at first: how much of your running is really easy, whether you take recovery weeks, and whether your fitness is growing.</p>
     <div class="acts">
       <a href="#steps" class="btn">To the steps <span class="arr" aria-hidden="true">↓</span></a>
       <p class="note">No sign-up · your data stays on your computer</p>
     </div>
   </div>
-  <figure class="d-shot"><img src="/assets/guides/dashboard/dash-hero.jpg" width="1240" height="1500" alt="Top of the dashboard: the verdict, four key numbers and a chart of every run of the year against the easy heart rate ceiling" fetchpriority="high" decoding="async"></figure>
+  <figure class="d-shot"><img src="/assets/guides/dashboard/dash-hero-en.jpg" width="1240" height="1500" alt="Top of the dashboard: the verdict, four key numbers and a chart of every run of the year against the easy heart rate ceiling" fetchpriority="high" decoding="async"></figure>
 </section>
 
 <section class="sec sec-sur" aria-labelledby="answers-title">
@@ -216,7 +221,7 @@
       <div class="read"><h3>Fitness and recovery</h3><p>Metres per heartbeat: the only measure of form that needs no test. And resting heart rate by week against the hard weeks, to see whether you recover enough.</p></div>
     </div>
     <figure class="demo-video"><video autoplay muted loop playsinline preload="metadata" poster="/assets/guides/dashboard/demo-line-en.jpg" width="1080" height="622" aria-label="Video: the easy heart rate line is dragged down and up, run dots change colour and the numbers update"><source src="/assets/guides/dashboard/demo-line-en.mp4" type="video/mp4"></video><figcaption>This is the easy line at work. The ceiling from the watch is 141, and 98 of 144 runs are easy. Move it six beats down and only 71 stay easy.</figcaption></figure>
-    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="The week tape and the monthly charts: share of time in zones, heart rate on easy runs"><figcaption>The dashboard on my own data for one running season. At the bottom it has two sections no app has: “How it was calculated”, where every threshold is named, and “What this dashboard does not know”.</figcaption></figure>
+    <figure class="tape"><img src="/assets/guides/dashboard/dash-tape-en.jpg" width="1240" height="1130" loading="lazy" decoding="async" alt="The week tape and the monthly charts: share of time in zones, heart rate on easy runs"><figcaption>The dashboard on my own data for one running season. At the bottom it has two sections no app has: “How it was calculated”, where every threshold is named, and “What this dashboard does not know”.</figcaption></figure>
   </div>
 </section>
 
@@ -239,7 +244,7 @@
     <ol class="steps" style="margin-top:clamp(40px,4vw,64px)">
       <li>
         <div class="main">
-          <h3>Create a Garmin personal key</h3>
+          <h3>Create your Garmin Personal API Key</h3>
           <p>Since October 2026 Garmin gives every user a personal key to their own data. This is the official way in: no password is shared, no third-party libraries are needed, and the key can only read.</p>
           <ol>
             <li>Open <a class="link" href="https://connect.garmin.com/app/settings/personalApiToken" target="_blank" rel="noopener">connect.garmin.com → Settings → Personal API Key</a> and log in if asked.</li>
@@ -341,7 +346,7 @@ When I say “update the dashboard”, repeat steps 3 and 4.</pre>
       <li><b>Where your maximum came from</b><p>If it is set by a formula, all the zones are shifted with it. The dashboard prints where the ceiling came from and warns you, but it cannot measure your maximum for you.</p></li>
       <li><b>Heat, illness, lack of sleep</b><p>A long run in the heat drifts upwards in heart rate towards the end, and the average does not forgive it. Resting heart rate after a glass of wine is three beats higher. These are limits of the method, not your mistakes.</p></li>
       <li><b>How Garmin computes load</b><p>Training Load is a closed Firstbeat model. Here it is used only to compare weeks with each other: to find the hard ones and the recovery ones.</p></li>
-      <li><b>VO2max, training status, predictions</b><p>The Garmin personal key does not provide them. The dashboard is deliberately built on what was measured, not estimated, and draws nothing extra.</p></li>
+      <li><b>VO2max, training status, predictions</b><p>The Garmin Personal API Key does not provide them. The dashboard is deliberately built on what was measured, not estimated, and draws nothing extra.</p></li>
       <li><b>Your life around running</b><p>The dashboard sees your runs and what the watch records day and night, but not your work, your goals or how you feel. The links it finds are coincidences, not causes. So its verdict is a reason to talk to a coach, not a diagnosis.</p></li>
     </ul>
     <p class="disclaimer">This is a tool for reading training data, not medical advice. Its thresholds are adjustable, its conclusions depend on the zone settings in your watch, and it is best read as a 6–8 week trend rather than week by week. The scripts are open, run only on your computer and send data nowhere. The Garmin key can be revoked at any time on the page where it was created.</p>
