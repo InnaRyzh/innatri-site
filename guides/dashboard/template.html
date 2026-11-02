@@ -365,7 +365,7 @@ ru: {
     `<b>Граница лёгкого ${c}.</b> ${c === D.ceiling ? src0.charAt(0).toUpperCase() + src0.slice(1) : `Сдвинута вами с ${D.ceiling} (${src0})`}. Это единственный порог, который делит пробежки на лёгкие и быстрые.`,
     `<b>Лёгкая пробежка</b> проходит два условия сразу: средний пульс ниже границы и меньше 5% времени в 4–5 зонах. Так интервалы с низким средним не прячутся среди лёгких.`,
     `<b>Доля времени в зонах</b> берётся из Garmin как есть и от границы не зависит. Ориентир 75–80% у Сейлера считался по тренировкам, а не по минутам, поэтому рядом есть и доля лёгких пробежек по количеству.`,
-    `<b>Разгрузочная неделя</b>: нагрузка ниже ${Math.round(D.deload*100)}% от средней за три предыдущие недели или меньше 30. Это тренерское правило, порог можно поменять ключом --deload.`,
+    `<b>Разгрузочная неделя</b>: нагрузка ниже ${Math.round(D.deload*100)}% от средней за три предыдущие недели (но не ниже вашей обычной недели за период) или меньше 30. Это тренерское правило, порог можно поменять ключом --deload.`,
     `<b>Ударная неделя</b>: входит в пятую часть самых тяжёлых недель периода по нагрузке всех тренировок.`,
     `<b>Метров за удар</b>: скорость с поправкой на рельеф, делённая на пульс, на лёгких уличных пробежках от 3 км, медиана за месяц, значения вне 0.6–2.6 отброшены как сбой датчика.`,
     `<b>Месяц «мало данных»</b>: меньше 4 пробежек или меньше 2 лёгких. Вердикт не выносится при менее чем 6 пробежках за период.`,
@@ -446,7 +446,7 @@ en: {
     `<b>Easy ceiling ${c}.</b> ${c === D.ceiling ? src0.charAt(0).toUpperCase() + src0.slice(1) : `Moved by you from ${D.ceiling} (${src0})`}. This is the only threshold that splits runs into easy and fast.`,
     `<b>An easy run</b> passes two conditions at once: average heart rate below the ceiling and less than 5% of time in zones 4–5. That way intervals with a low average do not hide among easy runs.`,
     `<b>The share of time in zones</b> is taken from Garmin as is and does not depend on the ceiling. Seiler's 75–80% easy guideline counted sessions, not minutes, so the share of easy runs by count is shown too.`,
-    `<b>A recovery week</b>: load below ${Math.round(D.deload*100)}% of the average of the previous three weeks, or below 30. A coaching heuristic; the threshold is set with --deload.`,
+    `<b>A recovery week</b>: load below ${Math.round(D.deload*100)}% of the average of the previous three weeks (never less than your usual week in the period), or below 30. A coaching heuristic; the threshold is set with --deload.`,
     `<b>A hard week</b>: in the top fifth of the period's weeks by total load of all workouts.`,
     `<b>Metres per beat</b>: grade-adjusted speed divided by heart rate on easy outdoor runs of 3 km or more, monthly median; values outside 0.6–2.6 are dropped as sensor errors.`,
     `<b>A “little data” month</b>: fewer than 4 runs or fewer than 2 easy ones. No verdict is given with fewer than 6 runs in the period.`,
@@ -527,7 +527,7 @@ uk: {
     `<b>Межа легкого ${c}.</b> ${c === D.ceiling ? src0.charAt(0).toUpperCase() + src0.slice(1) : `Зсунута вами з ${D.ceiling} (${src0})`}. Це єдиний поріг, який ділить пробіжки на легкі та швидкі.`,
     `<b>Легка пробіжка</b> проходить дві умови одразу: середній пульс нижчий за межу і менше ніж 5% часу в 4–5 зонах. Так інтервали з низьким середнім не ховаються серед легких.`,
     `<b>Частка часу в зонах</b> береться з Garmin як є і від межі не залежить. Орієнтир 75–80% легкого Сейлер рахував за сесіями, а не за хвилинами, тому поруч показано і частку легких пробіжок за кількістю.`,
-    `<b>Розвантажувальний тиждень</b>: навантаження нижче ${Math.round(D.deload*100)}% від середнього за три попередні тижні або менше ніж 30. Це тренерська евристика, поріг налаштовується ключем --deload.`,
+    `<b>Розвантажувальний тиждень</b>: навантаження нижче ${Math.round(D.deload*100)}% від середнього за три попередні тижні (але не нижче вашого звичайного тижня за період) або менше ніж 30. Це тренерська евристика, поріг налаштовується ключем --deload.`,
     `<b>Ударний тиждень</b>: входить до п’ятої частини найважчих тижнів періоду за навантаженням усіх тренувань.`,
     `<b>Метрів за удар</b>: швидкість з поправкою на рельєф, поділена на пульс, на легких вуличних пробіжках від 3 км, медіана за місяць, значення поза 0.6–2.6 відкинуті як збій датчика.`,
     `<b>Місяць «мало даних»</b>: менше ніж 4 пробіжки або менше ніж 2 легкі. Вердикт не виноситься при менш ніж 6 пробіжках за період.`,
@@ -811,9 +811,12 @@ function aggregate(S){
   S.loads.forEach(l => { const w = byKey[iso(monday(d2(l.date)))]; if (w) w.load += l.load; });
   S.runs.forEach(r => { const w = byKey[iso(monday(d2(r.date)))]; if (w) { w.runs.push(r); w.km += r.km; } });
   S.rhr.forEach(([d,v]) => { const w = byKey[iso(monday(d2(d)))]; if (w) w.rhr.push(v); });
+  // Обычная неделя периода: медиана ненулевых недель. Не даёт планке упасть после провала,
+  // иначе лёгкие недели после паузы выглядят рабочими.
+  const usual = median(weeks.map(x=>x.load).filter(v=>v>0)) || 0;
   let streak = 0, best = 0, bestEnd = -1;
   weeks.forEach((w, i) => {
-    const prev = weeks.slice(Math.max(0,i-3), i).map(x=>x.load).filter(v=>v>0); const base = mean(prev) || 0;
+    const prev = weeks.slice(Math.max(0,i-3), i).map(x=>x.load).filter(v=>v>0); const base = Math.max(mean(prev) || 0, usual);
     w.deload = (base > 0 && w.load < D.deload*base) || w.load < 30;
     if (w.deload) streak = 0; else { streak++; if (streak > best) { best = streak; bestEnd = i; } }
     w.rhrAvg = w.rhr.length ? mean(w.rhr) : null;
