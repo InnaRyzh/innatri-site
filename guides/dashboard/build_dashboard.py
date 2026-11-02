@@ -61,6 +61,7 @@ def main() -> None:
     formula_warn = ("Зоны в часах считаются от максимального пульса. Если максимум не измерен, а взят по формуле "
                     "220 минус возраст, граница лёгкого может быть сдвинута на 5–10 ударов. Проверьте его в настройках Garmin.")
     # коды: текст на нужном языке подставляет сам дашборд
+    merge3 = False  # 3-я зона часов считается лёгкой (зоны от максимума по умолчанию)
     if args.easy_ceiling:
         ceiling, kind, src = args.easy_ceiling, "manual", "задана вручную"
     elif zr.get("zone3Floor"):
@@ -73,6 +74,16 @@ def main() -> None:
         else:
             kind, src = "zone_max", f"верх 2-й зоны в ваших часах, зоны от максимума {maxhr}"
             warnings.append("formula")
+            # Зоны Garmin от максимума по умолчанию: 2-я кончается на 70%, а первый порог у бегунов
+            # обычно 75–82% максимума (Seiler 2010). Тогда граница лёгкого: верх 3-й зоны (80%).
+            z3, z4 = zr.get("zone3Floor"), zr.get("zone4Floor")
+            if maxhr and z3 / maxhr < 0.75:
+                if z4 and 0.75 <= z4 / maxhr <= 0.85:
+                    ceiling, kind, merge3 = z4, "zone_max3", True
+                    src = f"верх 3-й зоны в ваших часах, около 80% от максимума {maxhr}"
+                else:
+                    ceiling, kind = round(maxhr * 0.8), "maxhr80"
+                    src = f"80% от максимума {maxhr}"
     elif lthr:
         ceiling, kind, src = round(lthr * 0.86), "lthr", f"86% от порога {lthr}"
     elif maxhr:
@@ -116,6 +127,8 @@ def main() -> None:
         hr = a.get("averageHR")
         indoor = ("treadmill" in t or "indoor" in t)
         z = [round(a.get(f"hrTimeInZone_{i}") or 0) for i in range(1, 6)]
+        if merge3:
+            z = [z[0], z[1] + z[2], 0, z[3], z[4]]
         if not sum(z):
             zmiss += 1
         runs.append(dict(
