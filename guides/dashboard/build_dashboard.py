@@ -4,7 +4,7 @@ Python готовит данные, страница рисует графики
 переключатель периода, подсказки при наведении, разбор месяца по клику.
 Дизайн: InnaTri book design (бумага, засечки, один глубокий красный).
 
-    .venv/bin/python build_dashboard.py [--easy-ceiling 141] [--deload 0.6]
+    .venv/bin/python build_dashboard.py [--easy-ceiling 141] [--deload 0.7]
 """
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--easy-ceiling", type=int, default=int(os.environ.get("INNATRI_EASY_CEILING", 0)) or None,
                     help="верх лёгкого пульса вручную, если зоны в Garmin не настроены")
-    ap.add_argument("--deload", type=float, default=float(os.environ.get("INNATRI_DELOAD", 0.6)),
+    ap.add_argument("--deload", type=float, default=float(os.environ.get("INNATRI_DELOAD", 0.7)),
                     help="порог разгрузочной недели как доля от средней за три предыдущие")
     ap.add_argument("--name", default=os.environ.get("INNATRI_NAME"), help="имя в шапке; пустая строка, чтобы не печатать")
     ap.add_argument("--data", default=str(DATA), help="папка с json")
