@@ -331,7 +331,7 @@ ru: {
   src: { manual: 'задана вручную', zone_lt: l => `верх 2-й зоны в ваших часах, зоны от порога ${l}`, zone_hrr: m => `верх 2-й зоны в ваших часах, зоны от резерва пульса, максимум ${m}`, zone_max: m => `верх 2-й зоны в ваших часах, зоны от максимума ${m}`, lthr: l => `86% от порога ${l}`, maxhr: m => `79% от максимума ${m}`, zone_max3: m => `верх 3-й зоны в ваших часах, около 80% от максимума ${m}`, maxhr80: m => `80% от максимума ${m}`, default: 'условно, зоны не найдены' },
   fig: {
     low: `времени бега в лёгких зонах (${ZL}), у хорошо тренированных обычно от 80%`, easy: n => `из ${n} пробежек были лёгкими при границе`,
-    streak: 'недель подряд без лёгкой недели. Многие тренеры ставят её раз в 3⁠–⁠4 недели', streak_d: (d, h) => `лёгких недель за период <b>${d}</b>, самых тяжёлых <b>${h}</b>`,
+    streak: 'рабочих недель подряд без лёгкой. Многие тренеры ставят её раз в 3⁠–⁠4 недели', streak_d: (d, h) => `лёгких недель за период <b>${d}</b>, самых тяжёлых <b>${h}</b>`,
     eff: 'метра на один удар сердца на лёгких пробежках. Растёт месяцами: тот же темп, скорее всего, даётся легче', eff_d: 'аэробная эффективность',
     last3: 'за последние 3 месяца', delta: (c, s, d) => `последние 3 мес. <b>${c}</b>, к предыдущим 3 <b class="${s}">${d}</b>`, wk: 'нед.', m: 'м',
   },
@@ -367,7 +367,7 @@ ru: {
     `<b>Граница лёгкого ${c}.</b> ${c === D.ceiling ? src0.charAt(0).toUpperCase() + src0.slice(1) : `Сдвинута вами с ${D.ceiling} (${src0})`}. Это единственный порог, который делит пробежки на лёгкие и быстрые.`,
     `<b>Лёгкая пробежка</b> проходит два условия сразу: средний пульс ниже границы и меньше 5% времени в 4–5 зонах. Так интервалы с низким средним не прячутся среди лёгких.`,
     `<b>Доля времени в лёгких зонах</b> берётся из Garmin как есть. ${D.ceiling_kind === 'zone_max3' ? 'Зоны в ваших часах считаются от максимума, и 2-я кончается на 70% от него. Первый порог у бегунов обычно выше, около 75–82% максимума, поэтому лёгкими здесь считаются зоны 1–3, до 80%. ' : ''}Ориентир около 80% это время ниже первого порога у хорошо тренированных бегунов (Seiler 2010). Если считать по тренировкам, а не по минутам, лёгких обычно меньше, около 75%, поэтому рядом есть и доля лёгких пробежек по количеству.`,
-    `<b>Разгрузочная неделя</b>: нагрузка ниже ${Math.round(D.deload*100)}% от средней за три предыдущие недели (но не ниже вашей обычной недели за период) или меньше 30. Вывод «без разгрузки» появляется, только если 4 недели и больше шли без неё, а нагрузка в этом блоке была не ниже обычной. Ритм «три недели работы, одна лёгкая» это тренерская практика: исследований, где его сравнивали бы с другими схемами, почти нет. Порог можно поменять ключом --deload.`,
+    `<b>Разгрузочная неделя</b>: нагрузка ниже ${Math.round(D.deload*100)}% от средней за три предыдущие недели (но не ниже вашей обычной недели за период) или меньше 30. Рабочая неделя: не разгрузочная и не легче вашей обычной недели (медианы за период). Считаем, сколько рабочих недель шло подряд, вывод «без разгрузки» появляется от 4. Ритм «три недели работы, одна лёгкая» это тренерская практика: исследований, где его сравнивали бы с другими схемами, почти нет. Порог можно поменять ключом --deload.`,
     `<b>Ударная неделя</b>: входит в пятую часть самых тяжёлых недель периода по нагрузке всех тренировок.`,
     `<b>Метров за удар</b>: скорость с поправкой на рельеф, делённая на пульс, на лёгких уличных пробежках от 3 км, медиана за месяц, значения вне 0.6–2.6 отброшены как сбой датчика. Это грубый показатель, близкий к коэффициенту эффективности Фрила: жара, холмы, усталость и ошибки оптического датчика сдвигают его, поэтому важен тренд за месяцы.`,
     `<b>Месяц «мало данных»</b>: меньше 4 пробежек или меньше 2 лёгких. Вердикт не выносится при менее чем 6 пробежках за период.`,
@@ -412,7 +412,7 @@ en: {
   src: { manual: 'set by hand', zone_lt: l => `top of zone 2 in your watch, zones based on threshold ${l}`, zone_hrr: m => `top of zone 2 in your watch, zones based on heart rate reserve, maximum ${m}`, zone_max: m => `top of zone 2 in your watch, zones based on maximum ${m}`, lthr: l => `86% of threshold ${l}`, maxhr: m => `79% of maximum ${m}`, zone_max3: m => `top of zone 3 in your watch, about 80% of maximum ${m}`, maxhr80: m => `80% of maximum ${m}`, default: 'placeholder, no zones found' },
   fig: {
     low: `of running time in the easy zones (${ZL}); well-trained runners usually 80% or more`, easy: n => `of ${n} runs were easy at a ceiling of`,
-    streak: 'weeks in a row without an easy week. Many coaches plan one every 3⁠–⁠4 weeks', streak_d: (d, h) => `recovery weeks in the period <b>${d}</b>, hard weeks <b>${h}</b>`,
+    streak: 'working weeks in a row without an easy one. Many coaches plan one every 3⁠–⁠4 weeks', streak_d: (d, h) => `recovery weeks in the period <b>${d}</b>, hard weeks <b>${h}</b>`,
     eff: 'metres per heartbeat on easy runs. If it rises over months, the same pace probably costs less', eff_d: 'aerobic efficiency',
     last3: 'over the last 3 months', delta: (c, s, d) => `last 3 months <b>${c}</b>, vs the previous 3 <b class="${s}">${d}</b>`, wk: 'wk', m: 'm',
   },
@@ -448,7 +448,7 @@ en: {
     `<b>Easy ceiling ${c}.</b> ${c === D.ceiling ? src0.charAt(0).toUpperCase() + src0.slice(1) : `Moved by you from ${D.ceiling} (${src0})`}. This is the only threshold that splits runs into easy and fast.`,
     `<b>An easy run</b> passes two conditions at once: average heart rate below the ceiling and less than 5% of time in zones 4–5. That way intervals with a low average do not hide among easy runs.`,
     `<b>The share of time in the easy zones</b> is taken from Garmin as is. ${D.ceiling_kind === 'zone_max3' ? 'Your watch zones are based on maximum heart rate, and zone 2 ends at 70% of it. The first threshold in runners is usually higher, around 75–82% of maximum, so zones 1–3 (up to 80%) count as easy here. ' : ''}The guideline of about 80% is time below the first threshold in well-trained runners (Seiler 2010). Counted by sessions rather than minutes the easy share is usually lower, around 75%, so the share of easy runs by count is shown too.`,
-    `<b>A recovery week</b>: load below ${Math.round(D.deload*100)}% of the average of the previous three weeks (never less than your usual week in the period), or below 30. The "no recovery week" verdict appears only after 4 or more weeks without one, with load in that block no lower than usual. The "three weeks of work, one easy" rhythm is coaching practice: there is hardly any research comparing it with other schemes. The threshold is set with --deload.`,
+    `<b>A recovery week</b>: load below ${Math.round(D.deload*100)}% of the average of the previous three weeks (never less than your usual week in the period), or below 30. A working week is not a recovery week and no lighter than your usual week (the period median). We count working weeks in a row; the "no recovery week" verdict appears from 4. The "three weeks of work, one easy" rhythm is coaching practice: there is hardly any research comparing it with other schemes. The threshold is set with --deload.`,
     `<b>A hard week</b>: in the top fifth of the period's weeks by total load of all workouts.`,
     `<b>Metres per beat</b>: grade-adjusted speed divided by heart rate on easy outdoor runs of 3 km or more, monthly median; values outside 0.6–2.6 are dropped as sensor errors. It is a rough measure, close to Friel's efficiency factor: heat, hills, fatigue and optical sensor errors move it, so the trend over months is what counts.`,
     `<b>A “little data” month</b>: fewer than 4 runs or fewer than 2 easy ones. No verdict is given with fewer than 6 runs in the period.`,
@@ -493,7 +493,7 @@ uk: {
   src: { manual: 'задана вручну', zone_lt: l => `верх 2-ї зони у вашому годиннику, зони від порогу ${l}`, zone_hrr: m => `верх 2-ї зони у вашому годиннику, зони від резерву пульсу, максимум ${m}`, zone_max: m => `верх 2-ї зони у вашому годиннику, зони від максимуму ${m}`, lthr: l => `86% від порогу ${l}`, maxhr: m => `79% від максимуму ${m}`, zone_max3: m => `верх 3-ї зони у вашому годиннику, близько 80% від максимуму ${m}`, maxhr80: m => `80% від максимуму ${m}`, default: 'умовно, зон не знайдено' },
   fig: {
     low: `часу бігу в легких зонах (${ZL}), у добре тренованих зазвичай від 80%`, easy: n => `з ${n} пробіжок були легкими при межі`,
-    streak: 'тижнів поспіль без легкого тижня. Багато тренерів ставлять його раз на 3⁠–⁠4 тижні', streak_d: (d, h) => `розвантажувальних тижнів за період <b>${d}</b>, ударних <b>${h}</b>`,
+    streak: 'робочих тижнів поспіль без легкого. Багато тренерів ставлять його раз на 3⁠–⁠4 тижні', streak_d: (d, h) => `розвантажувальних тижнів за період <b>${d}</b>, ударних <b>${h}</b>`,
     eff: 'метра за один удар серця на легких. Росте місяцями: той самий темп, найімовірніше, дається легше', eff_d: 'аеробна ефективність',
     last3: 'за останні 3 місяці', delta: (c, s, d) => `останні 3 міс. <b>${c}</b>, до попередніх 3 <b class="${s}">${d}</b>`, wk: 'тиж.', m: 'м',
   },
@@ -529,7 +529,7 @@ uk: {
     `<b>Межа легкого ${c}.</b> ${c === D.ceiling ? src0.charAt(0).toUpperCase() + src0.slice(1) : `Зсунута вами з ${D.ceiling} (${src0})`}. Це єдиний поріг, який ділить пробіжки на легкі та швидкі.`,
     `<b>Легка пробіжка</b> проходить дві умови одразу: середній пульс нижчий за межу і менше ніж 5% часу в 4–5 зонах. Так інтервали з низьким середнім не ховаються серед легких.`,
     `<b>Частка часу в легких зонах</b> береться з Garmin як є. ${D.ceiling_kind === 'zone_max3' ? 'Зони у вашому годиннику рахуються від максимуму, і 2-га закінчується на 70% від нього. Перший поріг у бігунів зазвичай вищий, близько 75–82% максимуму, тому легкими тут вважаються зони 1–3, до 80%. ' : ''}Орієнтир близько 80% це час нижче першого порогу в добре тренованих бігунів (Seiler 2010). Якщо рахувати за тренуваннями, а не за хвилинами, легких зазвичай менше, близько 75%, тому поруч показано і частку легких пробіжок за кількістю.`,
-    `<b>Розвантажувальний тиждень</b>: навантаження нижче ${Math.round(D.deload*100)}% від середнього за три попередні тижні (але не нижче вашого звичайного тижня за період) або менше ніж 30. Висновок «без розвантаження» з’являється, лише якщо 4 тижні й більше минули без нього, а навантаження в цьому блоці було не нижче звичного. Ритм «три тижні роботи, один легкий» це тренерська практика: досліджень, де його порівнювали б з іншими схемами, майже немає. Поріг налаштовується ключем --deload.`,
+    `<b>Розвантажувальний тиждень</b>: навантаження нижче ${Math.round(D.deload*100)}% від середнього за три попередні тижні (але не нижче вашого звичайного тижня за період) або менше ніж 30. Робочий тиждень: не розвантажувальний і не легший за ваш звичний тиждень (медіану за період). Рахуємо, скільки робочих тижнів ішло поспіль, висновок «без розвантаження» з’являється від 4. Ритм «три тижні роботи, один легкий» це тренерська практика: досліджень, де його порівнювали б з іншими схемами, майже немає. Поріг налаштовується ключем --deload.`,
     `<b>Ударний тиждень</b>: входить до п’ятої частини найважчих тижнів періоду за навантаженням усіх тренувань.`,
     `<b>Метрів за удар</b>: швидкість з поправкою на рельєф, поділена на пульс, на легких вуличних пробіжках від 3 км, медіана за місяць, значення поза 0.6–2.6 відкинуті як збій датчика. Це грубий показник, близький до коефіцієнта ефективності Фріла: спека, пагорби, втома й помилки оптичного датчика зсувають його, тому важить тренд за місяці.`,
     `<b>Місяць «мало даних»</b>: менше ніж 4 пробіжки або менше ніж 2 легкі. Вердикт не виноситься при менш ніж 6 пробіжках за період.`,
@@ -820,25 +820,19 @@ function aggregate(S){
   weeks.forEach((w, i) => {
     const prev = weeks.slice(Math.max(0,i-3), i).map(x=>x.load).filter(v=>v>0); const base = Math.max(mean(prev) || 0, usual);
     w.deload = (base > 0 && w.load < D.deload*base) || w.load < 30;
-    if (w.deload) streak = 0; else { streak++; if (streak > best) { best = streak; bestEnd = i; } }
+    // рабочая неделя: не разгрузочная и не легче обычной. Ровные лёгкие недели в цепочку не входят
+    w.work = !w.deload && w.load >= usual;
+    if (!w.work) streak = 0; else { streak++; if (streak > best) { best = streak; bestEnd = i; } }
     w.rhrAvg = w.rhr.length ? mean(w.rhr) : null;
     w.dur = w.runs.reduce((s,r)=>s+r.dur,0);
   });
-  // Блок без разгрузки считаем нагрузочным, только если средняя неделя в нём не ниже обычной:
-  // ровная небольшая нагрузка без лёгких недель поводом для вывода не служит.
-  let build = 0;
-  for (let i = 0, run = []; i <= weeks.length; i++) {
-    if (i < weeks.length && !weeks[i].deload) { run.push(weeks[i].load); continue; }
-    if (run.length > build && mean(run) >= usual) build = run.length;
-    run = [];
-  }
   const sorted = weeks.map(w=>w.load).filter(v=>v>0).sort((a,b)=>a-b);
   const cut = sorted.length ? sorted[Math.floor(sorted.length*.8)] : Infinity;
   weeks.forEach(w => w.hard = w.load > 0 && w.load >= cut);
   const z = [0,1,2,3,4].map(i => S.runs.reduce((s,r)=>s+r.z[i],0)); const tot = z.reduce((a,b)=>a+b,0) || 1;
   const hrRuns = S.runs.filter(r=>r.hr), easyRuns = S.runs.filter(r=>r.easy);
   const emptyWeeks = weeks.filter(w => !w.runs.length).length;
-  return { monthly, weeks, best, bestEnd, build, low: (z[0]+z[1])/tot, high: (z[3]+z[4])/tot,
+  return { monthly, weeks, best, bestEnd, low: (z[0]+z[1])/tot, high: (z[3]+z[4])/tot,
     n: S.runs.length, km: S.runs.reduce((s,r)=>s+r.km,0), hours: S.runs.reduce((s,r)=>s+r.dur,0)/3600, hrRuns: hrRuns.length, fast: S.runs.filter(r=>r.fast).length,
     easyHr: easyRuns.length ? Math.round(mean(easyRuns.map(r=>r.hr))) : null, eff: median(easyRuns.filter(okMpb).map(r=>r.mpb)),
     emptyWeeks, perWeek: S.runs.length / Math.max(1, weeks.length), noHr: S.runs.length - hrRuns.length, easyN: easyRuns.length,
@@ -850,7 +844,7 @@ function verdict(A, months){
   if (A.n < 6) return V.few(months, P(A.n, T.runs));
   if (A.hrRuns < A.n * .6) return V.nohr(A.hrRuns, A.n);
   if (A.low < .7 && D.ceiling_kind !== 'default') return V.hard(pct(A.low), A.fast, A.hrRuns);
-  if (A.build >= 4) return V.streak(A.best);
+  if (A.best >= 4) return V.streak(A.best);
   if (A.emptyWeeks > A.weeks.length * .25) return V.ragged(A.emptyWeeks, A.weeks.length);
   return V.ok(pct(A.low), A.perWeek.toFixed(1));
 }
