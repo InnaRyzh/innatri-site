@@ -69,6 +69,9 @@
       if (l.indexOf('uk') === 0) { target = 'ua'; break; }
       if (l.indexOf('en') === 0) { target = 'en'; break; }
     }
+    // Гайд дашборда читают не только русскоязычные: браузер на любом
+    // другом языке (немецкий, испанский...) получает английскую версию.
+    if (!target && page.indexOf('guides/') === 0) target = 'en';
   }
 
   if (!target) return;
