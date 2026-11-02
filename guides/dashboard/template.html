@@ -328,7 +328,7 @@ ru: {
     hard: (low, fast, hr) => ['Мало лёгкого бега', `${low} времени бега прошло в лёгких зонах (${ZL}). У хорошо тренированных бегунов обычно 80% и больше. ${fast} из ${hr} пробежек с пульсом были выше лёгкого, сюда попадают и запланированные интервалы и темповые. Если это были лёгкие пробежки, они бегались слишком быстро, и на ключевые тренировки и восстановление сил остаётся меньше.`],
     streak: n => [`${n} ${slav(n, ['неделя','недели','недель'])} подряд без разгрузки`, 'Лёгкой недели долго не было, а нагрузка в таком блоке держалась на вашем обычном уровне или выше. Многие тренеры ставят лёгкую неделю раз в 3⁠–⁠4 недели, нагрузка в ней процентов на 30–50 ниже. Это тренерская практика, а не закон. Но если пульс покоя растёт, сон стал хуже или бегать не хочется, это повод её поставить.'],
     ragged: (e, n) => ['Рваный график', `${e} пустых недель из ${n}. Пропуски стоят дороже любой отдельной тренировки: три короткие пробежки каждую неделю дают больше, чем две длинные через неделю.`],
-    ok: (low, pw) => ['Явных перекосов нет', `${low} времени бега в лёгких зонах (${ZL}), длинных блоков нагрузки без лёгкой недели нет, ${pw} пробежки в неделю. Что менять дальше, зависит от вашей цели, и это уже разговор с тренером.`],
+    ok: (low, pw) => ['Явных перекосов нет', `${low ? `${low} времени бега в лёгких зонах (${ZL}), длинных` : 'Длинных'} блоков нагрузки без лёгкой недели нет, ${pw} пробежки в неделю. Что менять дальше, зависит от вашей цели, и это уже разговор с тренером.`],
   },
   warn: { formula: 'Зоны в часах считаются от максимального пульса. Если максимум не измерен, а взят по формуле 220 минус возраст, граница лёгкого может быть сдвинута на 5–10 ударов. Проверьте его в настройках Garmin.',
           no_zones: 'Зоны в Garmin не настроены, граница лёгкого прикинута от максимального пульса.',
@@ -409,7 +409,7 @@ en: {
     hard: (low, fast, hr) => ['Not much easy running', `${low} of running time was in the easy zones (${ZL}). Well-trained runners usually spend 80% or more there. ${fast} of ${hr} runs with heart rate went above easy, and planned intervals and tempo runs count here too. If those were meant to be easy, they were too fast, and that leaves less for key sessions and recovery.`],
     streak: n => [`${n} weeks in a row without a recovery week`, 'There was no easy week for a long time, and load in that block stayed at or above your usual level. Many coaches plan an easier week every 3⁠–⁠4 weeks, with load about 30–50% lower. That is coaching practice, not a law. But a rising resting heart rate, worse sleep or no wish to run are good reasons to take one.'],
     ragged: (e, n) => ['A ragged schedule', `${e} empty weeks out of ${n}. Gaps cost more than any single workout. Three short runs a week do more than two long ones every other week.`],
-    ok: (low, pw) => ['No obvious imbalance', `${low} of running time in the easy zones (${ZL}), no long blocks of load without an easy week, ${pw} runs a week. What to change next depends on your goal, and that is a conversation with a coach.`],
+    ok: (low, pw) => ['No obvious imbalance', `${low ? `${low} of running time in the easy zones (${ZL}), no` : 'No'} long blocks of load without an easy week, ${pw} runs a week. What to change next depends on your goal, and that is a conversation with a coach.`],
   },
   warn: { formula: 'Your watch computes zones from maximum heart rate. If the maximum was never measured and comes from the 220 minus age formula, the easy ceiling may be off by 5–10 beats. Check it in Garmin settings.',
           no_zones: 'Zones are not set up in Garmin; the easy ceiling is estimated from maximum heart rate.',
@@ -490,7 +490,7 @@ uk: {
     hard: (low, fast, hr) => ['Мало легкого бігу', `${low} часу бігу минуло в легких зонах (${ZL}). У добре тренованих бігунів зазвичай 80% і більше. ${fast} з ${hr} пробіжок з пульсом були вищими за легкий, сюди потрапляють і заплановані інтервали та темпові. Якщо це були легкі пробіжки, вони бігалися надто швидко, і на ключові тренування та відновлення лишається менше сил.`],
     streak: n => [`${n} ${slav(n, ['тиждень','тижні','тижнів'])} поспіль без розвантаження`, 'Легкого тижня довго не було, а навантаження в такому блоці трималося на вашому звичному рівні або вище. Багато тренерів ставлять легкий тиждень раз на 3⁠–⁠4 тижні, навантаження в ньому відсотків на 30–50 нижче. Це тренерська практика, а не закон. Але якщо пульс спокою росте, сон погіршився або бігати не хочеться, це привід його поставити.'],
     ragged: (e, n) => ['Рваний графік', `${e} порожніх тижнів із ${n}. Пропуски коштують дорожче за будь-яке окреме тренування. Три короткі пробіжки на тиждень дадуть більше, ніж дві довгі через тиждень.`],
-    ok: (low, pw) => ['Явних перекосів немає', `${low} часу бігу в легких зонах (${ZL}), довгих блоків навантаження без легкого тижня немає, ${pw} пробіжки на тиждень. Що змінювати далі, залежить від вашої мети, і це вже розмова з тренером.`],
+    ok: (low, pw) => ['Явних перекосів немає', `${low ? `${low} часу бігу в легких зонах (${ZL}), довгих` : 'Довгих'} блоків навантаження без легкого тижня немає, ${pw} пробіжки на тиждень. Що змінювати далі, залежить від вашої мети, і це вже розмова з тренером.`],
   },
   warn: { formula: 'Зони в годиннику рахуються від максимального пульсу. Якщо максимум не виміряний, а взятий за формулою 220 мінус вік, межа легкого може бути зсунута на 5–10 ударів. Перевірте його в налаштуваннях Garmin.',
           no_zones: 'Зони в Garmin не налаштовані, межу легкого прикинуто від максимального пульсу.',
@@ -855,7 +855,7 @@ function verdict(A, months){
   if (A.low < .7 && D.ceiling_kind !== 'default') return V.hard(pct(A.low), A.fast, A.hrRuns);
   if (A.best >= 4) return V.streak(A.best);
   if (A.emptyWeeks > A.weeks.length * .25) return V.ragged(A.emptyWeeks, A.weeks.length);
-  return V.ok(pct(A.low), A.perWeek.toFixed(1));
+  return V.ok(D.ceiling_kind === 'default' ? null : pct(A.low), A.perWeek.toFixed(1));
 }
 
 // ---------- svg ----------
