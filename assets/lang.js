@@ -49,7 +49,7 @@
   var page = path.replace(/^\//, '');
   var MIRRORED = ['', 'index.html', 'blog.html', 'calculator.html',
     'contact.html', 'plans.html', 'pricing.html', 'reviews.html',
-    'run.html', 'article.html'];
+    'run.html', 'article.html', 'guides/dashboard/', 'guides/dashboard/index.html'];
   if (MIRRORED.indexOf(page) === -1) return;
 
   var target = null;
