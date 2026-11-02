@@ -161,6 +161,8 @@ footer h2{max-width:24ch}
 footer .btn{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;padding:16px 26px;border-radius:999px;transition:transform .15s}
 footer .btn:hover{transform:translateY(-1px)}
 footer .btn:active{transform:translateY(1px)}
+footer .thx{margin-top:32px;color:var(--mute);font-size:14px}
+footer .thx button{font:inherit;color:var(--ink);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 footer .fine{margin-top:40px;color:var(--mute);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* ---------- tooltip ---------- */
@@ -287,6 +289,7 @@ footer .fine{margin-top:40px;color:var(--mute);font-size:13px;display:flex;justi
       <h2 data-t="cta_h2"></h2>
       <div><a class="btn" id="cta-link" href="https://innatri.com/pricing.html" target="_blank" rel="noopener" data-t="cta_btn"></a></div>
     </div>
+    <p class="thx"><span data-t="thx"></span> <button type="button" id="thx-copy">innaryzhykh@gmail.com</button></p>
     <div class="fine"><span data-t="fine"></span><span id="built"></span></div>
   </div>
 </footer>
@@ -548,6 +551,7 @@ uk: {
 // ---------- словарь: техника, связи, HRV ----------
 const X = {
 ru: {
+  thx: 'Если дашборд пригодился, можно сказать спасибо через PayPal. Почта для перевода:', thx_done: 'Скопировано',
   te_h2: 'Как менялся ваш бег',
   te_lead: 'Темп и пять показателей техники с часов, по уличным пробежкам. Сравниваем первую треть пробежек периода с последней: «было» и «сейчас». Точки: отдельные пробежки, линия: медиана месяца.',
   te_none: 'Часы не записали динамику бега. Каденс, длину шага и контакт с землёй пишут не все модели: нужны часы с этой функцией или нагрудный датчик вроде HRM-Pro.',
@@ -613,6 +617,7 @@ ru: {
   ],
 },
 en: {
+  thx: 'If the dashboard helped, you can say thanks via PayPal. Send to:', thx_done: 'Copied',
   te_h2: 'How your running changed',
   te_lead: 'Pace and five technique metrics from your watch, outdoor runs only. We compare the first third of the period\'s runs with the last third: "was" and "now". Dots are single runs, the line is the monthly median.',
   te_none: 'Your watch did not record running dynamics. Not every model logs cadence, stride length and ground contact: you need a watch with this feature or a chest strap like the HRM-Pro.',
@@ -678,6 +683,7 @@ en: {
   ],
 },
 uk: {
+  thx: 'Якщо дашборд став у пригоді, можна сказати дякую через PayPal. Пошта для переказу:', thx_done: 'Скопійовано',
   te_h2: 'Як змінювався ваш біг',
   te_lead: 'Темп і п’ять показників техніки з годинника, лише пробіжки надворі. Порівнюємо першу третину пробіжок періоду з останньою: «було» і «зараз». Точки: окремі пробіжки, лінія: медіана місяця.',
   te_none: 'Годинник не записав динаміку бігу. Каденс, довжину кроку й контакт із землею пишуть не всі моделі: потрібен годинник із цією функцією або нагрудний датчик на кшталт HRM-Pro.',
@@ -748,6 +754,7 @@ Object.assign(T, X[LANG] || X.ru);
 const P = (n, f) => T.plural(n, f);
 document.title = T.title;
 document.querySelectorAll('[data-t]').forEach(el => { el.textContent = T[el.dataset.t]; });
+document.getElementById('thx-copy').addEventListener('click', e => { const b = e.currentTarget, o = b.textContent; navigator.clipboard.writeText(o).then(() => { b.textContent = T.thx_done; setTimeout(() => b.textContent = o, 1600); }); });
 document.querySelectorAll('#seg button').forEach(b => b.textContent = `${b.dataset.p} ${T.mo}`);
 const $ = s => document.querySelector(s);
 $('#seg').setAttribute('aria-label', T.seg); $('#ceil').setAttribute('aria-label', T.ceil_aria);

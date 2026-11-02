@@ -145,6 +145,8 @@
 .send h2 { font-size: var(--s-head); line-height: 1; }
 .send p { margin-top: 18px; color: #d8d1c9; max-width: 46ch; }
 .send .acts { justify-content: flex-end; margin-top: 0; }
+.thx { margin-top: 40px; color: rgba(255,255,255,.72); font-size: var(--s-small); }
+.thx button { font: inherit; color: #fff; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .btn-line { color: #fff; box-shadow: inset 0 0 0 1px #fff; background: transparent !important; }
 .btn-line:hover { background: #fff !important; color: var(--ink); }
 .coaching { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.22); }
@@ -388,6 +390,7 @@ When I say “update the dashboard” or «обнови дашборд», repeat
       <div><h2 class="serif" id="send-title">Что делать с этими цифрами</h2><p>Дашборд показывает факты. Что с ними делать дальше, решает тренер. Если хотите, чтобы через полгода картина была другой, я веду бегунов и триатлетов онлайн.</p></div>
       <div class="acts"><a class="btn" href="/pricing.html">Онлайн-ведение <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-line" href="https://t.me/InnaRH" target="_blank" rel="noopener">Написать в Telegram</a></div>
     </div>
+    <p class="thx">Если гайд пригодился, можно сказать спасибо через PayPal. Почта для перевода: <button type="button" data-copy="innaryzhykh@gmail.com" data-done="Скопировано">innaryzhykh@gmail.com</button></p>
   </div>
 </section>
 </main>
@@ -418,5 +421,6 @@ When I say “update the dashboard” or «обнови дашборд», repeat
 </script>
 <script src="/assets/js/leads.js" defer></script>
 <script src="/assets/js/book.js?v=20261029a" defer></script>
+<script>document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard.writeText(b.dataset.copy).then(()=>{const o=b.textContent;b.textContent=b.dataset.done;setTimeout(()=>b.textContent=o,1600)})}))</script>
 </body>
 </html>
