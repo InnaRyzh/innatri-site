@@ -333,7 +333,7 @@ Step 3. Data
 Run fetch_garmin.py --months 12. If Garmin returns 401, the key was copied incompletely or has expired: ask me to check the file. If it returns 500, the script shrinks the batches on its own, just let it finish. At the end tell me how many activities and days came back.
 
 Step 4. Dashboard
-Run build_dashboard.py --lang en. If it warns that the zones in my watch are based on maximum heart rate, pass that warning to me word for word. Open dashboard.html in my browser.
+Run build_dashboard.py --lang en. If it warns that the zones in my watch are based on maximum heart rate, translate that warning into English for me without changing its meaning (the scripts print in Russian; that is expected). Open dashboard.html in my browser.
 
 Step 5. Done
 Tell me the dashboard is ready and give me the full path to dashboard.html. Do not open dashboard.html or the data folder yourself and do not retell my numbers: I read the dashboard in my browser, and my data stays on my computer. Do not advise anything about my training; the coach does the reading.
