@@ -65,7 +65,7 @@
   </url>
   <url>
     <loc>https://innatri.com/blog.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://innatri.com/en/blog.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -85,7 +85,7 @@
   </url>
   <url>
     <loc>https://innatri.com/ua/blog.html</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog.html"/>
@@ -371,7 +371,7 @@
   </url>
   <url>
     <loc>https://innatri.com/blog/polumarafon-3-trenirovki-v-nedelyu.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://innatri.com/blog/polumarafon-3-trenirovki-v-nedelyu.html"/>
@@ -685,6 +685,21 @@
       <video:player_loc>https://www.youtube.com/embed/0KqYeNcifQA</video:player_loc>
       <video:duration>708</video:duration>
       <video:publication_date>2026-11-08T00:09:30-08:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://innatri.com/video/skolko-trenirovatsya-posle-40.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <video:video>
+      <video:thumbnail_loc>https://innatri.com/assets/video/trenirovki-posle-40.jpg</video:thumbnail_loc>
+      <video:title>Сколько тренироваться после 40, чтобы не терять форму и энергию</video:title>
+      <video:description>Сколько тренироваться после 40, чтобы не терять форму и энергию: как перейти с 15–18 часов на 3–4 часа в неделю, что говорят исследования и три вопроса к своей неделе.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/_9OuHDslajQ</video:player_loc>
+      <video:duration>406</video:duration>
+      <video:publication_date>2026-11-18T06:56:02-08:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>
