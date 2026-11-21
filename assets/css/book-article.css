@@ -221,3 +221,7 @@ body.page-article {
   .vid-play { font-size: 60px; }
 }
 .vids-note { margin-top: 10px; font-size: var(--s-small); color: rgba(255, 255, 255, .7); }
+
+/* short answer at the top of an article (21.11.2026): the question people search for, answered before the story */
+.article-content .answer-box { margin: 0 0 40px; padding: 22px 24px 6px; background: var(--surface) var(--grain); }
+.article-content .answer-q { margin-bottom: 8px; font: var(--sw) clamp(21px, 1rem + .5vw, 25px)/1.25 var(--serif); letter-spacing: -0.01em; color: var(--ink); }
