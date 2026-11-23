@@ -1,0 +1,90 @@
+# InnaTri — Inna Ryzhykh, online running & triathlon coach
+
+> Personal coaching for marathon, Ironman and 70.3 through TrainingPeaks. Data-driven training adapted to your work, travel, family and real-life schedule. 20+ years in sport, 60 athletes coached. The site is in three languages: Russian (/), Ukrainian (/ua/) and English (/en/).
+
+Coach: Inna Ryzhykh (Инна Рыжих / Інна Рижих). Contact: Telegram https://t.me/InnaRH, email innaryzhykh@gmail.com, Instagram https://www.instagram.com/inna.tri, YouTube https://www.youtube.com/@innatri
+
+## Coaching (English)
+
+- [Online running & triathlon coach](https://innatri.com/en/): Personal coaching for marathon, Ironman and 70.3 through TrainingPeaks. Data-driven training adapted to your work, travel, family and real-life schedule.
+- [Online running coach](https://innatri.com/en/run.html): Online running coach for the marathon, half marathon, 10K and 5K. A personal plan in TrainingPeaks, heart rate and pace analysis. 20+ years in sport. From $150 a month.
+- [Online triathlon coach](https://innatri.com/en/triathlon.html): Personal online coaching for Ironman and 70.3. 20+ years in sport, 60 athletes coached. A plan in TrainingPeaks, session reviews and direct contact with your coach.
+- [Pricing](https://innatri.com/en/pricing.html): Online coaching pricing: training plans, coach support, TrainingPeaks.
+- [Reviews](https://innatri.com/en/reviews.html): Client reviews on training, progress, and coach support for triathlon and running.
+- [Contact](https://innatri.com/en/contact.html): Get in touch with your coach: let's discuss your goals, training format, and start online coaching.
+
+## Free tools (English)
+
+- [VDOT calculator](https://innatri.com/en/calculator.html): Free VDOT calculator based on Jack Daniels' formula: training paces, 5 zones, race predictions from 5K to marathon, split tables and race nutrition plan.
+- [Garmin running dashboard guide](https://innatri.com/en/guides/dashboard/): Turn your Garmin Connect Personal API Key into a free running dashboard with Claude Code: easy vs hard runs, load periodization, technique and fitness trends. Your data stays on your computer.
+
+## Articles (English)
+
+- [Half Marathon Training Plan: 3 Days a Week](https://innatri.com/en/blog/half-marathon-3-runs-a-week.html)
+- [Heart Rate Zone Training for Runners: The Complete Guide](https://innatri.com/en/blog/heart-rate-zones.html)
+- [Why Your Heart Rate Is So High on Easy Runs (and How to Fix It)](https://innatri.com/en/blog/cant-run-slow-zone-2.html)
+- [Marathon training from scratch: why I allow 9–12 months](https://innatri.com/en/blog/marathon-training-for-beginners.html)
+- [Is Running Bad for Your Knees? The Science Says the Opposite](https://innatri.com/en/blog/is-running-bad-for-knees.html)
+- [Why You Keep Getting Injured Running (and How to Break the Cycle)](https://innatri.com/en/blog/why-you-keep-getting-injured-running.html)
+- [Open Water Swimming: Triathlon Race Preparation](https://innatri.com/en/blog/open-water-swimming-triathlon.html)
+- [Fear of Open Water: Coming Back After a Panic Attack Mid-Race](https://innatri.com/en/blog/hardest-decision.html)
+- [Winter Running: How to Train Safely in Cold Weather](https://innatri.com/en/blog/winter-running-tips.html)
+- [Online Running & Triathlon Coach: Is It Worth It?](https://innatri.com/en/blog/online-running-triathlon-coach.html)
+- [Training Results: Before and After With a Coach](https://innatri.com/en/blog/training-results-before-after.html)
+
+## Тренировки (русский)
+
+- [Онлайн-тренер по бегу и триатлону](https://innatri.com/): Персональная подготовка к марафону, Ironman и 70.3 в TrainingPeaks. Тренер с опытом профессионального спорта и 8+ годами коучинга. План под работу, семью и реальный график.
+- [Тренер по бегу онлайн](https://innatri.com/run.html): Тренер по бегу онлайн: индивидуальная подготовка к марафону, полумарафону, 10 и 5 км. План в TrainingPeaks, анализ пульса и темпа. 20+ лет в спорте. От 150 $ в месяц.
+- [Тренер по триатлону онлайн](https://innatri.com/triathlon.html): Индивидуальная подготовка к Ironman и 70.3 онлайн. 20+ лет в спорте, 60 подготовленных атлетов. План в TrainingPeaks, разбор тренировок и связь с тренером.
+- [Тарифы](https://innatri.com/pricing.html): Стоимость онлайн подготовки: планы тренировок, поддержка тренера, TrainingPeaks.
+- [Отзывы](https://innatri.com/reviews.html)
+- [Контакты](https://innatri.com/contact.html)
+- [Калькулятор VDOT](https://innatri.com/calculator.html): Калькулятор VDOT онлайн по формуле Джека Дэниелса: темпы тренировок, 5 пульсовых зон, прогнозы от 5К до марафона, таблица сплитов и план питания на гонку.
+- [Беговой дашборд по ключу Garmin](https://innatri.com/guides/dashboard/)
+- [Гайд «Возвращение после перерыва»](https://innatri.com/guides/vozvrashchenie.html): Гайд о возвращении к бегу после отпуска, болезни, травмы или выгорания. 46 страниц в мобильном формате: схемы, критерии, красные флаги. Бесплатно.
+
+## Статьи (русский)
+
+- [Подготовка к полумарафону: план на 3 тренировки в неделю](https://innatri.com/blog/polumarafon-3-trenirovki-v-nedelyu.html)
+- [Подготовка к марафону с нуля: почему я закладываю 9–12 месяцев](https://innatri.com/blog/podgotovka-k-marafonu-s-nulya.html)
+- [Бег по пульсу: как рассчитать зоны и тренироваться правильно](https://innatri.com/blog/beg-po-pulsu.html)
+- [Высокий пульс на лёгком беге: почему не получается бежать медленно](https://innatri.com/blog/ne-mogu-bezhat-medlenno-zona-2.html)
+- [Как вернуться к бегу после перерыва: 4 сценария и схемы по неделям](https://innatri.com/blog/kak-vernutsya-k-begu-posle-pereryva.html)
+- [Повторные травмы при беге: как выйти из цикла травма-отдых-травма](https://innatri.com/blog/pochemu-ty-snova-travmirueshsya.html)
+- [Вреден ли бег для коленей? Наука говорит: наоборот](https://innatri.com/blog/vreden-li-beg-dlya-kolenej.html)
+- [Плавание в открытой воде: подготовка к триатлону](https://innatri.com/blog/plavanie-v-otkrytoj-vode.html)
+- [Страх открытой воды: как вернуться после паники на гонке](https://innatri.com/blog/hardest-decision.html)
+- [Зимний бег: как тренироваться безопасно зимой](https://innatri.com/blog/beg-zimoj.html)
+- [Онлайн тренер по бегу и триатлону: стоит ли платить?](https://innatri.com/blog/onlajn-trener-po-begu-i-triatlonu.html)
+- [Результаты тренировок: до и после с тренером](https://innatri.com/blog/rezultaty-do-i-posle.html)
+
+## Видео (русский)
+
+- [Как начать бегать с нуля и не бросить: план на 4 недели](https://innatri.com/video/kak-nachat-begat-s-nulya.html)
+- [Метрики Garmin на 100%: разбор реальной тренировки 10 км](https://innatri.com/video/metriki-garmin.html)
+- [Сколько тренироваться после 40, чтобы не терять форму](https://innatri.com/video/skolko-trenirovatsya-posle-40.html)
+- [Стартовое волнение: как не перегореть до старта](https://innatri.com/video/startovoe-volnenie.html)
+
+## Тренування (українська)
+
+- [Онлайн-тренер з бігу та триатлону](https://innatri.com/ua/)
+- [Тренер з бігу онлайн](https://innatri.com/ua/run.html)
+- [Тренер з триатлону онлайн](https://innatri.com/ua/triathlon.html)
+- [Тарифи](https://innatri.com/ua/pricing.html)
+- [Калькулятор VDOT](https://innatri.com/ua/calculator.html)
+- [Контакти](https://innatri.com/ua/contact.html)
+
+## Статті (українська)
+
+- [Підготовка до півмарафону: план на 3 тренування на тиждень](https://innatri.com/ua/blog/pivmarafon-3-trenuvannya-na-tyzhden.html)
+- [Підготовка до марафону з нуля: чому я закладаю 9–12 місяців](https://innatri.com/ua/blog/pidhotovka-do-marafonu-z-nulya.html)
+- [Біг за пульсом: як розрахувати зони й тренуватися правильно](https://innatri.com/ua/blog/bih-za-pulsom.html)
+- [Високий пульс на легкому бігу: чому не виходить бігти повільно](https://innatri.com/ua/blog/ne-mozhu-bihty-povilno-zona-2.html)
+- [Повторні травми під час бігу](https://innatri.com/ua/blog/chomu-ty-znovu-travmuyeshsya.html)
+- [Чи шкідливий біг для колін? Наука каже: навпаки](https://innatri.com/ua/blog/chy-shkidlyvyj-bih-dlya-kolin.html)
+- [Страх відкритої води: як повернутися після паніки на гонці](https://innatri.com/ua/blog/hardest-decision.html)
+
+## Optional
+
+- [Sitemap](https://innatri.com/sitemap.xml)
