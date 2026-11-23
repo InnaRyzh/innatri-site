@@ -25,6 +25,8 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Не считать роботов (headless-браузеры, краулеры)
+    if (navigator.webdriver || /HeadlessChrome|[a-z]bot\/|\bbot\b|crawl|spider|slurp|Lighthouse|PageSpeed/i.test(navigator.userAgent)) window['ga-disable-G-2JMDGV643K'] = true;
     gtag('js', new Date());
     gtag('config', 'G-2JMDGV643K');
   </script>
